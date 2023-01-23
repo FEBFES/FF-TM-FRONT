@@ -3,7 +3,7 @@ import './App.scss';
 import { Routes, Route } from 'react-router-dom';
 import { appRouts } from '../../routing/routs';
 
-function App() {
+export const App = () => {
   return (
     <div className="App">
       <Routes>
@@ -23,6 +23,4 @@ function App() {
       </Routes>
     </div>
   );
-}
-
-export default App;
+};

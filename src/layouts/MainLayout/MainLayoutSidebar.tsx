@@ -2,7 +2,7 @@ import React from 'react';
 import './MainLayoutSidebar.scss';
 import { Link } from 'react-router-dom';
 
-const MainLayoutSidebar: React.FC = (): JSX.Element => {
+export const MainLayoutSidebar: React.FC = (): JSX.Element => {
   return (
     <div className={'sidebar'}>
       F/F
@@ -14,4 +14,3 @@ const MainLayoutSidebar: React.FC = (): JSX.Element => {
     </div>
   );
 };
-export default MainLayoutSidebar;

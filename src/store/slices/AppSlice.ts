@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 interface IAppSlice {}
 
@@ -10,5 +10,5 @@ export const AppSlice = createSlice({
   reducers: {},
 });
 
-export const {} = AppSlice.actions;
+// export const {} = AppSlice.actions;
 export default AppSlice.reducer;

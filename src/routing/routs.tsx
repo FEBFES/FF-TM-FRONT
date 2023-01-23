@@ -1,7 +1,7 @@
 import React from 'react';
-import ProjectPage from '../pages/ProjectPage/ProjectPage';
-import KanbanPage from '../pages/KanbanPage/KanbanPage';
-import MainLayout from '../layouts/MainLayout/MainLayout';
+import { ProjectPage } from '../pages/ProjectPage/ProjectPage';
+import { KanbanPage } from '../pages/KanbanPage/KanbanPage';
+import { MainLayout } from '../layouts/MainLayout/MainLayout';
 
 export type IAppRouts = {
   title: string;
