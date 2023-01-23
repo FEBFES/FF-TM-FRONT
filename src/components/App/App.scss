@@ -1,21 +1,4 @@
 .App {
   width: 100vw;
   min-height: 100vh;
-  display: flex;
-  justify-content: space-between;
-}
-
-.sidebar {
-  width: 5rem;
-  border-right: 2px solid black;
-}
-
-.layout {
-  display: flex;
-  width: 100%;
-  overflow-x: scroll;
-
-  p {
-    font-size: 40px;
-  }
 }
