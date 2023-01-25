@@ -1,0 +1,14 @@
+.projectPage {
+  display: flex;
+  flex-direction: column;
+}
+
+.projectPage__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.projectCont {
+  display: flex;
+  flex-wrap: wrap;
+}
