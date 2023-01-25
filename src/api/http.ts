@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { serverString } from '../config';
+import axios from 'axios';
 
 const token = localStorage.getItem('tokenAccess');
 
