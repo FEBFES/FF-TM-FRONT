@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { appRoutsPath } from '../../routing/routs';
 import { useGetAllProjectsQuery } from './api/projects.api';
 import { v4 } from 'uuid';
+import './ProjectPage.scss';
+import cn from 'classnames';
+import { Modal } from '../../ui/Modal/Modal';
 
 export interface IProject {
   createDate: number;
@@ -16,18 +19,19 @@ export const ProjectPage: React.FC = (): JSX.Element => {
   const navigate = useNavigate();
   const { data, error, isLoading } = useGetAllProjectsQuery('');
   const canShowData = data && !isLoading && !error;
-
+  const [show, setShow] = useState(false);
   useEffect(() => {
     setProjects(data);
   }, [data]);
 
   return (
-    <div>
-      <header>
+    <div className={'projectPage'}>
+      <div className={cn('projectPage__header')}>
         <h1>ProjectPage</h1>
-        <button>add</button>
-      </header>
-      <div>
+        <button onClick={() => setShow(true)}>add</button>
+      </div>
+
+      <div className={'projectCont'}>
         {canShowData &&
           projects?.map((el) => {
             const date = `${new Date(el.createDate).getDay()}.${
@@ -56,6 +60,10 @@ export const ProjectPage: React.FC = (): JSX.Element => {
       </div>
       <div>{error && 'ошибка'}</div>
       <div>{isLoading && 'загрузка'}</div>
+
+      <Modal title={'asd'} show={show} setShow={setShow}>
+        <span>asd</span>
+      </Modal>
     </div>
   );
 };
