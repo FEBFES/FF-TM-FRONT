@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
 import AppSlice from './slices/AppSlice';
-import { projectsApi } from '../pages/ProjectPage/api/projects.api';
+import ProjectsSlice from '../pages/ProjectPage/store/projects.slice';
 
 const rootReducer = combineReducers({
   app: AppSlice,
-  [projectsApi.reducerPath]: projectsApi.reducer,
+  projects: ProjectsSlice,
 });
 
 export const setupStore = () => {
@@ -15,7 +15,7 @@ export const setupStore = () => {
       getDefaultMiddleware({
         serializableCheck: false,
         thunk: true,
-      }).concat(projectsApi.middleware),
+      }),
   });
 };
 
