@@ -7,8 +7,9 @@ import cn from 'classnames';
 import { Modal } from '../../ui/Modal/Modal';
 import { InputField } from '../../ui/InputField/InputField';
 import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
-import { fetchProjects } from './store/projects.thunk';
+import {fetchAddProject, fetchDelProject, fetchProjects} from './store/projects.thunk';
 import { IProject } from './store/projects.type';
+import {SkeletonBlock} from "../../ui/SkeletonBlock/skeletonBlock";
 
 export const ProjectPage: React.FC = (): JSX.Element => {
   const { projects, error, isLoad } = useTypedSelector(
@@ -18,9 +19,8 @@ export const ProjectPage: React.FC = (): JSX.Element => {
   const [localProjects, setLocalProjects] = useState<IProject[]>([]);
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
-  const [newProjData, setNewProjData] = useState({
-    name: '',
-  });
+  const [name, setName] = useState<any>('');
+  const [desc, setDesc] = useState<any>('');
 
   useEffect(() => {
     dispatch(fetchProjects());
@@ -33,45 +33,50 @@ export const ProjectPage: React.FC = (): JSX.Element => {
   return (
     <div className={'projectPage'}>
       <div className={cn('projectPage__header')}>
-        <h1>ProjectPage</h1>
+        <span>ProjectPage</span>
         <button onClick={() => setShow(true)}>add</button>
       </div>
 
       <div className={'projectCont'}>
         {localProjects?.map((el) => {
-          const date = `${new Date(el.createDate).getDay()}.${
-            new Date(el.createDate).getMonth() + 1
-          }.${new Date(el.createDate).getFullYear()}`;
           return (
             <div
               onClick={() => {
                 navigate(appRoutsPath.KanbanPage, { state: { id: el.id } });
               }}
-              style={{
-                border: '1px solid black',
-                width: '200px',
-                padding: '20px',
-              }}
               key={v4()}
+              className={'project-card'}
             >
-              <div>id: {el.id}</div>
-              <div>created: {date}</div>
-              <h1>name: {el.name}</h1>
+              <h3>name: {el.name}</h3>
               <p>desc: {el.description}</p>
-              <button>delete</button>
+              <button onClick={(e) => {
+                  e.stopPropagation()
+                  dispatch(fetchDelProject(el.id))
+              }}>delete</button>
             </div>
           );
         })}
       </div>
       <div>{error && 'ошибка'}</div>
-      <div>{isLoad && 'загрузка'}</div>
+      <div>{isLoad && <SkeletonBlock itemsCount={12} width={240} height={120}/>}</div>
 
-      <Modal title={'Создать новый проект'} show={show} setShow={setShow}>
+      <Modal
+        onSubmit={() => dispatch(fetchAddProject({ name, desc }))}
+        title={'Создать новый проект'}
+        show={show}
+        setShow={setShow}
+      >
         <InputField
-          value={newProjData.name}
-          onChange={(str) => setNewProjData({ name: str })}
-          label={'Name'}
           type={'text'}
+          label={'name'}
+          value={name}
+          onChange={(name) => setName(name)}
+        />
+        <InputField
+          type={'text'}
+          label={'desc'}
+          value={desc}
+          onChange={(desc) => setDesc(desc)}
         />
       </Modal>
     </div>

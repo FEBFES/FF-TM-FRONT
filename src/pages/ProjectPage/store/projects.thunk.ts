@@ -1,6 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../../api/http';
+// todo PAYLOAD ACTION TS
 
+// Get all projects
 export const fetchProjects = createAsyncThunk(
   'projects/fetchProjects',
   async (_, { rejectWithValue, getState }) => {
@@ -11,8 +13,39 @@ export const fetchProjects = createAsyncThunk(
         return res.data;
       }
     } catch (err) {
-      //todo
-      // if (err) return rejectWithValue(err.message)
+        return rejectWithValue(err as Error)
     }
   }
 );
+
+// Add new project
+export const fetchAddProject = createAsyncThunk(
+  'projects/fetchAddProject',
+  //todo any
+  async ({ name, desc }: any, {rejectWithValue}) => {
+    try {
+      const res = await instance.post('projects', { name, description: desc });
+
+      if (res.status === 200) {
+        return res.data;
+      }
+    } catch (err) {
+        return rejectWithValue(err as Error)
+    }
+  }
+);
+
+//Delete project by id
+export const fetchDelProject = createAsyncThunk(
+    'projects/fetchDelProject',
+    async (id: number, {rejectWithValue}) => {
+        try {
+            const res = await instance.delete(`projects/${id}`)
+            if (res.status === 200) {
+                return id
+            }
+        } catch (err) {
+            return rejectWithValue(err as Error)
+        }
+    }
+)

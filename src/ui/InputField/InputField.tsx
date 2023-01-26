@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, useEffect } from 'react';
 import cn from 'classnames';
 import './InputField.scss';
 
@@ -17,6 +17,14 @@ export const InputField: React.FC<IInputFieldProps> = ({
   value,
   onChange,
 }): JSX.Element => {
+  useEffect(() => {
+    const initialValue = value;
+
+    return () => {
+      onChange(initialValue);
+    };
+  }, []);
+
   return (
     <div className={'input-cont'}>
       <label className={'input-label'} htmlFor="input">
