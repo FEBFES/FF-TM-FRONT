@@ -7,6 +7,7 @@ interface IModalProps {
   setShow: (boolValue: boolean) => void;
   children: React.ReactNode;
   title?: string;
+  onSubmit: () => void;
 }
 
 export const Modal: React.FC<IModalProps> = ({
@@ -14,6 +15,7 @@ export const Modal: React.FC<IModalProps> = ({
   setShow,
   children,
   title,
+  onSubmit,
 }): JSX.Element => {
   return (
     <div
@@ -27,7 +29,19 @@ export const Modal: React.FC<IModalProps> = ({
           <h1 className={'cont__header-title'}>{title}</h1>
           <button onClick={() => setShow(false)}>x</button>
         </div>
-        {children}
+        {show && children}
+
+        <div>
+          <button onClick={() => setShow(false)}>cancel</button>
+          <button
+            onClick={() => {
+              onSubmit();
+              setShow(false);
+            }}
+          >
+            submit
+          </button>
+        </div>
       </div>
     </div>
   );

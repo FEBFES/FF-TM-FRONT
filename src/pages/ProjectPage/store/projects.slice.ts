@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchProjects } from './projects.thunk';
+import {fetchAddProject, fetchDelProject, fetchProjects} from './projects.thunk';
 import { IProject } from './projects.type';
 
 interface IProjectInitialState {
@@ -21,7 +21,9 @@ const ProjectsSlice = createSlice({
     addCase: (state, action) => {},
   },
   extraReducers: (builder) => {
+    //
     // Getting a list of user's projects
+    //
     builder.addCase(fetchProjects.pending, (state, action) => {
       state.isLoad = true;
       state.error = null;
@@ -34,6 +36,20 @@ const ProjectsSlice = createSlice({
       //todo state.error = action.payload
       state.error = 'error';
     });
+    //
+    // Add new project
+    //
+    builder.addCase(fetchAddProject.fulfilled, (state, action) => {
+      state.projects.push(action.payload);
+    });
+    //todo - add pending and rejected case
+    //
+    // Delete projects
+    //
+    builder.addCase(fetchDelProject.fulfilled, (state, action) => {
+      state.projects = state.projects.filter(el => el.id !== action.payload)
+    })
+    //todo - add pending and rejected case
   },
 });
 
