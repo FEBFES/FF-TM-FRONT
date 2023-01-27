@@ -7,9 +7,13 @@ import cn from 'classnames';
 import { Modal } from '../../ui/Modal/Modal';
 import { InputField } from '../../ui/InputField/InputField';
 import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
-import {fetchAddProject, fetchDelProject, fetchProjects} from './store/projects.thunk';
+import {
+  fetchAddProject,
+  fetchDelProject,
+  fetchProjects,
+} from './store/projects.thunk';
 import { IProject } from './store/projects.type';
-import {SkeletonBlock} from "../../ui/SkeletonBlock/skeletonBlock";
+import { SkeletonBlock } from '../../ui/SkeletonBlock/skeletonBlock';
 
 export const ProjectPage: React.FC = (): JSX.Element => {
   const { projects, error, isLoad } = useTypedSelector(
@@ -49,16 +53,22 @@ export const ProjectPage: React.FC = (): JSX.Element => {
             >
               <h3>name: {el.name}</h3>
               <p>desc: {el.description}</p>
-              <button onClick={(e) => {
-                  e.stopPropagation()
-                  dispatch(fetchDelProject(el.id))
-              }}>delete</button>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  dispatch(fetchDelProject(el.id));
+                }}
+              >
+                delete
+              </button>
             </div>
           );
         })}
       </div>
       <div>{error && 'ошибка'}</div>
-      <div>{isLoad && <SkeletonBlock itemsCount={12} width={240} height={120}/>}</div>
+      <div>
+        {isLoad && <SkeletonBlock itemsCount={12} width={240} height={120} />}
+      </div>
 
       <Modal
         onSubmit={() => dispatch(fetchAddProject({ name, desc }))}

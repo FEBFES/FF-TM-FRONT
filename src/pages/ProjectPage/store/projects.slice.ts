@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {fetchAddProject, fetchDelProject, fetchProjects} from './projects.thunk';
+import {
+  fetchAddProject,
+  fetchDelProject,
+  fetchProjects,
+} from './projects.thunk';
 import { IProject } from './projects.type';
 
 interface IProjectInitialState {
@@ -47,8 +51,8 @@ const ProjectsSlice = createSlice({
     // Delete projects
     //
     builder.addCase(fetchDelProject.fulfilled, (state, action) => {
-      state.projects = state.projects.filter(el => el.id !== action.payload)
-    })
+      state.projects = state.projects.filter((el) => el.id !== action.payload);
+    });
     //todo - add pending and rejected case
   },
 });

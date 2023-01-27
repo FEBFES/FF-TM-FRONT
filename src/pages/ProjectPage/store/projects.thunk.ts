@@ -13,7 +13,7 @@ export const fetchProjects = createAsyncThunk(
         return res.data;
       }
     } catch (err) {
-        return rejectWithValue(err as Error)
+      return rejectWithValue(err as Error);
     }
   }
 );
@@ -22,7 +22,7 @@ export const fetchProjects = createAsyncThunk(
 export const fetchAddProject = createAsyncThunk(
   'projects/fetchAddProject',
   //todo any
-  async ({ name, desc }: any, {rejectWithValue}) => {
+  async ({ name, desc }: any, { rejectWithValue }) => {
     try {
       const res = await instance.post('projects', { name, description: desc });
 
@@ -30,22 +30,22 @@ export const fetchAddProject = createAsyncThunk(
         return res.data;
       }
     } catch (err) {
-        return rejectWithValue(err as Error)
+      return rejectWithValue(err as Error);
     }
   }
 );
 
 //Delete project by id
 export const fetchDelProject = createAsyncThunk(
-    'projects/fetchDelProject',
-    async (id: number, {rejectWithValue}) => {
-        try {
-            const res = await instance.delete(`projects/${id}`)
-            if (res.status === 200) {
-                return id
-            }
-        } catch (err) {
-            return rejectWithValue(err as Error)
-        }
+  'projects/fetchDelProject',
+  async (id: number, { rejectWithValue }) => {
+    try {
+      const res = await instance.delete(`projects/${id}`);
+      if (res.status === 200) {
+        return id;
+      }
+    } catch (err) {
+      return rejectWithValue(err as Error);
     }
-)
+  }
+);
