@@ -1,6 +1,6 @@
 import React from 'react';
 
-const KanbanPage: React.FC = (): JSX.Element => {
+export const KanbanPage: React.FC = (): JSX.Element => {
+  // const { state } = useLocation();
   return <div>KanbanPage</div>;
 };
-export default KanbanPage;
