@@ -1,5 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { fetchAddNewTask, fetchProjectDashboard } from './dashboard.thunk';
+import {
+  fetchAddNewTask,
+  fetchDelTask,
+  fetchProjectDashboard,
+} from './dashboard.thunk';
 import { IColumns } from './dashboard.type';
 
 interface IColumnInitialState {
@@ -59,6 +63,22 @@ const DashboardSlice = createSlice({
           return {
             ...col,
             tasks: [...col.tasks, action.payload],
+          };
+        }
+        return col;
+      });
+    });
+    //
+    // Del task by Id
+    //
+    builder.addCase(fetchDelTask.fulfilled, (state, action) => {
+      state.columns = state.columns.map((col) => {
+        if (col.id === action?.payload?.colId) {
+          return {
+            ...col,
+            tasks: col.tasks.filter(
+              (task) => task.id !== action.payload?.taskId
+            ),
           };
         }
         return col;
