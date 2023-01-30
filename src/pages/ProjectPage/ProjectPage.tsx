@@ -1,33 +1,54 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { fetchAllProjectColumns } from './store/column.thunk';
 import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
-import { IProjectColumn } from './store/column.type';
 import { v4 } from 'uuid';
+import { fetchProjectDashboard } from './store/dashboard.thunk';
+import { IColumns } from './store/dashboard.type';
+import './ProjectPage.scss';
+import { clearDashboardSlice } from './store/dashboard.slice';
 
 export const ProjectPage: React.FC = (): JSX.Element => {
   const { state } = useLocation();
   const dispatch = useAppDispatch();
-  const { columns } = useTypedSelector((state) => state.projectColumns);
+  //todo переписать и убрать найм и деск из стора колонки
+  const { projectName, projectDesc } = useTypedSelector(
+    (state) => state.projectColumns
+  );
+  const columns = useTypedSelector((state) => state.projectColumns.columns);
+  const isLoading = useTypedSelector((state) => state.projectColumns.isLoading);
+  const errorMsg = useTypedSelector((state) => state.projectColumns.errorMsg);
 
   useEffect(() => {
-    dispatch(fetchAllProjectColumns(state.id));
+    console.log('asd');
+    return () => {
+      dispatch(clearDashboardSlice());
+    };
+  }, []);
+
+  useEffect(() => {
+    dispatch(fetchProjectDashboard(state.id));
   }, [state.id, dispatch]);
 
   return (
-    <div>
-      <p>Project page id:{state.id}</p>
+    <div className={'projpage'}>
+      <h1>NAME PROJ - {projectName}</h1>
+      <h2>DESC PROJ - {projectDesc}</h2>
 
-      <div>
-        {columns &&
-          columns.map((col: IProjectColumn) => {
-            return (
-              <div key={v4()}>
-                <span>{col.name}</span>
-                <div>{col.description}</div>
+      <div className={'col-cont'}>
+        {isLoading && <div>LOADING....</div>}
+        {errorMsg && <div>ОШИБКА - {errorMsg}</div>}
+
+        {columns.map((col: IColumns) => {
+          return (
+            <div className={'colWrap'} key={v4()}>
+              <span>name col - {col.name}</span>
+              <button>add new +</button>
+              <div className={'col'}>
+                <div></div>
               </div>
-            );
-          })}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
