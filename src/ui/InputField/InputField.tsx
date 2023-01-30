@@ -23,6 +23,7 @@ export const InputField: React.FC<IInputFieldProps> = ({
     return () => {
       onChange(initialValue);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
