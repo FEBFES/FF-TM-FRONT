@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { fetchProjectDashboard } from './dashboard.thunk';
+import { fetchAddNewTask, fetchProjectDashboard } from './dashboard.thunk';
 import { IColumns } from './dashboard.type';
 
 interface IColumnInitialState {
@@ -27,6 +27,9 @@ const DashboardSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    //
+    // Get project dashboard (columns)
+    //
     builder.addCase(fetchProjectDashboard.pending, (state) => {
       state.isLoading = true;
     });
@@ -47,6 +50,20 @@ const DashboardSlice = createSlice({
         state.errorMsg = action?.payload?.message;
       }
     );
+    //
+    // Add new task
+    //
+    builder.addCase(fetchAddNewTask.fulfilled, (state, action) => {
+      state.columns = state.columns.map((col) => {
+        if (col.id === action.payload.columnId) {
+          return {
+            ...col,
+            tasks: [...col.tasks, action.payload],
+          };
+        }
+        return col;
+      });
+    });
   },
 });
 
