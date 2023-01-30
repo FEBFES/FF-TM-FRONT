@@ -66,9 +66,6 @@ export const MainPage: React.FC = (): JSX.Element => {
         })}
       </div>
       <div>{error && 'ошибка'}</div>
-      <div>
-        {isLoad && <SkeletonBlock itemsCount={12} width={240} height={120} />}
-      </div>
 
       <Modal
         onSubmit={() => dispatch(fetchAddProject({ name, desc }))}
