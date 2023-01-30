@@ -1,7 +1,7 @@
 import React from 'react';
-import { ProjectPage } from '../pages/ProjectPage/ProjectPage';
-import { KanbanPage } from '../pages/KanbanPage/KanbanPage';
+import { MainPage } from '../pages/MainPage/MainPage';
 import { MainLayout } from '../layouts/MainLayout/MainLayout';
+import { ProjectPage } from '../pages/ProjectPage/ProjectPage';
 
 export type IAppRouts = {
   title: string;
@@ -18,13 +18,13 @@ export enum appRoutsPath {
 const appRouts: IAppRouts[] = [
   {
     title: 'ProjectPage',
-    component: ProjectPage,
+    component: MainPage,
     layout: MainLayout,
     path: appRoutsPath.ProjectPage,
   },
   {
     title: 'KanbanPage',
-    component: KanbanPage,
+    component: ProjectPage,
     layout: MainLayout,
     path: appRoutsPath.KanbanPage,
   },

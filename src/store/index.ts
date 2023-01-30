@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
 import AppSlice from './slices/AppSlice';
-import ProjectsSlice from '../pages/ProjectPage/store/projects.slice';
+import ProjectsSlice from '../pages/MainPage/store/projects.slice';
+import ColumnSlice from '../pages/ProjectPage/store/column.slice';
 
 const rootReducer = combineReducers({
   app: AppSlice,
   projects: ProjectsSlice,
+  projectColumns: ColumnSlice,
 });
 
 export const setupStore = () => {
