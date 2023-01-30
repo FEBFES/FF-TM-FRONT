@@ -1,7 +1,7 @@
 import React from 'react';
-import ProjectPage from '../pages/ProjectPage/ProjectPage';
-import KanbanPage from '../pages/KanbanPage/KanbanPage';
-import MainLayout from '../layouts/MainLayout/MainLayout';
+import { MainPage } from '../pages/MainPage/MainPage';
+import { MainLayout } from '../layouts/MainLayout/MainLayout';
+import { ProjectPage } from '../pages/ProjectPage/ProjectPage';
 
 export type IAppRouts = {
   title: string;
@@ -10,18 +10,30 @@ export type IAppRouts = {
   path: string;
 };
 
+export const appRoutsPath = {
+  ProjectPage: {
+    name: 'ProjectPage',
+    path: '/',
+  },
+  KanbanPage: {
+    name: 'KanbanPage',
+    path: '/KanbanPage/?:id',
+    to: '/KanbanPage/',
+  },
+};
+
 const appRouts: IAppRouts[] = [
   {
     title: 'Project Page',
-    component: ProjectPage,
+    component: MainPage,
     layout: MainLayout,
-    path: '/',
+    path: appRoutsPath.ProjectPage.path,
   },
   {
-    title: 'KanbanPage',
-    component: KanbanPage,
+    title: 'Kanban Page',
+    component: ProjectPage,
     layout: MainLayout,
-    path: '/KanbanPage',
+    path: '/KanbanPage/:id?',
   },
 ];
 

@@ -1,9 +1,13 @@
 import { combineReducers } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
 import AppSlice from './slices/AppSlice';
+import ProjectsSlice from '../pages/MainPage/store/projects.slice';
+import DashboardSlice from '../pages/ProjectPage/store/dashboard.slice';
 
 const rootReducer = combineReducers({
   app: AppSlice,
+  projects: ProjectsSlice,
+  projectColumns: DashboardSlice,
 });
 
 export const setupStore = () => {

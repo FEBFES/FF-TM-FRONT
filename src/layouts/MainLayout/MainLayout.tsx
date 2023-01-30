@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import MainLayoutSidebar from './MainLayoutSidebar';
+import { MainLayoutSidebar } from './MainLayoutSidebar';
 import './MainLayout.scss';
 
 type MainLayoutProps = {
@@ -7,7 +7,7 @@ type MainLayoutProps = {
   pageTitle: string;
 };
 
-const MainLayout: React.FC<MainLayoutProps> = ({
+export const MainLayout: React.FC<MainLayoutProps> = ({
   children,
   pageTitle,
 }): JSX.Element => {
@@ -30,4 +30,3 @@ const MainLayout: React.FC<MainLayoutProps> = ({
     </div>
   );
 };
-export default MainLayout;

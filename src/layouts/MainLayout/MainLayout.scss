@@ -1,8 +1,13 @@
+@import "src/assets/styles/variables";
+
 .mainLay {
   display: flex;
   justify-content: space-between;
+  min-height: 100vh;
 }
 .page {
-  padding: 20px;
-  width: 100%;
+  min-height: 100%;
+  padding: 20px 20px 0;
+  width: calc(100vw - #{$sideBarWidth});
+  margin-left: $sideBarWidth;
 }

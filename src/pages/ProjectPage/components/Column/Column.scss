@@ -1,0 +1,40 @@
+h1 {
+  margin: 0;
+}
+h2 {
+  margin: 0 0 20px;
+}
+h1,
+h2 {
+  font-size: 26px;
+  font-weight: 300;
+  color: #0a0909;
+}
+
+.col {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+
+.colWrap {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: 1px solid gainsboro;
+  margin-right: 20px;
+  align-items: center;
+}
+
+.colWrap > button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background: transparent;
+  border-radius: 10px;
+  border: 1px dashed grey;
+  width: 100%;
+  color: #737373;
+  cursor: pointer;
+}
