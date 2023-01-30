@@ -2,13 +2,11 @@ import React, { ChangeEvent, useEffect } from 'react';
 import cn from 'classnames';
 import './InputField.scss';
 
-type inputValue = string | number;
-
 interface IInputFieldProps {
   type: 'text';
   label: string;
-  value: inputValue;
-  onChange: (str: inputValue) => void;
+  value: string;
+  onChange: (str: string) => void;
 }
 
 export const InputField: React.FC<IInputFieldProps> = ({
