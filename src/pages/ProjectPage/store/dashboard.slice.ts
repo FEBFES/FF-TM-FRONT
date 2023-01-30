@@ -1,6 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import {
+  fetchAddNewCol,
   fetchAddNewTask,
+  fetchDelCol,
   fetchDelTask,
   fetchProjectDashboard,
 } from './dashboard.thunk';
@@ -83,6 +85,18 @@ const DashboardSlice = createSlice({
         }
         return col;
       });
+    });
+    //
+    // Add new column
+    //
+    builder.addCase(fetchAddNewCol.fulfilled, (state, action) => {
+      state.columns.push(action.payload);
+    });
+    //
+    // Delete column
+    //
+    builder.addCase(fetchDelCol.fulfilled, (state, action) => {
+      state.columns = state.columns.filter((col) => col.id !== action.payload);
     });
   },
 });

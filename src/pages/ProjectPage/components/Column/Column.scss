@@ -27,6 +27,22 @@ h2 {
   align-items: center;
 }
 
+.col__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  button {
+    cursor: pointer;
+    padding: 5px 15px;
+    border-radius: 5px;
+    background: transparent;
+    color: red;
+    border: 1px solid red;
+  }
+}
+
 .colWrap > button {
   margin-top: 20px;
   margin-bottom: 20px;

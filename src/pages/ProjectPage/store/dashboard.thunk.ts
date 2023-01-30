@@ -71,3 +71,49 @@ export const fetchDelTask = createAsyncThunk(
     }
   }
 );
+
+// Create new column
+export const fetchAddNewCol = createAsyncThunk(
+  'projects/fetchAddNewCol',
+  async (
+    {
+      name,
+      description,
+      projId,
+    }: { name: string; description: string; projId: string },
+    { rejectWithValue }
+  ) => {
+    try {
+      const res = await instance.post(`projects/${projId}/columns`, {
+        name,
+        description,
+        columnOrder: 0,
+      });
+
+      if (res.status === 200) {
+        return res.data;
+      }
+    } catch (err) {
+      return rejectWithValue(err as AxiosError);
+    }
+  }
+);
+
+// Delete column
+export const fetchDelCol = createAsyncThunk(
+  'projects/fetchDelCol',
+  async (
+    { projId, colId }: { projId: string; colId: number },
+    { rejectWithValue }
+  ) => {
+    try {
+      const res = await instance.delete(`projects/${projId}/columns/${colId}`);
+
+      if (res.status === 200) {
+        return colId;
+      }
+    } catch (err) {
+      return rejectWithValue(err as AxiosError);
+    }
+  }
+);

@@ -9,6 +9,7 @@ interface ColumnProps {
   delTask: (colId: number, taskId: number) => void;
   setShowAddTaskModal: (bool: boolean) => void;
   setCurCol: (colId: number) => void;
+  delCol: (colId: number) => void;
 }
 
 export const Column: React.FC<ColumnProps> = ({
@@ -16,10 +17,14 @@ export const Column: React.FC<ColumnProps> = ({
   delTask,
   setShowAddTaskModal,
   setCurCol,
+  delCol,
 }): JSX.Element => {
   return (
     <div className={'colWrap'} key={v4()}>
-      <h1>{col.name}</h1>
+      <div className={'col__header'}>
+        <h1>{col.name}</h1>
+        <button onClick={() => delCol(col.id)}>del</button>
+      </div>
       <button
         onClick={() => {
           setShowAddTaskModal(true);
@@ -29,7 +34,7 @@ export const Column: React.FC<ColumnProps> = ({
         add new task
       </button>
       <div className={'col'}>
-        {col.tasks.map((task: ITask) => {
+        {col?.tasks?.map((task: ITask) => {
           return <TaskCard delTask={delTask} key={v4()} task={task} />;
         })}
       </div>
