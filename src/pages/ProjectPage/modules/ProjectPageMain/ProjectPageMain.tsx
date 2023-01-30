@@ -6,6 +6,7 @@ import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { clearDashboardSlice } from '../../store/dashboard.slice';
 import {
   fetchAddNewTask,
+  fetchDelCol,
   fetchDelTask,
   fetchProjectDashboard,
 } from '../../store/dashboard.thunk';
@@ -40,6 +41,10 @@ export const ProjectPageMain: React.FC = (): JSX.Element => {
     params.id && dispatch(fetchDelTask({ projId: params.id, colId, taskId }));
   };
 
+  const deleteColumnHandler = (colId: number) => {
+    params.id && dispatch(fetchDelCol({ projId: params.id, colId: colId }));
+  };
+
   return (
     <div className={'col-cont'}>
       {columns.map((col: IColumns) => {
@@ -50,6 +55,7 @@ export const ProjectPageMain: React.FC = (): JSX.Element => {
             delTask={deleteTaskHandler}
             setCurCol={setCurCol}
             setShowAddTaskModal={setShowAddTaskModal}
+            delCol={deleteColumnHandler}
           />
         );
       })}
