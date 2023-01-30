@@ -3,9 +3,11 @@
 .mainLay {
   display: flex;
   justify-content: space-between;
+  min-height: 100vh;
 }
 .page {
-  padding: 20px;
+  min-height: 100%;
+  padding: 20px 20px 0;
   width: calc(100vw - #{$sideBarWidth});
   margin-left: $sideBarWidth;
 }

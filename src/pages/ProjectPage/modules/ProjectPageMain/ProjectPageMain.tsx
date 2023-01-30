@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IColumns, ITask } from '../../store/dashboard.type';
-import { v4 } from 'uuid';
-import { TaskCard } from '../../components/TaskCard/TaskCard';
+import { IColumns } from '../../store/dashboard.type';
 import { AddTaskModal } from '../../components/AddTaskModal/AddTaskModal';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
@@ -12,13 +10,13 @@ import {
   fetchProjectDashboard,
 } from '../../store/dashboard.thunk';
 import './ProjectPageMain.scss';
+import { Column } from '../../components/Column/Column';
+import { v4 } from 'uuid';
 
 export const ProjectPageMain: React.FC = (): JSX.Element => {
   const params = useParams();
   const dispatch = useAppDispatch();
   const columns = useTypedSelector((state) => state.projectColumns.columns);
-  const isLoading = useTypedSelector((state) => state.projectColumns.isLoading);
-  const errorMsg = useTypedSelector((state) => state.projectColumns.errorMsg);
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
   const [curCol, setCurCol] = useState<number | null>(null);
 
@@ -44,33 +42,15 @@ export const ProjectPageMain: React.FC = (): JSX.Element => {
 
   return (
     <div className={'col-cont'}>
-      {isLoading && <div>LOADING....</div>}
-      {errorMsg && <div>ОШИБКА - {errorMsg}</div>}
-      {!columns.length && <div>нету данных</div>}
       {columns.map((col: IColumns) => {
         return (
-          <div className={'colWrap'} key={v4()}>
-            <h1>{col.name}</h1>
-            <button
-              onClick={() => {
-                setShowAddTaskModal(true);
-                setCurCol(col.id);
-              }}
-            >
-              add new task
-            </button>
-            <div className={'col'}>
-              {col.tasks.map((task: ITask) => {
-                return (
-                  <TaskCard
-                    delTask={deleteTaskHandler}
-                    key={v4()}
-                    task={task}
-                  />
-                );
-              })}
-            </div>
-          </div>
+          <Column
+            key={v4()}
+            col={col}
+            delTask={deleteTaskHandler}
+            setCurCol={setCurCol}
+            setShowAddTaskModal={setShowAddTaskModal}
+          />
         );
       })}
 
