@@ -1,0 +1,24 @@
+.mainPage__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.page__title {
+  font-weight: 300;
+  font-size: 30px;
+  margin-bottom: 35px;
+}
+
+.page__addBtn {
+  padding: 15px;
+  height: 4px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  background: transparent;
+  color: black;
+}
