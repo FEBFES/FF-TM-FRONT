@@ -10,23 +10,30 @@ export type IAppRouts = {
   path: string;
 };
 
-export enum appRoutsPath {
-  ProjectPage = '/',
-  KanbanPage = '/KanbanPage/',
-}
+export const appRoutsPath = {
+  ProjectPage: {
+    name: 'ProjectPage',
+    path: '/',
+  },
+  KanbanPage: {
+    name: 'KanbanPage',
+    path: '/KanbanPage/?:id',
+    to: '/KanbanPage/',
+  },
+};
 
 const appRouts: IAppRouts[] = [
   {
-    title: 'ProjectPage',
+    title: 'Project Page',
     component: MainPage,
     layout: MainLayout,
-    path: appRoutsPath.ProjectPage,
+    path: appRoutsPath.ProjectPage.path,
   },
   {
-    title: 'KanbanPage',
+    title: 'Kanban Page',
     component: ProjectPage,
     layout: MainLayout,
-    path: appRoutsPath.KanbanPage,
+    path: '/KanbanPage/:id?',
   },
 ];
 

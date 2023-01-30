@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
 import { v4 } from 'uuid';
 import { fetchProjectDashboard } from './store/dashboard.thunk';
@@ -8,7 +8,7 @@ import './ProjectPage.scss';
 import { clearDashboardSlice } from './store/dashboard.slice';
 
 export const ProjectPage: React.FC = (): JSX.Element => {
-  const { state } = useLocation();
+  const params = useParams();
   const dispatch = useAppDispatch();
   //todo переписать и убрать найм и деск из стора колонки
   const { projectName, projectDesc } = useTypedSelector(
@@ -19,15 +19,14 @@ export const ProjectPage: React.FC = (): JSX.Element => {
   const errorMsg = useTypedSelector((state) => state.projectColumns.errorMsg);
 
   useEffect(() => {
-    console.log('asd');
     return () => {
       dispatch(clearDashboardSlice());
     };
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
-    dispatch(fetchProjectDashboard(state.id));
-  }, [state.id, dispatch]);
+    params.id && dispatch(fetchProjectDashboard(params.id));
+  }, [params.id, dispatch]);
 
   return (
     <div className={'projpage'}>
@@ -37,7 +36,7 @@ export const ProjectPage: React.FC = (): JSX.Element => {
       <div className={'col-cont'}>
         {isLoading && <div>LOADING....</div>}
         {errorMsg && <div>ОШИБКА - {errorMsg}</div>}
-
+        {!columns.length && <div>нету данных</div>}
         {columns.map((col: IColumns) => {
           return (
             <div className={'colWrap'} key={v4()}>

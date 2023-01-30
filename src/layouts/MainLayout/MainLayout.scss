@@ -6,6 +6,6 @@
 }
 .page {
   padding: 20px;
-  width: calc(100vw - $sideBarWidth);
+  width: calc(100vw - #{$sideBarWidth});
   margin-left: $sideBarWidth;
 }

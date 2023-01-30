@@ -39,6 +39,7 @@ export const MainLayoutSidebar: React.FC = (): JSX.Element => {
           </Link>
         </li>
       </ul>
+
       <footer>
         <div className={'footer__avatar'}>
           <FontAwesomeIcon size={'xl'} icon={faUser} />

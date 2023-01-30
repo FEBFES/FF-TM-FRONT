@@ -13,12 +13,9 @@ import {
   fetchProjects,
 } from './store/projects.thunk';
 import { IProject } from './store/projects.type';
-import { SkeletonBlock } from '../../ui/SkeletonBlock/skeletonBlock';
 
 export const MainPage: React.FC = (): JSX.Element => {
-  const { projects, error, isLoad } = useTypedSelector(
-    (state) => state.projects
-  );
+  const { projects, error } = useTypedSelector((state) => state.projects);
   const dispatch = useAppDispatch();
   const [localProjects, setLocalProjects] = useState<IProject[]>([]);
   const navigate = useNavigate();
@@ -37,8 +34,10 @@ export const MainPage: React.FC = (): JSX.Element => {
   return (
     <div className={'mainPage'}>
       <div className={cn('mainPage__header')}>
-        <span>Projects Page</span>
-        <button onClick={() => setShow(true)}>add</button>
+        <span className={'page__title'}>Projects</span>
+        <button className={'page__addBtn'} onClick={() => setShow(true)}>
+          add
+        </button>
       </div>
 
       <div className={'projectCont'}>
@@ -46,18 +45,20 @@ export const MainPage: React.FC = (): JSX.Element => {
           return (
             <div
               onClick={() => {
-                navigate(appRoutsPath.KanbanPage, { state: { id: el.id } });
+                navigate(appRoutsPath.KanbanPage.to + el.id);
               }}
               key={v4()}
               className={'project-card'}
             >
-              <h3>name: {el.name}</h3>
-              <p>desc: {el.description}</p>
+              <h3 className={'card__title'}>{el.name}</h3>
+              <p className={'card__subtitle'}>{el.description}</p>
+              <div className={'line'} />
               <button
                 onClick={(e) => {
                   e.stopPropagation();
                   dispatch(fetchDelProject(el.id));
                 }}
+                className={'del__btn'}
               >
                 delete
               </button>

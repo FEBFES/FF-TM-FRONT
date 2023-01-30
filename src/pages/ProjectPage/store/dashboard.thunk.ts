@@ -5,7 +5,7 @@ import { AxiosError } from 'axios';
 //Get project dashboard
 export const fetchProjectDashboard = createAsyncThunk(
   'projects/fetchAllProjectColumns',
-  async (projId: number, { rejectWithValue }) => {
+  async (projId: string, { rejectWithValue }) => {
     try {
       const res = await instance.get(`projects/${projId}/dashboard`);
       if (res.status === 200) {
