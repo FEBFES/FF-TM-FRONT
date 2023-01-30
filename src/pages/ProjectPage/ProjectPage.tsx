@@ -4,12 +4,14 @@ import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
 import { v4 } from 'uuid';
 import {
   fetchAddNewTask,
+  fetchDelTask,
   fetchProjectDashboard,
 } from './store/dashboard.thunk';
 import { IColumns, ITask } from './store/dashboard.type';
 import './ProjectPage.scss';
 import { clearDashboardSlice } from './store/dashboard.slice';
 import { AddTaskModal } from './components/AddTaskModal/AddTaskModal';
+import { TaskCard } from './components/TaskCard/TaskCard';
 
 export const ProjectPage: React.FC = (): JSX.Element => {
   const params = useParams();
@@ -42,6 +44,10 @@ export const ProjectPage: React.FC = (): JSX.Element => {
       );
   };
 
+  const deleteTaskHandler = (colId: number, taskId: number) => {
+    params.id && dispatch(fetchDelTask({ projId: params.id, colId, taskId }));
+  };
+
   return (
     <div className={'projpage'}>
       <header>
@@ -72,10 +78,11 @@ export const ProjectPage: React.FC = (): JSX.Element => {
               <div className={'col'}>
                 {col.tasks.map((task: ITask) => {
                   return (
-                    <div key={v4()} className={'task'}>
-                      <h1>{task.name}</h1>
-                      <h2>{task.description}</h2>
-                    </div>
+                    <TaskCard
+                      delTask={deleteTaskHandler}
+                      key={v4()}
+                      task={task}
+                    />
                   );
                 })}
               </div>

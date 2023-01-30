@@ -46,3 +46,28 @@ export const fetchAddNewTask = createAsyncThunk(
     }
   }
 );
+
+// Delete task by id
+export const fetchDelTask = createAsyncThunk(
+  'projects/fetchDelTask',
+  async (
+    {
+      projId,
+      colId,
+      taskId,
+    }: { projId: string; colId: number; taskId: number },
+    { rejectWithValue }
+  ) => {
+    try {
+      const res = await instance.delete(
+        `projects/${projId}/columns/${colId}/tasks/${taskId}`
+      );
+
+      if (res.status === 200) {
+        return { colId: colId, taskId: taskId };
+      }
+    } catch (err) {
+      return rejectWithValue(err as AxiosError);
+    }
+  }
+);
