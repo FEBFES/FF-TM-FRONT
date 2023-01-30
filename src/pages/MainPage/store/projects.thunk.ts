@@ -1,6 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../../api/http';
-// todo PAYLOAD ACTION TS
 
 // Get all projects
 export const fetchProjects = createAsyncThunk(
@@ -13,7 +12,7 @@ export const fetchProjects = createAsyncThunk(
         return res.data;
       }
     } catch (err) {
-      return rejectWithValue(err as Error);
+      return rejectWithValue(err.message);
     }
   }
 );
