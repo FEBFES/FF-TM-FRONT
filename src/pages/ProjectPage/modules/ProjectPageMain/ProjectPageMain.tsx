@@ -9,6 +9,7 @@ import {
   fetchDelCol,
   fetchDelTask,
   fetchProjectDashboard,
+  fetchProjectInfo,
 } from '../../store/dashboard.thunk';
 import './ProjectPageMain.scss';
 import { Column } from '../../components/Column/Column';
@@ -22,7 +23,10 @@ export const ProjectPageMain: React.FC = (): JSX.Element => {
   const [curCol, setCurCol] = useState<number | null>(null);
 
   useEffect(() => {
-    params.id && dispatch(fetchProjectDashboard(params.id));
+    if (params.id) {
+      dispatch(fetchProjectDashboard(params.id));
+      dispatch(fetchProjectInfo(params.id));
+    }
 
     return () => {
       dispatch(clearDashboardSlice());

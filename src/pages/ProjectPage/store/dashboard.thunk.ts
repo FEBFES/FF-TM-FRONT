@@ -2,6 +2,22 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../../api/http';
 import { AxiosError } from 'axios';
 
+//Get project info
+export const fetchProjectInfo = createAsyncThunk(
+  'projects/fetchProjectInfo',
+  async (projId: string, { rejectWithValue }) => {
+    try {
+      const res = await instance.get(`/projects/${projId}`);
+
+      if (res.status === 200) {
+        return res.data;
+      }
+    } catch (err) {
+      return rejectWithValue(err as Error);
+    }
+  }
+);
+
 //Get project dashboard
 export const fetchProjectDashboard = createAsyncThunk(
   'projects/fetchAllProjectColumns',
