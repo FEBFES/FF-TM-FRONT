@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './TaskCard.scss';
 import { ITask } from '../../store/dashboard.type';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 interface TaskCardProps {
   task: ITask;
@@ -11,19 +13,16 @@ export const TaskCard: React.FC<TaskCardProps> = ({
   task,
   delTask,
 }): JSX.Element => {
-  const [showDelBtn, setShowDelBtn] = useState(false);
-
   return (
-    <div
-      onMouseOver={() => setShowDelBtn(true)}
-      onMouseLeave={() => setShowDelBtn(false)}
-      className={'task'}
-    >
+    <div className={'task'}>
       <h1>{task.name}</h1>
       <h2>{task.description}</h2>
-      {showDelBtn && (
-        <button onClick={() => delTask(task.columnId, task.id)}>delete</button>
-      )}
+      <FontAwesomeIcon
+        className={'delete__btn'}
+        icon={faTrash}
+        size={'sm'}
+        onClick={() => delTask(task.columnId, task.id)}
+      />
     </div>
   );
 };

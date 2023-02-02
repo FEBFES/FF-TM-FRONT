@@ -13,11 +13,11 @@ export const ProjectPageHeader: React.FC = (): JSX.Element => {
   return (
     <header>
       <div>
-        <h1>{projectName}</h1>
-        <h2>{projectDesc}</h2>
+        <h1>{projectName} Project name</h1>
+        <h2>{projectDesc} proj desc</h2>
       </div>
 
-      <button onClick={() => setShowAddColModal(true)}>Add new column</button>
+      <button onClick={() => setShowAddColModal(true)}>Add col</button>
 
       <AddColModal show={showAddColModal} setShow={setShowAddColModal} />
     </header>

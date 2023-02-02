@@ -1,24 +1,30 @@
 header {
+  padding: 20px;
   display: flex;
   justify-content: space-between;
+  height: 10vh;
 
-  h1 {
-    font-weight: 300;
-    font-size: 24px;
-  }
+  div {
+    h1 {
+      margin: 0;
+      font-weight: 300;
+      font-size: 24px;
+    }
 
-  h2 {
-    font-weight: 200;
-    font-size: 18px;
+    h2 {
+      margin: 0;
+      font-weight: 200;
+      font-size: 18px;
+    }
   }
 
   button {
-    height: 50px;
+    height: 40px;
     font-weight: 300;
-    font-size: 16px;
+    font-size: 12px;
     border: 1px solid grey;
     background: transparent;
     border-radius: 10px;
-    padding: 0 20px;
+    padding: 5px;
   }
 }

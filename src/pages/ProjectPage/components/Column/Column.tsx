@@ -3,6 +3,8 @@ import './Column.scss';
 import { IColumns, ITask } from '../../store/dashboard.type';
 import { v4 } from 'uuid';
 import { TaskCard } from '../TaskCard/TaskCard';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface ColumnProps {
   col: IColumns;
@@ -22,18 +24,22 @@ export const Column: React.FC<ColumnProps> = ({
   return (
     <div className={'colWrap'} key={v4()}>
       <div className={'col__header'}>
-        <h1>{col.name}</h1>
-        <button onClick={() => delCol(col.id)}>del</button>
+        <h1 className={'col__title'}>{col.name}</h1>
+        <FontAwesomeIcon
+          size={'sm'}
+          icon={faTrash}
+          onClick={() => delCol(col.id)}
+        />
       </div>
-      <button
-        onClick={() => {
-          setShowAddTaskModal(true);
-          setCurCol(col.id);
-        }}
-      >
-        add new task
-      </button>
       <div className={'col'}>
+        <button
+          onClick={() => {
+            setShowAddTaskModal(true);
+            setCurCol(col.id);
+          }}
+        >
+          add new task
+        </button>
         {col?.tasks?.map((task: ITask) => {
           return <TaskCard delTask={delTask} key={v4()} task={task} />;
         })}
