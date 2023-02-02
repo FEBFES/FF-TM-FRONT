@@ -1,27 +1,30 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import {
   fetchAddNewCol,
   fetchAddNewTask,
   fetchDelCol,
   fetchDelTask,
   fetchProjectDashboard,
+  fetchProjectInfo,
 } from './dashboard.thunk';
 import { IColumns } from './dashboard.type';
 
-interface IColumnInitialState {
+interface IDashboardInitialState {
   columns: IColumns[];
   projectName: null | string;
   projectDesc: null | string;
   isLoading: boolean;
   errorMsg: string | null;
+  projId: number | null;
 }
 
-const initialState: IColumnInitialState = {
+const initialState: IDashboardInitialState = {
   columns: [],
   projectName: null,
   projectDesc: null,
   isLoading: false,
   errorMsg: null,
+  projId: null,
 };
 
 const DashboardSlice = createSlice({
@@ -34,6 +37,16 @@ const DashboardSlice = createSlice({
   },
   extraReducers: (builder) => {
     //
+    // Get Project info
+    //
+    builder.addCase(fetchProjectInfo.fulfilled, (state, action) => {
+      const { name, description, id } = action.payload;
+
+      state.projectName = name;
+      state.projectDesc = description;
+      state.projId = id;
+    });
+    //
     // Get project dashboard (columns)
     //
     builder.addCase(fetchProjectDashboard.pending, (state) => {
@@ -43,19 +56,9 @@ const DashboardSlice = createSlice({
       state.isLoading = false;
       state.errorMsg = null;
 
-      const { name, columns, description } = action.payload;
-
+      const { columns } = action.payload;
       state.columns = columns;
-      state.projectName = name;
-      state.projectDesc = description;
     });
-    builder.addCase(
-      fetchProjectDashboard.rejected,
-      (state, action: PayloadAction<any>) => {
-        state.isLoading = false;
-        state.errorMsg = action?.payload?.message;
-      }
-    );
     //
     // Add new task
     //
