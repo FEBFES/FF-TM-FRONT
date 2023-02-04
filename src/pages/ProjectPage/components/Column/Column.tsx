@@ -3,8 +3,9 @@ import './Column.scss';
 import { IColumns, ITask } from '../../store/dashboard.type';
 import { v4 } from 'uuid';
 import { TaskCard } from '../TaskCard/TaskCard';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 
 interface ColumnProps {
   col: IColumns;
@@ -24,22 +25,26 @@ export const Column: React.FC<ColumnProps> = ({
   return (
     <div className={'colWrap'} key={v4()}>
       <div className={'col__header'}>
-        <h1 className={'col__title'}>{col.name}</h1>
+        <h1 className={'col__title'}>
+          <div className={'circle'} />
+          {col.name}
+        </h1>
         <FontAwesomeIcon
           size={'sm'}
-          icon={faTrash}
+          icon={faEllipsisV}
           onClick={() => delCol(col.id)}
         />
       </div>
+      <FontAwesomeIcon
+        size={'sm'}
+        icon={faPlus}
+        className={'deleteBtn'}
+        onClick={() => {
+          setShowAddTaskModal(true);
+          setCurCol(col.id);
+        }}
+      />
       <div className={'col'}>
-        <button
-          onClick={() => {
-            setShowAddTaskModal(true);
-            setCurCol(col.id);
-          }}
-        >
-          add new task
-        </button>
         {col?.tasks?.map((task: ITask) => {
           return <TaskCard delTask={delTask} key={v4()} task={task} />;
         })}
