@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './ProjectPageHeader.scss';
 import { useTypedSelector } from '../../../../hooks/redux';
 import { AddColModal } from '../../components/AddColModal/AddColModal';
-import { faEllipsisV, faBell } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const ProjectPageHeader: React.FC = (): JSX.Element => {
@@ -20,7 +20,6 @@ export const ProjectPageHeader: React.FC = (): JSX.Element => {
       </div>
 
       <div className={'header__right'}>
-        <FontAwesomeIcon size={'lg'} icon={faBell} />
         <FontAwesomeIcon
           size={'lg'}
           icon={faEllipsisV}
