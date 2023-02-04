@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './ProjectPageHeader.scss';
 import { useTypedSelector } from '../../../../hooks/redux';
 import { AddColModal } from '../../components/AddColModal/AddColModal';
+import { faEllipsisV, faBell } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const ProjectPageHeader: React.FC = (): JSX.Element => {
   //todo переписать и убрать найм и деск из стора колонки - получать инфу из отдельного метода
@@ -17,8 +19,14 @@ export const ProjectPageHeader: React.FC = (): JSX.Element => {
         <h2>{projectDesc || 'proj desc'}</h2>
       </div>
 
-      <button onClick={() => setShowAddColModal(true)}>Add col</button>
-
+      <div className={'header__right'}>
+        <FontAwesomeIcon size={'lg'} icon={faBell} />
+        <FontAwesomeIcon
+          size={'lg'}
+          icon={faEllipsisV}
+          onClick={() => setShowAddColModal(true)}
+        />
+      </div>
       <AddColModal show={showAddColModal} setShow={setShowAddColModal} />
     </header>
   );

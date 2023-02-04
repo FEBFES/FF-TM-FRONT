@@ -11,12 +11,16 @@
   height: 100vh;
   z-index: 10;
   background: white;
-  border-right: 1px solid lightgrey;
+  border-right: 1px solid #f7f6f8;
   //box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+  & > ul {
+    margin-bottom: 150px;
+  }
 }
 
 .footer__avatar {
-  background: lightblue;
+  background: #e1e1e1;
   width: 40px;
   height: 40px;
   border-radius: 100px;

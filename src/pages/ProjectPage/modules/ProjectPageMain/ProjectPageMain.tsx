@@ -14,6 +14,7 @@ import {
 import './ProjectPageMain.scss';
 import { Column } from '../../components/Column/Column';
 import { v4 } from 'uuid';
+import { TableViewController } from '../../components/TableViewController/TableViewController';
 
 export const ProjectPageMain: React.FC = (): JSX.Element => {
   const params = useParams();
@@ -50,19 +51,22 @@ export const ProjectPageMain: React.FC = (): JSX.Element => {
   };
 
   return (
-    <div className={'col-cont'}>
-      {columns.map((col: IColumns) => {
-        return (
-          <Column
-            key={v4()}
-            col={col}
-            delTask={deleteTaskHandler}
-            setCurCol={setCurCol}
-            setShowAddTaskModal={setShowAddTaskModal}
-            delCol={deleteColumnHandler}
-          />
-        );
-      })}
+    <div className={'projMain'}>
+      <TableViewController />
+      <div className={'col-cont'}>
+        {columns.map((col: IColumns) => {
+          return (
+            <Column
+              key={v4()}
+              col={col}
+              delTask={deleteTaskHandler}
+              setCurCol={setCurCol}
+              setShowAddTaskModal={setShowAddTaskModal}
+              delCol={deleteColumnHandler}
+            />
+          );
+        })}
+      </div>
 
       <AddTaskModal
         show={showAddTaskModal}

@@ -4,11 +4,10 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faF,
-  faHome,
+  faCalendar,
   faUser,
-  faGear,
+  faComments,
   faTableColumns,
-  faChartLine,
 } from '@fortawesome/free-solid-svg-icons';
 
 export const MainLayoutSidebar: React.FC = (): JSX.Element => {
@@ -20,29 +19,24 @@ export const MainLayoutSidebar: React.FC = (): JSX.Element => {
       <ul>
         <li>
           <Link to={'/'}>
-            <FontAwesomeIcon size={'lg'} icon={faHome} />
+            <FontAwesomeIcon size={'sm'} icon={faTableColumns} />
           </Link>
         </li>
         <li>
           <Link to={'/'}>
-            <FontAwesomeIcon size={'lg'} icon={faTableColumns} />
+            <FontAwesomeIcon size={'sm'} icon={faCalendar} />
           </Link>
         </li>
         <li>
           <Link to={'/'}>
-            <FontAwesomeIcon size={'lg'} icon={faChartLine} />
-          </Link>
-        </li>
-        <li>
-          <Link to={'/'}>
-            <FontAwesomeIcon size={'lg'} icon={faGear} />
+            <FontAwesomeIcon size={'sm'} icon={faComments} />
           </Link>
         </li>
       </ul>
 
       <footer>
         <div className={'footer__avatar'}>
-          <FontAwesomeIcon size={'xl'} icon={faUser} />
+          <FontAwesomeIcon size={'lg'} icon={faUser} />
         </div>
       </footer>
     </div>

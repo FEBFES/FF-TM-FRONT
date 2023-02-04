@@ -2,12 +2,15 @@ header {
   padding: 20px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: 10vh;
+  background: white;
+  border-bottom: 1px solid #f7f6f8;
 
   div {
     h1 {
       margin: 0;
-      font-weight: 300;
+      font-weight: 500;
       font-size: 24px;
     }
 
@@ -17,14 +20,11 @@ header {
       font-size: 18px;
     }
   }
+}
 
-  button {
-    height: 40px;
-    font-weight: 300;
-    font-size: 12px;
-    border: 1px solid grey;
-    background: transparent;
-    border-radius: 10px;
-    padding: 5px;
-  }
+.header__right {
+  align-items: center;
+  width: 40px;
+  display: flex;
+  justify-content: space-between;
 }
