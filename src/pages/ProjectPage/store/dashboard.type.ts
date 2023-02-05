@@ -9,6 +9,7 @@ export interface IColumns {
   name: string;
   order: number;
   tasks: ITask[];
+  columnOrder: number;
 }
 
 export interface ITask {

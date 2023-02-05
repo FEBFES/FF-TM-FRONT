@@ -7,45 +7,57 @@ import {
   faCommentAlt,
   faPaperclip,
 } from '@fortawesome/free-solid-svg-icons';
+import { Draggable } from 'react-beautiful-dnd';
 
 interface TaskCardProps {
   task: ITask;
   delTask: (colId: number, taskId: number) => void;
+  index: number;
 }
 
 export const TaskCard: React.FC<TaskCardProps> = ({
   task,
   delTask,
+  index,
 }): JSX.Element => {
   return (
-    <div className={'task'}>
-      <div className={'task__header'}>
-        <p className={'tag green'}>in progress</p>
+    <Draggable draggableId={`${task.id}`} index={index}>
+      {(provided) => (
+        <div
+          className={'task'}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          ref={provided.innerRef}
+        >
+          <div className={'task__header'}>
+            <p className={'tag green'}>in progress</p>
 
-        <p className={'tag yellow'}>research</p>
-        <FontAwesomeIcon
-          className={'delete__btn'}
-          icon={faEllipsisV}
-          size={'sm'}
-          onClick={() => delTask(task.columnId, task.id)}
-        />
-      </div>
+            <p className={'tag yellow'}>research</p>
+            <FontAwesomeIcon
+              className={'delete__btn'}
+              icon={faEllipsisV}
+              size={'sm'}
+              onClick={() => delTask(task.columnId, task.id)}
+            />
+          </div>
 
-      <div className={'task__main'}>
-        <h1>{task.name}</h1>
-        <h2>{task.description}</h2>
-      </div>
+          <div className={'task__main'}>
+            <h1>{task.name}</h1>
+            <h2>{task.description}</h2>
+          </div>
 
-      <div className={'task__footer'}>
-        <div>
-          <FontAwesomeIcon className={''} icon={faCommentAlt} size={'xs'} />
-          <span>8</span>
+          <div className={'task__footer'}>
+            <div>
+              <FontAwesomeIcon className={''} icon={faCommentAlt} size={'xs'} />
+              <span>8</span>
+            </div>
+            <div>
+              <FontAwesomeIcon className={''} icon={faPaperclip} size={'xs'} />
+              <span>2</span>
+            </div>
+          </div>
         </div>
-        <div>
-          <FontAwesomeIcon className={''} icon={faPaperclip} size={'xs'} />
-          <span>2</span>
-        </div>
-      </div>
-    </div>
+      )}
+    </Draggable>
   );
 };

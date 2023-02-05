@@ -15,6 +15,7 @@ import './ProjectPageMain.scss';
 import { Column } from '../../components/Column/Column';
 import { v4 } from 'uuid';
 import { TableViewController } from '../../components/TableViewController/TableViewController';
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 
 export const ProjectPageMain: React.FC = (): JSX.Element => {
   const params = useParams();
@@ -50,23 +51,52 @@ export const ProjectPageMain: React.FC = (): JSX.Element => {
     params.id && dispatch(fetchDelCol({ projId: params.id, colId: colId }));
   };
 
+  const onDragEnd = (res: any) => {
+    const { destination, source, draggableId, type } = res;
+
+    if (!destination) return;
+
+    if (
+      destination.droppableId === source.droppableId &&
+      destination.index === source.index
+    ) return;
+
+
+  };
+
   return (
     <div className={'projMain'}>
       <TableViewController />
-      <div className={'col-cont'}>
-        {columns.map((col: IColumns) => {
-          return (
-            <Column
-              key={v4()}
-              col={col}
-              delTask={deleteTaskHandler}
-              setCurCol={setCurCol}
-              setShowAddTaskModal={setShowAddTaskModal}
-              delCol={deleteColumnHandler}
-            />
-          );
-        })}
-      </div>
+      <DragDropContext onDragEnd={(res) => onDragEnd(res)}>
+        <Droppable
+          droppableId="all-columns"
+          direction="horizontal"
+          type="column"
+        >
+          {(provided) => (
+            <div
+              className={'col-cont'}
+              ref={provided.innerRef}
+              {...provided.droppableProps}
+            >
+              {columns.map((col: IColumns, index) => {
+                return (
+                  <Column
+                    index={index}
+                    key={v4()}
+                    col={col}
+                    delTask={deleteTaskHandler}
+                    setCurCol={setCurCol}
+                    setShowAddTaskModal={setShowAddTaskModal}
+                    delCol={deleteColumnHandler}
+                  />
+                );
+              })}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext>
 
       <AddTaskModal
         show={showAddTaskModal}
