@@ -27,13 +27,13 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
       <div className={'container'}>
         <InputField
           type={'text'}
-          label={'name'}
+          label={'Task name'}
           value={name}
           onChange={(e: string) => setName(e)}
         />
         <InputField
           type={'text'}
-          label={'desc'}
+          label={'Description'}
           value={description}
           onChange={(e: string) => setDescription(e)}
         />

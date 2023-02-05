@@ -1,6 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './TaskCard.scss';
 import { ITask } from '../../store/dashboard.type';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faEllipsisV,
+  faCommentAlt,
+  faPaperclip,
+} from '@fortawesome/free-solid-svg-icons';
 
 interface TaskCardProps {
   task: ITask;
@@ -11,19 +17,35 @@ export const TaskCard: React.FC<TaskCardProps> = ({
   task,
   delTask,
 }): JSX.Element => {
-  const [showDelBtn, setShowDelBtn] = useState(false);
-
   return (
-    <div
-      onMouseOver={() => setShowDelBtn(true)}
-      onMouseLeave={() => setShowDelBtn(false)}
-      className={'task'}
-    >
-      <h1>{task.name}</h1>
-      <h2>{task.description}</h2>
-      {showDelBtn && (
-        <button onClick={() => delTask(task.columnId, task.id)}>delete</button>
-      )}
+    <div className={'task'}>
+      <div className={'task__header'}>
+        <p className={'tag green'}>in progress</p>
+
+        <p className={'tag yellow'}>research</p>
+        <FontAwesomeIcon
+          className={'delete__btn'}
+          icon={faEllipsisV}
+          size={'sm'}
+          onClick={() => delTask(task.columnId, task.id)}
+        />
+      </div>
+
+      <div className={'task__main'}>
+        <h1>{task.name}</h1>
+        <h2>{task.description}</h2>
+      </div>
+
+      <div className={'task__footer'}>
+        <div>
+          <FontAwesomeIcon className={''} icon={faCommentAlt} size={'xs'} />
+          <span>8</span>
+        </div>
+        <div>
+          <FontAwesomeIcon className={''} icon={faPaperclip} size={'xs'} />
+          <span>2</span>
+        </div>
+      </div>
     </div>
   );
 };

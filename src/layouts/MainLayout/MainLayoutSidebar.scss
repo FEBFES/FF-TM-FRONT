@@ -5,24 +5,75 @@
   display: flex;
   flex-direction: column;
   width: $sideBarWidth;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   position: fixed;
   height: 100vh;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  z-index: var($z-index-mainLay-sidebar);
+  background: white;
+  border-right: 1px solid #f7f6f8;
 }
 
-.footer__avatar {
-  background: lightblue;
-  width: 40px;
-  height: 40px;
-  border-radius: 100px;
+.sidebar__header {
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  overflow: hidden;
+  align-items: center;
+
+  & > span {
+    font-weight: 800;
+    font-size: 16px;
+  }
 }
 
-li {
-  margin-bottom: 30px;
+.sidebar__main {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+}
+
+.sidebar__title {
+  text-transform: uppercase;
+  color: #b4b4b4;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.sidebar__footer {
+  margin-left: 20px;
+  position: absolute;
+  bottom: 40px;
+  justify-self: flex-end;
+  display: flex;
+  flex-direction: column;
+}
+
+.link {
+  font-family: "Apple SD Gothic Neo", system-ui;
+
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 16px;
+  color: #626262;
+  margin-top: 25px;
+
+  & > svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  & > span {
+    margin-left: 10px;
+    padding-top: 4px;
+  }
+
+  &.active {
+    background: #f4f6f8;
+    color: black;
+    border-radius: 5px;
+    padding: 10px 40px 10px 20px;
+    transform: translateX(-20px);
+  }
 }

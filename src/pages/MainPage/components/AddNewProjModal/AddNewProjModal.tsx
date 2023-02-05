@@ -25,18 +25,20 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
       show={show}
       setShow={setShow}
     >
-      <InputField
-        type={'text'}
-        label={'name'}
-        value={name}
-        onChange={(name) => setName(name)}
-      />
-      <InputField
-        type={'text'}
-        label={'desc'}
-        value={desc}
-        onChange={(desc) => setDesc(desc)}
-      />
+      <div className={'projCont'}>
+        <InputField
+          type={'text'}
+          label={'Project name'}
+          value={name}
+          onChange={(name) => setName(name)}
+        />
+        <InputField
+          type={'text'}
+          label={'Description'}
+          value={desc}
+          onChange={(desc) => setDesc(desc)}
+        />
+      </div>
     </Modal>
   );
 };

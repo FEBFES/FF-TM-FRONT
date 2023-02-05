@@ -9,7 +9,6 @@
     "prefer-const": "warn",
     "quotes": ["warn", "single"],
     "indent": ["warn", 2],
-    "max-len": ["warn", 120],
     "no-undef": "warn",
     "no-empty-pattern": "warn"
   }

@@ -1,4 +1,13 @@
+.projMain {
+  background: #f4f6f8;
+  width: 100%;
+}
+
 .col-cont {
+  width: 100%;
+  overflow: scroll;
+  padding-left: 20px;
+  padding-right: 20px;
   display: flex;
-  height: 100%;
+  height: calc(100vh - 10vh - 50px);
 }

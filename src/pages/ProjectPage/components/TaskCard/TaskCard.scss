@@ -1,29 +1,92 @@
 .task {
+  display: flex;
+  flex-direction: column;
+  //background: rgba(239, 239, 239, 0.5);
+  font-family: "Apple SD Gothic Neo", serif;
+  background: white;
   margin-bottom: 10px;
   width: 100%;
-  border: 1px solid lightgray;
   border-radius: 10px;
-  padding: 10px 10px 25px;
+  padding: 15px 10px 0;
   position: relative;
+  min-height: min-content;
+  height: min-content;
+}
 
-  h1 {
-    font-weight: 300;
-    font-size: 18px;
+.task__header {
+  display: flex;
+  position: relative;
+  height: 30px;
+
+  .tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 10px;
+    padding: 0px 7px;
+    height: 24px;
+    margin-right: 5px;
+    font-weight: bold;
+  }
+  .tag.green {
+    background: #e4e9f3;
+    color: #556a89;
+  }
+  .tag.yellow {
+    background: #f1ede5;
+    color: #8a7d44;
   }
 
-  h2 {
-    font-weight: 200;
-    font-size: 14px;
-  }
-
-  button {
+  .delete__btn {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: #e0a7a7;
+    top: 0;
+    right: 0;
     border: none;
-    color: #a10101;
     padding: 4px;
     border-radius: 5px;
+    transition: 0.4s;
+    color: #b9b9b9;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+  }
+}
+
+.task__main {
+  & > h1 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 16px;
+    color: #545454;
+  }
+
+  & > h2 {
+    margin-bottom: 20px;
+    font-weight: 200;
+    font-size: 14px;
+    color: #5e5e5e;
+  }
+}
+
+.task__footer {
+  color: #595959;
+  border-top: 1px solid #ececec;
+  padding: 10px 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  & > div {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+
+    & > span {
+      font-size: 12px;
+      margin-left: 5px;
+    }
   }
 }

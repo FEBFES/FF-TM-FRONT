@@ -1,40 +1,64 @@
-h1 {
-  margin: 0;
-}
-h2 {
-  margin: 0 0 20px;
-}
-h1,
-h2 {
-  font-size: 26px;
-  font-weight: 300;
-  color: #0a0909;
-}
-
-.col {
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  width: 250px;
-}
-
 .colWrap {
   display: flex;
   flex-direction: column;
-  padding: 10px;
-  border: 1px solid gainsboro;
-  margin-right: 20px;
   align-items: center;
+  height: 100%;
+  min-width: 240px;
+  max-width: 240px;
+  margin-right: 20px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
 }
 
-.colWrap > button {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 10px;
-  background: transparent;
-  border-radius: 10px;
-  border: 1px dashed grey;
+.col__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  color: #737373;
+
+  svg {
+    cursor: pointer;
+  }
+}
+
+.col {
+  height: 100%;
+  overflow-y: scroll;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.deleteBtn {
+  margin-top: 5px;
+  margin-bottom: 15px;
+  padding: 10px 0;
+  background: white;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  color: black;
   cursor: pointer;
+}
+
+.col__title {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 1000;
+
+  .circle {
+    margin-right: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 100px;
+    border: 2px solid grey;
+    &:nth-of-type(n + 2) {
+      border: 2px solid red;
+    }
+  }
 }
