@@ -1,0 +1,38 @@
+.button-default,
+.button-outline,
+.button-close,
+.button-submit,
+.button-danger {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  text-transform: capitalize;
+  font-weight: 500;
+  transition: 0.2s;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+  }
+}
+
+// Close type
+.button-close {
+  padding: 5px;
+  font-size: 10px;
+}
+
+// Submit type
+.button-submit {
+  background: #50ce69;
+  color: #ffffff;
+}
+
+// Outline type
+.button-outline {
+  background: transparent;
+  border: 1px solid #b4b4b4;
+  color: #707070;
+}

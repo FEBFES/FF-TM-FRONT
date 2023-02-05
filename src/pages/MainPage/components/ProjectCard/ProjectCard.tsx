@@ -6,6 +6,7 @@ import { v4 } from 'uuid';
 import { fetchDelProject } from '../../store/projects.thunk';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../../hooks/redux';
+import { Button } from '../../../../ui/Button/Button';
 
 interface ProjectCardProps {
   proj: IProject;
@@ -28,7 +29,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       <h3 className={'card__title'}>{proj.name}</h3>
       <p className={'card__subtitle'}>{proj.description}</p>
       <div className={'line'} />
-      <button
+      <Button
+        type={'danger'}
         onClick={(e) => {
           e.stopPropagation();
           dispatch(fetchDelProject(proj.id));
@@ -36,7 +38,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         className={'del__btn'}
       >
         delete
-      </button>
+      </Button>
     </div>
   );
 };

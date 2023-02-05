@@ -10,9 +10,9 @@
 
 .cont {
   z-index: 100;
-  padding: 30px;
+  padding: 30px 15px 10px;
   min-width: 300px;
-  min-height: 340px;
+  min-height: 50px;
   border-radius: 14px;
   background: white;
   position: absolute;
@@ -22,12 +22,19 @@
   opacity: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+}
+
+.up {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .cont__header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 40px;
+  align-items: center;
 }
 
 .cont__header-title {
@@ -38,4 +45,10 @@
 
 .show {
   display: none;
+}
+
+.modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }

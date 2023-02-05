@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './AddColModal.scss';
 import { Modal } from '../../../../ui/Modal/Modal';
 import { InputField } from '../../../../ui/InputField/InputField';
 import { useAppDispatch } from '../../../../hooks/redux';
@@ -31,7 +32,7 @@ export const AddColModal: React.FC<AddColModalProps> = ({
       onSubmit={onSubmit}
       title={'Add new column'}
     >
-      <div>
+      <div className={'contCol'}>
         <InputField
           type={'text'}
           label={'name'}
