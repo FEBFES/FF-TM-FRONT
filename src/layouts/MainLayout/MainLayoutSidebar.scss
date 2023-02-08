@@ -9,7 +9,7 @@
   align-items: flex-start;
   position: fixed;
   height: 100vh;
-  z-index: var($z-index-mainLay-sidebar);
+  z-index: $z-index-mainLay-sidebar;
   background: white;
   border-right: 1px solid #f7f6f8;
 }

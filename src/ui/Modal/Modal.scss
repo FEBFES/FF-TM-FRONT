@@ -7,11 +7,11 @@
   right: 0;
   bottom: 0;
   background: rgba(5, 5, 5, 0.5);
-  z-index: var($z-index-modalWrap);
+  z-index: $z-index-modalWrap;
 }
 
 .cont {
-  z-index: var($z-index-modalCont);
+  z-index: $z-index-modalCont;
   padding: 30px 15px 10px;
   min-width: 300px;
   min-height: 50px;
