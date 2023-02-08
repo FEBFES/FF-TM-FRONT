@@ -2,6 +2,7 @@ import React from 'react';
 import './App.scss';
 import { Routes, Route } from 'react-router-dom';
 import { appRouts } from '../../routing/routs';
+import { ToastCont } from '../Toast/Toast';
 
 export const App = () => {
   return (
@@ -21,6 +22,8 @@ export const App = () => {
           );
         })}
       </Routes>
+
+      <ToastCont />
     </div>
   );
 };

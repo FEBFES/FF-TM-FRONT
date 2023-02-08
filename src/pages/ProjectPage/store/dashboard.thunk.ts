@@ -1,6 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../../api/http';
 import { AxiosError } from 'axios';
+import { addToast } from '../../../store/slices/AppSlice';
+import { v4 } from 'uuid';
 
 //Get project info
 export const fetchProjectInfo = createAsyncThunk(
@@ -43,11 +45,11 @@ export const fetchAddNewTask = createAsyncThunk(
       projId,
       colId,
     }: { name: string; description: string; projId: string; colId: number },
-    { rejectWithValue }
+    { rejectWithValue, dispatch }
   ) => {
     try {
       const res = await instance.post(
-        `projects/${projId}/columns/${colId}/tasks`,
+        `projects/${projId}/columns/${colId}/tasks/123123`,
         {
           name,
           description,
@@ -58,6 +60,14 @@ export const fetchAddNewTask = createAsyncThunk(
         return res.data;
       }
     } catch (err) {
+      dispatch(
+        addToast({
+          type: 'error',
+          message: err.message,
+          id: v4(),
+          delay: 3000,
+        })
+      );
       return rejectWithValue(err as AxiosError);
     }
   }
