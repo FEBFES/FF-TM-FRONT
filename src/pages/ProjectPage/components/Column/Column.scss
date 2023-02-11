@@ -3,9 +3,12 @@
   flex-direction: column;
   align-items: center;
   height: 100%;
+  width: 240px;
   min-width: 240px;
   max-width: 240px;
-  margin-right: 20px;
+  margin-right: 10px;
+  padding: 5px;
+  overflow-y: scroll;
 
   &:last-of-type {
     margin-right: 0;
@@ -17,6 +20,8 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
 
   svg {
     cursor: pointer;
@@ -25,7 +30,6 @@
 
 .col {
   height: 100%;
-  overflow-y: scroll;
   border-radius: 10px 10px 0 0;
   display: flex;
   flex-direction: column;
@@ -33,32 +37,16 @@
   width: 100%;
 }
 
-.deleteBtn {
-  margin-top: 5px;
-  margin-bottom: 15px;
-  padding: 10px 0;
-  background: white;
-  border: none;
-  border-radius: 10px;
-  width: 100%;
-  color: black;
-  cursor: pointer;
-}
-
 .col__title {
+  margin: 0;
+  font-family: Roboto, sans-serif;
   display: flex;
   align-items: center;
-  font-size: 16px;
-  font-weight: 1000;
+  font-size: 14px;
+  font-weight: normal;
+  color: black;
+}
 
-  .circle {
-    margin-right: 5px;
-    width: 10px;
-    height: 10px;
-    border-radius: 100px;
-    border: 2px solid grey;
-    &:nth-of-type(n + 2) {
-      border: 2px solid red;
-    }
-  }
+.col__addTask_btn {
+  color: #71737e;
 }

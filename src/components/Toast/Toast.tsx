@@ -21,7 +21,7 @@ export interface IToast {
 export const ToastCont = () => {
   const toasts = useTypedSelector((state) => state.app.toasts);
 
-  return (
+  return toasts.length ? (
     <div className={'toast__container'}>
       {toasts.map((toast) => {
         return (
@@ -35,7 +35,7 @@ export const ToastCont = () => {
         );
       })}
     </div>
-  );
+  ) : null;
 };
 
 export const Toast: React.FC<IToast> = ({

@@ -22,49 +22,38 @@ export const MainLayoutSidebar: React.FC = (): JSX.Element => {
       </div>
 
       <ul className={'sidebar__main'}>
-        <p className={'sidebar__title'}>Overview</p>
         <Link className={'link'} to={'/'}>
           <FontAwesomeIcon size={'lg'} icon={faTableColumns} />
-          <span>Dashboard</span>
         </Link>
 
         <Link className={'link active'} to={'/'}>
           <FontAwesomeIcon size={'lg'} icon={faFolder} />
-          <span>Projects</span>
         </Link>
 
         <Link className={'link'} to={'/'}>
           <FontAwesomeIcon size={'lg'} icon={faCalendar} />
-          <span>Calendar</span>
         </Link>
 
         <Link className={'link'} to={'/'}>
           <FontAwesomeIcon size={'lg'} icon={faComments} />
-          <span>Message</span>
         </Link>
 
         <Link className={'link'} to={'/'}>
           <FontAwesomeIcon size={'lg'} icon={faBell} />
-          <span>Notifications</span>
         </Link>
       </ul>
 
       <footer className={'sidebar__footer'}>
-        <p className={'sidebar__title'}>General</p>
-
         <Link className={'link'} to={'/'}>
           <FontAwesomeIcon size={'lg'} icon={faCog} />
-          <span>Settings</span>
         </Link>
 
         <Link className={'link'} to={'/'}>
           <FontAwesomeIcon size={'lg'} icon={faCircleExclamation} />
-          <span>About</span>
         </Link>
 
         <Link className={'link'} to={'/'}>
           <FontAwesomeIcon size={'lg'} icon={faRightFromBracket} />
-          <span>Logout</span>
         </Link>
       </footer>
     </div>

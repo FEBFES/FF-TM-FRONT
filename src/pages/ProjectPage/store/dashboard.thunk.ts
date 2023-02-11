@@ -49,7 +49,7 @@ export const fetchAddNewTask = createAsyncThunk(
   ) => {
     try {
       const res = await instance.post(
-        `projects/${projId}/columns/${colId}/tasks/123123`,
+        `projects/${projId}/columns/${colId}/tasks`,
         {
           name,
           description,

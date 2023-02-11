@@ -1,41 +1,25 @@
 .task {
   display: flex;
   flex-direction: column;
-  //background: rgba(239, 239, 239, 0.5);
   font-family: "Apple SD Gothic Neo", serif;
   background: white;
   margin-bottom: 10px;
   width: 100%;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 15px 10px 0;
-  position: relative;
   min-height: min-content;
   height: min-content;
+  overflow: inherit;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+  pointer-events: none;
 }
-
 .task__header {
   display: flex;
   position: relative;
-  height: 30px;
 
-  .tag {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    font-size: 10px;
-    padding: 0px 7px;
-    height: 24px;
-    margin-right: 5px;
+  & > h4 {
     font-weight: bold;
-  }
-  .tag.green {
-    background: #e4e9f3;
-    color: #556a89;
-  }
-  .tag.yellow {
-    background: #f1ede5;
-    color: #8a7d44;
+    font-size: 14px;
   }
 
   .delete__btn {
@@ -56,6 +40,8 @@
 }
 
 .task__main {
+  margin-top: 12px;
+
   & > h1 {
     margin: 0;
     font-weight: 600;
@@ -64,7 +50,6 @@
   }
 
   & > h2 {
-    margin-bottom: 20px;
     font-weight: 200;
     font-size: 14px;
     color: #5e5e5e;
@@ -72,9 +57,10 @@
 }
 
 .task__footer {
+  margin-top: 5px;
   color: #595959;
   border-top: 1px solid #ececec;
-  padding: 10px 0 15px;
+  padding: 10px 0 10px;
   display: flex;
   align-items: center;
   justify-content: flex-end;

@@ -27,24 +27,18 @@
 }
 
 .sidebar__main {
-  margin-left: 20px;
+  width: 100%;
+  align-items: center;
   display: flex;
   flex-direction: column;
   margin-top: 60px;
 }
 
-.sidebar__title {
-  text-transform: uppercase;
-  color: #b4b4b4;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
 .sidebar__footer {
-  margin-left: 20px;
   position: absolute;
   bottom: 40px;
-  justify-self: flex-end;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
 }
@@ -73,7 +67,6 @@
     background: #f4f6f8;
     color: black;
     border-radius: 5px;
-    padding: 10px 40px 10px 20px;
-    transform: translateX(-20px);
+    padding: 10px;
   }
 }

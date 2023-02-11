@@ -2,11 +2,7 @@ import React from 'react';
 import './TaskCard.scss';
 import { ITask } from '../../store/dashboard.type';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faEllipsisV,
-  faCommentAlt,
-  faPaperclip,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCommentAlt, faPaperclip } from '@fortawesome/free-solid-svg-icons';
 
 interface TaskCardProps {
   task: ITask;
@@ -18,17 +14,9 @@ export const TaskCard: React.FC<TaskCardProps> = ({
   delTask,
 }): JSX.Element => {
   return (
-    <div className={'task'}>
+    <div className={'task'} draggable>
       <div className={'task__header'}>
-        <p className={'tag green'}>in progress</p>
-
-        <p className={'tag yellow'}>research</p>
-        <FontAwesomeIcon
-          className={'delete__btn'}
-          icon={faEllipsisV}
-          size={'sm'}
-          onClick={() => delTask(task.columnId, task.id)}
-        />
+        <h4>#{task.id}</h4>
       </div>
 
       <div className={'task__main'}>
