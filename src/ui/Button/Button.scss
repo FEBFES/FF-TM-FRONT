@@ -1,6 +1,5 @@
 .button-default,
 .button-outline,
-.button-close,
 .button-submit,
 .button-danger {
   margin: 5px;
@@ -20,8 +19,22 @@
 
 // Close type
 .button-close {
-  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  outline: none;
+  border: none;
+  padding: 10px;
+  width: 24px;
+  height: 24px;
   font-size: 10px;
+  transition: 1s;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
 }
 
 // Submit type

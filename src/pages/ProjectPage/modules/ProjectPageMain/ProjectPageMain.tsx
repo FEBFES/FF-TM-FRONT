@@ -14,7 +14,7 @@ import {
 import './ProjectPageMain.scss';
 import { Column } from '../../components/Column/Column';
 import { v4 } from 'uuid';
-import { TableViewController } from '../../components/TableViewController/TableViewController';
+import { ProjectPageSubheader } from '../ProjectPageSubheader/ProjectPageSubheader';
 
 export const ProjectPageMain: React.FC = (): JSX.Element => {
   const params = useParams();
@@ -52,7 +52,7 @@ export const ProjectPageMain: React.FC = (): JSX.Element => {
 
   return (
     <div className={'projMain'}>
-      <TableViewController />
+      <ProjectPageSubheader />
       <div className={'col-cont'}>
         {columns.map((col: IColumns) => {
           return (

@@ -8,6 +8,19 @@
   box-sizing: border-box;
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* ползунок скроллбара */
+*::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #253861;
+}
+
 body {
   background-color: var(--background-color);
   color: var(--font-color);
