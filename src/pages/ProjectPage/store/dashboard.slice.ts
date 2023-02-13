@@ -34,6 +34,34 @@ const DashboardSlice = createSlice({
     clearDashboardSlice: () => {
       return initialState;
     },
+    delTaskFromCol: (state, action) => {
+      state.columns = state.columns.map((col: IColumns) => {
+        if (col.id === action.payload.columnId) {
+          return {
+            ...col,
+            tasks: col.tasks.filter((task) => task.id !== action.payload.id),
+          };
+        }
+        return col;
+      });
+    },
+    addTaskToCol: (state, action) => {
+      state.columns = state.columns.map((col: IColumns) => {
+        if (col.id === action.payload.colId) {
+          return {
+            ...col,
+            tasks: [
+              ...col.tasks,
+              {
+                ...action.payload.task,
+                columnId: action.payload.colId,
+              },
+            ],
+          };
+        }
+        return col;
+      });
+    },
   },
   extraReducers: (builder) => {
     //
@@ -104,5 +132,6 @@ const DashboardSlice = createSlice({
   },
 });
 
-export const { clearDashboardSlice } = DashboardSlice.actions;
+export const { clearDashboardSlice, delTaskFromCol, addTaskToCol } =
+  DashboardSlice.actions;
 export default DashboardSlice.reducer;

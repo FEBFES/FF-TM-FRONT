@@ -22,6 +22,7 @@ export const ProjectPageMain: React.FC = (): JSX.Element => {
   const columns = useTypedSelector((state) => state.projectColumns.columns);
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
   const [curCol, setCurCol] = useState<number | null>(null);
+  const [curDragTask, setCurDragTask] = useState<any>(null);
 
   useEffect(() => {
     if (params.id) {
@@ -57,10 +58,12 @@ export const ProjectPageMain: React.FC = (): JSX.Element => {
         {columns.map((col: IColumns) => {
           return (
             <Column
+              setCurDragTask={setCurDragTask}
               key={v4()}
               col={col}
               delTask={deleteTaskHandler}
               setCurCol={setCurCol}
+              curDragTask={curDragTask}
               setShowAddTaskModal={setShowAddTaskModal}
               delCol={deleteColumnHandler}
             />

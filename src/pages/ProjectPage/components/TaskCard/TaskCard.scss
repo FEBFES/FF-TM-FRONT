@@ -1,17 +1,26 @@
+.taskWrap {
+  transition: 0.4s;
+  width: 100%;
+}
+
 .task {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   font-family: "Apple SD Gothic Neo", serif;
   background: white;
   margin-bottom: 10px;
-  width: 100%;
+  width: 240px;
   border-radius: 5px;
   padding: 15px 10px 0;
   min-height: min-content;
   height: min-content;
-  overflow: inherit;
   box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
-  pointer-events: none;
+}
+
+.drag {
+  border: 1px dashed #979797;
+  opacity: 0.4;
 }
 .task__header {
   display: flex;
@@ -41,6 +50,7 @@
 
 .task__main {
   margin-top: 12px;
+  word-wrap: break-word;
 
   & > h1 {
     margin: 0;

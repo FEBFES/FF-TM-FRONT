@@ -8,7 +8,6 @@
   max-width: 240px;
   margin-right: 10px;
   padding: 5px;
-  overflow-y: scroll;
 
   &:last-of-type {
     margin-right: 0;
@@ -29,12 +28,15 @@
 }
 
 .col {
+  transition: 0.2s;
   height: 100%;
   border-radius: 10px 10px 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .col__title {

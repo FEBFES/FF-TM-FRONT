@@ -5,7 +5,7 @@ const token = localStorage.getItem('tokenAccess');
 
 export const instance = axios.create({
   baseURL: serverString,
-  headers: {
-    Authorization: `Bearer ${token}`,
-  },
+  // headers: {
+  //   Authorization: `Bearer ${token}`,
+  // },
 });

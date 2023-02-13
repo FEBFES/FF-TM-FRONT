@@ -1,3 +1,2 @@
-const baseString = 'http://79.133.183.169';
-const PORT = '8090';
-export const serverString = `${baseString}:${PORT}/api/v1/`;
+const baseString = 'http://febfes.com/api/v1/';
+export const serverString = `${baseString}`;

@@ -7,14 +7,23 @@ import { faCommentAlt, faPaperclip } from '@fortawesome/free-solid-svg-icons';
 interface TaskCardProps {
   task: ITask;
   delTask: (colId: number, taskId: number) => void;
+  setCurDragTask: (tast: any) => void;
 }
 
 export const TaskCard: React.FC<TaskCardProps> = ({
   task,
   delTask,
+  setCurDragTask,
 }): JSX.Element => {
   return (
-    <div className={'task'} draggable>
+    <div
+      onDragStart={(e) => {
+        setCurDragTask(task);
+      }}
+      className={'task'}
+      draggable
+      id={`${task.id}`}
+    >
       <div className={'task__header'}>
         <h4>#{task.id}</h4>
       </div>
