@@ -5,6 +5,8 @@ import { v4 } from 'uuid';
 import { TaskCard } from '../TaskCard/TaskCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { useAppDispatch } from '../../../../hooks/redux';
+import { addTaskToCol, delTaskFromCol } from '../../store/dashboard.slice';
 
 interface ColumnProps {
   col: IColumns;
@@ -12,6 +14,8 @@ interface ColumnProps {
   setShowAddTaskModal: (bool: boolean) => void;
   setCurCol: (colId: number) => void;
   delCol: (colId: number) => void;
+  setCurDragTask: (task: ITask) => void;
+  curDragTask: ITask | null;
 }
 
 export const Column: React.FC<ColumnProps> = ({
@@ -20,7 +24,23 @@ export const Column: React.FC<ColumnProps> = ({
   setShowAddTaskModal,
   setCurCol,
   delCol,
+  curDragTask,
+  setCurDragTask,
 }): JSX.Element => {
+  const dispatch = useAppDispatch();
+
+  function dropHandler(e: any) {
+    e.preventDefault();
+    if (curDragTask?.columnId !== col.id) {
+      dispatch(delTaskFromCol(curDragTask));
+      dispatch(addTaskToCol({ colId: col.id, task: curDragTask }));
+    }
+  }
+
+  function dragOverHandler(e: any) {
+    e.preventDefault();
+  }
+
   return (
     <div className={'colWrap'} key={v4()}>
       <div className={'col__header'}>
@@ -38,9 +58,21 @@ export const Column: React.FC<ColumnProps> = ({
         />
       </div>
 
-      <div className={'col'}>
+      <div
+        onDrop={(e) => dropHandler(e)}
+        onDragOver={dragOverHandler}
+        className={'col'}
+        id={`${col.id}`}
+      >
         {col?.tasks?.map((task: ITask) => {
-          return <TaskCard delTask={delTask} key={v4()} task={task} />;
+          return (
+            <TaskCard
+              setCurDragTask={setCurDragTask}
+              delTask={delTask}
+              key={v4()}
+              task={task}
+            />
+          );
         })}
       </div>
     </div>
