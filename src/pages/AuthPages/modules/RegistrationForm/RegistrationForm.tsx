@@ -5,7 +5,7 @@ import { Button } from '../../../../ui/Button/Button';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchRegistration } from '../../store/auth.thunk';
 import { IRegisterFormDataType } from '../../store/auth.type';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 interface RegistrationFormProps {}
 
@@ -64,6 +64,11 @@ export const RegistrationForm: React.FC<
       >
         Submit
       </Button>
+
+      <div className={'btn-link-login'}>
+        <span>Already have an account? </span>
+        <Link to={'/Login'}>Log in</Link>
+      </div>
     </div>
   );
 };

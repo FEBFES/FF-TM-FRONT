@@ -3,3 +3,8 @@ export interface IRegisterFormDataType {
   username: string;
   password: string;
 }
+
+export interface ILoginFormType {
+  username: string;
+  password: string;
+}

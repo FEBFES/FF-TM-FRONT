@@ -2,8 +2,9 @@ import React from 'react';
 import { MainPage } from '../pages/MainPage/MainPage';
 import { MainLayout } from '../layouts/MainLayout/MainLayout';
 import { ProjectPage } from '../pages/ProjectPage/ProjectPage';
-import { RegistrationPage } from '../pages/AuthPages/RegistrationPage';
 import { EmptyLayout } from '../layouts/EmptyLayout/EmptyLayout';
+import { RegistrationPage } from '../pages/AuthPages/Registration/RegistrationPage';
+import { LoginPage } from '../pages/AuthPages/Login/LoginPage';
 
 export type IAppRouts = {
   title: string;
@@ -14,36 +15,47 @@ export type IAppRouts = {
 
 export const appRoutsPath = {
   ProjectPage: {
-    name: 'ProjectPage',
+    title: 'Project Page',
     path: '/',
   },
   KanbanPage: {
-    name: 'KanbanPage',
+    title: 'Kanban Page',
     path: '/KanbanPage/:id?',
     to: '/KanbanPage/',
   },
   RegistrationPage: {
-    name: 'Registration',
+    title: 'Registration page',
     path: '/Registration',
     to: '/Registration',
+  },
+  LoginPage: {
+    title: 'Login Page',
+    path: '/Login',
+    to: '/Login',
   },
 };
 
 const appRouts: IAppRouts[] = [
   {
-    title: 'Registration page',
+    title: appRoutsPath.LoginPage.title,
+    component: LoginPage,
+    layout: EmptyLayout,
+    path: appRoutsPath.LoginPage.path,
+  },
+  {
+    title: appRoutsPath.RegistrationPage.title,
     component: RegistrationPage,
     layout: EmptyLayout,
     path: appRoutsPath.RegistrationPage.path,
   },
   {
-    title: 'Project Page',
+    title: appRoutsPath.ProjectPage.title,
     component: MainPage,
     layout: MainLayout,
     path: appRoutsPath.ProjectPage.path,
   },
   {
-    title: 'Kanban Page',
+    title: appRoutsPath.KanbanPage.title,
     component: ProjectPage,
     layout: MainLayout,
     path: appRoutsPath.KanbanPage.path,
