@@ -53,6 +53,15 @@
   font-size: 16px;
   color: #626262;
   margin-top: 35px;
+
+  &:hover {
+    svg > line,
+    path,
+    circle,
+    rect {
+      stroke: rgba(0, 0, 0, 0.37);
+    }
+  }
 }
 
 .linkActive > svg > line,
