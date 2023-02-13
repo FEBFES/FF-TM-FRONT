@@ -1,9 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { fetchRegistration } from './auth.thunk';
+import { fetchLogin, fetchRegistration } from './auth.thunk';
 
-interface IAuthSliceInitialState {}
+interface IAuthSliceInitialState {
+  isAuth: boolean;
+}
 
-const initialState: IAuthSliceInitialState = {};
+const initialState: IAuthSliceInitialState = {
+  isAuth: false,
+};
 
 const AuthSlice = createSlice({
   name: 'project/auth',
@@ -18,6 +22,13 @@ const AuthSlice = createSlice({
       fetchRegistration.fulfilled,
       (state, action: PayloadAction<string>) => {
         localStorage.setItem('token', JSON.stringify(action.payload));
+      }
+    );
+    builder.addCase(
+      fetchLogin.fulfilled,
+      (state, action: PayloadAction<string>) => {
+        localStorage.setItem('token', JSON.stringify(action.payload));
+        state.isAuth = true;
       }
     );
   },

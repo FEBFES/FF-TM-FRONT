@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import './EmptyLayout.scss';
 
 interface EmptyLayoutProps {
   children: React.ReactNode;
@@ -22,5 +23,5 @@ export const EmptyLayout: React.FC<EmptyLayoutProps> = ({
     document.title = pageTitle;
   }, [pageTitle]);
 
-  return <div>{children}</div>;
+  return <div className={'emptyLayout'}>{children}</div>;
 };

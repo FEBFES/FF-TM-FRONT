@@ -17,3 +17,20 @@
   padding: 15px 0;
   margin: 20px 0 0;
 }
+
+.btn-link-login {
+  margin-top: 40px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.51);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & > span {
+    margin-right: 10px;
+  }
+
+  & > a {
+    text-decoration: underline;
+  }
+}
