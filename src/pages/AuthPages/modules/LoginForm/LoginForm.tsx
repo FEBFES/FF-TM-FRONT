@@ -16,6 +16,14 @@ export const LoginForm: React.FC<LoginFormProps> = (): JSX.Element => {
   });
   const navigate = useNavigate();
 
+  const submitHandler = () => {
+    dispatch(fetchLogin(inputData))
+      .unwrap()
+      .then(() => {
+        navigate('/');
+      });
+  };
+
   const changeHandle = (inputStr: string, label: string) => {
     setInputData({
       ...inputData,
@@ -38,11 +46,7 @@ export const LoginForm: React.FC<LoginFormProps> = (): JSX.Element => {
         value={inputData.password}
         onChange={(e) => changeHandle(e, 'password')}
       />
-      <Button
-        onClick={() => dispatch(fetchLogin(inputData))}
-        className={'btn-submit'}
-        type={'submit'}
-      >
+      <Button onClick={submitHandler} className={'btn-submit'} type={'submit'}>
         Sign in
       </Button>
 
