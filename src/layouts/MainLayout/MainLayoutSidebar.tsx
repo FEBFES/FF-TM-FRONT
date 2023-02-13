@@ -11,7 +11,7 @@ import {
   SettingsIcon,
   TeamIcon,
   TimeLineIcon,
-} from '../../assets/icons/MainIcons';
+} from '../../assets/icons/SidebarIcons';
 
 const links = [
   {
