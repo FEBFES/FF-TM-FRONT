@@ -1,7 +1,6 @@
 @import "../../assets/styles/variables";
 
 .sidebar {
-  padding: 20px;
   display: flex;
   flex-direction: column;
   width: $sideBarWidth;
@@ -15,6 +14,7 @@
 }
 
 .sidebar__header {
+  padding: 20px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -44,29 +44,40 @@
 }
 
 .link {
-  font-family: "Apple SD Gothic Neo", system-ui;
-
+  position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 100%;
   font-weight: 400;
   font-size: 16px;
   color: #626262;
-  margin-top: 25px;
+  margin-top: 35px;
 
-  & > svg {
-    width: 20px;
-    height: 20px;
+  &:hover {
+    svg > line,
+    path,
+    circle,
+    rect {
+      stroke: rgba(0, 0, 0, 0.37);
+    }
   }
+}
 
-  & > span {
-    margin-left: 10px;
-    padding-top: 4px;
-  }
+.linkActive > svg > line,
+.linkActive > svg > path,
+.linkActive > svg > circle,
+.linkActive > svg > rect {
+  stroke: black;
+}
 
-  &.active {
-    background: #f4f6f8;
-    color: black;
-    border-radius: 5px;
-    padding: 10px;
-  }
+.linkActive::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -10px;
+  bottom: -10px;
+  width: 4px;
+  border-radius: 0 5px 5px 0;
+  background: #000;
 }
