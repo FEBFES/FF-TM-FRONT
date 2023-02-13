@@ -1,0 +1,19 @@
+.regform {
+  display: flex;
+  flex-direction: column;
+  width: 25rem;
+}
+
+.regform__title {
+  align-self: center;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.regform__btn {
+  align-self: center;
+  width: 70%;
+  padding: 15px 0;
+  margin: 20px 0 0;
+}

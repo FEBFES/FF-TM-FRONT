@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react';
-import { MainLayoutSidebar } from './MainLayoutSidebar';
-import './MainLayout.scss';
 
-type MainLayoutProps = {
+interface EmptyLayoutProps {
   children: React.ReactNode;
   pageTitle: string;
-};
+}
 
-export const MainLayout: React.FC<MainLayoutProps> = ({
+export const EmptyLayout: React.FC<EmptyLayoutProps> = ({
   children,
   pageTitle,
 }): JSX.Element => {
@@ -24,10 +22,5 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
     document.title = pageTitle;
   }, [pageTitle]);
 
-  return (
-    <div className={'mainLay'}>
-      <MainLayoutSidebar />
-      <div className={'page'}>{children}</div>
-    </div>
-  );
+  return <div>{children}</div>;
 };
