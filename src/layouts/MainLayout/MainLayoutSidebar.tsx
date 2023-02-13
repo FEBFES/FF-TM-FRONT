@@ -1,23 +1,50 @@
 import React from 'react';
 import './MainLayoutSidebar.scss';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faCalendar,
-  faFolder,
-  faCircleExclamation,
-  faCog,
-  faBell,
-  faRightFromBracket,
-  faComments,
-  faTableColumns,
-} from '@fortawesome/free-solid-svg-icons';
+import { Link, useLocation } from 'react-router-dom';
 import { LogoIcon } from '../../assets/icons/LogoIcon';
 import { useAppDispatch } from '../../hooks/redux';
 import { setIsAuth } from '../../pages/AuthPages/store/auth.slice';
+import {
+  LeaveIcon,
+  NotificationIcon,
+  ProjectsIcon,
+  SettingsIcon,
+  TeamIcon,
+  TimeLineIcon,
+} from '../../assets/icons/MainIcons';
+
+const links = [
+  {
+    title: 'Projects',
+    icon: ProjectsIcon,
+    to: '/',
+  },
+  {
+    title: 'Timeline',
+    icon: TimeLineIcon,
+    to: '/timeLine',
+  },
+  {
+    title: 'Team',
+    icon: TeamIcon,
+    to: '/team',
+  },
+  {
+    title: 'Notifications',
+    icon: NotificationIcon,
+    to: '/norifications',
+  },
+  {
+    title: 'Settings',
+    icon: SettingsIcon,
+    to: '/settings',
+  },
+];
 
 export const MainLayoutSidebar: React.FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
+  const location = useLocation();
+
   return (
     <div className={'sidebar'}>
       <div className={'sidebar__header'}>
@@ -25,42 +52,27 @@ export const MainLayoutSidebar: React.FC = (): JSX.Element => {
       </div>
 
       <ul className={'sidebar__main'}>
-        <Link className={'link'} to={'/'}>
-          <FontAwesomeIcon size={'lg'} icon={faTableColumns} />
-        </Link>
-
-        <Link className={'link active'} to={'/'}>
-          <FontAwesomeIcon size={'lg'} icon={faFolder} />
-        </Link>
-
-        <Link className={'link'} to={'/'}>
-          <FontAwesomeIcon size={'lg'} icon={faCalendar} />
-        </Link>
-
-        <Link className={'link'} to={'/'}>
-          <FontAwesomeIcon size={'lg'} icon={faComments} />
-        </Link>
-
-        <Link className={'link'} to={'/'}>
-          <FontAwesomeIcon size={'lg'} icon={faBell} />
-        </Link>
+        {links.map((link) => {
+          return (
+            <Link
+              className={`link ${
+                link.to === location.pathname && 'linkActive'
+              }`}
+              to={link.to}
+            >
+              <link.icon />
+            </Link>
+          );
+        })}
       </ul>
 
       <footer className={'sidebar__footer'}>
-        <Link className={'link'} to={'/'}>
-          <FontAwesomeIcon size={'lg'} icon={faCog} />
-        </Link>
-
-        <Link className={'link'} to={'/'}>
-          <FontAwesomeIcon size={'lg'} icon={faCircleExclamation} />
-        </Link>
-
         <Link
           onClick={() => dispatch(setIsAuth(false))}
           className={'link'}
           to={'/Login'}
         >
-          <FontAwesomeIcon size={'lg'} icon={faRightFromBracket} />
+          <LeaveIcon />
         </Link>
       </footer>
     </div>
