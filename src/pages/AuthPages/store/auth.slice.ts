@@ -6,7 +6,7 @@ interface IAuthSliceInitialState {
 }
 
 const initialState: IAuthSliceInitialState = {
-  isAuth: false,
+  isAuth: !!localStorage.getItem('token'),
 };
 
 const AuthSlice = createSlice({
@@ -16,23 +16,29 @@ const AuthSlice = createSlice({
     clearAuthSlice: () => {
       return initialState;
     },
+    setIsAuth: (state, action: PayloadAction<boolean>) => {
+      if (!action.payload) {
+        localStorage.clear();
+      }
+      state.isAuth = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(
       fetchRegistration.fulfilled,
       (state, action: PayloadAction<string>) => {
-        localStorage.setItem('token', JSON.stringify(action.payload));
+        localStorage.setItem('token', action.payload);
       }
     );
     builder.addCase(
       fetchLogin.fulfilled,
       (state, action: PayloadAction<string>) => {
-        localStorage.setItem('token', JSON.stringify(action.payload));
+        localStorage.setItem('token', action.payload);
         state.isAuth = true;
       }
     );
   },
 });
 
-export const {} = AuthSlice.actions;
+export const { setIsAuth } = AuthSlice.actions;
 export default AuthSlice.reducer;

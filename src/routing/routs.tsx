@@ -35,19 +35,7 @@ export const appRoutsPath = {
   },
 };
 
-const appRouts: IAppRouts[] = [
-  {
-    title: appRoutsPath.LoginPage.title,
-    component: LoginPage,
-    layout: EmptyLayout,
-    path: appRoutsPath.LoginPage.path,
-  },
-  {
-    title: appRoutsPath.RegistrationPage.title,
-    component: RegistrationPage,
-    layout: EmptyLayout,
-    path: appRoutsPath.RegistrationPage.path,
-  },
+const privateRoutes: IAppRouts[] = [
   {
     title: appRoutsPath.ProjectPage.title,
     component: MainPage,
@@ -62,4 +50,19 @@ const appRouts: IAppRouts[] = [
   },
 ];
 
-export { appRouts };
+const appRouts: IAppRouts[] = [
+  {
+    title: appRoutsPath.LoginPage.title,
+    component: LoginPage,
+    layout: EmptyLayout,
+    path: appRoutsPath.LoginPage.path,
+  },
+  {
+    title: appRoutsPath.RegistrationPage.title,
+    component: RegistrationPage,
+    layout: EmptyLayout,
+    path: appRoutsPath.RegistrationPage.path,
+  },
+];
+
+export { appRouts, privateRoutes };

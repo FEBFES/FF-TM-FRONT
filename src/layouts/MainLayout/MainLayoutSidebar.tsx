@@ -13,8 +13,11 @@ import {
   faTableColumns,
 } from '@fortawesome/free-solid-svg-icons';
 import { LogoIcon } from '../../assets/icons/LogoIcon';
+import { useAppDispatch } from '../../hooks/redux';
+import { setIsAuth } from '../../pages/AuthPages/store/auth.slice';
 
 export const MainLayoutSidebar: React.FC = (): JSX.Element => {
+  const dispatch = useAppDispatch();
   return (
     <div className={'sidebar'}>
       <div className={'sidebar__header'}>
@@ -52,7 +55,11 @@ export const MainLayoutSidebar: React.FC = (): JSX.Element => {
           <FontAwesomeIcon size={'lg'} icon={faCircleExclamation} />
         </Link>
 
-        <Link className={'link'} to={'/'}>
+        <Link
+          onClick={() => dispatch(setIsAuth(false))}
+          className={'link'}
+          to={'/Login'}
+        >
           <FontAwesomeIcon size={'lg'} icon={faRightFromBracket} />
         </Link>
       </footer>

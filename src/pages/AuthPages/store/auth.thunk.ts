@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { instance } from '../../../api/http';
+import { instanceWithoutToken } from '../../../api/http';
 import { addToast } from '../../../store/slices/AppSlice';
 import { v4 } from 'uuid';
 import { ILoginFormType, IRegisterFormDataType } from './auth.type';
@@ -9,7 +9,7 @@ export const fetchRegistration = createAsyncThunk(
   'projects/fetchRegistration',
   async (formData: IRegisterFormDataType, { rejectWithValue, dispatch }) => {
     try {
-      const res = await instance.post('/auth/register', formData);
+      const res = await instanceWithoutToken.post('/auth/register', formData);
 
       if (res.status === 200) {
         return res.data.token;
@@ -33,7 +33,10 @@ export const fetchLogin = createAsyncThunk(
   'projects/fetchLogin',
   async (formData: ILoginFormType, { rejectWithValue, dispatch }) => {
     try {
-      const res = await instance.post('/auth/authenticate', formData);
+      const res = await instanceWithoutToken.post(
+        '/auth/authenticate',
+        formData
+      );
 
       if (res.status === 200) {
         return res.data.token;
