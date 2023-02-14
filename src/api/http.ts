@@ -1,5 +1,7 @@
 import { serverString } from '../config';
 import axios from 'axios';
+import { setIsAuth } from '../pages/AuthPages/store/auth.slice';
+import { store } from '../index';
 
 const token = localStorage.getItem('tokenAccess');
 
@@ -19,3 +21,16 @@ instance.interceptors.request.use((config) => {
   config.headers.Authorization = 'Bearer ' + localStorage.getItem('token');
   return config;
 });
+
+instance.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    if (error.response.status === 403) {
+      store.dispatch(setIsAuth(false));
+      window.location.pathname = '/Login';
+      localStorage.clear();
+    }
+  }
+);

@@ -52,9 +52,10 @@ export const MainLayoutSidebar: React.FC = (): JSX.Element => {
       </div>
 
       <ul className={'sidebar__main'}>
-        {links.map((link) => {
+        {links.map((link, i) => {
           return (
             <Link
+              key={i}
               className={`link ${
                 link.to === location.pathname && 'linkActive'
               }`}
