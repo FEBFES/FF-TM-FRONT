@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { addTaskToCol, delTaskFromCol } from '../../store/dashboard.slice';
+import {fetchChangeTask} from "../../store/dashboard.thunk";
 
 interface ColumnProps {
   col: IColumns;
@@ -31,9 +32,8 @@ export const Column: React.FC<ColumnProps> = ({
 
   function dropHandler(e: any) {
     e.preventDefault();
-    if (curDragTask?.columnId !== col.id) {
-      dispatch(delTaskFromCol(curDragTask));
-      dispatch(addTaskToCol({ colId: col.id, task: curDragTask }));
+    if (curDragTask && curDragTask?.columnId !== col.id) {
+      dispatch(fetchChangeTask({curDragTask, col}))
     }
   }
 
