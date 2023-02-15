@@ -3,6 +3,7 @@ import styles from './NotFoundPage.module.css';
 import { ArrowIcon } from '../../assets/icons/UtilsIcons';
 import { Button } from '../../ui/Button/Button';
 import { useNavigate } from 'react-router-dom';
+import { appRoutsPath } from '../../routing/routs';
 
 export const NotFoundPage = () => {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ export const NotFoundPage = () => {
         </Button>
         <Button
           className={styles.homeBtn}
-          onClick={() => navigate('/')}
+          onClick={() => navigate(appRoutsPath.ProjectPage.path)}
           type={'default'}
         >
           Home Page

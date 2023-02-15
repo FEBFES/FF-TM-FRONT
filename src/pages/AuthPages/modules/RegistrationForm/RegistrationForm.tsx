@@ -6,6 +6,7 @@ import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchRegistration } from '../../store/auth.thunk';
 import { IRegisterFormDataType } from '../../store/auth.type';
 import { Link, useNavigate } from 'react-router-dom';
+import { appRoutsPath } from '../../../../routing/routs';
 
 interface RegistrationFormProps {}
 
@@ -25,7 +26,7 @@ export const RegistrationForm: React.FC<
     dispatch(fetchRegistration(inputData))
       .unwrap()
       .then(() => {
-        navigate('/Login');
+        navigate(appRoutsPath.LoginPage.to);
       });
   };
 

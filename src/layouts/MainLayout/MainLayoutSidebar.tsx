@@ -19,12 +19,12 @@ const links = [
   {
     title: 'Projects',
     icon: ProjectsIcon,
-    to: '/',
+    to: '/Projects',
   },
   {
     title: 'Timeline',
     icon: TimeLineIcon,
-    to: '/timeLine',
+    to: '/timeline',
   },
   {
     title: 'Team',
@@ -34,7 +34,7 @@ const links = [
   {
     title: 'Notifications',
     icon: NotificationIcon,
-    to: '/norifications',
+    to: '/notifications',
   },
   {
     title: 'Settings',

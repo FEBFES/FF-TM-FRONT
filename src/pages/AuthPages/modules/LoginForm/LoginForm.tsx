@@ -5,6 +5,7 @@ import { Button } from '../../../../ui/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchLogin } from '../../store/auth.thunk';
+import { appRoutsPath } from '../../../../routing/routs';
 
 interface LoginFormProps {}
 
@@ -20,7 +21,7 @@ export const LoginForm: React.FC<LoginFormProps> = (): JSX.Element => {
     dispatch(fetchLogin(inputData))
       .unwrap()
       .then(() => {
-        navigate('/');
+        navigate(appRoutsPath.ProjectPage.to);
       });
   };
 
@@ -57,7 +58,7 @@ export const LoginForm: React.FC<LoginFormProps> = (): JSX.Element => {
       <div className={styles.line} />
       <Button
         onClick={() => {
-          navigate('/Registration');
+          navigate(appRoutsPath.RegistrationPage.to);
         }}
         className={styles.btnNewAcc}
         type={'outline'}

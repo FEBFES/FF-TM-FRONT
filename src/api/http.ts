@@ -2,6 +2,7 @@ import { serverString } from '../config';
 import axios from 'axios';
 import { setIsAuth } from '../pages/AuthPages/store/auth.slice';
 import { store } from '../index';
+import { appRoutsPath } from '../routing/routs';
 
 const token = localStorage.getItem('tokenAccess');
 
@@ -29,7 +30,7 @@ instance.interceptors.response.use(
   (error) => {
     if (error.response.status === 401) {
       store.dispatch(setIsAuth(false));
-      window.location.pathname = '/Login';
+      window.location.pathname = appRoutsPath.LoginPage.to;
       localStorage.clear();
     }
   }

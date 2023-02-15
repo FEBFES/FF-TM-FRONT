@@ -11,6 +11,7 @@ import landImg5 from '../../assets/img/landImg5.png';
 import { Switcher } from '../../ui/Switcher/Switcher';
 import { useTypedSelector } from '../../hooks/redux';
 import { useTheme } from '../../hooks/useTheme';
+import { appRoutsPath } from '../../routing/routs';
 
 export const Landing = () => {
   const navigate = useNavigate();
@@ -26,21 +27,27 @@ export const Landing = () => {
             onClick={changeTheme}
             isActive={theme === 'dark'}
           />
-          <Button onClick={() => navigate('/Login')} type={'default'}>
+          <Button
+            onClick={() => navigate(appRoutsPath.LoginPage.to)}
+            type={'default'}
+          >
             Log in
           </Button>
-          <Button onClick={() => navigate('/Registration')} type={'outline'}>
+          <Button
+            onClick={() => navigate(appRoutsPath.RegistrationPage.to)}
+            type={'outline'}
+          >
             Sing in
           </Button>
         </header>
-        <h1 className={styles.title}>TRACK YOUT RPOJECT</h1>
+        <h1 className={styles.title}>TRACK YOUR PROJECTS</h1>
         <h1 className={styles.title}>WITH F/F</h1>
         <h2 className={styles.subtitle}>
           Solve tasks quickly and conveniently with F/F - Task manager
         </h2>
         <Button
           className={styles.startBtn}
-          onClick={() => navigate('/Login')}
+          onClick={() => navigate(appRoutsPath.LoginPage.to)}
           type={'outline'}
         >
           Get started
