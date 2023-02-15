@@ -8,7 +8,7 @@ import AuthSlice from '../pages/AuthPages/store/auth.slice';
 const rootReducer = combineReducers({
   app: AppSlice,
   projects: ProjectsSlice,
-  projectColumns: DashboardSlice,
+  projectDashboard: DashboardSlice,
   auth: AuthSlice,
 });
 

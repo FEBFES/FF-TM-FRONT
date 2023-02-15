@@ -1,0 +1,12 @@
+/*TODO посмотреть можно ли просто рут или что внутри нахер надо*/
+:root {
+  --sideBarWidth: 84px;
+}
+
+:root {
+  --z-index-modalWrap: 100;
+  --z-index-modalCont: 99;
+  --z-index-mainLay-sidebar: 20;
+  --z-index-toastCont: 50;
+  --z-index-toastCard: 51;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Modal.scss';
+import styles from './Modal.module.css';
 import cn from 'classnames';
 import { Button } from '../Button/Button';
 
@@ -21,14 +21,14 @@ export const Modal: React.FC<IModalProps> = ({
   return (
     <div
       onClick={() => setShow(false)}
-      className={cn('wrap', {
-        show: !show,
+      className={cn(`${styles.wrap}`, {
+        [styles.show]: !show,
       })}
     >
-      <div onClick={(e) => e.stopPropagation()} className={'cont'}>
-        <div className={'up'}>
-          <div className={'cont__header'}>
-            <h1 className={'cont__header-title'}>{title}</h1>
+      <div onClick={(e) => e.stopPropagation()} className={styles.cont}>
+        <div className={styles.up}>
+          <div className={styles.cont__header}>
+            <h1 className={styles.cont__headerTitle}>{title}</h1>
             <Button type={'close'} onClick={() => setShow(false)}>
               x
             </Button>
@@ -37,7 +37,7 @@ export const Modal: React.FC<IModalProps> = ({
           <div>{show && children}</div>
         </div>
 
-        <div className={'modal__footer'}>
+        <div className={styles.modal__footer}>
           <Button type={'outline'} onClick={() => setShow(false)}>
             cancel
           </Button>

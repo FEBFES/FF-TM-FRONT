@@ -11,7 +11,7 @@ import {
   fetchProjectDashboard,
   fetchProjectInfo,
 } from '../../store/dashboard.thunk';
-import './ProjectPageMain.scss';
+import styles from './ProjectPageMain.module.css';
 import { Column } from '../../components/Column/Column';
 import { v4 } from 'uuid';
 import { ProjectPageSubheader } from '../ProjectPageSubheader/ProjectPageSubheader';
@@ -19,7 +19,7 @@ import { ProjectPageSubheader } from '../ProjectPageSubheader/ProjectPageSubhead
 export const ProjectPageMain: React.FC = (): JSX.Element => {
   const params = useParams();
   const dispatch = useAppDispatch();
-  const columns = useTypedSelector((state) => state.projectColumns.columns);
+  const columns = useTypedSelector((state) => state.projectDashboard.columns);
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
   const [curCol, setCurCol] = useState<number | null>(null);
   const [curDragTask, setCurDragTask] = useState<any>(null);
@@ -52,9 +52,9 @@ export const ProjectPageMain: React.FC = (): JSX.Element => {
   };
 
   return (
-    <div className={'projMain'}>
+    <div className={styles.projMain}>
       <ProjectPageSubheader />
-      <div className={'col-cont'}>
+      <div className={styles.colCont}>
         {columns.map((col: IColumns) => {
           return (
             <Column

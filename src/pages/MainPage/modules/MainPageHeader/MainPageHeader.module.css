@@ -2,12 +2,13 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .page__title {
+  margin: 0;
   font-weight: 300;
-  font-size: 30px;
-  margin-bottom: 35px;
+  font-size: 22px;
 }
 
 .page__addBtn {

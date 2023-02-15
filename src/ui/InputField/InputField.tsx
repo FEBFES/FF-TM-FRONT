@@ -1,6 +1,5 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
-import cn from 'classnames';
-import './InputField.scss';
+import styles from './InputField.module.css';
 import classNames from 'classnames';
 
 interface IInputFieldProps {
@@ -28,10 +27,10 @@ export const InputField: React.FC<IInputFieldProps> = ({
   }, []);
 
   return (
-    <div className={'input-cont'}>
+    <div className={styles.inputCont}>
       <label
-        className={classNames('label', {
-          'label-focus': isFocusOn || value !== '',
+        className={classNames(styles.label, {
+          [styles.labelFocus]: isFocusOn || value !== '',
         })}
         htmlFor="input"
       >
@@ -46,7 +45,7 @@ export const InputField: React.FC<IInputFieldProps> = ({
         }
         type={type}
         id={'input'}
-        className={cn('input')}
+        className={styles.input}
       />
     </div>
   );

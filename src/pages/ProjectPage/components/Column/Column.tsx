@@ -1,5 +1,5 @@
 import React from 'react';
-import './Column.scss';
+import styles from './Column.module.css';
 import { IColumns, ITask } from '../../store/dashboard.type';
 import { v4 } from 'uuid';
 import { TaskCard } from '../TaskCard/TaskCard';
@@ -42,14 +42,14 @@ export const Column: React.FC<ColumnProps> = ({
   }
 
   return (
-    <div className={'colWrap'} key={v4()}>
-      <div className={'col__header'}>
-        <h1 className={'col__title'}>
+    <div className={styles.colWrap} key={v4()}>
+      <div className={styles.col__header}>
+        <h1 className={styles.col__title}>
           {col.name} {col.tasks.length !== 0 && col.tasks.length}
         </h1>
 
         <FontAwesomeIcon
-          className={'col__addTask_btn'}
+          className={styles.col__addTask_btn}
           icon={faPlus}
           onClick={() => {
             setShowAddTaskModal(true);
@@ -61,7 +61,7 @@ export const Column: React.FC<ColumnProps> = ({
       <div
         onDrop={(e) => dropHandler(e)}
         onDragOver={dragOverHandler}
-        className={'col'}
+        className={styles.col}
         id={`${col.id}`}
       >
         {col?.tasks?.map((task: ITask) => {

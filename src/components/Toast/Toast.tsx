@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './Toast.scss';
+import styles from './Toast.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCircleCheck,
@@ -10,6 +10,7 @@ import {
 import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
 import { v4 } from 'uuid';
 import { delToast } from '../../store/slices/AppSlice';
+import classNames from 'classnames';
 
 export interface IToast {
   id: string;
@@ -22,7 +23,7 @@ export const ToastCont = () => {
   const toasts = useTypedSelector((state) => state.app.toasts);
 
   return toasts.length ? (
-    <div className={'toast__container'}>
+    <div className={styles.toast__container}>
       {toasts.map((toast) => {
         return (
           <Toast
@@ -72,8 +73,15 @@ export const Toast: React.FC<IToast> = ({
   }, [visible, dispatch, id]);
 
   return visible ? (
-    <div className={`toast-${type} ${del && 'toast__del'}`}>
-      <div className={`toast__icon icon-${type}`}>
+    <div
+      className={classNames(`${del && styles.toast__del}`, {
+        [styles.toastError]: type === 'error',
+        [styles.toastDefault]: type === 'default',
+        [styles.toastSuccess]: type === 'success',
+        [styles.toastWarning]: type === 'warning',
+      })}
+    >
+      <div className={classNames(styles.toast__icon)}>
         {type === 'warning' && (
           <FontAwesomeIcon icon={faTriangleExclamation} size={'lg'} />
         )}
@@ -87,7 +95,7 @@ export const Toast: React.FC<IToast> = ({
           <FontAwesomeIcon icon={faExclamation} size={'lg'} />
         )}
       </div>
-      <span className={'toast_text'}>{message}</span>
+      <span className={styles.toast_text}>{message}</span>
     </div>
   ) : (
     <></>

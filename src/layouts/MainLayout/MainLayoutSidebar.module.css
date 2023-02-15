@@ -1,9 +1,7 @@
-@import "../../assets/styles/variables";
-
 .sidebar {
   display: flex;
   flex-direction: column;
-  width: $sideBarWidth;
+  width: var(--sideBarWidth);
   justify-content: flex-start;
   align-items: flex-start;
   position: fixed;
@@ -11,7 +9,7 @@
   left: 0;
   top: 0;
   bottom: 0;
-  z-index: $z-index-mainLay-sidebar;
+  z-index: var(--z-index-mainLay-sidebar);
   background: white;
   border-right: 1px solid #f7f6f8;
 }
@@ -22,11 +20,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  & > span {
-    font-weight: 800;
-    font-size: 16px;
-  }
+}
+.sidebar__header > span {
+  font-weight: 800;
+  font-size: 16px;
 }
 
 .sidebar__main {
@@ -57,19 +54,16 @@
   color: #626262;
   margin-top: 35px;
   margin-bottom: 0;
-
-  & > svg {
-    width: 20px;
-    height: 20px;
-  }
-  &:hover {
-    svg > line,
-    path,
-    circle,
-    rect {
-      stroke: rgba(0, 0, 0, 0.37);
-    }
-  }
+}
+.link:hover .link > svg > line,
+path,
+circle,
+rect {
+  stroke: rgba(0, 0, 0, 0.37);
+}
+.link > svg {
+  width: 20px;
+  height: 20px;
 }
 
 .linkActive > svg > line,

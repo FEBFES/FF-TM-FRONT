@@ -1,4 +1,4 @@
-.input-cont {
+.inputCont {
   margin-top: 22px;
   position: relative;
   height: 46px;
@@ -14,10 +14,9 @@
   border-radius: 8px;
   padding: 0 10px;
   font-size: 14px;
-
-  &:hover {
-    border: 1px solid #b2b2b2;
-  }
+}
+.input:hover {
+  border: 1px solid #b2b2b2;
 }
 
 .label {
@@ -30,7 +29,7 @@
   font-size: 14px;
 }
 
-.label-focus {
+.labelFocus {
   top: -10px;
   font-size: 10px;
   left: 0;

@@ -1,0 +1,30 @@
+.subheader {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 50px;
+  background: white;
+  font-size: 14px;
+}
+
+.sort {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 20px;
+}
+.sort > svg {
+  margin-left: 3px;
+  transform: translateY(1px);
+}
+.sort__type {
+  color: #b0b0b0;
+  margin-right: 5px;
+}
+.sort__value {
+  cursor: pointer;
+}
+.sort__value:hover {
+  color: #646464;
+}

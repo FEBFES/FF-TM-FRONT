@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './RegistrationForm.scss';
+import styles from './RegistrationForm.module.css';
 import { InputField } from '../../../../ui/InputField/InputField';
 import { Button } from '../../../../ui/Button/Button';
 import { useAppDispatch } from '../../../../hooks/redux';
@@ -37,8 +37,8 @@ export const RegistrationForm: React.FC<
   };
 
   return (
-    <div className={'regform'}>
-      <h1 className={'regform__title'}>Registration</h1>
+    <div className={styles.regform}>
+      <h1 className={styles.regform__title}>Registration</h1>
       <InputField
         type={'text'}
         label={'email'}
@@ -58,14 +58,14 @@ export const RegistrationForm: React.FC<
         onChange={(data) => changeHandle(data, 'password')}
       />
       <Button
-        className={'regform__btn'}
+        className={styles.regform__btn}
         type={'submit'}
         onClick={submitHandler}
       >
         Submit
       </Button>
 
-      <div className={'btn-link-login'}>
+      <div className={styles.btnLinkLogin}>
         <span>Already have an account? </span>
         <Link to={'/Login'}>Log in</Link>
       </div>
