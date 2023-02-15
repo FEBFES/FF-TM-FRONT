@@ -6,20 +6,8 @@
 }
 
 .page__title {
+  color: var(--font-defautl);
   margin: 0;
   font-weight: 300;
   font-size: 22px;
-}
-
-.page__addBtn {
-  padding: 15px;
-  height: 4px;
-  width: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid black;
-  border-radius: 5px;
-  background: transparent;
-  color: black;
 }

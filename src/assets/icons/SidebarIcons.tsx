@@ -58,65 +58,16 @@ export const TimeLineIcon = () => {
     >
       <rect
         x="1"
-        y="2.47461"
+        y="4.27832"
         width="22"
-        height="20.7368"
+        height="18.9332"
         rx="2"
         stroke="#CFCFCF"
         strokeWidth="2"
       />
-      <path d="M0 8.42188H24" stroke="#CFCFCF" strokeWidth="2" />
-      <rect
-        x="5.45459"
-        y="11.5801"
-        width="2.18182"
-        height="2.52632"
-        fill="#CFCFCF"
-      />
-      <rect
-        x="16.3638"
-        y="16.6318"
-        width="2.18182"
-        height="2.52632"
-        fill="#CFCFCF"
-      />
-      <rect
-        x="10.9092"
-        y="16.6318"
-        width="2.18182"
-        height="2.52632"
-        fill="#CFCFCF"
-      />
-      <rect
-        x="5.45459"
-        y="16.6318"
-        width="2.18182"
-        height="2.52632"
-        fill="#CFCFCF"
-      />
-      <rect
-        x="16.3638"
-        y="11.5801"
-        width="2.18182"
-        height="2.52632"
-        fill="#CFCFCF"
-      />
-      <rect
-        x="10.9092"
-        y="11.5801"
-        width="2.18182"
-        height="2.52632"
-        fill="#CFCFCF"
-      />
-      <line
-        x1="7.5"
-        y1="5.21094"
-        x2="7.5"
-        y2="0.210938"
-        stroke="#CFCFCF"
-        strokeWidth="3"
-      />
-      <line x1="15.9546" y1="5" x2="15.9546" stroke="#CFCFCF" strokeWidth="3" />
+      <path d="M0 12.4365H24" stroke="#CFCFCF" strokeWidth="2" />
+      <path d="M7.5 8.55957V0.999995" stroke="#CFCFCF" strokeWidth="3" />
+      <path d="M16 8.36523L15.9546 0.999863" stroke="#CFCFCF" strokeWidth="3" />
     </svg>
   );
 };

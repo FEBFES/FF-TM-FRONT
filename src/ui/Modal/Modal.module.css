@@ -14,7 +14,7 @@
   min-width: 300px;
   min-height: 50px;
   border-radius: 14px;
-  background: white;
+  background: var(--bg-0);
   position: absolute;
   left: 50%;
   top: 50%;
@@ -37,10 +37,11 @@
   align-items: center;
 }
 
-.cont__header-title {
+.cont__headerTitle {
   margin: 0;
   font-size: 20px;
   font-weight: 400;
+  color: var(--font-defautl);
 }
 
 .show {

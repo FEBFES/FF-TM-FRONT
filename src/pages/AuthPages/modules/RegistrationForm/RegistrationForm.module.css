@@ -9,28 +9,28 @@
   margin: 0;
   font-size: 24px;
   font-weight: 600;
+  color: var(--font-defautl);
 }
 
 .regform__btn {
   align-self: center;
   width: 70%;
   padding: 15px 0;
-  margin: 20px 0 0;
+  margin: 20px 0 0 !important;
 }
 
-.btn-link-login {
-  margin-top: 40px;
+.btnLinkLogin {
+  margin-top: 30px;
   font-size: 16px;
-  color: rgba(0, 0, 0, 0.51);
+  color: var(--font-defautl);
   display: flex;
   align-items: center;
   justify-content: center;
-
-  & > span {
-    margin-right: 10px;
-  }
-
-  & > a {
-    text-decoration: underline;
-  }
+}
+.btnLinkLogin > span {
+  margin-right: 10px;
+}
+.btnLinkLogin > a {
+  text-decoration: underline;
+  color: var(--font-gray);
 }

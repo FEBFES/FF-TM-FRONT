@@ -8,7 +8,6 @@ import { useTypedSelector } from '../../hooks/redux';
 
 export const App = () => {
   const isAuth = useTypedSelector((state) => state.auth.isAuth);
-
   return (
     <div className={styles.App}>
       <Routes>
