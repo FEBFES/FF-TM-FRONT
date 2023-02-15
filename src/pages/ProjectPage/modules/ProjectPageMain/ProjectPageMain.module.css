@@ -1,5 +1,5 @@
 .projMain {
-  background: #f5f5f5;
+  background: var(--bg-100);
   width: 100%;
 }
 

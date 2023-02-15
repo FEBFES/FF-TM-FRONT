@@ -4,13 +4,14 @@
   justify-content: space-between;
   align-items: center;
   height: 10vh;
-  background: white;
-  border-bottom: 2px solid #f7f6f8;
+  background: var(--bg-0);
+  border-bottom: 2px solid var(--bg-border);
 }
 .header > div > h1 {
   margin: 0;
   font-weight: 500;
   font-size: 24px;
+  color: var(--font-defautl);
 }
 .header > div > h2 {
   margin: 0;
@@ -34,12 +35,12 @@
   cursor: pointer;
   font-size: 16px;
   font-weight: 500;
-  color: #444444;
+  color: var(--font-gray);
 }
 .breadcrumbs > h2:hover {
   cursor: pointer;
-  color: #444444;
-  border-bottom: 1px solid lightgrey;
+  color: var(--font-gray);
+  border-bottom: 1px solid var(--bg-border);
 }
 
 .breadcrumbs > p {
@@ -47,5 +48,5 @@
   margin-left: 5px;
   margin-right: 5px;
   font-size: 16px;
-  color: #c9c9c9;
+  color: var(--font-gray);
 }

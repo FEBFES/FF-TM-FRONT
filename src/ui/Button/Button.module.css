@@ -45,6 +45,11 @@
   color: #ffffff;
 }
 
+.buttonDanger {
+  color: #ff0000;
+  background: #eac4c4;
+}
+
 /*Outline type*/
 .buttonOutline {
   background: transparent;

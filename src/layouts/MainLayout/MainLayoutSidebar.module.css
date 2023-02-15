@@ -10,12 +10,12 @@
   top: 0;
   bottom: 0;
   z-index: var(--z-index-mainLay-sidebar);
-  background: white;
-  border-right: 1px solid #f7f6f8;
+  background: var(--bg-0);
+  border-right: 1px solid var(--bg-border);
 }
 
 .sidebar__header {
-  padding: 20px;
+  margin-top: 40px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -56,10 +56,10 @@
   margin-bottom: 0;
 }
 .link:hover .link > svg > line,
-path,
-circle,
-rect {
-  stroke: rgba(0, 0, 0, 0.37);
+.link > svg > path,
+.link > svg > circle,
+.link > svg > rect {
+  stroke: var(--font-gray);
 }
 .link > svg {
   width: 20px;
@@ -70,7 +70,7 @@ rect {
 .linkActive > svg > path,
 .linkActive > svg > circle,
 .linkActive > svg > rect {
-  stroke: black;
+  stroke: var(--font-gray);
 }
 
 .linkActive::before {
@@ -81,5 +81,5 @@ rect {
   bottom: -10px;
   width: 4px;
   border-radius: 0 5px 5px 0;
-  background: #000;
+  background: var(--font-defautl);
 }

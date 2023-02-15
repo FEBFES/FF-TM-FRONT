@@ -31,7 +31,7 @@ export const Button: React.FC<ButtonProps> = ({
   }
   return (
     <button
-      className={classNames(className, {
+      className={classNames(`${className}`, {
         [styles.buttonSubmit]: type === 'submit',
         [styles.buttonOutline]: type === 'outline',
         [styles.buttonDanger]: type === 'danger',

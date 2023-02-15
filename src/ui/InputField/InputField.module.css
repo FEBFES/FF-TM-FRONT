@@ -14,13 +14,14 @@
   border-radius: 8px;
   padding: 0 10px;
   font-size: 14px;
+  color: var(--font-defautl);
 }
 .input:hover {
   border: 1px solid #b2b2b2;
 }
 
 .label {
-  color: #8f8f8f;
+  color: var(--font-gray);
   transition: 0.4s;
   position: absolute;
   top: 50%;

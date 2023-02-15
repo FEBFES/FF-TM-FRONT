@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './MainLayoutSidebar.module.css';
 import { Link, useLocation } from 'react-router-dom';
-import { LogoIcon } from '../../assets/icons/LogoIcon';
 import { useAppDispatch } from '../../hooks/redux';
 import { setIsAuth } from '../../pages/AuthPages/store/auth.slice';
 import {
@@ -12,6 +11,9 @@ import {
   TeamIcon,
   TimeLineIcon,
 } from '../../assets/icons/SidebarIcons';
+import { useTheme } from '../../hooks/useTheme';
+import { LogoIconLight } from '../../assets/icons/LogoIconLight';
+import { LogoIconDark } from '../../assets/icons/LogoIconDark';
 
 const links = [
   {
@@ -44,11 +46,12 @@ const links = [
 export const MainLayoutSidebar: React.FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const location = useLocation();
+  const { theme } = useTheme();
 
   return (
     <div className={styles.sidebar}>
       <div className={styles.sidebar__header}>
-        <LogoIcon />
+        {theme === 'dark' ? <LogoIconDark /> : <LogoIconLight />}
       </div>
 
       <ul className={styles.sidebar__main}>

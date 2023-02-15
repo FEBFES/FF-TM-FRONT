@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import styles from './ProjectPageHeader.module.css';
 import { useTypedSelector } from '../../../../hooks/redux';
 import { AddColModal } from '../../components/AddColModal/AddColModal';
-import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom';
 import { appRoutsPath } from '../../../../routing/routs';
+import { useTheme } from '../../../../hooks/useTheme';
+import { Switcher } from '../../../../ui/Switcher/Switcher';
 
 export const ProjectPageHeader: React.FC = (): JSX.Element => {
   const { projectName, projectDesc } = useTypedSelector(
@@ -13,6 +13,7 @@ export const ProjectPageHeader: React.FC = (): JSX.Element => {
   );
   const [showAddColModal, setShowAddColModal] = useState(false);
   const navigate = useNavigate();
+  const { changeTheme, theme } = useTheme();
 
   return (
     <header className={styles.header}>
@@ -28,11 +29,7 @@ export const ProjectPageHeader: React.FC = (): JSX.Element => {
       </div>
 
       <div className={styles.header__right}>
-        <FontAwesomeIcon
-          size={'lg'}
-          icon={faEllipsisV}
-          onClick={() => setShowAddColModal(true)}
-        />
+        <Switcher isActive={theme === 'dark'} onClick={changeTheme} />
       </div>
       <AddColModal show={showAddColModal} setShow={setShowAddColModal} />
     </header>

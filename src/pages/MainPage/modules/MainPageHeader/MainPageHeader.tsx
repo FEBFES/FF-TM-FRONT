@@ -9,18 +9,12 @@ export const MainPageHeader: React.FC<
   MainPageHeaderProps
 > = (): JSX.Element => {
   const [show, setShow] = useState(false);
-
   return (
     <header className={styles.mainPage__header}>
       <span className={styles.page__title}>Projects</span>
-      <Button
-        className={styles.page__addBtn}
-        type={'outline'}
-        onClick={() => setShow(true)}
-      >
+      <Button type={'submit'} onClick={() => setShow(true)}>
         add
       </Button>
-
       <AddNewProjModal show={show} setShow={setShow} />
     </header>
   );
