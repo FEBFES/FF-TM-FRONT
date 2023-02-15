@@ -5,9 +5,12 @@ import { appRouts, privateRoutes } from '../../routing/routs';
 import { ToastCont } from '../Toast/Toast';
 import { EmptyLayout } from '../../layouts/EmptyLayout/EmptyLayout';
 import { useTypedSelector } from '../../hooks/redux';
+import { NotFoundPage } from '../../pages/404/NotFoundPage';
+import { useTheme } from '../../hooks/useTheme';
 
 export const App = () => {
   const isAuth = useTypedSelector((state) => state.auth.isAuth);
+  useTheme();
   return (
     <div className={styles.App}>
       <Routes>
@@ -42,7 +45,7 @@ export const App = () => {
           path="*"
           element={
             <EmptyLayout pageTitle={'No Found Page'}>
-              <h1>No Found Page</h1>
+              <NotFoundPage />
             </EmptyLayout>
           }
         />
