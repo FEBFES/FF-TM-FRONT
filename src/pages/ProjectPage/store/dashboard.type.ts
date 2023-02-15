@@ -5,6 +5,7 @@ export interface IDashboard {
 }
 
 export interface IColumns {
+  projectId: number;
   id: number;
   name: string;
   order: number;

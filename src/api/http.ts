@@ -27,7 +27,7 @@ instance.interceptors.response.use(
     return response;
   },
   (error) => {
-    if (error.response.status === 403) {
+    if (error.response.status === 401) {
       store.dispatch(setIsAuth(false));
       window.location.pathname = '/Login';
       localStorage.clear();
