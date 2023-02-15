@@ -3,26 +3,36 @@ import { instance } from '../../../api/http';
 import { AxiosError } from 'axios';
 import { addToast } from '../../../store/slices/AppSlice';
 import { v4 } from 'uuid';
-import {addTaskToCol, delTaskFromCol} from "./dashboard.slice";
-import {IColumns, ITask} from "./dashboard.type";
+import { addTaskToCol, delTaskFromCol } from './dashboard.slice';
+import { IColumns, ITask } from './dashboard.type';
 
 // Change task
-export const fetchChangeTask = createAsyncThunk('' +
-    'projects/fetchChangeTask',
-    async (data: {curDragTask: ITask, col: IColumns},{rejectWithValue, dispatch} ) => {
+export const fetchChangeTask = createAsyncThunk(
+  'projects/fetchChangeTask',
+  async (
+    data: { curDragTask: ITask; col: IColumns },
+    { rejectWithValue, dispatch }
+  ) => {
     try {
-        const res = await instance.put(`/projects/${data.col.projectId}/columns/${data.col.id}/tasks/${data.curDragTask.id}`, {
-            columnId: data.col.id
-        });
-
-        if (res.status === 200) {
-            dispatch(delTaskFromCol(data.curDragTask));
-            dispatch(addTaskToCol({ colId: data.col.id, task: data.curDragTask }));
+      const res = await instance.put(
+        `/projects/${data.col.projectId}/columns/${data.col.id}/tasks/${data.curDragTask.id}`,
+        {
+          columnId: data.col.id,
+          id: data.curDragTask.id,
+          description: data.curDragTask.description,
+          name: data.curDragTask.id,
         }
+      );
+
+      if (res.status === 200) {
+        dispatch(delTaskFromCol(data.curDragTask));
+        dispatch(addTaskToCol({ colId: data.col.id, task: data.curDragTask }));
+      }
     } catch (e) {
-        return rejectWithValue(e as Error)
+      return rejectWithValue(e as Error);
     }
-})
+  }
+);
 
 //Get project info
 export const fetchProjectInfo = createAsyncThunk(
