@@ -1,5 +1,5 @@
 import React from 'react';
-import './Button.scss';
+import styles from './Button.module.css';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -20,7 +20,7 @@ export const Button: React.FC<ButtonProps> = ({
   if (type === 'close') {
     return (
       <button
-        className={'button-close'}
+        className={styles.buttonClose}
         onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
           onClick ? onClick(e) : {}
         }
@@ -31,7 +31,12 @@ export const Button: React.FC<ButtonProps> = ({
   }
   return (
     <button
-      className={classNames(`${className} button-${type}`, {})}
+      className={classNames(className, {
+        [styles.buttonSubmit]: type === 'submit',
+        [styles.buttonOutline]: type === 'outline',
+        [styles.buttonDanger]: type === 'danger',
+        [styles.buttonDefault]: type === 'default',
+      })}
       onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
         onClick ? onClick(e) : {}
       }

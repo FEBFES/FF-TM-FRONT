@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './MainPageHeader.scss';
+import styles from './MainPageHeader.module.css';
 import { AddNewProjModal } from '../../components/AddNewProjModal/AddNewProjModal';
 import { Button } from '../../../../ui/Button/Button';
 
@@ -11,9 +11,13 @@ export const MainPageHeader: React.FC<
   const [show, setShow] = useState(false);
 
   return (
-    <header className={'mainPage__header'}>
-      <span className={'page__title'}>Projects</span>
-      <Button type={'outline'} onClick={() => setShow(true)}>
+    <header className={styles.mainPage__header}>
+      <span className={styles.page__title}>Projects</span>
+      <Button
+        className={styles.page__addBtn}
+        type={'outline'}
+        onClick={() => setShow(true)}
+      >
         add
       </Button>
 

@@ -25,45 +25,41 @@
 .task__header {
   display: flex;
   position: relative;
+}
+.task__header > h4 {
+  font-weight: bold;
+  font-size: 14px;
+}
 
-  & > h4 {
-    font-weight: bold;
-    font-size: 14px;
-  }
-
-  .delete__btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: none;
-    padding: 4px;
-    border-radius: 5px;
-    transition: 0.4s;
-    color: #b9b9b9;
-
-    &:hover {
-      cursor: pointer;
-      transform: scale(1.1);
-    }
-  }
+.delete__btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  padding: 4px;
+  border-radius: 5px;
+  transition: 0.4s;
+  color: #b9b9b9;
+}
+.delete__btn:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 
 .task__main {
   margin-top: 12px;
   word-wrap: break-word;
-
-  & > h1 {
-    margin: 0;
-    font-weight: 600;
-    font-size: 16px;
-    color: #545454;
-  }
-
-  & > h2 {
-    font-weight: 200;
-    font-size: 14px;
-    color: #5e5e5e;
-  }
+}
+.task__main > h1 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 16px;
+  color: #545454;
+}
+.task__main > h2 {
+  font-weight: 200;
+  font-size: 14px;
+  color: #5e5e5e;
 }
 
 .task__footer {
@@ -74,15 +70,13 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-
-  & > div {
-    display: flex;
-    align-items: center;
-    margin-left: 10px;
-
-    & > span {
-      font-size: 12px;
-      margin-left: 5px;
-    }
-  }
+}
+.task__footer > div {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+.task__footer > div > span {
+  font-size: 12px;
+  margin-left: 5px;
 }

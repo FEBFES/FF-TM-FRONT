@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.scss';
+import styles from './App.module.css';
 import { Routes, Route } from 'react-router-dom';
 import { appRouts, privateRoutes } from '../../routing/routs';
 import { ToastCont } from '../Toast/Toast';
@@ -10,7 +10,7 @@ export const App = () => {
   const isAuth = useTypedSelector((state) => state.auth.isAuth);
 
   return (
-    <div className="App">
+    <div className={styles.App}>
       <Routes>
         {isAuth
           ? privateRoutes.map((route, i) => {

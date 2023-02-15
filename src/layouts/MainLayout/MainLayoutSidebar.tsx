@@ -1,5 +1,5 @@
 import React from 'react';
-import './MainLayoutSidebar.scss';
+import styles from './MainLayoutSidebar.module.css';
 import { Link, useLocation } from 'react-router-dom';
 import { LogoIcon } from '../../assets/icons/LogoIcon';
 import { useAppDispatch } from '../../hooks/redux';
@@ -46,18 +46,18 @@ export const MainLayoutSidebar: React.FC = (): JSX.Element => {
   const location = useLocation();
 
   return (
-    <div className={'sidebar'}>
-      <div className={'sidebar__header'}>
+    <div className={styles.sidebar}>
+      <div className={styles.sidebar__header}>
         <LogoIcon />
       </div>
 
-      <ul className={'sidebar__main'}>
+      <ul className={styles.sidebar__main}>
         {links.map((link, i) => {
           return (
             <Link
               key={i}
-              className={`link ${
-                link.to === location.pathname && 'linkActive'
+              className={`${styles.link} ${
+                link.to === location.pathname && styles.linkActive
               }`}
               to={link.to}
             >
@@ -67,10 +67,10 @@ export const MainLayoutSidebar: React.FC = (): JSX.Element => {
         })}
       </ul>
 
-      <footer className={'sidebar__footer'}>
+      <footer className={styles.sidebar__footer}>
         <Link
           onClick={() => dispatch(setIsAuth(false))}
-          className={'link'}
+          className={styles.link}
           to={'/Login'}
         >
           <LeaveIcon />

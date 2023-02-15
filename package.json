@@ -13,7 +13,6 @@
     "eslint": "^8.32.0",
     "eslint-config-prettier": "^8.6.0",
     "lighthouse": "^9.6.8",
-    "node-sass": "^7.0.3",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

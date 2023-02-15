@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './AddNewProjModal.scss';
+import styles from './AddNewProjModal.module.css';
 import { fetchAddProject } from '../../store/projects.thunk';
 import { InputField } from '../../../../ui/InputField/InputField';
 import { Modal } from '../../../../ui/Modal/Modal';
@@ -25,7 +25,7 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
       show={show}
       setShow={setShow}
     >
-      <div className={'projCont'}>
+      <div className={styles.projCont}>
         <InputField
           type={'text'}
           label={'Project name'}

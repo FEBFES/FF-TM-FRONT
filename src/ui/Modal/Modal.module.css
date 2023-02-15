@@ -1,5 +1,3 @@
-@import "src/assets/styles/variables";
-
 .wrap {
   position: fixed;
   left: 0;
@@ -7,11 +5,11 @@
   right: 0;
   bottom: 0;
   background: rgba(5, 5, 5, 0.5);
-  z-index: $z-index-modalWrap;
+  z-index: var(--z-index-modalWrap);
 }
 
 .cont {
-  z-index: $z-index-modalCont;
+  z-index: var(--z-index-modalCont);
   padding: 30px 15px 10px;
   min-width: 300px;
   min-height: 50px;

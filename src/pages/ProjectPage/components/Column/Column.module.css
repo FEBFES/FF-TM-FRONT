@@ -8,10 +8,9 @@
   max-width: 240px;
   margin-right: 10px;
   padding: 5px;
-
-  &:last-of-type {
-    margin-right: 0;
-  }
+}
+.colWrap:last-of-type {
+  margin-right: 0;
 }
 
 .col__header {
@@ -21,10 +20,9 @@
   width: 100%;
   margin-top: 10px;
   margin-bottom: 10px;
-
-  svg {
-    cursor: pointer;
-  }
+}
+.col__header > svg {
+  cursor: pointer;
 }
 
 .col {

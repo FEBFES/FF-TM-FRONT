@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './LoginForm.scss';
+import styles from './LoginForm.module.css';
 import { InputField } from '../../../../ui/InputField/InputField';
 import { Button } from '../../../../ui/Button/Button';
 import { useNavigate } from 'react-router-dom';
@@ -32,8 +32,8 @@ export const LoginForm: React.FC<LoginFormProps> = (): JSX.Element => {
   };
 
   return (
-    <div className={'loginForm'}>
-      <h1 className={'title'}>Sign in</h1>
+    <div className={styles.loginForm}>
+      <h1 className={styles.title}>Sign in</h1>
       <InputField
         type={'text'}
         label={'Username'}
@@ -46,16 +46,20 @@ export const LoginForm: React.FC<LoginFormProps> = (): JSX.Element => {
         value={inputData.password}
         onChange={(e) => changeHandle(e, 'password')}
       />
-      <Button onClick={submitHandler} className={'btn-submit'} type={'submit'}>
+      <Button
+        onClick={submitHandler}
+        className={styles.btnSubmit}
+        type={'submit'}
+      >
         Sign in
       </Button>
 
-      <div className={'line'} />
+      <div className={styles.line} />
       <Button
         onClick={() => {
           navigate('/Registration');
         }}
-        className={'btn-new-acc'}
+        className={styles.btnNewAcc}
         type={'outline'}
       >
         Create new account

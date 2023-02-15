@@ -1,6 +1,6 @@
 @import "normalize.css";
-@import "theme.scss";
-@import "variables.scss";
+@import "theme.css";
+@import "variables.css";
 
 * {
   padding: 0;

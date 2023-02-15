@@ -1,5 +1,5 @@
 import React from 'react';
-import './ProjectPageSubheader.scss';
+import styles from './ProjectPageSubheader.module.css';
 import { ArrowIcon } from '../../../../assets/icons/UtilsIcons';
 
 interface TableViewControllerProps {}
@@ -8,34 +8,34 @@ export const ProjectPageSubheader: React.FC<
   TableViewControllerProps
 > = (): JSX.Element => {
   return (
-    <div className={'subheader'}>
-      <div>
-        <span>TimeLine:</span>
-        <p>May 9, 2022 - June 9, 2022</p>
+    <div className={styles.subheader}>
+      <div className={styles.sort}>
+        <span className={styles.sort__type}>TimeLine:</span>
+        <p className={styles.sort__value}>May 9, 2022 - June 9, 2022</p>
         <ArrowIcon />
       </div>
 
-      <div>
-        <span>Status:</span>
-        <p>Done</p>
+      <div className={styles.sort}>
+        <span className={styles.sort__type}>Status:</span>
+        <p className={styles.sort__value}>Done</p>
         <ArrowIcon />
       </div>
 
-      <div>
-        <span>Priority:</span>
-        <p>High</p>
+      <div className={styles.sort}>
+        <span className={styles.sort__type}>Priority:</span>
+        <p className={styles.sort__value}>High</p>
         <ArrowIcon />
       </div>
 
-      <div>
-        <span>Type:</span>
-        <p>Feature</p>
+      <div className={styles.sort}>
+        <span className={styles.sort__type}>Type:</span>
+        <p className={styles.sort__value}>Feature</p>
         <ArrowIcon />
       </div>
 
-      <div>
-        <span>Assigned:</span>
-        <p>Denis Bitaev</p>
+      <div className={styles.sort}>
+        <span className={styles.sort__type}>Assigned:</span>
+        <p className={styles.sort__value}>Denis Bitaev</p>
         <ArrowIcon />
       </div>
     </div>
