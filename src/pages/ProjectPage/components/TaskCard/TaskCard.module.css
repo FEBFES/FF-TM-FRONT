@@ -1,0 +1,83 @@
+.taskWrap {
+  transition: 0.4s;
+  width: 100%;
+}
+
+.task {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  font-family: "Apple SD Gothic Neo", serif;
+  background: var(--bg-0);
+  margin-bottom: 10px;
+  width: 240px;
+  border-radius: 10px;
+  padding: 15px 10px 0;
+  min-height: min-content;
+  height: min-content;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+}
+
+.drag {
+  border: 1px dashed #979797;
+  opacity: 0.4;
+}
+.task__header {
+  display: flex;
+  position: relative;
+}
+.task__header > h4 {
+  font-weight: bold;
+  font-size: 14px;
+  color: var(--font-defautl);
+}
+
+.delete__btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  padding: 4px;
+  border-radius: 5px;
+  transition: 0.4s;
+  color: #b9b9b9;
+}
+.delete__btn:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.task__main {
+  margin-top: 12px;
+  word-wrap: break-word;
+}
+.task__main > h1 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--font-gray);
+}
+.task__main > h2 {
+  font-weight: 200;
+  font-size: 14px;
+  color: var(--font-gray);
+}
+
+.task__footer {
+  margin-top: 5px;
+  color: var(--font-gray);
+  border-top: 1px solid var(--bg-border);
+  padding: 10px 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.task__footer > div {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+.task__footer > div > span {
+  font-size: 12px;
+  margin-left: 5px;
+}

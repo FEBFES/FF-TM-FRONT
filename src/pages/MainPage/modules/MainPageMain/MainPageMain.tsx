@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import './MainPageMain.scss';
+import styles from './MainPageMain.module.css';
 import { fetchProjects } from '../../store/projects.thunk';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { IProject } from '../../store/projects.type';
 import { ProjectCard } from '../../components/ProjectCard/ProjectCard';
+import { v4 } from 'uuid';
 
 interface MainPageMainProps {}
 
@@ -21,9 +22,9 @@ export const MainPageMain: React.FC<MainPageMainProps> = (): JSX.Element => {
   }, [projects]);
 
   return (
-    <div className={'projectCont'}>
+    <div className={styles.projectCont}>
       {localProjects?.map((proj) => {
-        return <ProjectCard proj={proj} />;
+        return <ProjectCard key={v4()} proj={proj} />;
       })}
     </div>
   );

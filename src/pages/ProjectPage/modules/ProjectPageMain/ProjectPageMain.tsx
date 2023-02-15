@@ -6,22 +6,29 @@ import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { clearDashboardSlice } from '../../store/dashboard.slice';
 import {
   fetchAddNewTask,
+  fetchDelCol,
   fetchDelTask,
   fetchProjectDashboard,
+  fetchProjectInfo,
 } from '../../store/dashboard.thunk';
-import './ProjectPageMain.scss';
+import styles from './ProjectPageMain.module.css';
 import { Column } from '../../components/Column/Column';
 import { v4 } from 'uuid';
+import { ProjectPageSubheader } from '../ProjectPageSubheader/ProjectPageSubheader';
 
 export const ProjectPageMain: React.FC = (): JSX.Element => {
   const params = useParams();
   const dispatch = useAppDispatch();
-  const columns = useTypedSelector((state) => state.projectColumns.columns);
+  const columns = useTypedSelector((state) => state.projectDashboard.columns);
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
   const [curCol, setCurCol] = useState<number | null>(null);
+  const [curDragTask, setCurDragTask] = useState<any>(null);
 
   useEffect(() => {
-    params.id && dispatch(fetchProjectDashboard(params.id));
+    if (params.id) {
+      dispatch(fetchProjectDashboard(params.id));
+      dispatch(fetchProjectInfo(params.id));
+    }
 
     return () => {
       dispatch(clearDashboardSlice());
@@ -40,19 +47,29 @@ export const ProjectPageMain: React.FC = (): JSX.Element => {
     params.id && dispatch(fetchDelTask({ projId: params.id, colId, taskId }));
   };
 
+  const deleteColumnHandler = (colId: number) => {
+    params.id && dispatch(fetchDelCol({ projId: params.id, colId: colId }));
+  };
+
   return (
-    <div className={'col-cont'}>
-      {columns.map((col: IColumns) => {
-        return (
-          <Column
-            key={v4()}
-            col={col}
-            delTask={deleteTaskHandler}
-            setCurCol={setCurCol}
-            setShowAddTaskModal={setShowAddTaskModal}
-          />
-        );
-      })}
+    <div className={styles.projMain}>
+      <ProjectPageSubheader />
+      <div className={styles.colCont}>
+        {columns.map((col: IColumns) => {
+          return (
+            <Column
+              setCurDragTask={setCurDragTask}
+              key={v4()}
+              col={col}
+              delTask={deleteTaskHandler}
+              setCurCol={setCurCol}
+              curDragTask={curDragTask}
+              setShowAddTaskModal={setShowAddTaskModal}
+              delCol={deleteColumnHandler}
+            />
+          );
+        })}
+      </div>
 
       <AddTaskModal
         show={showAddTaskModal}

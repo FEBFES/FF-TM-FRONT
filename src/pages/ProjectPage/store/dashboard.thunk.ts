@@ -1,6 +1,54 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../../api/http';
 import { AxiosError } from 'axios';
+import { addToast } from '../../../store/slices/AppSlice';
+import { v4 } from 'uuid';
+import { addTaskToCol, delTaskFromCol } from './dashboard.slice';
+import { IColumns, ITask } from './dashboard.type';
+
+// Change task
+export const fetchChangeTask = createAsyncThunk(
+  'projects/fetchChangeTask',
+  async (
+    data: { curDragTask: ITask; col: IColumns },
+    { rejectWithValue, dispatch }
+  ) => {
+    try {
+      const res = await instance.put(
+        `/projects/${data.col.projectId}/columns/${data.col.id}/tasks/${data.curDragTask.id}`,
+        {
+          columnId: data.col.id,
+          id: data.curDragTask.id,
+          description: data.curDragTask.description,
+          name: data.curDragTask.id,
+        }
+      );
+
+      if (res.status === 200) {
+        dispatch(delTaskFromCol(data.curDragTask));
+        dispatch(addTaskToCol({ colId: data.col.id, task: data.curDragTask }));
+      }
+    } catch (e) {
+      return rejectWithValue(e as Error);
+    }
+  }
+);
+
+//Get project info
+export const fetchProjectInfo = createAsyncThunk(
+  'projects/fetchProjectInfo',
+  async (projId: string, { rejectWithValue }) => {
+    try {
+      const res = await instance.get(`/projects/${projId}`);
+
+      if (res.status === 200) {
+        return res.data;
+      }
+    } catch (err) {
+      return rejectWithValue(err as Error);
+    }
+  }
+);
 
 //Get project dashboard
 export const fetchProjectDashboard = createAsyncThunk(
@@ -27,7 +75,7 @@ export const fetchAddNewTask = createAsyncThunk(
       projId,
       colId,
     }: { name: string; description: string; projId: string; colId: number },
-    { rejectWithValue }
+    { rejectWithValue, dispatch }
   ) => {
     try {
       const res = await instance.post(
@@ -42,6 +90,14 @@ export const fetchAddNewTask = createAsyncThunk(
         return res.data;
       }
     } catch (err) {
+      dispatch(
+        addToast({
+          type: 'error',
+          message: err.message,
+          id: v4(),
+          delay: 3000,
+        })
+      );
       return rejectWithValue(err as AxiosError);
     }
   }
@@ -65,6 +121,52 @@ export const fetchDelTask = createAsyncThunk(
 
       if (res.status === 200) {
         return { colId: colId, taskId: taskId };
+      }
+    } catch (err) {
+      return rejectWithValue(err as AxiosError);
+    }
+  }
+);
+
+// Create new column
+export const fetchAddNewCol = createAsyncThunk(
+  'projects/fetchAddNewCol',
+  async (
+    {
+      name,
+      description,
+      projId,
+    }: { name: string; description: string; projId: string },
+    { rejectWithValue }
+  ) => {
+    try {
+      const res = await instance.post(`projects/${projId}/columns`, {
+        name,
+        description,
+        columnOrder: 0,
+      });
+
+      if (res.status === 200) {
+        return res.data;
+      }
+    } catch (err) {
+      return rejectWithValue(err as AxiosError);
+    }
+  }
+);
+
+// Delete column
+export const fetchDelCol = createAsyncThunk(
+  'projects/fetchDelCol',
+  async (
+    { projId, colId }: { projId: string; colId: number },
+    { rejectWithValue }
+  ) => {
+    try {
+      const res = await instance.delete(`projects/${projId}/columns/${colId}`);
+
+      if (res.status === 200) {
+        return colId;
       }
     } catch (err) {
       return rejectWithValue(err as AxiosError);

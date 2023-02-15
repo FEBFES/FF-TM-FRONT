@@ -1,0 +1,17 @@
+:root[data-theme="dark"] {
+  --bg-100: #0e1216;
+  --bg-border: #0e1216;
+  --bg-0: #151a21;
+
+  --font-defautl: #dcdcdc;
+  --font-gray: #b0b0b0;
+}
+
+:root[data-theme="light"] {
+  --bg-100: #f5f5f5;
+  --bg-border: #eceef1;
+  --bg-0: #ffffff;
+
+  --font-defautl: #000000;
+  --font-gray: #444444;
+}

@@ -1,0 +1,85 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: var(--sideBarWidth);
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: var(--z-index-mainLay-sidebar);
+  background: var(--bg-0);
+  border-right: 1px solid var(--bg-border);
+}
+
+.sidebar__header {
+  margin-top: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sidebar__header > span {
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.sidebar__main {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+.sidebar__footer {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+}
+
+.link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-weight: 400;
+  font-size: 16px;
+  color: #626262;
+  margin-top: 35px;
+  margin-bottom: 0;
+}
+.link:hover .link > svg > line,
+.link > svg > path,
+.link > svg > circle,
+.link > svg > rect {
+  stroke: var(--font-gray);
+}
+.link > svg {
+  width: 20px;
+  height: 20px;
+}
+
+.linkActive > svg > line,
+.linkActive > svg > path,
+.linkActive > svg > circle,
+.linkActive > svg > rect {
+  stroke: var(--font-gray);
+}
+
+.linkActive::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -10px;
+  bottom: -10px;
+  width: 4px;
+  border-radius: 0 5px 5px 0;
+  background: var(--font-defautl);
+}

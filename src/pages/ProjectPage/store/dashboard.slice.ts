@@ -1,25 +1,30 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import {
+  fetchAddNewCol,
   fetchAddNewTask,
+  fetchDelCol,
   fetchDelTask,
   fetchProjectDashboard,
+  fetchProjectInfo,
 } from './dashboard.thunk';
 import { IColumns } from './dashboard.type';
 
-interface IColumnInitialState {
+interface IDashboardInitialState {
   columns: IColumns[];
   projectName: null | string;
   projectDesc: null | string;
   isLoading: boolean;
   errorMsg: string | null;
+  projId: number | null;
 }
 
-const initialState: IColumnInitialState = {
+const initialState: IDashboardInitialState = {
   columns: [],
   projectName: null,
   projectDesc: null,
   isLoading: false,
   errorMsg: null,
+  projId: null,
 };
 
 const DashboardSlice = createSlice({
@@ -29,8 +34,46 @@ const DashboardSlice = createSlice({
     clearDashboardSlice: () => {
       return initialState;
     },
+    delTaskFromCol: (state, action) => {
+      state.columns = state.columns.map((col: IColumns) => {
+        if (col.id === action.payload.columnId) {
+          return {
+            ...col,
+            tasks: col.tasks.filter((task) => task.id !== action.payload.id),
+          };
+        }
+        return col;
+      });
+    },
+    addTaskToCol: (state, action) => {
+      state.columns = state.columns.map((col: IColumns) => {
+        if (col.id === action.payload.colId) {
+          return {
+            ...col,
+            tasks: [
+              ...col.tasks,
+              {
+                ...action.payload.task,
+                columnId: action.payload.colId,
+              },
+            ],
+          };
+        }
+        return col;
+      });
+    },
   },
   extraReducers: (builder) => {
+    //
+    // Get Project info
+    //
+    builder.addCase(fetchProjectInfo.fulfilled, (state, action) => {
+      const { name, description, id } = action.payload;
+
+      state.projectName = name;
+      state.projectDesc = description;
+      state.projId = id;
+    });
     //
     // Get project dashboard (columns)
     //
@@ -41,19 +84,9 @@ const DashboardSlice = createSlice({
       state.isLoading = false;
       state.errorMsg = null;
 
-      const { name, columns, description } = action.payload;
-
+      const { columns } = action.payload;
       state.columns = columns;
-      state.projectName = name;
-      state.projectDesc = description;
     });
-    builder.addCase(
-      fetchProjectDashboard.rejected,
-      (state, action: PayloadAction<any>) => {
-        state.isLoading = false;
-        state.errorMsg = action?.payload?.message;
-      }
-    );
     //
     // Add new task
     //
@@ -84,8 +117,21 @@ const DashboardSlice = createSlice({
         return col;
       });
     });
+    //
+    // Add new column
+    //
+    builder.addCase(fetchAddNewCol.fulfilled, (state, action) => {
+      state.columns.push(action.payload);
+    });
+    //
+    // Delete column
+    //
+    builder.addCase(fetchDelCol.fulfilled, (state, action) => {
+      state.columns = state.columns.filter((col) => col.id !== action.payload);
+    });
   },
 });
 
-export const { clearDashboardSlice } = DashboardSlice.actions;
+export const { clearDashboardSlice, delTaskFromCol, addTaskToCol } =
+  DashboardSlice.actions;
 export default DashboardSlice.reducer;

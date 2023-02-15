@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './AddTaskModal.scss';
+import styles from './AddTaskModal.module.css';
 import { Modal } from '../../../../ui/Modal/Modal';
 import { InputField } from '../../../../ui/InputField/InputField';
 
@@ -24,16 +24,16 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
       setShow={setShow}
       onSubmit={() => onSubmit(name, description)}
     >
-      <div className={'container'}>
+      <div className={styles.container}>
         <InputField
           type={'text'}
-          label={'name'}
+          label={'Task name'}
           value={name}
           onChange={(e: string) => setName(e)}
         />
         <InputField
           type={'text'}
-          label={'desc'}
+          label={'Description'}
           value={description}
           onChange={(e: string) => setDescription(e)}
         />

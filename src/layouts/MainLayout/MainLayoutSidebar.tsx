@@ -1,49 +1,83 @@
 import React from 'react';
-import './MainLayoutSidebar.scss';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import styles from './MainLayoutSidebar.module.css';
+import { Link, useLocation } from 'react-router-dom';
+import { useAppDispatch } from '../../hooks/redux';
+import { setIsAuth } from '../../pages/AuthPages/store/auth.slice';
 import {
-  faF,
-  faHome,
-  faUser,
-  faGear,
-  faTableColumns,
-  faChartLine,
-} from '@fortawesome/free-solid-svg-icons';
+  LeaveIcon,
+  NotificationIcon,
+  ProjectsIcon,
+  SettingsIcon,
+  TeamIcon,
+  TimeLineIcon,
+} from '../../assets/icons/SidebarIcons';
+import { useTheme } from '../../hooks/useTheme';
+import { LogoIconLight } from '../../assets/icons/LogoIconLight';
+import { LogoIconDark } from '../../assets/icons/LogoIconDark';
+
+const links = [
+  {
+    title: 'Projects',
+    icon: ProjectsIcon,
+    to: '/',
+  },
+  {
+    title: 'Timeline',
+    icon: TimeLineIcon,
+    to: '/timeLine',
+  },
+  {
+    title: 'Team',
+    icon: TeamIcon,
+    to: '/team',
+  },
+  {
+    title: 'Notifications',
+    icon: NotificationIcon,
+    to: '/norifications',
+  },
+  {
+    title: 'Settings',
+    icon: SettingsIcon,
+    to: '/settings',
+  },
+];
 
 export const MainLayoutSidebar: React.FC = (): JSX.Element => {
+  const dispatch = useAppDispatch();
+  const location = useLocation();
+  const { theme } = useTheme();
+
   return (
-    <div className={'sidebar'}>
-      <div className={'d-flex'}>
-        <FontAwesomeIcon size={'lg'} icon={faF} />
+    <div className={styles.sidebar}>
+      <div className={styles.sidebar__header}>
+        {theme === 'dark' ? <LogoIconDark /> : <LogoIconLight />}
       </div>
-      <ul>
-        <li>
-          <Link to={'/'}>
-            <FontAwesomeIcon size={'lg'} icon={faHome} />
-          </Link>
-        </li>
-        <li>
-          <Link to={'/'}>
-            <FontAwesomeIcon size={'lg'} icon={faTableColumns} />
-          </Link>
-        </li>
-        <li>
-          <Link to={'/'}>
-            <FontAwesomeIcon size={'lg'} icon={faChartLine} />
-          </Link>
-        </li>
-        <li>
-          <Link to={'/'}>
-            <FontAwesomeIcon size={'lg'} icon={faGear} />
-          </Link>
-        </li>
+
+      <ul className={styles.sidebar__main}>
+        {links.map((link, i) => {
+          return (
+            <Link
+              key={i}
+              className={`${styles.link} ${
+                link.to === location.pathname && styles.linkActive
+              }`}
+              to={link.to}
+            >
+              <link.icon />
+            </Link>
+          );
+        })}
       </ul>
 
-      <footer>
-        <div className={'footer__avatar'}>
-          <FontAwesomeIcon size={'xl'} icon={faUser} />
-        </div>
+      <footer className={styles.sidebar__footer}>
+        <Link
+          onClick={() => dispatch(setIsAuth(false))}
+          className={styles.link}
+          to={'/Login'}
+        >
+          <LeaveIcon />
+        </Link>
       </footer>
     </div>
   );

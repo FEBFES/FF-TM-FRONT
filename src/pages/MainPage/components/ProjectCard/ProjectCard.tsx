@@ -1,11 +1,12 @@
 import React from 'react';
-import './ProjectCard.scss';
+import styles from './ProjectCard.module.css';
 import { IProject } from '../../store/projects.type';
 import { appRoutsPath } from '../../../../routing/routs';
 import { v4 } from 'uuid';
 import { fetchDelProject } from '../../store/projects.thunk';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../../hooks/redux';
+import { Button } from '../../../../ui/Button/Button';
 
 interface ProjectCardProps {
   proj: IProject;
@@ -23,20 +24,21 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         navigate(appRoutsPath.KanbanPage.to + proj.id);
       }}
       key={v4()}
-      className={'project-card'}
+      className={styles.projectCard}
     >
-      <h3 className={'card__title'}>{proj.name}</h3>
-      <p className={'card__subtitle'}>{proj.description}</p>
-      <div className={'line'} />
-      <button
+      <h3 className={styles.card__title}>{proj.name}</h3>
+      <p className={styles.card__subtitle}>{proj.description}</p>
+      <div className={styles.line} />
+      <Button
+        type={'danger'}
         onClick={(e) => {
           e.stopPropagation();
           dispatch(fetchDelProject(proj.id));
         }}
-        className={'del__btn'}
+        className={styles.del__btn}
       >
         delete
-      </button>
+      </Button>
     </div>
   );
 };

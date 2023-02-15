@@ -1,0 +1,15 @@
+.emptyLayout {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background: var(--bg-0);
+}
+
+.logo {
+  position: absolute;
+  left: 20px;
+  top: 30px;
+}

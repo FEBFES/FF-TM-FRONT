@@ -1,14 +1,35 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { IToast } from '../../components/Toast/Toast';
 
-interface IAppSlice {}
+type theme = 'dark' | 'light';
 
-const initialState: IAppSlice = {};
+interface IAppSlice {
+  toasts: IToast[];
+  theme: theme;
+}
+
+const initialState: IAppSlice = {
+  toasts: [],
+  theme: (localStorage.getItem('theme') as theme)
+    ? (localStorage.getItem('theme') as theme)
+    : 'light',
+};
 
 export const AppSlice = createSlice({
   name: 'appSlice',
   initialState,
-  reducers: {},
+  reducers: {
+    addToast: (state, action: PayloadAction<IToast>) => {
+      state.toasts.push(action.payload);
+    },
+    delToast: (state: IAppSlice, action: PayloadAction<string>) => {
+      state.toasts = state.toasts.filter((el) => el.id !== action.payload);
+    },
+    changeAppTheme: (state, action) => {
+      state.theme = action.payload;
+    },
+  },
 });
 
-// export const {} = AppSlice.actions;
+export const { addToast, delToast, changeAppTheme } = AppSlice.actions;
 export default AppSlice.reducer;

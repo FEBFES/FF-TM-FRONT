@@ -1,0 +1,10 @@
+.mainLay {
+  display: flex;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+.page {
+  min-height: 100%;
+  width: calc(100vw - var(--sideBarWidth));
+  margin-left: var(--sideBarWidth);
+}

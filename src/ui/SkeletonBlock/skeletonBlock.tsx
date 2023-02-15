@@ -1,5 +1,5 @@
 import React from 'react';
-import './skeletonBlock.scss';
+import styles from './skeletonBlock.module.css';
 import { v4 } from 'uuid';
 
 interface ISkeletonBlockProps {
@@ -16,7 +16,7 @@ export const SkeletonBlock: React.FC<ISkeletonBlockProps> = ({
   const arr = new Array(itemsCount).fill(0);
 
   return (
-    <div className={'skeleton-cont'}>
+    <div className={styles.skeletonCont}>
       {arr.map(() => {
         return <SkeletonItem key={v4()} width={width} height={height} />;
       })}
@@ -30,7 +30,7 @@ const SkeletonItem: React.FC<{ width: number; height: number }> = ({
 }): JSX.Element => {
   return (
     <div
-      className={'skeleton-item'}
+      className={styles.skeletonItem}
       style={{
         height: height + 'px',
         width: width + 'px',

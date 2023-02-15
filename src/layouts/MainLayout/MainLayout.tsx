@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { MainLayoutSidebar } from './MainLayoutSidebar';
-import './MainLayout.scss';
+import styles from './MainLayout.module.css';
 
 type MainLayoutProps = {
   children: React.ReactNode;
@@ -11,6 +11,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
   children,
   pageTitle,
 }): JSX.Element => {
+  //todo объеединить в хук во всех лайоутах
   useEffect(() => {
     const initialDocTitle = document.title;
 
@@ -24,9 +25,9 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
   }, [pageTitle]);
 
   return (
-    <div className={'mainLay'}>
+    <div className={styles.mainLay}>
       <MainLayoutSidebar />
-      <div className={'page'}>{children}</div>
+      <div className={styles.page}>{children}</div>
     </div>
   );
 };
