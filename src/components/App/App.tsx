@@ -7,6 +7,8 @@ import { EmptyLayout } from '../../layouts/EmptyLayout/EmptyLayout';
 import { useTypedSelector } from '../../hooks/redux';
 import { NotFoundPage } from '../../pages/404/NotFoundPage';
 import { useTheme } from '../../hooks/useTheme';
+import { Landing } from '../../pages/Landing/Landing';
+import { MainPage } from '../../pages/MainPage/MainPage';
 
 export const App = () => {
   const isAuth = useTypedSelector((state) => state.auth.isAuth);
@@ -41,6 +43,13 @@ export const App = () => {
               />
             );
           })}
+
+        {isAuth ? (
+          <Route path="*" element={<MainPage />} />
+        ) : (
+          <Route path="*" element={<Landing />} />
+        )}
+
         <Route
           path="*"
           element={
