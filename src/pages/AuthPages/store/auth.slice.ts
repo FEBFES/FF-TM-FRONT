@@ -18,7 +18,7 @@ const AuthSlice = createSlice({
     },
     setIsAuth: (state, action: PayloadAction<boolean>) => {
       if (!action.payload) {
-        localStorage.clear();
+        localStorage.removeItem('token');
       }
       state.isAuth = action.payload;
     },

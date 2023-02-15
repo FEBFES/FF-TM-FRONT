@@ -5,16 +5,18 @@ import classNames from 'classnames';
 interface SwitcherProps {
   onClick: () => void;
   isActive: boolean;
+  className?: string;
 }
 
 export const Switcher: React.FC<SwitcherProps> = ({
   onClick,
   isActive,
+  className,
 }): JSX.Element => {
   return (
     <div
       onClick={onClick}
-      className={classNames(styles.cont, {
+      className={classNames(className, styles.cont, {
         [styles.contActive]: isActive,
       })}
     >
