@@ -16,6 +16,8 @@ interface ColumnProps {
   delCol: (colId: number) => void;
   setCurDragTask: (task: ITask) => void;
   curDragTask: ITask | null;
+  isOpen: boolean;
+  setOpen: (e: any) => void;
 }
 
 export const Column: React.FC<ColumnProps> = ({
@@ -26,6 +28,8 @@ export const Column: React.FC<ColumnProps> = ({
   delCol,
   curDragTask,
   setCurDragTask,
+  isOpen,
+  setOpen,
 }): JSX.Element => {
   const dispatch = useAppDispatch();
 
@@ -70,6 +74,9 @@ export const Column: React.FC<ColumnProps> = ({
               delTask={delTask}
               key={v4()}
               task={task}
+              isOpen={isOpen}
+              setOpen={setOpen}
+              curDragTask={curDragTask}
             />
           );
         })}
