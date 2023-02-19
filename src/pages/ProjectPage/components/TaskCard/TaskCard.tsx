@@ -20,7 +20,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({
   const DropDownButtonsName = ['delete', 'change'];
 
   const OpenDropDown = () => {
-    setOpenDropDown(prevState => !prevState);
+    setOpenDropDown((prevState) => !prevState);
   };
 
   return (
@@ -33,10 +33,6 @@ export const TaskCard: React.FC<TaskCardProps> = ({
       id={`${task.id}`}
       onDoubleClick={OpenDropDown}
     >
-      <div className={styles.task__header}>
-        <h4>#{task.id}</h4>
-      </div>
-
       <div className={styles.task__header}>
         <h4>#{task.id}</h4>
         <DropDown

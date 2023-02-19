@@ -23,7 +23,6 @@ export const ProjectPageMain: React.FC = (): JSX.Element => {
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
   const [curCol, setCurCol] = useState<number | null>(null);
   const [curDragTask, setCurDragTask] = useState<any>(null);
-  const [open, setOpen] = useState<boolean>(false);
 
   useEffect(() => {
     if (params.id) {
@@ -52,10 +51,6 @@ export const ProjectPageMain: React.FC = (): JSX.Element => {
     params.id && dispatch(fetchDelCol({ projId: params.id, colId: colId }));
   };
 
-  const handleClick = (e: any) => {
-    setOpen(e);
-  };
-
   return (
     <div className={styles.projMain}>
       <ProjectPageSubheader />
@@ -71,8 +66,6 @@ export const ProjectPageMain: React.FC = (): JSX.Element => {
               curDragTask={curDragTask}
               setShowAddTaskModal={setShowAddTaskModal}
               delCol={deleteColumnHandler}
-              isOpen={open}
-              setOpen={handleClick}
             />
           );
         })}
