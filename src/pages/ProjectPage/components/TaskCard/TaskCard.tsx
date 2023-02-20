@@ -3,22 +3,32 @@ import styles from './TaskCard.module.css';
 import { ITask } from '../../store/dashboard.type';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCommentAlt, faPaperclip } from '@fortawesome/free-solid-svg-icons';
+import { delTaskFromCol } from '../../store/dashboard.slice';
+import { useAppDispatch } from '../../../../hooks/redux';
 
 interface TaskCardProps {
   task: ITask;
   delTask: (colId: number, taskId: number) => void;
-  setCurDragTask: (tast: any) => void;
 }
 
 export const TaskCard: React.FC<TaskCardProps> = ({
   task,
   delTask,
-  setCurDragTask,
 }): JSX.Element => {
+  const dispatch = useAppDispatch();
   return (
     <div
-      onDragStart={(e) => {
-        setCurDragTask(task);
+      onDragStart={(e: any) => {
+        e.target.classList.add(styles.taskDnD);
+        e.dataTransfer.setData('task', JSON.stringify(task));
+
+        setTimeout(() => {
+          e.target.style.display = 'none';
+          dispatch(delTaskFromCol(task));
+        }, 0);
+      }}
+      onDragEnd={(e: any) => {
+        // e.target.style.transform = 'rotate(0deg)'
       }}
       className={styles.task}
       draggable

@@ -3,7 +3,7 @@ import { instance } from '../../../api/http';
 import { AxiosError } from 'axios';
 import { addToast } from '../../../store/slices/AppSlice';
 import { v4 } from 'uuid';
-import { addTaskToCol, delTaskFromCol } from './dashboard.slice';
+import { addTaskToCol } from './dashboard.slice';
 import { IColumns, ITask } from './dashboard.type';
 
 // Change task
@@ -25,7 +25,6 @@ export const fetchChangeTask = createAsyncThunk(
       );
 
       if (res.status === 200) {
-        dispatch(delTaskFromCol(data.curDragTask));
         dispatch(addTaskToCol({ colId: data.col.id, task: data.curDragTask }));
       }
     } catch (e) {

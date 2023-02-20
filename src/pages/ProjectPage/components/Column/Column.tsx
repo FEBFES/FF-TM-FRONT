@@ -14,8 +14,6 @@ interface ColumnProps {
   setShowAddTaskModal: (bool: boolean) => void;
   setCurCol: (colId: number) => void;
   delCol: (colId: number) => void;
-  setCurDragTask: (task: ITask) => void;
-  curDragTask: ITask | null;
 }
 
 export const Column: React.FC<ColumnProps> = ({
@@ -24,16 +22,13 @@ export const Column: React.FC<ColumnProps> = ({
   setShowAddTaskModal,
   setCurCol,
   delCol,
-  curDragTask,
-  setCurDragTask,
 }): JSX.Element => {
   const dispatch = useAppDispatch();
 
   function dropHandler(e: any) {
     e.preventDefault();
-    if (curDragTask && curDragTask?.columnId !== col.id) {
-      dispatch(fetchChangeTask({ curDragTask, col }));
-    }
+    const curDragTask = JSON.parse(e.dataTransfer.getData('task'));
+    dispatch(fetchChangeTask({ curDragTask, col }));
   }
 
   function dragOverHandler(e: any) {
@@ -64,14 +59,7 @@ export const Column: React.FC<ColumnProps> = ({
         id={`${col.id}`}
       >
         {col?.tasks?.map((task: ITask) => {
-          return (
-            <TaskCard
-              setCurDragTask={setCurDragTask}
-              delTask={delTask}
-              key={v4()}
-              task={task}
-            />
-          );
+          return <TaskCard delTask={delTask} key={v4()} task={task} />;
         })}
       </div>
     </div>
