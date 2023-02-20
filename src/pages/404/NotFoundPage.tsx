@@ -18,14 +18,14 @@ export const NotFoundPage = () => {
         <Button
           className={styles.prevBtn}
           onClick={() => navigate(-1)}
-          type={'default'}
+          theme={'default'}
         >
           <ArrowIcon /> Previous Page
         </Button>
         <Button
           className={styles.homeBtn}
           onClick={() => navigate(appRoutsPath.ProjectPage.path)}
-          type={'default'}
+          theme={'default'}
         >
           Home Page
         </Button>

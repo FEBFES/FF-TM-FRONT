@@ -44,23 +44,23 @@ export const RegistrationForm: React.FC<
         type={'text'}
         label={'email'}
         value={inputData.email}
-        onChange={(data) => changeHandle(data, 'email')}
+        onChange={(e) => changeHandle(e.target.value, 'email')}
       />
       <InputField
         type={'text'}
         label={'username'}
         value={inputData.username}
-        onChange={(data) => changeHandle(data, 'username')}
+        onChange={(e) => changeHandle(e.target.value, 'username')}
       />
       <InputField
         type={'text'}
         label={'password'}
         value={inputData.password}
-        onChange={(data) => changeHandle(data, 'password')}
+        onChange={(e) => changeHandle(e.target.value, 'password')}
       />
       <Button
         className={styles.regform__btn}
-        type={'submit'}
+        theme={'submit'}
         onClick={submitHandler}
       >
         Submit

@@ -30,13 +30,13 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
           type={'text'}
           label={'Project name'}
           value={name}
-          onChange={(name) => setName(name)}
+          onChange={(e) => setName(e.target.value)}
         />
         <InputField
           type={'text'}
           label={'Description'}
           value={desc}
-          onChange={(desc) => setDesc(desc)}
+          onChange={(e) => setDesc(e.target.value)}
         />
       </div>
     </Modal>

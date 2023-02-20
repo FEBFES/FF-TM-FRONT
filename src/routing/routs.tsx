@@ -5,7 +5,6 @@ import { ProjectPage } from '../pages/ProjectPage/ProjectPage';
 import { EmptyLayout } from '../layouts/EmptyLayout/EmptyLayout';
 import { RegistrationPage } from '../pages/AuthPages/Registration/RegistrationPage';
 import { LoginPage } from '../pages/AuthPages/Login/LoginPage';
-import { Landing } from '../pages/Landing/Landing';
 
 export type IAppRouts = {
   title: string;
@@ -15,11 +14,6 @@ export type IAppRouts = {
 };
 
 export const appRoutsPath = {
-  Landing: {
-    title: 'FF-TM',
-    path: '/',
-    to: '/',
-  },
   ProjectPage: {
     title: 'Project Page',
     path: '/Projects',
@@ -47,12 +41,6 @@ const privateRoutes: IAppRouts[] = [
     title: appRoutsPath.ProjectPage.title,
     component: MainPage,
     layout: MainLayout,
-    path: '/',
-  },
-  {
-    title: appRoutsPath.ProjectPage.title,
-    component: MainPage,
-    layout: MainLayout,
     path: appRoutsPath.ProjectPage.path,
   },
   {
@@ -64,12 +52,6 @@ const privateRoutes: IAppRouts[] = [
 ];
 
 const appRouts: IAppRouts[] = [
-  {
-    title: appRoutsPath.Landing.title,
-    component: Landing,
-    layout: EmptyLayout,
-    path: appRoutsPath.Landing.path,
-  },
   {
     title: appRoutsPath.LoginPage.title,
     component: LoginPage,
