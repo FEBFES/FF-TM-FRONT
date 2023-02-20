@@ -15,7 +15,10 @@
   padding: 15px 10px 0;
   min-height: min-content;
   height: min-content;
-  box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+}
+
+.taskDnD {
+  box-shadow: 0 0 41px 15px rgba(34, 60, 80, 0.2);
 }
 
 .drag {

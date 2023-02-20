@@ -18,7 +18,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
     return () => {
       document.title = initialDocTitle;
     };
-  });
+  }, []);
 
   useEffect(() => {
     document.title = pageTitle;

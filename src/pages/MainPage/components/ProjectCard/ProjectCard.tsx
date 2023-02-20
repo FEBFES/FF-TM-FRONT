@@ -30,7 +30,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       <p className={styles.card__subtitle}>{proj.description}</p>
       <div className={styles.line} />
       <Button
-        type={'danger'}
+        theme={'danger'}
         onClick={(e) => {
           e.stopPropagation();
           dispatch(fetchDelProject(proj.id));

@@ -37,13 +37,13 @@ export const AddColModal: React.FC<AddColModalProps> = ({
           type={'text'}
           label={'name'}
           value={name}
-          onChange={(e) => setName(e)}
+          onChange={(e) => setName(e.target.value)}
         />
         <InputField
           type={'text'}
           label={'desc'}
           value={description}
-          onChange={(e) => setDescription(e)}
+          onChange={(e) => setDescription(e.target.value)}
         />
       </div>
     </Modal>

@@ -14,8 +14,10 @@ import {
 import { useTheme } from '../../hooks/useTheme';
 import { LogoIconLight } from '../../assets/icons/LogoIconLight';
 import { LogoIconDark } from '../../assets/icons/LogoIconDark';
+import { appRoutsPath } from '../../routing/routs';
 
 const links = [
+  //TODO to - from string to const appRoutsPath
   {
     title: 'Projects',
     icon: ProjectsIcon,
@@ -24,7 +26,7 @@ const links = [
   {
     title: 'Timeline',
     icon: TimeLineIcon,
-    to: '/timeLine',
+    to: '/timeline',
   },
   {
     title: 'Team',
@@ -34,7 +36,7 @@ const links = [
   {
     title: 'Notifications',
     icon: NotificationIcon,
-    to: '/norifications',
+    to: '/notifications',
   },
   {
     title: 'Settings',
@@ -47,7 +49,6 @@ export const MainLayoutSidebar: React.FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const location = useLocation();
   const { theme } = useTheme();
-
   return (
     <div className={styles.sidebar}>
       <div className={styles.sidebar__header}>
@@ -72,9 +73,12 @@ export const MainLayoutSidebar: React.FC = (): JSX.Element => {
 
       <footer className={styles.sidebar__footer}>
         <Link
-          onClick={() => dispatch(setIsAuth(false))}
+          onClick={() => {
+            dispatch(setIsAuth(false));
+          }}
           className={styles.link}
-          to={'/Login'}
+          to={appRoutsPath.LoginPage.to}
+          replace={true}
         >
           <LeaveIcon />
         </Link>

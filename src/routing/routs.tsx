@@ -17,6 +17,7 @@ export const appRoutsPath = {
   ProjectPage: {
     title: 'Project Page',
     path: '/',
+    to: '/',
   },
   KanbanPage: {
     title: 'Kanban Page',
@@ -30,8 +31,8 @@ export const appRoutsPath = {
   },
   LoginPage: {
     title: 'Login Page',
-    path: '/Login',
-    to: '/Login',
+    path: '/',
+    to: '/',
   },
 };
 

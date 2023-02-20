@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, useLocation, useNavigate } from 'react-router-dom';
 import { useTypedSelector } from '../hooks/redux';
+import { appRoutsPath } from './routs';
 
 export const PrivateRoute = (props: any) => {
   const location = useLocation();
@@ -8,7 +9,10 @@ export const PrivateRoute = (props: any) => {
   const isAuth = useTypedSelector((state) => state.auth.isAuth);
 
   if (!isAuth) {
-    navigate({ pathname: '/Login' }, { state: { from: location } });
+    navigate(
+      { pathname: appRoutsPath.LoginPage.to },
+      { state: { from: location } }
+    );
   }
   return <Route {...props} />;
 };

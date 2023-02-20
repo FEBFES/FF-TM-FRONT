@@ -3,6 +3,7 @@ import styles from './NotFoundPage.module.css';
 import { ArrowIcon } from '../../assets/icons/UtilsIcons';
 import { Button } from '../../ui/Button/Button';
 import { useNavigate } from 'react-router-dom';
+import { appRoutsPath } from '../../routing/routs';
 
 export const NotFoundPage = () => {
   const navigate = useNavigate();
@@ -17,14 +18,14 @@ export const NotFoundPage = () => {
         <Button
           className={styles.prevBtn}
           onClick={() => navigate(-1)}
-          type={'default'}
+          theme={'default'}
         >
           <ArrowIcon /> Previous Page
         </Button>
         <Button
           className={styles.homeBtn}
-          onClick={() => navigate('/')}
-          type={'default'}
+          onClick={() => navigate(appRoutsPath.ProjectPage.path)}
+          theme={'default'}
         >
           Home Page
         </Button>

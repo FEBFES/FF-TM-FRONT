@@ -1,25 +1,26 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes, ReactNode } from 'react';
 import styles from './Button.module.css';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
-interface ButtonProps {
-  onClick?: (e: any) => void;
-  children?: any;
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children?: ReactNode;
   className?: string;
-  type: 'default' | 'submit' | 'outline' | 'close' | 'danger';
+  theme: 'default' | 'submit' | 'outline' | 'close' | 'danger';
 }
 
 export const Button: React.FC<ButtonProps> = ({
   onClick,
-  type,
+  theme,
   children,
   className,
+  ...props
 }): JSX.Element => {
-  if (type === 'close') {
+  if (theme === 'close') {
     return (
       <button
+        {...props}
         className={styles.buttonClose}
         onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
           onClick ? onClick(e) : {}
@@ -31,11 +32,12 @@ export const Button: React.FC<ButtonProps> = ({
   }
   return (
     <button
+      {...props}
       className={classNames(`${className}`, {
-        [styles.buttonSubmit]: type === 'submit',
-        [styles.buttonOutline]: type === 'outline',
-        [styles.buttonDanger]: type === 'danger',
-        [styles.buttonDefault]: type === 'default',
+        [styles.buttonSubmit]: theme === 'submit',
+        [styles.buttonOutline]: theme === 'outline',
+        [styles.buttonDanger]: theme === 'danger',
+        [styles.buttonDefault]: theme === 'default',
       })}
       onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
         onClick ? onClick(e) : {}

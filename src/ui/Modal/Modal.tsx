@@ -29,7 +29,7 @@ export const Modal: React.FC<IModalProps> = ({
         <div className={styles.up}>
           <div className={styles.cont__header}>
             <h1 className={styles.cont__headerTitle}>{title}</h1>
-            <Button type={'close'} onClick={() => setShow(false)}>
+            <Button theme={'close'} onClick={() => setShow(false)}>
               x
             </Button>
           </div>
@@ -38,11 +38,11 @@ export const Modal: React.FC<IModalProps> = ({
         </div>
 
         <div className={styles.modal__footer}>
-          <Button type={'outline'} onClick={() => setShow(false)}>
+          <Button theme={'outline'} onClick={() => setShow(false)}>
             cancel
           </Button>
           <Button
-            type={'submit'}
+            theme={'submit'}
             onClick={() => {
               onSubmit();
               setShow(false);

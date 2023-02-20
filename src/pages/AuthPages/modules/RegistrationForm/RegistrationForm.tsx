@@ -6,6 +6,7 @@ import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchRegistration } from '../../store/auth.thunk';
 import { IRegisterFormDataType } from '../../store/auth.type';
 import { Link, useNavigate } from 'react-router-dom';
+import { appRoutsPath } from '../../../../routing/routs';
 
 interface RegistrationFormProps {}
 
@@ -25,7 +26,7 @@ export const RegistrationForm: React.FC<
     dispatch(fetchRegistration(inputData))
       .unwrap()
       .then(() => {
-        navigate('/Login');
+        navigate(appRoutsPath.LoginPage.to);
       });
   };
 
@@ -43,23 +44,23 @@ export const RegistrationForm: React.FC<
         type={'text'}
         label={'email'}
         value={inputData.email}
-        onChange={(data) => changeHandle(data, 'email')}
+        onChange={(e) => changeHandle(e.target.value, 'email')}
       />
       <InputField
         type={'text'}
         label={'username'}
         value={inputData.username}
-        onChange={(data) => changeHandle(data, 'username')}
+        onChange={(e) => changeHandle(e.target.value, 'username')}
       />
       <InputField
-        type={'text'}
+        type={'password'}
         label={'password'}
         value={inputData.password}
-        onChange={(data) => changeHandle(data, 'password')}
+        onChange={(e) => changeHandle(e.target.value, 'password')}
       />
       <Button
         className={styles.regform__btn}
-        type={'submit'}
+        theme={'submit'}
         onClick={submitHandler}
       >
         Submit
@@ -67,7 +68,7 @@ export const RegistrationForm: React.FC<
 
       <div className={styles.btnLinkLogin}>
         <span>Already have an account? </span>
-        <Link to={'/Login'}>Log in</Link>
+        <Link to={appRoutsPath.LoginPage.to}>Log in</Link>
       </div>
     </div>
   );
