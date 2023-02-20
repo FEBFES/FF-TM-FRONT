@@ -14,12 +14,14 @@ import {
 import { useTheme } from '../../hooks/useTheme';
 import { LogoIconLight } from '../../assets/icons/LogoIconLight';
 import { LogoIconDark } from '../../assets/icons/LogoIconDark';
+import { appRoutsPath } from '../../routing/routs';
 
 const links = [
+  //TODO to - from string to const appRoutsPath
   {
     title: 'Projects',
     icon: ProjectsIcon,
-    to: '/Projects',
+    to: '/',
   },
   {
     title: 'Timeline',
@@ -74,7 +76,7 @@ export const MainLayoutSidebar: React.FC = (): JSX.Element => {
         <Link
           onClick={() => dispatch(setIsAuth(false))}
           className={styles.link}
-          to={'/Login'}
+          to={appRoutsPath.LoginPage.to}
         >
           <LeaveIcon />
         </Link>

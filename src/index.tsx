@@ -15,9 +15,7 @@ export const store = setupStore();
 root.render(
   <Router>
     <Provider store={store}>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
+      <App />
     </Provider>
   </Router>
 );

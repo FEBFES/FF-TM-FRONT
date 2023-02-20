@@ -68,7 +68,7 @@ export const RegistrationForm: React.FC<
 
       <div className={styles.btnLinkLogin}>
         <span>Already have an account? </span>
-        <Link to={'/Login'}>Log in</Link>
+        <Link to={appRoutsPath.LoginPage.to}>Log in</Link>
       </div>
     </div>
   );

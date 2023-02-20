@@ -6,7 +6,7 @@ interface IAuthSliceInitialState {
 }
 
 const initialState: IAuthSliceInitialState = {
-  isAuth: !!localStorage.getItem('token'),
+  isAuth: !!localStorage.getItem('accessToken'),
 };
 
 const AuthSlice = createSlice({
@@ -18,7 +18,8 @@ const AuthSlice = createSlice({
     },
     setIsAuth: (state, action: PayloadAction<boolean>) => {
       if (!action.payload) {
-        localStorage.removeItem('token');
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('refreshToken');
       }
       state.isAuth = action.payload;
     },
@@ -30,13 +31,11 @@ const AuthSlice = createSlice({
         localStorage.setItem('token', action.payload);
       }
     );
-    builder.addCase(
-      fetchLogin.fulfilled,
-      (state, action: PayloadAction<string>) => {
-        localStorage.setItem('token', action.payload);
-        state.isAuth = true;
-      }
-    );
+    builder.addCase(fetchLogin.fulfilled, (state, action) => {
+      localStorage.setItem('accessToken', action.payload.accessToken);
+      localStorage.setItem('refreshToken', action.payload.refreshToken);
+      state.isAuth = true;
+    });
   },
 });
 
