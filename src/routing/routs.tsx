@@ -16,8 +16,8 @@ export type IAppRouts = {
 export const appRoutsPath = {
   ProjectPage: {
     title: 'Project Page',
-    path: '/Projects',
-    to: '/Projects',
+    path: '/',
+    to: '/',
   },
   KanbanPage: {
     title: 'Kanban Page',
@@ -31,8 +31,8 @@ export const appRoutsPath = {
   },
   LoginPage: {
     title: 'Login Page',
-    path: '/Login',
-    to: '/Login',
+    path: '/',
+    to: '/',
   },
 };
 
