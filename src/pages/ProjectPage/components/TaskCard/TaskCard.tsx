@@ -4,6 +4,7 @@ import { ITask } from '../../store/dashboard.type';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCommentAlt, faPaperclip } from '@fortawesome/free-solid-svg-icons';
 import { DropDown } from '../../../../ui/DropDown/DropDown';
+import { Button } from '../../../../ui/Button/Button';
 
 interface TaskCardProps {
   task: ITask;
@@ -17,7 +18,6 @@ export const TaskCard: React.FC<TaskCardProps> = ({
   setCurDragTask,
 }): JSX.Element => {
   const [isOpenDropDown, setOpenDropDown] = useState<boolean>(false);
-  const DropDownButtonsName = ['delete', 'change'];
 
   const OpenDropDown = () => {
     setOpenDropDown((prevState) => !prevState);
@@ -35,10 +35,10 @@ export const TaskCard: React.FC<TaskCardProps> = ({
     >
       <div className={styles.task__header}>
         <h4>#{task.id}</h4>
-        <DropDown
-          isOpenDropDown={isOpenDropDown}
-          children={DropDownButtonsName}
-        />
+        <DropDown isOpenDropDown={isOpenDropDown}>
+          <Button type={'default'} children={'delete'} />
+          <Button type={'default'} children={'Change'} />
+        </DropDown>
       </div>
 
       <div className={styles.task__main}>

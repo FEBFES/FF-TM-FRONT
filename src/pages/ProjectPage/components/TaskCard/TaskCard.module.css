@@ -32,6 +32,11 @@
   color: var(--font-defautl);
 }
 
+.task__header-dd-element {
+  background: none;
+  color: red;
+}
+
 .delete__btn {
   position: absolute;
   top: 0;
