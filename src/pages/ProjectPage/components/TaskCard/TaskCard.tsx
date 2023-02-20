@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './TaskCard.module.css';
 import { ITask } from '../../store/dashboard.type';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCommentAlt, faPaperclip } from '@fortawesome/free-solid-svg-icons';
+import { DropDown } from '../../../../ui/DropDown/DropDown';
+import { Button } from '../../../../ui/Button/Button';
 
 interface TaskCardProps {
   task: ITask;
@@ -15,6 +17,12 @@ export const TaskCard: React.FC<TaskCardProps> = ({
   delTask,
   setCurDragTask,
 }): JSX.Element => {
+  const [isOpenDropDown, setOpenDropDown] = useState<boolean>(false);
+
+  const OpenDropDown = () => {
+    setOpenDropDown((prevState) => !prevState);
+  };
+
   return (
     <div
       onDragStart={(e) => {
@@ -23,9 +31,14 @@ export const TaskCard: React.FC<TaskCardProps> = ({
       className={styles.task}
       draggable
       id={`${task.id}`}
+      onDoubleClick={OpenDropDown}
     >
       <div className={styles.task__header}>
         <h4>#{task.id}</h4>
+        <DropDown isOpenDropDown={isOpenDropDown}>
+          <Button type={'default'} children={'delete'} />
+          <Button type={'default'} children={'Change'} />
+        </DropDown>
       </div>
 
       <div className={styles.task__main}>
