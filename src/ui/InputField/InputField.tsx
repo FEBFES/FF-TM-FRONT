@@ -1,13 +1,14 @@
 import React, { DetailedHTMLProps, InputHTMLAttributes, useState } from 'react';
 import styles from './InputField.module.css';
 import classNames from 'classnames';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface IInputFieldProps
   extends DetailedHTMLProps<
     InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
   > {
-  type: 'text';
   label: string;
   value: string;
 }
@@ -19,7 +20,7 @@ export const InputField: React.FC<IInputFieldProps> = ({
   ...props
 }): JSX.Element => {
   const [isFocusOn, setIsFocusOn] = useState<boolean>(false);
-
+  const [showPassword, setShowPassword] = useState(false);
   // useEffect(() => {
   //   const initialValue = value;
   //
@@ -44,10 +45,19 @@ export const InputField: React.FC<IInputFieldProps> = ({
         onFocus={() => setIsFocusOn(true)}
         onBlur={() => setIsFocusOn(false)}
         value={value}
-        type={type}
+        type={showPassword ? 'text' : type}
         id={'input'}
         className={styles.input}
       />
+      {type === 'password' && value !== '' && (
+        <div
+          onMouseDown={() => setShowPassword(true)}
+          onMouseUp={() => setShowPassword(false)}
+          className={styles.passwordIcon}
+        >
+          <FontAwesomeIcon icon={faEye} />
+        </div>
+      )}
     </div>
   );
 };
