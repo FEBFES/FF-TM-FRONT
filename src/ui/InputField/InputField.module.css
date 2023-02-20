@@ -35,3 +35,11 @@
   font-size: 10px;
   left: 0;
 }
+
+.passwordIcon {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}

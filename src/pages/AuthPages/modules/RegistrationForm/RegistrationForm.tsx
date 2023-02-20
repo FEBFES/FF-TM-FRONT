@@ -53,7 +53,7 @@ export const RegistrationForm: React.FC<
         onChange={(e) => changeHandle(e.target.value, 'username')}
       />
       <InputField
-        type={'text'}
+        type={'password'}
         label={'password'}
         value={inputData.password}
         onChange={(e) => changeHandle(e.target.value, 'password')}
