@@ -49,7 +49,6 @@ export const MainLayoutSidebar: React.FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const location = useLocation();
   const { theme } = useTheme();
-
   return (
     <div className={styles.sidebar}>
       <div className={styles.sidebar__header}>
@@ -74,9 +73,12 @@ export const MainLayoutSidebar: React.FC = (): JSX.Element => {
 
       <footer className={styles.sidebar__footer}>
         <Link
-          onClick={() => dispatch(setIsAuth(false))}
+          onClick={() => {
+            dispatch(setIsAuth(false));
+          }}
           className={styles.link}
           to={appRoutsPath.LoginPage.to}
+          replace={true}
         >
           <LeaveIcon />
         </Link>
