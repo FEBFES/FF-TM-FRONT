@@ -4,17 +4,13 @@
 }
 
 .task {
-  box-sizing: border-box;
+  padding: 12px;
   display: flex;
   flex-direction: column;
-  font-family: "Apple SD Gothic Neo", serif;
-  background: var(--bg-0);
+  width: 288px;
+  border: 1px solid #e8e8e8;
   margin-bottom: 10px;
-  width: 240px;
-  border-radius: 10px;
-  padding: 15px 10px 0;
-  min-height: min-content;
-  height: min-content;
+  border-radius: 6px;
 }
 
 .taskDnD {
