@@ -67,13 +67,13 @@ instance.interceptors.response.use(
             token: localStorage.getItem('refreshToken'),
           })
           .then(({ data }) => {
-            localStorage.setItem('accessToken', data.refreshToken);
-            localStorage.setItem('refreshToken', data.accessToken);
+            localStorage.setItem('accessToken', data.accessToken);
+            localStorage.setItem('refreshToken', data.refreshToken);
             axios.defaults.headers.common['Authorization'] =
-              'Bearer ' + data.refreshToken;
+              'Bearer ' + data.accessToken;
             originalRequest.headers['Authorization'] =
-              'Bearer ' + data.refreshToken;
-            processQueue(null, data.refreshToken);
+              'Bearer ' + data.accessToken;
+            processQueue(null, data.accessToken);
             resolve(axios(originalRequest));
           })
           .catch((err) => {
