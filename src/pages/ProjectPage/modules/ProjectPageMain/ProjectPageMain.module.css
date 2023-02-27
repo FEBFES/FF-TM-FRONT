@@ -1,11 +1,12 @@
 .projMain {
-  background: var(--bg-0);
+  background: var(--bg-100);
   width: 100%;
 }
 
 .colCont {
+  padding-left: 10px;
+  background: var(--bg-0);
   width: 100%;
-  overflow: scroll;
   display: flex;
   flex-direction: row;
   height: calc(100vh - 10vh - 50px);

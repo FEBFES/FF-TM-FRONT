@@ -3,20 +3,38 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 10vh;
+  height: 95px;
   background: var(--bg-0);
-  border-bottom: 2px solid var(--bg-border);
+  border-radius: 0 0 5px 5px;
 }
-.header > div > h1 {
-  margin: 0;
-  font-weight: 500;
-  font-size: 24px;
-  color: var(--font-defautl);
+
+.header__left {
+  display: flex;
+  flex-direction: column;
 }
-.header > div > h2 {
-  margin: 0;
-  font-weight: 200;
-  font-size: 18px;
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+}
+.breadcrumbs > span {
+  font-size: 14px;
+  font-weight: 400;
+  color: #989898;
+  margin-right: 5px;
+}
+.breadcrumbs > span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.breadcrumbs > span:last-of-type {
+  margin-right: 0;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 36px;
+  color: #414141;
 }
 
 .header__right {
@@ -25,28 +43,71 @@
   justify-content: space-between;
 }
 
-.breadcrumbs {
+.teams {
+  margin-right: 48px;
   display: flex;
   align-items: center;
-  height: 20px;
-}
-.breadcrumbs > h2 {
-  margin: 0;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--font-gray);
-}
-.breadcrumbs > h2:hover {
-  cursor: pointer;
-  color: var(--font-gray);
-  border-bottom: 1px solid var(--bg-border);
 }
 
-.breadcrumbs > p {
+.addUserBtn {
+  display: flex;
+  align-items: center;
   cursor: pointer;
-  margin-left: 5px;
-  margin-right: 5px;
-  font-size: 16px;
-  color: var(--font-gray);
+}
+
+.inputCont {
+  margin-right: 30px;
+  width: 180px;
+  height: 32px;
+  background: #f5f6f8;
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+  position: relative;
+}
+
+.input {
+  padding-left: 30px;
+  padding-right: 20px;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  outline: none;
+  border: none;
+}
+.inputIcon {
+  cursor: pointer;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.line {
+  margin-right: 48px;
+  height: 34px;
+  width: 2px;
+  background: #e8e8e8;
+}
+
+.favoriteBtn {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 43px;
+}
+
+.settingsBtn {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 27px;
+  height: 27px;
+  border-radius: 100px;
+  border: 1px solid white;
+}
+.avatar:last-of-type {
+  transform: translateX(-40%);
 }
