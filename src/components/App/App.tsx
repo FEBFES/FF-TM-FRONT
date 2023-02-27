@@ -11,6 +11,7 @@ import { useTheme } from '../../hooks/useTheme';
 export const App = () => {
   const isAuth = useTypedSelector((state) => state.auth.isAuth);
   useTheme();
+
   return (
     <div className={styles.App}>
       <Routes>
