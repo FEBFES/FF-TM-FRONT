@@ -68,11 +68,13 @@ export const ProjectPageMain: React.FC = (): JSX.Element => {
         })}
       </div>
 
-      <AddTaskModal
-        show={showAddTaskModal}
-        setShow={setShowAddTaskModal}
-        onSubmit={addNewTaskHandler}
-      />
+      {showAddTaskModal && (
+        <AddTaskModal
+          show={showAddTaskModal}
+          setShow={setShowAddTaskModal}
+          onSubmit={addNewTaskHandler}
+        />
+      )}
     </div>
   );
 };
