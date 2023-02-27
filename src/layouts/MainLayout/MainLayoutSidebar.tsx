@@ -4,11 +4,11 @@ import { Link, useLocation } from 'react-router-dom';
 import { useAppDispatch } from '../../hooks/redux';
 import { setIsAuth } from '../../pages/AuthPages/store/auth.slice';
 import {
+  ChatIcon,
+  HomeIcon,
   LeaveIcon,
-  NotificationIcon,
   ProjectsIcon,
   SettingsIcon,
-  TeamIcon,
   TimeLineIcon,
 } from '../../assets/icons/SidebarIcons';
 import { useTheme } from '../../hooks/useTheme';
@@ -19,9 +19,14 @@ import { appRoutsPath } from '../../routing/routs';
 const links = [
   //TODO to - from string to const appRoutsPath
   {
+    title: 'Home',
+    icon: HomeIcon,
+    to: '/',
+  },
+  {
     title: 'Projects',
     icon: ProjectsIcon,
-    to: '/',
+    to: '/KanbanPage/',
   },
   {
     title: 'Timeline',
@@ -29,14 +34,9 @@ const links = [
     to: '/timeline',
   },
   {
-    title: 'Team',
-    icon: TeamIcon,
-    to: '/team',
-  },
-  {
-    title: 'Notifications',
-    icon: NotificationIcon,
-    to: '/notifications',
+    title: 'Chat',
+    icon: ChatIcon,
+    to: '/chat',
   },
   {
     title: 'Settings',

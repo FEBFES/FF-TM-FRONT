@@ -17,10 +17,8 @@ export const fetchChangeTask = createAsyncThunk(
       const res = await instance.put(
         `/projects/${data.col.projectId}/columns/${data.col.id}/tasks/${data.curDragTask.id}`,
         {
+          ...data.curDragTask,
           columnId: data.col.id,
-          id: data.curDragTask.id,
-          description: data.curDragTask.description,
-          name: data.curDragTask.id,
         }
       );
 

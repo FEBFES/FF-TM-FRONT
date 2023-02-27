@@ -1,10 +1,14 @@
 import React from 'react';
 import styles from './TaskCard.module.css';
 import { ITask } from '../../store/dashboard.type';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCommentAlt, faPaperclip } from '@fortawesome/free-solid-svg-icons';
 import { delTaskFromCol } from '../../store/dashboard.slice';
 import { useAppDispatch } from '../../../../hooks/redux';
+import {
+  AttachmentsIcon,
+  CommentsIcon,
+  PriorityDefault,
+} from '../../../../assets/icons/TaskIcons';
+import human from '../../../../assets/img/human.png';
 
 interface TaskCardProps {
   task: ITask;
@@ -27,30 +31,43 @@ export const TaskCard: React.FC<TaskCardProps> = ({
           dispatch(delTaskFromCol(task));
         }, 0);
       }}
-      onDragEnd={(e: any) => {
-        // e.target.style.transform = 'rotate(0deg)'
-      }}
       className={styles.task}
       draggable
       id={`${task.id}`}
     >
-      <div className={styles.task__header}>
-        <h4>#{task.id}</h4>
+      <div className={styles.header}>
+        <div className={styles.header_left}>
+          <div className={styles.task_priority}>
+            <PriorityDefault />
+          </div>
+          <h4 className={styles.task_id}>#{task.id}</h4>
+        </div>
+
+        <div className={styles.task_avatar}>
+          <img src={human} alt="avatar" />
+        </div>
       </div>
 
       <div className={styles.task__main}>
-        <h1>{task.name}</h1>
-        <h2>{task.description}</h2>
+        <h1 className={styles.task_title}>{task.name}</h1>
+        <span className={styles.task_creationDate}>Feb 21</span>
       </div>
 
       <div className={styles.task__footer}>
-        <div>
-          <FontAwesomeIcon className={''} icon={faCommentAlt} size={'xs'} />
-          <span>8</span>
+        <div className={styles.footer_left}>
+          <div className={styles.task_type}>F</div>
+          <div className={styles.task_label}>Refactoring</div>
         </div>
-        <div>
-          <FontAwesomeIcon className={''} icon={faPaperclip} size={'xs'} />
-          <span>2</span>
+
+        <div className={styles.footer_right}>
+          <div className={styles.task_attachments}>
+            <span className={styles.task_attachments_counter}>8</span>
+            <CommentsIcon />
+          </div>
+          <div className={styles.task_attachments}>
+            <span className={styles.task_attachments_counter}>2</span>
+            <AttachmentsIcon />
+          </div>
         </div>
       </div>
     </div>

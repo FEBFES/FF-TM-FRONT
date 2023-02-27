@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Column.module.css';
 import { IColumns, ITask } from '../../store/dashboard.type';
 import { v4 } from 'uuid';
@@ -23,6 +23,7 @@ export const Column: React.FC<ColumnProps> = ({
   setCurCol,
   delCol,
 }): JSX.Element => {
+  const [showAddTaskBtn, setShowAddTaskBtn] = useState<boolean>(false);
   const dispatch = useAppDispatch();
 
   function dropHandler(e: any) {
@@ -36,20 +37,27 @@ export const Column: React.FC<ColumnProps> = ({
   }
 
   return (
-    <div className={styles.colWrap} key={v4()}>
+    <div
+      onMouseLeave={() => setShowAddTaskBtn(false)}
+      onMouseOver={() => setShowAddTaskBtn(true)}
+      className={styles.colWrap}
+      key={v4()}
+    >
       <div className={styles.col__header}>
         <h1 className={styles.col__title}>
           {col.name} {col.tasks.length !== 0 && col.tasks.length}
         </h1>
 
-        <FontAwesomeIcon
-          className={styles.col__addTask_btn}
-          icon={faPlus}
-          onClick={() => {
-            setShowAddTaskModal(true);
-            setCurCol(col.id);
-          }}
-        />
+        {showAddTaskBtn && (
+          <FontAwesomeIcon
+            className={styles.col__addTask_btn}
+            icon={faPlus}
+            onClick={() => {
+              setShowAddTaskModal(true);
+              setCurCol(col.id);
+            }}
+          />
+        )}
       </div>
 
       <div

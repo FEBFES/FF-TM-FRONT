@@ -17,4 +17,6 @@ export interface ITask {
   columnId: number;
   description: string;
   name: string;
+  ownerId: number;
+  projectId: number;
 }

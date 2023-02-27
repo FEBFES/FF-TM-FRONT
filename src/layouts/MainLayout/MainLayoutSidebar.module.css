@@ -11,7 +11,6 @@
   bottom: 0;
   z-index: var(--z-index-mainLay-sidebar);
   background: var(--bg-100);
-  border-right: 1px solid var(--bg-border);
 }
 
 .sidebar__header {
