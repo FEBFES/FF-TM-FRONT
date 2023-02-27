@@ -64,12 +64,12 @@ instance.interceptors.response.use(
       return new Promise(function (resolve, reject) {
         axios
           .post(serverString + 'auth/refresh-token', {
-            token: localStorage.getItem('refreshToken'),
+            refreshToken: localStorage.getItem('refreshToken'),
           })
           .then(({ data }) => {
             localStorage.setItem('accessToken', data.accessToken);
             localStorage.setItem('refreshToken', data.refreshToken);
-            axios.defaults.headers.common['Authorization'] =
+            instance.defaults.headers.common['Authorization'] =
               'Bearer ' + data.accessToken;
             originalRequest.headers['Authorization'] =
               'Bearer ' + data.accessToken;

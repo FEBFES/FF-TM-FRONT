@@ -54,19 +54,3 @@ export const fetchLogin = createAsyncThunk(
     }
   }
 );
-
-// // Logout
-// export const fetchLogout = createAsyncThunk(
-//   'projects/fetchLogout',
-//   async (_, { rejectWithValue }) => {
-//     try {
-//       const res = await instanceWithoutToken.post('/auth/logout');
-//       console.log(res);
-//       if (res.status === 200) {
-//         console.log(res);
-//       }
-//     } catch (err) {
-//       return rejectWithValue(err as Error);
-//     }
-//   }
-// );
