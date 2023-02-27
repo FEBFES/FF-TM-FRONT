@@ -9,6 +9,7 @@ interface IModalProps {
   children: React.ReactNode;
   title?: string;
   onSubmit: () => void;
+  empty?: boolean;
 }
 
 export const Modal: React.FC<IModalProps> = ({
@@ -17,6 +18,7 @@ export const Modal: React.FC<IModalProps> = ({
   children,
   title,
   onSubmit,
+  empty = false,
 }): JSX.Element => {
   return (
     <div
@@ -27,30 +29,34 @@ export const Modal: React.FC<IModalProps> = ({
     >
       <div onClick={(e) => e.stopPropagation()} className={styles.cont}>
         <div className={styles.up}>
-          <div className={styles.cont__header}>
-            <h1 className={styles.cont__headerTitle}>{title}</h1>
-            <Button theme={'close'} onClick={() => setShow(false)}>
-              x
-            </Button>
-          </div>
+          {empty && (
+            <div className={styles.cont__header}>
+              <h1 className={styles.cont__headerTitle}>{title}</h1>
+              <Button theme={'close'} onClick={() => setShow(false)}>
+                x
+              </Button>
+            </div>
+          )}
 
           <div>{show && children}</div>
         </div>
 
-        <div className={styles.modal__footer}>
-          <Button theme={'outline'} onClick={() => setShow(false)}>
-            cancel
-          </Button>
-          <Button
-            theme={'submit'}
-            onClick={() => {
-              onSubmit();
-              setShow(false);
-            }}
-          >
-            submit
-          </Button>
-        </div>
+        {empty && (
+          <div className={styles.modal__footer}>
+            <Button theme={'outline'} onClick={() => setShow(false)}>
+              cancel
+            </Button>
+            <Button
+              theme={'submit'}
+              onClick={() => {
+                onSubmit();
+                setShow(false);
+              }}
+            >
+              submit
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );

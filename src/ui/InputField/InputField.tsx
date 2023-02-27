@@ -9,8 +9,8 @@ interface IInputFieldProps
     InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
   > {
-  label: string;
-  value: string;
+  label?: string;
+  value: any;
 }
 
 export const InputField: React.FC<IInputFieldProps> = ({
@@ -35,19 +35,20 @@ export const InputField: React.FC<IInputFieldProps> = ({
       <label
         className={classNames(styles.label, {
           [styles.labelFocus]: isFocusOn || value !== '',
+          'display: none': label === '' || !label,
         })}
         htmlFor="input"
       >
         {label}
       </label>
       <input
-        {...props}
         onFocus={() => setIsFocusOn(true)}
         onBlur={() => setIsFocusOn(false)}
         value={value}
         type={showPassword ? 'text' : type}
         id={'input'}
         className={styles.input}
+        {...props}
       />
       {type === 'password' && value !== '' && (
         <div
