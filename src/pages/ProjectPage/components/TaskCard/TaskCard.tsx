@@ -9,23 +9,24 @@ import {
   PriorityDefault,
 } from '../../../../assets/icons/TaskIcons';
 import human from '../../../../assets/img/human.png';
+import { fetchGetTaskInfo } from '../../store/dashboard.thunk';
 
 interface TaskCardProps {
   task: ITask;
   delTask: (colId: number, taskId: number) => void;
+  setShowTaskModal: (bool: boolean) => void;
 }
 
 export const TaskCard: React.FC<TaskCardProps> = ({
   task,
   delTask,
+  setShowTaskModal,
 }): JSX.Element => {
   const dispatch = useAppDispatch();
   return (
     <div
       onDragStart={(e: any) => {
-        e.target.classList.add(styles.taskDnD);
         e.dataTransfer.setData('task', JSON.stringify(task));
-
         setTimeout(() => {
           e.target.style.display = 'none';
           dispatch(delTaskFromCol(task));
@@ -49,7 +50,21 @@ export const TaskCard: React.FC<TaskCardProps> = ({
       </div>
 
       <div className={styles.task__main}>
-        <h1 className={styles.task_title}>{task.name}</h1>
+        <h1
+          className={styles.task_title}
+          onClick={() => {
+            setShowTaskModal(true);
+            dispatch(
+              fetchGetTaskInfo({
+                projId: task.projectId,
+                colId: task.columnId,
+                taskId: task.id,
+              })
+            );
+          }}
+        >
+          {task.name}
+        </h1>
         <span className={styles.task_creationDate}>Feb 21</span>
       </div>
 

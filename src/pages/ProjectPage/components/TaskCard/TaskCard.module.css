@@ -11,11 +11,12 @@
 }
 
 .task {
+  cursor: grab;
   padding: 8px 12px 12px 12px;
   display: flex;
   flex-direction: column;
   width: 288px;
-  border: 1px solid #e8e8e8;
+  border: 1px solid var(--bg-border);
   margin-bottom: 10px;
   border-radius: 6px;
 }
@@ -55,11 +56,15 @@
 }
 
 .task_title {
+  cursor: pointer;
   margin: 0;
   word-wrap: break-word;
   width: 75%;
   font-size: 14px;
   color: #575757;
+}
+.task_title:hover {
+  text-decoration: underline;
 }
 
 .task_creationDate {
@@ -71,7 +76,7 @@
   height: 34px;
   margin-top: 8px;
   color: var(--font-gray);
-  border-top: 1px solid #e8e8e8;
+  border-top: 1px solid var(--bg-border);
   display: flex;
   align-items: flex-end;
   justify-content: space-between;

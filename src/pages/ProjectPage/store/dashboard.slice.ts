@@ -4,13 +4,15 @@ import {
   fetchAddNewTask,
   fetchDelCol,
   fetchDelTask,
+  fetchGetTaskInfo,
   fetchProjectDashboard,
   fetchProjectInfo,
 } from './dashboard.thunk';
-import { IColumns } from './dashboard.type';
+import { IColumns, ITask } from './dashboard.type';
 
 interface IDashboardInitialState {
   columns: IColumns[];
+  taskWindowInfo: null | ITask;
   projectName: null | string;
   projectDesc: null | string;
   isLoading: boolean;
@@ -25,6 +27,7 @@ const initialState: IDashboardInitialState = {
   isLoading: false,
   errorMsg: null,
   projId: null,
+  taskWindowInfo: null,
 };
 
 const DashboardSlice = createSlice({
@@ -128,6 +131,9 @@ const DashboardSlice = createSlice({
     //
     builder.addCase(fetchDelCol.fulfilled, (state, action) => {
       state.columns = state.columns.filter((col) => col.id !== action.payload);
+    });
+    builder.addCase(fetchGetTaskInfo.fulfilled, (state, action) => {
+      state.taskWindowInfo = action.payload;
     });
   },
 });
