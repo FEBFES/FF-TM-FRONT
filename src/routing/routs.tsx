@@ -5,6 +5,7 @@ import { ProjectPage } from '../pages/ProjectPage/ProjectPage';
 import { EmptyLayout } from '../layouts/EmptyLayout/EmptyLayout';
 import { RegistrationPage } from '../pages/AuthPages/Registration/RegistrationPage';
 import { LoginPage } from '../pages/AuthPages/Login/LoginPage';
+import { SettingsPage } from '../pages/SettingsPage/SettingsPage';
 
 export type IAppRouts = {
   title: string;
@@ -34,6 +35,11 @@ export const appRoutsPath = {
     path: '/',
     to: '/',
   },
+  SettingsPage: {
+    title: 'Settings',
+    path: '/SettingsPage/*',
+    to: 'SettingsPage',
+  },
 };
 
 const privateRoutes: IAppRouts[] = [
@@ -48,6 +54,12 @@ const privateRoutes: IAppRouts[] = [
     component: ProjectPage,
     layout: MainLayout,
     path: appRoutsPath.KanbanPage.path,
+  },
+  {
+    title: appRoutsPath.SettingsPage.title,
+    component: SettingsPage,
+    layout: MainLayout,
+    path: appRoutsPath.SettingsPage.path,
   },
 ];
 

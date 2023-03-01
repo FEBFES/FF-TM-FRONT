@@ -43,42 +43,25 @@
 }
 
 .link {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  font-weight: 400;
-  font-size: 16px;
-  color: #626262;
   margin-top: 35px;
   margin-bottom: 0;
 }
-.link:hover .link > svg > line,
-.link > svg > path,
-.link > svg > circle,
-.link > svg > rect {
-  stroke: var(--font-gray);
-}
-.link > svg {
-  width: 20px;
-  height: 20px;
-}
 
-.linkActive > svg > line,
-.linkActive > svg > path,
-.linkActive > svg > circle,
-.linkActive > svg > rect {
-  stroke: var(--font-gray);
+.linkActive {
+  margin-top: 35px;
+  margin-bottom: 0;
+  position: relative;
 }
-
 .linkActive::before {
   content: "";
   position: absolute;
-  left: 0;
-  top: -10px;
-  bottom: -10px;
-  width: 4px;
+  left: -23px;
+  top: -5px;
+  height: 35px;
+  width: 10px;
   border-radius: 0 5px 5px 0;
-  background: var(--font-defautl);
+  background: #7bc7f2;
+}
+.linkActive > svg > path {
+  stroke: #7bc7f2;
 }
