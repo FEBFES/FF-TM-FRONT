@@ -6,6 +6,23 @@ import { v4 } from 'uuid';
 import { addTaskToCol } from './dashboard.slice';
 import { IColumns, ITask } from './dashboard.type';
 
+// Get task info
+export const fetchGetTaskInfo = createAsyncThunk(
+  'projects/fetchGetTaskInfo',
+  async ({ projId, colId, taskId }: any, { rejectWithValue }) => {
+    try {
+      const res = await instance.get(
+        `/projects/${projId}/columns/${colId}/tasks/${taskId}`
+      );
+      if (res.status === 200) {
+        return res.data;
+      }
+    } catch (e) {
+      return rejectWithValue(e);
+    }
+  }
+);
+
 // Change task
 export const fetchChangeTask = createAsyncThunk(
   'projects/fetchChangeTask',

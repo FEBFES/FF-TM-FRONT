@@ -16,7 +16,13 @@ import { Column } from '../../components/Column/Column';
 import { v4 } from 'uuid';
 import { ProjectPageSubheader } from '../ProjectPageSubheader/ProjectPageSubheader';
 
-export const ProjectPageMain: React.FC = (): JSX.Element => {
+interface ProjectPageMainProps {
+  setShowTaskModal: (bool: boolean) => void;
+}
+
+export const ProjectPageMain: React.FC<ProjectPageMainProps> = ({
+  setShowTaskModal,
+}): JSX.Element => {
   const params = useParams();
   const dispatch = useAppDispatch();
   const columns = useTypedSelector((state) => state.projectDashboard.columns);
@@ -61,6 +67,7 @@ export const ProjectPageMain: React.FC = (): JSX.Element => {
               col={col}
               delTask={deleteTaskHandler}
               setCurCol={setCurCol}
+              setShowTaskModal={setShowTaskModal}
               setShowAddTaskModal={setShowAddTaskModal}
               delCol={deleteColumnHandler}
             />

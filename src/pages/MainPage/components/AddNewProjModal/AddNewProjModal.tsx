@@ -23,6 +23,7 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
       onSubmit={() => dispatch(fetchAddProject({ name, desc }))}
       title={'Создать новый проект'}
       show={show}
+      empty={true}
       setShow={setShow}
     >
       <div className={styles.projCont}>
