@@ -31,7 +31,7 @@ export const ProjectsIcon = () => {
         height="9.73677"
         rx="2.5"
         transform="matrix(7.91377e-08 1 1 -2.41438e-08 13.2634 -3.95688e-08)"
-        stroke="#7BC7F2"
+        stroke="#989898"
       />
       <rect
         x="0.5"
@@ -40,7 +40,7 @@ export const ProjectsIcon = () => {
         height="9.73677"
         rx="2.5"
         transform="matrix(7.91377e-08 1 1 -2.41438e-08 0.000244153 -3.95688e-08)"
-        stroke="#7BC7F2"
+        stroke="#989898"
       />
     </svg>
   );

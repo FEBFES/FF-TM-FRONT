@@ -28,7 +28,7 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
   );
 
   if (task === null) {
-    return <div>asd</div>;
+    return null;
   }
 
   return (
