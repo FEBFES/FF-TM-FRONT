@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { fetchLogin, fetchRegistration } from './auth.thunk';
+import { fetchLogin } from './auth.thunk';
 
 interface IAuthSliceInitialState {
   isAuth: boolean;
@@ -25,12 +25,6 @@ const AuthSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(
-      fetchRegistration.fulfilled,
-      (state, action: PayloadAction<string>) => {
-        localStorage.setItem('token', action.payload);
-      }
-    );
     builder.addCase(fetchLogin.fulfilled, (state, action) => {
       localStorage.setItem('accessToken', action.payload.accessToken);
       localStorage.setItem('refreshToken', action.payload.refreshToken);

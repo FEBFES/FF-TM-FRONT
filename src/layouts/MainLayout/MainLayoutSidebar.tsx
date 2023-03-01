@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from './MainLayoutSidebar.module.css';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useAppDispatch } from '../../hooks/redux';
 import { setIsAuth } from '../../pages/AuthPages/store/auth.slice';
 import {
+  ChatIcon,
+  HomeIcon,
   LeaveIcon,
-  NotificationIcon,
   ProjectsIcon,
   SettingsIcon,
-  TeamIcon,
   TimeLineIcon,
 } from '../../assets/icons/SidebarIcons';
 import { useTheme } from '../../hooks/useTheme';
@@ -19,9 +19,14 @@ import { appRoutsPath } from '../../routing/routs';
 const links = [
   //TODO to - from string to const appRoutsPath
   {
+    title: 'Home',
+    icon: HomeIcon,
+    to: '/',
+  },
+  {
     title: 'Projects',
     icon: ProjectsIcon,
-    to: '/',
+    to: '/KanbanPage/:id',
   },
   {
     title: 'Timeline',
@@ -29,26 +34,21 @@ const links = [
     to: '/timeline',
   },
   {
-    title: 'Team',
-    icon: TeamIcon,
-    to: '/team',
-  },
-  {
-    title: 'Notifications',
-    icon: NotificationIcon,
-    to: '/notifications',
+    title: 'Chat',
+    icon: ChatIcon,
+    to: '/chat',
   },
   {
     title: 'Settings',
     icon: SettingsIcon,
-    to: '/settings',
+    to: '/SettingsPage',
   },
 ];
 
 export const MainLayoutSidebar: React.FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
-  const location = useLocation();
   const { theme } = useTheme();
+
   return (
     <div className={styles.sidebar}>
       <div className={styles.sidebar__header}>
@@ -58,21 +58,21 @@ export const MainLayoutSidebar: React.FC = (): JSX.Element => {
       <ul className={styles.sidebar__main}>
         {links.map((link, i) => {
           return (
-            <Link
+            <NavLink
               key={i}
-              className={`${styles.link} ${
-                link.to === location.pathname && styles.linkActive
-              }`}
+              className={({ isActive }) =>
+                isActive ? `${styles.linkActive}` : `${styles.link}`
+              }
               to={link.to}
             >
               <link.icon />
-            </Link>
+            </NavLink>
           );
         })}
       </ul>
 
       <footer className={styles.sidebar__footer}>
-        <Link
+        <NavLink
           onClick={() => {
             dispatch(setIsAuth(false));
           }}
@@ -81,7 +81,7 @@ export const MainLayoutSidebar: React.FC = (): JSX.Element => {
           replace={true}
         >
           <LeaveIcon />
-        </Link>
+        </NavLink>
       </footer>
     </div>
   );

@@ -1,5 +1,17 @@
-.projpage {
+.wrap {
+  display: flex;
+  width: initial;
+}
+
+.projPage {
+  /*transition: 0.4s;*/
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
+}
+.projPage.showModal {
+  /*transition: 0.4s;*/
+  /*todo width modal to const*/
+  width: calc(100% - 360px);
 }

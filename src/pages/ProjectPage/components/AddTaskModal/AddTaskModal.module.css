@@ -1,4 +1,156 @@
 .container {
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.header {
+  padding: 22px 24px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__right {
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__right > div {
+  cursor: pointer;
+}
+
+.main {
+  padding: 22px 24px 0;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.input {
+  outline: none;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: #575757;
+  height: 28px;
+  width: 100%;
+  border: none;
+  margin: 0;
+}
+
+.header__left {
+  font-weight: 700;
+  font-size: 16px;
+  color: #989898;
+  width: 32%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.additionally {
+  font-size: 14px;
+  color: #989898;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 40px;
-  height: 150px;
+  margin-bottom: 24px;
+}
+.additionally__left,
+.additionally__left > * {
+  display: flex;
+  align-items: center;
+}
+.additionally__left {
+  width: 20%;
+  justify-content: space-between;
+}
+.additionally__left > div > svg,
+.additionally__left > div > span {
+  margin-left: 5px;
+}
+.additionally__right {
+  width: 25%;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+.additionally__right > div > svg {
+  margin-left: 3px;
+  cursor: pointer;
+  transform: translateY(2px);
+}
+
+.footer {
+  padding: 22px 24px 22px;
+  width: 100%;
+  border-top: 1px solid #e8e8e8;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.submitBtn {
+  margin: 0;
+  background: #7bc7f2;
+  border-radius: 6px;
+  padding: 6px 18px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.task_type {
+  margin-right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 100px;
+  border: 1px solid orange;
+  color: orange;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.checkbox_label {
+  margin-right: 10px;
+  font-size: 14px;
+  color: #989898;
+}
+.checkbox {
+  cursor: pointer;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+.checkbox_input {
+  position: relative;
+  transition: 1s;
+  width: 18px;
+  height: 32px;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+}
+.checkbox_circle {
+  transition: 0.4s;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #989898;
+  border-radius: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 2px;
+}
+.checkbox_circleActive {
+  transition: 0.4s;
+  background: #7bc7f2;
+  top: 16px;
 }

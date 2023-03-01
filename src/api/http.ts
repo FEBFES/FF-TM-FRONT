@@ -64,16 +64,16 @@ instance.interceptors.response.use(
       return new Promise(function (resolve, reject) {
         axios
           .post(serverString + 'auth/refresh-token', {
-            token: localStorage.getItem('refreshToken'),
+            refreshToken: localStorage.getItem('refreshToken'),
           })
           .then(({ data }) => {
-            localStorage.setItem('accessToken', data.refreshToken);
-            localStorage.setItem('refreshToken', data.accessToken);
-            axios.defaults.headers.common['Authorization'] =
-              'Bearer ' + data.refreshToken;
+            localStorage.setItem('accessToken', data.accessToken);
+            localStorage.setItem('refreshToken', data.refreshToken);
+            instance.defaults.headers.common['Authorization'] =
+              'Bearer ' + data.accessToken;
             originalRequest.headers['Authorization'] =
-              'Bearer ' + data.refreshToken;
-            processQueue(null, data.refreshToken);
+              'Bearer ' + data.accessToken;
+            processQueue(null, data.accessToken);
             resolve(axios(originalRequest));
           })
           .catch((err) => {

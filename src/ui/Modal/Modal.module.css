@@ -10,7 +10,6 @@
 
 .cont {
   z-index: var(--z-index-modalCont);
-  padding: 30px 15px 10px;
   min-width: 300px;
   min-height: 50px;
   border-radius: 14px;
