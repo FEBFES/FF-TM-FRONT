@@ -41,7 +41,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({
           <div className={styles.task_priority}>
             <PriorityDefault />
           </div>
-          <h4 className={styles.task_id}>#{task.id}</h4>
+          <h4 className={styles.task_id}>#{task.id || ''}</h4>
         </div>
 
         <div className={styles.task_avatar}>
@@ -63,7 +63,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({
             );
           }}
         >
-          {task.name}
+          {task.name || ''}
         </h1>
         <span className={styles.task_creationDate}>Feb 21</span>
       </div>

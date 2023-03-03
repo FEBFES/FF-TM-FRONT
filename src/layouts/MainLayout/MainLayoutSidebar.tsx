@@ -60,6 +60,7 @@ export const MainLayoutSidebar: React.FC = (): JSX.Element => {
           return (
             <NavLink
               key={i}
+              aria-label={link.title}
               className={({ isActive }) =>
                 isActive ? `${styles.linkActive}` : `${styles.link}`
               }
@@ -76,6 +77,7 @@ export const MainLayoutSidebar: React.FC = (): JSX.Element => {
           onClick={() => {
             dispatch(setIsAuth(false));
           }}
+          aria-label={'Logout'}
           className={styles.link}
           to={appRoutsPath.LoginPage.to}
           replace={true}

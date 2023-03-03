@@ -29,9 +29,9 @@ export const ProjectPageHeader: React.FC = (): JSX.Element => {
             Projects
           </span>
           <span>/</span>
-          <span>{projectName || 'proj desc'}</span>
+          <span>{projectName || ''}</span>
         </div>
-        <h1 className={styles.title}>{projectName || 'Project name'}</h1>
+        <h1 className={styles.title}>{projectName || ''}</h1>
       </div>
 
       <div className={styles.header__right}>
