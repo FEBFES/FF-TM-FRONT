@@ -4,14 +4,13 @@
 }
 
 .projPage {
-  /*transition: 0.4s;*/
   display: flex;
+  background: var(--bg-100);
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
   width: 100%;
 }
 .projPage.showModal {
-  /*transition: 0.4s;*/
   /*todo width modal to const*/
   width: calc(100% - 360px);
 }

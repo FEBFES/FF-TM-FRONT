@@ -14,7 +14,6 @@ import {
 import styles from './ProjectPageMain.module.css';
 import { Column } from '../../components/Column/Column';
 import { v4 } from 'uuid';
-import { ProjectPageSubheader } from '../ProjectPageSubheader/ProjectPageSubheader';
 
 interface ProjectPageMainProps {
   setShowTaskModal: (bool: boolean) => void;
@@ -58,7 +57,6 @@ export const ProjectPageMain: React.FC<ProjectPageMainProps> = ({
 
   return (
     <div className={styles.projMain}>
-      <ProjectPageSubheader />
       <div className={styles.colCont}>
         {columns.map((col: IColumns) => {
           return (

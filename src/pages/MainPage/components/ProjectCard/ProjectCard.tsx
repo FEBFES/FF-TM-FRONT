@@ -24,7 +24,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       className={styles.projectCard}
     >
       <header className={styles.header}>
-        <span>#{proj.id}</span>
+        <span className={styles.projectCard__id}>#{proj.id}</span>
         <FavoriteIcon />
       </header>
 
@@ -33,7 +33,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         <p className={styles.card__subtitle}>{proj.description}</p>
       </main>
       <footer className={styles.footer}>
-        <p>Creation date: {new Date(proj.createDate).toDateString()}</p>
+        <p className={styles.projectCard__date}>
+          Creation date: {new Date(proj.createDate).toDateString()}
+        </p>
         {/*<Button*/}
         {/*    theme={'danger'}*/}
         {/*    onClick={(e) => {*/}

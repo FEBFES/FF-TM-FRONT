@@ -42,19 +42,16 @@ export const RegistrationForm: React.FC<
       <h1 className={styles.regform__title}>Registration</h1>
       <InputField
         type={'text'}
-        label={'email'}
         value={inputData.email}
         onChange={(e) => changeHandle(e.target.value, 'email')}
       />
       <InputField
         type={'text'}
-        label={'username'}
         value={inputData.username}
         onChange={(e) => changeHandle(e.target.value, 'username')}
       />
       <InputField
         type={'password'}
-        label={'password'}
         value={inputData.password}
         onChange={(e) => changeHandle(e.target.value, 'password')}
       />
