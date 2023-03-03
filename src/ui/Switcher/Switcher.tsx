@@ -14,13 +14,12 @@ export const Switcher: React.FC<SwitcherProps> = ({
   className,
 }): JSX.Element => {
   return (
-    <div
-      onClick={onClick}
-      className={classNames(className, styles.cont, {
-        [styles.contActive]: isActive,
-      })}
-    >
-      <div className={classNames(styles.switcher)} />
+    <div onClick={onClick} className={styles.checkbox_input}>
+      <div
+        className={classNames(className, styles.checkbox_circle, {
+          [styles.checkbox_circleActive]: isActive,
+        })}
+      />
     </div>
   );
 };
