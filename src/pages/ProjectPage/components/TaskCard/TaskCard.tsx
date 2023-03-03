@@ -70,8 +70,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({
 
       <div className={styles.task__footer}>
         <div className={styles.footer_left}>
-          <div className={styles.task_type}>F</div>
-          <div className={styles.task_label}>Refactoring</div>
+          <div className={styles.task_label}>Feature</div>
         </div>
 
         <div className={styles.footer_right}>

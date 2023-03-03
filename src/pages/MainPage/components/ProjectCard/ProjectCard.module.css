@@ -5,14 +5,22 @@
   margin-bottom: 20px;
   padding: 10px 15px;
   border-radius: 10px;
-  width: 440px;
-  height: 140px;
-  border: 1px solid #e8e8e8;
+  width: 30%;
+  min-height: 140px;
+  border: 1px solid var(--bg-border);
   transition: 0.2s;
 }
 .projectCard:hover {
   scale: 1.02;
   cursor: pointer;
+}
+
+.projectCard__id {
+  color: var(--font-defautl);
+}
+
+.projectCard__date {
+  color: var(--font-defautl);
 }
 
 .card__title {

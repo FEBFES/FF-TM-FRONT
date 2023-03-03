@@ -106,6 +106,7 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
           Log
         </div>
       </div>
+
       {curSubPage === 'comments' && (
         <div className={styles.comments}>
           <div className={styles.commentsWrap}>

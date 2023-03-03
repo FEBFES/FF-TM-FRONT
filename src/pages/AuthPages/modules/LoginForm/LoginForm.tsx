@@ -37,13 +37,11 @@ export const LoginForm: React.FC<LoginFormProps> = (): JSX.Element => {
       <h1 className={styles.title}>Sign in</h1>
       <InputField
         type={'text'}
-        label={'Username'}
         value={inputData.username}
         onChange={(e) => changeHandle(e.target.value, 'username')}
       />
       <InputField
         type={'password'}
-        label={'Password'}
         value={inputData.password}
         onChange={(e) => changeHandle(e.target.value, 'password')}
       />

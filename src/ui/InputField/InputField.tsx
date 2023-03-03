@@ -9,37 +9,23 @@ interface IInputFieldProps
     InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
   > {
-  label?: string;
   value: any;
 }
 
 export const InputField: React.FC<IInputFieldProps> = ({
   type,
-  label,
   value,
+  className,
   ...props
 }): JSX.Element => {
-  const [isFocusOn, setIsFocusOn] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState(false);
 
   return (
     <div className={styles.inputCont}>
-      <label
-        className={classNames(styles.label, {
-          [styles.labelFocus]: isFocusOn || value !== '',
-          'display: none': label === '' || !label,
-        })}
-        htmlFor="input"
-      >
-        {label}
-      </label>
       <input
-        onFocus={() => setIsFocusOn(true)}
-        onBlur={() => setIsFocusOn(false)}
         value={value}
         type={showPassword ? 'text' : type}
-        id={'input'}
-        className={styles.input}
+        className={classNames(className, styles.input)}
         {...props}
       />
       {type === 'password' && value !== '' && (

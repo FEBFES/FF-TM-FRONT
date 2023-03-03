@@ -28,12 +28,7 @@ export const GeneralTab: React.FC<GeneralTabProps> = (): JSX.Element => {
 
       <h2 className={comStyle.subtitle}>General</h2>
 
-      <InputField
-        label={'Project name'}
-        placeholder={'...'}
-        value={''}
-        type="text"
-      />
+      <InputField placeholder={'...'} value={''} type="text" />
 
       <Button theme={'default'} className={styles.updBtn}>
         update
