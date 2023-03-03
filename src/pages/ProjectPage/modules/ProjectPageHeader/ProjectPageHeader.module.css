@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 13%;
+  height: 10%;
   background: var(--bg-0);
   border-radius: 0 0 5px 5px;
 }
