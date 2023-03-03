@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { IColumns } from '../../store/dashboard.type';
 import { AddTaskModal } from '../../components/AddTaskModal/AddTaskModal';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
@@ -12,7 +11,7 @@ import {
   fetchProjectInfo,
 } from '../../store/dashboard.thunk';
 import styles from './ProjectPageMain.module.css';
-import { Column } from '../../components/Column/Column';
+import { Column, IColumns } from '../../components/Column';
 import { v4 } from 'uuid';
 
 interface ProjectPageMainProps {
