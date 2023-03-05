@@ -1,4 +1,5 @@
 .inputCont {
+  margin-top: 10px;
   position: relative;
   height: 46px;
   width: 100%;
@@ -17,15 +18,6 @@
 }
 .input:hover {
   border: 1px solid #b2b2b2;
-}
-
-.label {
-  color: var(--font-gray);
-  transition: 0.4s;
-  top: -15%;
-  transform: translateY(-50%);
-  left: 0;
-  font-size: 12px;
 }
 
 .passwordIcon {

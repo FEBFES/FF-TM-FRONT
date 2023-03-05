@@ -10,6 +10,7 @@ import {
   PlusIcon,
 } from '../../../../assets/icons/UtilsIcons';
 import { PriorityDefault } from '../../../../assets/icons/TaskIcons';
+import { Switcher } from '../../../../ui/Switcher/Switcher';
 
 interface AddTaskModalProps {
   show: boolean;
@@ -104,19 +105,12 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
         </main>
 
         <footer className={styles.footer}>
-          {/*todo switcher*/}
-          <div
-            onClick={() => setIsMultiple((prevState) => !prevState)}
-            className={styles.checkbox}
-          >
+          <div className={styles.checkbox}>
             <span className={styles.checkbox_label}>Create multiple:</span>
-            <div className={styles.checkbox_input}>
-              <div
-                className={`${styles.checkbox_circle} ${
-                  isMultiple && styles.checkbox_circleActive
-                }`}
-              />
-            </div>
+            <Switcher
+              onClick={() => setIsMultiple((prevState) => !prevState)}
+              isActive={isMultiple}
+            />
           </div>
           <Button
             onClick={() => {

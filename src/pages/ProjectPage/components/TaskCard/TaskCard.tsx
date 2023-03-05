@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './TaskCard.module.css';
-import { ITask } from '../../store/dashboard.type';
 import { delTaskFromCol } from '../../store/dashboard.slice';
 import { useAppDispatch } from '../../../../hooks/redux';
 import {
@@ -10,12 +9,8 @@ import {
 } from '../../../../assets/icons/TaskIcons';
 import human from '../../../../assets/img/human.png';
 import { fetchGetTaskInfo } from '../../store/dashboard.thunk';
-
-interface TaskCardProps {
-  task: ITask;
-  delTask: (colId: number, taskId: number) => void;
-  setShowTaskModal: (bool: boolean) => void;
-}
+import { TaskCardProps } from './TaskCard.props';
+import moment from 'moment';
 
 export const TaskCard: React.FC<TaskCardProps> = ({
   task,
@@ -41,7 +36,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({
           <div className={styles.task_priority}>
             <PriorityDefault />
           </div>
-          <h4 className={styles.task_id}>#{task.id}</h4>
+          <h4 className={styles.task_id}>#{task.id || ''}</h4>
         </div>
 
         <div className={styles.task_avatar}>
@@ -63,15 +58,16 @@ export const TaskCard: React.FC<TaskCardProps> = ({
             );
           }}
         >
-          {task.name}
+          {task.name || ''}
         </h1>
-        <span className={styles.task_creationDate}>Feb 21</span>
+        <span className={styles.task_creationDate}>
+          {moment(task.createDate).format('MMMM DD')}
+        </span>
       </div>
 
       <div className={styles.task__footer}>
         <div className={styles.footer_left}>
-          <div className={styles.task_type}>F</div>
-          <div className={styles.task_label}>Refactoring</div>
+          <div className={styles.task_label}>Feature</div>
         </div>
 
         <div className={styles.footer_right}>

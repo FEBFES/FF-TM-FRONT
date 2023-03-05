@@ -4,7 +4,8 @@ import { AxiosError } from 'axios';
 import { addToast } from '../../../store/slices/AppSlice';
 import { v4 } from 'uuid';
 import { addTaskToCol } from './dashboard.slice';
-import { IColumns, ITask } from './dashboard.type';
+import { IColumns } from '../components/Column';
+import { ITask } from '../components/TaskCard';
 
 // Get task info
 export const fetchGetTaskInfo = createAsyncThunk(

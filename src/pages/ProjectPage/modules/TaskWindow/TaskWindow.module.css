@@ -4,7 +4,7 @@
   /*todo width modal to const*/
   min-width: 360px;
   width: 360px;
-  border-left: 1px solid #e8e8e8;
+  border-left: 1px solid var(--bg-border);
   background: var(--bg-0);
   height: 100vh;
   z-index: 10;
@@ -43,7 +43,7 @@
   justify-content: space-between;
   align-items: flex-start;
   padding: 0 18px 12px;
-  border-bottom: 1px solid #e8e8e8;
+  border-bottom: 1px solid var(--bg-border);
 }
 
 .subheader__title {
@@ -147,7 +147,7 @@
 
 .comments__footer {
   padding: 0 18px;
-  border-top: 1px solid #e8e8e8;
+  border-top: 1px solid var(--bg-border);
   position: relative;
   display: flex;
   height: 55px;
@@ -173,6 +173,7 @@
   font-weight: 500;
   font-size: 14px;
   color: #989898;
+  background: var(--bg-0);
 }
 
 .comments__footer_sendIconCont {
@@ -252,6 +253,6 @@
 .commentCont__item {
   border-radius: 10px;
   width: 100%;
-  background: #f5f6f8;
+  background: var(--bg-border);
   padding: 10px 20px;
 }

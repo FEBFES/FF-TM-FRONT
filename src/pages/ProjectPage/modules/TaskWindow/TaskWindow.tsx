@@ -47,9 +47,7 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
       </header>
 
       <div className={styles.subheader}>
-        <h1 className={styles.subheader__title}>
-          {task.name}ASDlajsldjasldjlaksjdlajslkdjalskdjlaksjdlk
-        </h1>
+        <h1 className={styles.subheader__title}>{task.name || ''}</h1>
         <div className={styles.subheader__type}>Bug</div>
       </div>
 
@@ -77,7 +75,7 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
 
       <div className={styles.description}>
         <h3 className={styles.user__title}>Description:</h3>
-        <p className={styles.description__text}>{task.description}</p>
+        <p className={styles.description__text}>{task.description || ''}</p>
       </div>
 
       <div className={styles.windowToggle}>
@@ -106,6 +104,7 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
           Log
         </div>
       </div>
+
       {curSubPage === 'comments' && (
         <div className={styles.comments}>
           <div className={styles.commentsWrap}>

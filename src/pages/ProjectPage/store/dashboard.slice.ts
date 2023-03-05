@@ -8,7 +8,8 @@ import {
   fetchProjectDashboard,
   fetchProjectInfo,
 } from './dashboard.thunk';
-import { IColumns, ITask } from './dashboard.type';
+import { IColumns } from '../components/Column';
+import { ITask } from '../components/TaskCard';
 
 interface IDashboardInitialState {
   columns: IColumns[];

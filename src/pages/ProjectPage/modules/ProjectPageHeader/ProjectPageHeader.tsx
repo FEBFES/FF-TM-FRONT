@@ -11,11 +11,15 @@ import {
   SearchIcon,
 } from '../../../../assets/icons/UtilsIcons';
 import human from '../../../../assets/img/human.png';
+import { Switcher } from '../../../../ui/Switcher/Switcher';
+import { useTheme } from '../../../../hooks/useTheme';
 
 export const ProjectPageHeader: React.FC = (): JSX.Element => {
   const { projectName } = useTypedSelector((state) => state.projectDashboard);
+  const theme = useTypedSelector((state) => state.app.theme);
   const [showAddColModal, setShowAddColModal] = useState(false);
   const navigate = useNavigate();
+  const { changeTheme } = useTheme();
 
   return (
     <header className={styles.header}>
@@ -25,13 +29,13 @@ export const ProjectPageHeader: React.FC = (): JSX.Element => {
             Projects
           </span>
           <span>/</span>
-          <span>{projectName || 'proj desc'}</span>
+          <span>{projectName || ''}</span>
         </div>
-        <h1 className={styles.title}>{projectName || 'Project name'}</h1>
+        <h1 className={styles.title}>{projectName || ''}</h1>
       </div>
 
       <div className={styles.header__right}>
-        {/*<Switcher isActive={theme === 'dark'} onClick={changeTheme} />*/}
+        <Switcher isActive={theme === 'dark'} onClick={changeTheme} />
         <div className={styles.inputCont}>
           <input className={styles.input} type="text" />
           <div className={styles.inputIcon}>

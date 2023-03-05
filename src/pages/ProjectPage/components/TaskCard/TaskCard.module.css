@@ -59,7 +59,7 @@
   cursor: pointer;
   margin: 0;
   word-wrap: break-word;
-  width: 75%;
+  width: 70%;
   font-size: 14px;
   color: #575757;
 }
@@ -104,7 +104,7 @@
 
 .task_label {
   padding: 4px 9px;
-  background: #f3e3ff;
+  border: 1px solid #c583ff;
   border-radius: 16px;
   font-size: 14px;
   line-height: 16px;
