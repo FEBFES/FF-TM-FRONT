@@ -26,7 +26,7 @@ const links = [
   {
     title: 'Projects',
     icon: ProjectsIcon,
-    to: '/KanbanPage/:id',
+    to: '/KanbanPageMain/',
   },
   {
     title: 'Timeline',
