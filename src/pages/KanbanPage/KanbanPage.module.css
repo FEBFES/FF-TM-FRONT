@@ -1,0 +1,16 @@
+.wrap {
+  display: flex;
+  width: initial;
+}
+
+.KanbanPage {
+  display: flex;
+  background: var(--bg-100);
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+.KanbanPage.showModal {
+  /*todo width modal to const*/
+  width: calc(100% - 360px);
+}

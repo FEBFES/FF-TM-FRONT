@@ -1,0 +1,15 @@
+.kanbanMain {
+  background: var(--bg-100);
+  width: 100%;
+  height: 85%;
+}
+
+.colCont {
+  padding-left: 10px;
+  background: var(--bg-0);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  height: 100%;
+}

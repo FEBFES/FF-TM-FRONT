@@ -1,11 +1,11 @@
 import React from 'react';
-import { MainPage } from '../pages/MainPage/MainPage';
 import { MainLayout } from '../layouts/MainLayout/MainLayout';
-import { ProjectPage } from '../pages/ProjectPage/ProjectPage';
+import { KanbanPage } from '../pages/KanbanPage/KanbanPage';
 import { EmptyLayout } from '../layouts/EmptyLayout/EmptyLayout';
 import { RegistrationPage } from '../pages/AuthPages/Registration/RegistrationPage';
 import { LoginPage } from '../pages/AuthPages/Login/LoginPage';
 import { SettingsPage } from '../pages/SettingsPage/SettingsPage';
+import { ProjectsPage } from '../pages/ProjectsPage/ProjectsPage';
 
 export type IAppRouts = {
   title: string;
@@ -22,8 +22,8 @@ export const appRoutsPath = {
   },
   KanbanPage: {
     title: 'Kanban Page',
-    path: '/KanbanPage/:id?',
-    to: '/KanbanPage/',
+    path: '/KanbanPageMain/',
+    to: '/KanbanPageMain/',
   },
   RegistrationPage: {
     title: 'Registration page',
@@ -45,13 +45,13 @@ export const appRoutsPath = {
 const privateRoutes: IAppRouts[] = [
   {
     title: appRoutsPath.ProjectPage.title,
-    component: MainPage,
-    layout: MainLayout,
+    component: ProjectsPage,
+    layout: EmptyLayout,
     path: appRoutsPath.ProjectPage.path,
   },
   {
     title: appRoutsPath.KanbanPage.title,
-    component: ProjectPage,
+    component: KanbanPage,
     layout: MainLayout,
     path: appRoutsPath.KanbanPage.path,
   },
