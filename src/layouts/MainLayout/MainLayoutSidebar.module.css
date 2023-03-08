@@ -62,6 +62,9 @@
   border-radius: 0 5px 5px 0;
   background: #7bc7f2;
 }
+.linkActive > svg > rect {
+  stroke: #7bc7f2;
+}
 .linkActive > svg > path {
   stroke: #7bc7f2;
 }
