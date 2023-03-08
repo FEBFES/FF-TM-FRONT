@@ -26,7 +26,7 @@ export const KanbanPageMain: React.FC<KanbanPageProps> = ({
   const columns = useTypedSelector((state) => state.projectKanban.columns);
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
   const [curCol, setCurCol] = useState<number | null>(null);
-  const curProjId = location.state.curProj;
+  const curProjId = location?.state?.curProj;
 
   useEffect(() => {
     if (curProjId) {
