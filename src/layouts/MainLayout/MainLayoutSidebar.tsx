@@ -31,12 +31,12 @@ const links = [
   {
     title: 'Timeline',
     icon: TimeLineIcon,
-    to: '/timeline',
+    to: '/Timeline',
   },
   {
     title: 'Chat',
     icon: ChatIcon,
-    to: '/chat',
+    to: '/Messages',
   },
   {
     title: 'Settings',

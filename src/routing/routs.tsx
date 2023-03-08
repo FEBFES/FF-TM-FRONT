@@ -6,6 +6,8 @@ import { RegistrationPage } from '../pages/AuthPages/Registration/RegistrationPa
 import { LoginPage } from '../pages/AuthPages/Login/LoginPage';
 import { SettingsPage } from '../pages/SettingsPage/SettingsPage';
 import { ProjectsPage } from '../pages/ProjectsPage/ProjectsPage';
+import { TimelinePage } from '../pages/TimelinePage/TimelinePage';
+import { MessagesPage } from '../pages/MessagesPage/MessagesPage';
 
 export type IAppRouts = {
   title: string;
@@ -29,6 +31,16 @@ export const appRoutsPath = {
     title: 'Registration page',
     path: '/Registration',
     to: '/Registration',
+  },
+  TimelinePage: {
+    title: 'Timeline',
+    path: '/Timeline',
+    to: '/Timeline',
+  },
+  MessagesPage: {
+    title: 'Messages',
+    path: '/Messages',
+    to: '/Messages',
   },
   LoginPage: {
     title: 'Login Page',
@@ -60,6 +72,18 @@ const privateRoutes: IAppRouts[] = [
     component: SettingsPage,
     layout: MainLayout,
     path: appRoutsPath.SettingsPage.path,
+  },
+  {
+    title: appRoutsPath.TimelinePage.title,
+    component: TimelinePage,
+    layout: MainLayout,
+    path: appRoutsPath.TimelinePage.path,
+  },
+  {
+    title: appRoutsPath.MessagesPage.title,
+    component: MessagesPage,
+    layout: MainLayout,
+    path: appRoutsPath.MessagesPage.path,
   },
 ];
 
