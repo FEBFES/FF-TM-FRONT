@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { AddTaskModal } from '../../components/AddTaskModal/AddTaskModal';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
-import { clearKanbanSlice } from '../../store/kanban.slice';
+import {clearKanbanSlice, delTaskFromCol} from '../../store/kanban.slice';
 import {
-  fetchAddNewTask,
+  fetchAddNewTask, fetchChangeTask,
   fetchDelCol,
   fetchDelTask,
   fetchProjectDashboard,
@@ -12,6 +12,7 @@ import {
 import styles from './KanbanPageMain.module.css';
 import { Column, IColumns } from '../../components/Column';
 import { v4 } from 'uuid';
+import {DragDropContext, Droppable} from 'react-beautiful-dnd';
 
 interface KanbanPageProps {
   setShowTaskModal: (bool: boolean) => void;
@@ -55,23 +56,58 @@ export const KanbanPageMain: React.FC<KanbanPageProps> = ({
     curProjId && dispatch(fetchDelCol({ projId: curProjId, colId: colId }));
   };
 
+  const dropHandler = (test: any) => {
+    console.log(test)
+    dispatch(delTaskFromCol({
+      columnId: +test.source.droppableId,
+      id: +test.draggableId
+    }))
+    // dispatch(fetchChangeTask({ test.draggableId, test.destination.droppableId }));
+  }
+
   return (
     <div className={styles.kanbanMain}>
-      <div className={styles.colCont}>
-        {columns.map((col: IColumns) => {
-          return (
-            <Column
-              key={v4()}
-              col={col}
-              delTask={deleteTaskHandler}
-              setCurCol={setCurCol}
-              setShowTaskModal={setShowTaskModal}
-              setShowAddTaskModal={setShowAddTaskModal}
-              delCol={deleteColumnHandler}
-            />
-          );
-        })}
-      </div>
+        <DragDropContext onDragEnd={dropHandler}>
+          <Droppable
+              droppableId={`all-columns`}
+              direction={'horizontal'}
+              type={'column'}
+          >
+            {(provided) => (
+                <div
+                    className={styles.colCont}
+                >
+
+                  {columns.map((col: IColumns) => (
+                      <Droppable
+                          droppableId={`${col.id}`}
+                          // direction={'horizontal'}
+                          type={'task'}
+                      >
+                        {(provided) => (
+
+                            <div
+                            ref={provided.innerRef}
+                            {...provided.droppableProps}
+                        >
+                          <Column
+                              key={v4()}
+                              col={col}
+                              delTask={deleteTaskHandler}
+                              setCurCol={setCurCol}
+                              setShowTaskModal={setShowTaskModal}
+                              setShowAddTaskModal={setShowAddTaskModal}
+                              delCol={deleteColumnHandler}
+                          />
+                        </div>
+                            )}
+                      </Droppable>
+                  ))}
+                  {provided.placeholder}
+                </div>
+            )}
+          </Droppable>
+        </DragDropContext>
 
       {showAddTaskModal && (
         <AddTaskModal
