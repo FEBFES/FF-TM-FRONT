@@ -8,6 +8,7 @@ import { SettingsPage } from '../pages/SettingsPage/SettingsPage';
 import { ProjectsPage } from '../pages/ProjectsPage/ProjectsPage';
 import { TimelinePage } from '../pages/TimelinePage/TimelinePage';
 import { MessagesPage } from '../pages/MessagesPage/MessagesPage';
+import { AuthLayout } from '../layouts/AuthLayout/AuthLayout';
 
 export type IAppRouts = {
   title: string;
@@ -91,13 +92,13 @@ const appRouts: IAppRouts[] = [
   {
     title: appRoutsPath.LoginPage.title,
     component: LoginPage,
-    layout: EmptyLayout,
+    layout: AuthLayout,
     path: appRoutsPath.LoginPage.path,
   },
   {
     title: appRoutsPath.RegistrationPage.title,
     component: RegistrationPage,
-    layout: EmptyLayout,
+    layout: AuthLayout,
     path: appRoutsPath.RegistrationPage.path,
   },
 ];
