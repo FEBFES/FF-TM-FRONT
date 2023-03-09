@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { AddTaskModal } from '../../components/AddTaskModal/AddTaskModal';
-import { useLocation } from 'react-router-dom';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { clearKanbanSlice } from '../../store/kanban.slice';
 import {
@@ -21,12 +20,13 @@ interface KanbanPageProps {
 export const KanbanPageMain: React.FC<KanbanPageProps> = ({
   setShowTaskModal,
 }): JSX.Element => {
-  const location = useLocation();
   const dispatch = useAppDispatch();
   const columns = useTypedSelector((state) => state.projectKanban.columns);
+  const curProjId =
+    useTypedSelector((state) => state.projects.curProj)?.id ||
+    Number(localStorage.getItem('curProj'));
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
   const [curCol, setCurCol] = useState<number | null>(null);
-  const curProjId = location?.state?.curProj;
 
   useEffect(() => {
     if (curProjId) {

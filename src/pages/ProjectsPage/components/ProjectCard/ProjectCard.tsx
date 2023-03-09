@@ -5,6 +5,8 @@ import { appRoutsPath } from '../../../../routing/routs';
 import { v4 } from 'uuid';
 import { useNavigate } from 'react-router-dom';
 import { DotsIcon, FavoriteIcon } from '../../../../assets/icons/UtilsIcons';
+import { useAppDispatch } from '../../../../hooks/redux';
+import { setCurProj } from '../../store/projects.slice';
 
 interface ProjectCardProps {
   proj: IProject;
@@ -14,11 +16,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   proj,
 }): JSX.Element => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   return (
     <div
       onClick={() => {
-        navigate(appRoutsPath.KanbanPage.to, { state: { curProj: proj.id } });
+        navigate(appRoutsPath.KanbanPage.to);
+        dispatch(setCurProj(proj));
+        localStorage.setItem('curProj', JSON.stringify(proj.id));
       }}
       key={v4()}
       className={styles.projectCard}
