@@ -52,7 +52,7 @@ export const fetchChangeTask = createAsyncThunk(
 //Get project info
 export const fetchProjectInfo = createAsyncThunk(
   'projects/fetchProjectInfo',
-  async (projId: string, { rejectWithValue }) => {
+  async (projId: number, { rejectWithValue }) => {
     try {
       const res = await instance.get(`/projects/${projId}`);
 
@@ -68,7 +68,7 @@ export const fetchProjectInfo = createAsyncThunk(
 //Get project dashboard
 export const fetchProjectDashboard = createAsyncThunk(
   'projects/fetchAllProjectColumns',
-  async (projId: string, { rejectWithValue }) => {
+  async (projId: number, { rejectWithValue }) => {
     try {
       const res = await instance.get(`projects/${projId}/dashboard`);
       if (res.status === 200) {
@@ -89,7 +89,7 @@ export const fetchAddNewTask = createAsyncThunk(
       description,
       projId,
       colId,
-    }: { name: string; description: string; projId: string; colId: number },
+    }: { name: string; description: string; projId: number; colId: number },
     { rejectWithValue, dispatch }
   ) => {
     try {
@@ -126,7 +126,7 @@ export const fetchDelTask = createAsyncThunk(
       projId,
       colId,
       taskId,
-    }: { projId: string; colId: number; taskId: number },
+    }: { projId: number; colId: number; taskId: number },
     { rejectWithValue }
   ) => {
     try {
@@ -174,7 +174,7 @@ export const fetchAddNewCol = createAsyncThunk(
 export const fetchDelCol = createAsyncThunk(
   'projects/fetchDelCol',
   async (
-    { projId, colId }: { projId: string; colId: number },
+    { projId, colId }: { projId: number; colId: number },
     { rejectWithValue }
   ) => {
     try {

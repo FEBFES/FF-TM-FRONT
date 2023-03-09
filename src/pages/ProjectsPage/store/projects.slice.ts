@@ -8,12 +8,14 @@ import { IProject } from './projects.type';
 
 interface IProjectInitialState {
   projects: IProject[];
+  curProj: IProject | null;
   isLoad: boolean;
   error: string | null;
 }
 
 const projectInitialState: IProjectInitialState = {
   projects: [],
+  curProj: null,
   isLoad: false,
   error: null,
 };
@@ -21,7 +23,11 @@ const projectInitialState: IProjectInitialState = {
 const ProjectsSlice = createSlice({
   name: 'projects',
   initialState: projectInitialState,
-  reducers: {},
+  reducers: {
+    setCurProj: (state, action: PayloadAction<IProject>) => {
+      state.curProj = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     //
     // Getting a list of user's projects
@@ -60,5 +66,5 @@ const ProjectsSlice = createSlice({
   },
 });
 
-// export {} = ProjectsSlice.actions
+export const { setCurProj } = ProjectsSlice.actions;
 export default ProjectsSlice.reducer;

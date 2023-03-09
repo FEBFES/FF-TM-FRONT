@@ -24,8 +24,8 @@ export const appRoutsPath = {
   },
   KanbanPage: {
     title: 'Kanban Page',
-    path: '/KanbanPageMain/',
-    to: '/KanbanPageMain/',
+    path: '/KanbanPage/',
+    to: '/KanbanPage/',
   },
   RegistrationPage: {
     title: 'Registration page',
