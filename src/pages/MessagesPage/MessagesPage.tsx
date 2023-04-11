@@ -1,7 +1,6 @@
 import React from 'react';
 import './MessagesPage.module.css';
-
-interface MessagesPageProps {}
+import { MessagesPageProps } from './MessagesPage.props';
 
 export const MessagesPage: React.FC<MessagesPageProps> = (): JSX.Element => {
   return (

@@ -5,11 +5,7 @@ import { InputField } from '../../../../ui/InputField/InputField';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchAddNewCol } from '../../store/kanban.thunk';
 import { useParams } from 'react-router-dom';
-
-interface AddColModalProps {
-  show: boolean;
-  setShow: (bool: boolean) => void;
-}
+import { AddColModalProps } from './AddColModal.props';
 
 export const AddColModal: React.FC<AddColModalProps> = ({
   show,

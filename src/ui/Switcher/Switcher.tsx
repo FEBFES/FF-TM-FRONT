@@ -1,12 +1,7 @@
 import React from 'react';
 import styles from './Switcher.module.css';
 import classNames from 'classnames';
-
-interface SwitcherProps {
-  onClick: () => void;
-  isActive: boolean;
-  className?: string;
-}
+import { SwitcherProps } from './Switcher.props';
 
 export const Switcher: React.FC<SwitcherProps> = ({
   onClick,

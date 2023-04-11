@@ -3,6 +3,7 @@ import { Route, useLocation, useNavigate } from 'react-router-dom';
 import { useTypedSelector } from '../hooks/redux';
 import { appRoutsPath } from './routs';
 
+//todo
 export const PrivateRoute = (props: any) => {
   const location = useLocation();
   const navigate = useNavigate();

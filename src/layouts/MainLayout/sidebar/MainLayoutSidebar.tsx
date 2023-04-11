@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './MainLayoutSidebar.module.css';
 import { NavLink } from 'react-router-dom';
-import { useAppDispatch } from '../../hooks/redux';
-import { setIsAuth } from '../../pages/AuthPages/store/auth.slice';
+import { useAppDispatch } from '../../../hooks/redux';
+import { setIsAuth } from '../../../pages/AuthPages/store/auth.slice';
 import {
   ChatIcon,
   HomeIcon,
@@ -10,11 +10,11 @@ import {
   ProjectsIcon,
   SettingsIcon,
   TimeLineIcon,
-} from '../../assets/icons/SidebarIcons';
-import { useTheme } from '../../hooks/useTheme';
-import { LogoIconLight } from '../../assets/icons/LogoIconLight';
-import { LogoIconDark } from '../../assets/icons/LogoIconDark';
-import { appRoutsPath } from '../../routing/routs';
+} from '../../../assets/icons/SidebarIcons';
+import { useTheme } from '../../../hooks/useTheme';
+import { LogoIconLight } from '../../../assets/icons/LogoIconLight';
+import { LogoIconDark } from '../../../assets/icons/LogoIconDark';
+import { appRoutsPath } from '../../../routing/routs';
 
 const links = [
   //TODO to - from string to const appRoutsPath

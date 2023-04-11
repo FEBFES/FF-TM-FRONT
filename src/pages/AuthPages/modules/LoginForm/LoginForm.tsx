@@ -6,8 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchLogin } from '../../store/auth.thunk';
 import { appRoutsPath } from '../../../../routing/routs';
-
-interface LoginFormProps {}
+import { LoginFormProps } from './LoginForm.props';
 
 export const LoginForm: React.FC<LoginFormProps> = (): JSX.Element => {
   const dispatch = useAppDispatch();

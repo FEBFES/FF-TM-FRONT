@@ -1,16 +1,9 @@
-import React, { DetailedHTMLProps, InputHTMLAttributes, useState } from 'react';
+import React, { useState } from 'react';
 import styles from './InputField.module.css';
 import classNames from 'classnames';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-interface IInputFieldProps
-  extends DetailedHTMLProps<
-    InputHTMLAttributes<HTMLInputElement>,
-    HTMLInputElement
-  > {
-  value: any;
-}
+import { IInputFieldProps } from './InputField.props';
 
 export const InputField: React.FC<IInputFieldProps> = ({
   type,

@@ -2,11 +2,7 @@ import React from 'react';
 import styles from './TaskCard.module.css';
 import { delTaskFromCol } from '../../store/kanban.slice';
 import { useAppDispatch } from '../../../../hooks/redux';
-import {
-  AttachmentsIcon,
-  CommentsIcon,
-  PriorityDefault,
-} from '../../../../assets/icons/TaskIcons';
+import { PriorityDefault } from '../../../../assets/icons/TaskIcons';
 import human from '../../../../assets/img/human.png';
 import { fetchGetTaskInfo } from '../../store/kanban.thunk';
 import { TaskCardProps } from './TaskCard.props';
@@ -70,16 +66,16 @@ export const TaskCard: React.FC<TaskCardProps> = ({
           <div className={styles.task_label}>Feature</div>
         </div>
 
-        <div className={styles.footer_right}>
-          <div className={styles.task_attachments}>
-            <span className={styles.task_attachments_counter}>8</span>
-            <CommentsIcon />
-          </div>
-          <div className={styles.task_attachments}>
-            <span className={styles.task_attachments_counter}>2</span>
-            <AttachmentsIcon />
-          </div>
-        </div>
+        {/*<div className={styles.footer_right}>*/}
+        {/*  <div className={styles.task_attachments}>*/}
+        {/*    <span className={styles.task_attachments_counter}>8</span>*/}
+        {/*    <CommentsIcon />*/}
+        {/*  </div>*/}
+        {/*  <div className={styles.task_attachments}>*/}
+        {/*    <span className={styles.task_attachments_counter}>2</span>*/}
+        {/*    <AttachmentsIcon />*/}
+        {/*  </div>*/}
+        {/*</div>*/}
       </div>
     </div>
   );

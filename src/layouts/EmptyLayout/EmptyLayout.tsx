@@ -1,10 +1,6 @@
 import React, { useEffect } from 'react';
 import styles from './EmptyLayout.module.css';
-
-interface EmptyLayoutProps {
-  children: React.ReactNode;
-  pageTitle: string;
-}
+import EmptyLayoutProps from './EmptyLayout.props';
 
 export const EmptyLayout: React.FC<EmptyLayoutProps> = ({
   children,
