@@ -2,15 +2,7 @@ import React from 'react';
 import styles from './Modal.module.css';
 import cn from 'classnames';
 import { Button } from '../Button/Button';
-
-interface IModalProps {
-  show: boolean;
-  setShow: (boolValue: boolean) => void;
-  children: React.ReactNode;
-  title?: string;
-  onSubmit: () => void;
-  empty?: boolean;
-}
+import { IModalProps } from './Modal.props';
 
 export const Modal: React.FC<IModalProps> = ({
   show,

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IToast } from '../../components/Toast/Toast';
+import { IToast } from '../../components/Toast/Toast.props';
 
 type theme = 'dark' | 'light';
 

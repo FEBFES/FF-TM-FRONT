@@ -1,14 +1,9 @@
-import React, { ButtonHTMLAttributes, ReactNode } from 'react';
+import React from 'react';
 import styles from './Button.module.css';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children?: ReactNode;
-  className?: string;
-  theme: 'default' | 'submit' | 'outline' | 'close' | 'danger';
-}
+import { ButtonProps } from './Button.props';
 
 export const Button: React.FC<ButtonProps> = ({
   onClick,

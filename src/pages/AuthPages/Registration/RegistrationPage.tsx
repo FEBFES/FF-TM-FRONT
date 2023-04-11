@@ -1,8 +1,7 @@
 import React from 'react';
 import styles from './RegistrationPage.module.css';
 import { RegistrationForm } from '../modules/RegistrationForm/RegistrationForm';
-
-interface RegistrationPageProps {}
+import { RegistrationPageProps } from './RegistrationPage.props';
 
 export const RegistrationPage: React.FC<
   RegistrationPageProps

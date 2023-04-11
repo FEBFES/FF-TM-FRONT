@@ -1,7 +1,6 @@
 import React from 'react';
 import './TimelinePage.module.css';
-
-interface TimelinePageProps {}
+import { TimelinePageProps } from './TimelinePage.props';
 
 export const TimelinePage: React.FC<TimelinePageProps> = (): JSX.Element => {
   return (

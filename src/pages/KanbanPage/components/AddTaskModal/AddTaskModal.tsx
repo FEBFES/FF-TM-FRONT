@@ -11,12 +11,7 @@ import {
 } from '../../../../assets/icons/UtilsIcons';
 import { PriorityDefault } from '../../../../assets/icons/TaskIcons';
 import { Switcher } from '../../../../ui/Switcher/Switcher';
-
-interface AddTaskModalProps {
-  show: boolean;
-  setShow: (bool: boolean) => void;
-  onSubmit: (name: string, description: string) => void;
-}
+import { AddTaskModalProps } from './AddTaskModal.props';
 
 export const AddTaskModal: React.FC<AddTaskModalProps> = ({
   show,

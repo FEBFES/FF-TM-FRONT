@@ -1,11 +1,7 @@
 import React, { useEffect } from 'react';
-import { MainLayoutSidebar } from './MainLayoutSidebar';
+import { MainLayoutSidebar } from './sidebar/MainLayoutSidebar';
 import styles from './MainLayout.module.css';
-
-type MainLayoutProps = {
-  children: React.ReactNode;
-  pageTitle: string;
-};
+import { MainLayoutProps } from './MainLayout.props';
 
 export const MainLayout: React.FC<MainLayoutProps> = ({
   children,
