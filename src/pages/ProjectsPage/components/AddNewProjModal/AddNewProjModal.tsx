@@ -4,6 +4,7 @@ import { fetchAddProject } from '../../store/projects.thunk';
 import { InputField } from '../../../../ui/InputField/InputField';
 import { Modal } from '../../../../ui/Modal/Modal';
 import { useAppDispatch } from '../../../../hooks/redux';
+import { Button } from '../../../../ui/Button/Button';
 
 interface AddNewProjModalProps {
   show: boolean;
@@ -19,13 +20,13 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
   const [desc, setDesc] = useState<string>('');
 
   return (
-    <Modal
-      onSubmit={() => dispatch(fetchAddProject({ name, desc }))}
-      title={'Создать новый проект'}
-      show={show}
-      empty={true}
-      setShow={setShow}
-    >
+    <Modal show={show} setShow={setShow}>
+      <div className={styles.cont__header}>
+        <h1 className={styles.cont__headerTitle}>Создать новый проект</h1>
+        <Button theme={'close'} onClick={() => setShow(false)}>
+          x
+        </Button>
+      </div>
       <div className={styles.projCont}>
         <InputField
           type={'text'}
@@ -38,6 +39,19 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
           onChange={(e) => setDesc(e.target.value)}
         />
       </div>
+
+      <Button
+        theme={'submit'}
+        onClick={() => {
+          dispatch(fetchAddProject({ name, desc }))
+            .unwrap()
+            .finally(() => {
+              setShow(false);
+            });
+        }}
+      >
+        Создать
+      </Button>
     </Modal>
   );
 };
