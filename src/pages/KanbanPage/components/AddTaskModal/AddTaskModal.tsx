@@ -10,7 +10,7 @@ import {
   PlusIcon,
 } from '../../../../assets/icons/UtilsIcons';
 import { PriorityDefault } from '../../../../assets/icons/TaskIcons';
-import { Switcher } from '../../../../ui/Switcher/Switcher';
+import { Switcher } from '../../../../ui/Switcher';
 import { AddTaskModalProps } from './AddTaskModal.props';
 
 export const AddTaskModal: React.FC<AddTaskModalProps> = ({
@@ -28,12 +28,7 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
   };
 
   return (
-    <Modal
-      title={'Add new task'}
-      show={show}
-      setShow={setShow}
-      onSubmit={() => onSubmit(name, description)}
-    >
+    <Modal show={show} setShow={setShow}>
       <div className={styles.container}>
         <header className={styles.header}>
           <div className={styles.header__left}>
