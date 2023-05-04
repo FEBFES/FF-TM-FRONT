@@ -1,10 +1,30 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../../api/http';
 
+// Set favorite project
+export const fetchFavoriteToggle = createAsyncThunk(
+    '',
+    async ({projId, isFav}: {projId: number, isFav: boolean}, { rejectWithValue }) => {
+    try {
+        const res = await instance.patch(`projects/${projId}`, {
+            op: 'update',
+            key: 'isFavourite',
+            value: isFav
+        });
+        console.log(res)
+        if (res.status === 200) {
+
+            return res.data;
+        }
+    } catch (err) {
+        return rejectWithValue(err.message);
+    }
+})
+
 // Get all projects
 export const fetchProjects = createAsyncThunk(
   'projects/fetchProjects',
-  async (_, { rejectWithValue, getState }) => {
+  async (_, { rejectWithValue }) => {
     try {
       const res = await instance.get('projects');
 
