@@ -1,0 +1,16 @@
+.ddContainer {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: var(--bg-0);
+  border: 1px solid var(--bg-border);
+  padding: 12px 6px;
+  border-radius: 8px;
+}
+
+.ddContainer > div {
+  margin-bottom: 10px;
+}
+.ddContainer > div:last-of-type {
+  margin-bottom: 0;
+}
