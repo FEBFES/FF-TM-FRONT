@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './ProjectCard.module.css';
 import { IProject } from '../../store/projects.type';
 import { appRoutsPath } from '../../../../routing/routs';
@@ -8,6 +8,8 @@ import { DotsIcon, FavoriteIcon } from '../../../../assets/icons/UtilsIcons';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { setCurProj } from '../../store/projects.slice';
 import { fetchFavoriteToggle } from '../../store/projects.thunk';
+import { DropDown } from '../../../../ui/DropDown/DropDown';
+import { fetchDelProject } from '../../store/projects.thunk';
 
 interface ProjectCardProps {
   proj: IProject;
@@ -16,6 +18,7 @@ interface ProjectCardProps {
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   proj,
 }): JSX.Element => {
+  const [showDD, setShowDD] = useState(false);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -61,7 +64,22 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         {/*>*/}
         {/*    D*/}
         {/*</Button>*/}
-        <DotsIcon />
+        <div className={styles.ddCont}>
+          <DropDown show={showDD} setShow={setShowDD}>
+            <div onClick={() => dispatch(fetchDelProject(proj.id))}>
+              Удалить
+            </div>
+          </DropDown>
+
+          <div
+            onClick={(e) => {
+              e.stopPropagation();
+              setShowDD(true);
+            }}
+          >
+            <DotsIcon />
+          </div>
+        </div>
       </footer>
     </div>
   );

@@ -59,3 +59,8 @@
   padding: 3px 6px;
   right: 15px;
 }
+
+.ddCont {
+  position: relative;
+  z-index: 1000;
+}
