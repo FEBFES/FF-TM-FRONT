@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { DotsIcon, FavoriteIcon } from '../../../../assets/icons/UtilsIcons';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { setCurProj } from '../../store/projects.slice';
-import {fetchFavoriteToggle} from "../../store/projects.thunk";
+import { fetchFavoriteToggle } from '../../store/projects.thunk';
 
 interface ProjectCardProps {
   proj: IProject;
@@ -33,11 +33,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         <span className={styles.projectCard__id}>#{proj.id || ''}</span>
         <div
           onClick={(e) => {
-            e.stopPropagation()
-            dispatch(fetchFavoriteToggle({projId: proj.id, isFav: true}))
+            e.stopPropagation();
+            dispatch(
+              fetchFavoriteToggle({ projId: proj.id, isFav: !proj.isFavourite })
+            );
           }}
         >
-          <FavoriteIcon />
+          <FavoriteIcon isFav={proj.isFavourite} />
         </div>
       </header>
 

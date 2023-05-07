@@ -3,23 +3,31 @@ import { instance } from '../../../api/http';
 
 // Set favorite project
 export const fetchFavoriteToggle = createAsyncThunk(
-    '',
-    async ({projId, isFav}: {projId: number, isFav: boolean}, { rejectWithValue }) => {
+  '',
+  async (
+    { projId, isFav }: { projId: number | null; isFav: boolean },
+    { rejectWithValue }
+  ) => {
     try {
-        const res = await instance.patch(`projects/${projId}`, {
-            op: 'update',
-            key: 'isFavourite',
-            value: isFav
-        });
-        console.log(res)
-        if (res.status === 200) {
+      const res = await instance.patch(`projects/${projId}`, [
+        {
+          op: 'update',
+          key: 'isFavourite',
+          value: isFav,
+        },
+      ]);
 
-            return res.data;
-        }
+      if (res.status === 200) {
+        return {
+          projId,
+          isFav,
+        };
+      }
     } catch (err) {
-        return rejectWithValue(err.message);
+      return rejectWithValue(err.message);
     }
-})
+  }
+);
 
 // Get all projects
 export const fetchProjects = createAsyncThunk(

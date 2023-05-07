@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './KanbanPageHeader.module.css';
-import { useTypedSelector } from '../../../../hooks/redux';
+import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { AddColModal } from '../../components/AddColModal/AddColModal';
 import { useNavigate } from 'react-router-dom';
 import { appRoutsPath } from '../../../../routing/routs';
@@ -13,11 +13,15 @@ import {
 import human from '../../../../assets/img/human.png';
 import { Switcher } from '../../../../ui/Switcher/Switcher';
 import { useTheme } from '../../../../hooks/useTheme';
+import { fetchFavoriteToggle } from '../../../ProjectsPage/store/projects.thunk';
 
 export const KanbanPageHeader: React.FC = (): JSX.Element => {
-  const { projectName } = useTypedSelector((state) => state.projectKanban);
+  const { projectName, projId, isFavorite } = useTypedSelector(
+    (state) => state.projectKanban
+  );
   const theme = useTypedSelector((state) => state.app.theme);
   const [showAddColModal, setShowAddColModal] = useState(false);
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { changeTheme } = useTheme();
 
@@ -52,8 +56,15 @@ export const KanbanPageHeader: React.FC = (): JSX.Element => {
           </div>
         </div>
         <div className={styles.line} />
-        <div className={styles.favoriteBtn}>
-          <FavoriteIcon />
+        <div
+          className={styles.favoriteBtn}
+          onClick={() =>
+            dispatch(
+              fetchFavoriteToggle({ projId: projId, isFav: !isFavorite })
+            )
+          }
+        >
+          <FavoriteIcon isFav={isFavorite} />
         </div>
         <div className={styles.settingsBtn}>
           <DotsIcon />
