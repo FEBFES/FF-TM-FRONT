@@ -10,6 +10,7 @@ import {
 } from './kanban.thunk';
 import { IColumns } from '../components/Column';
 import { ITask } from '../components/TaskCard';
+import { fetchFavoriteToggle } from '../../ProjectsPage/store/projects.thunk';
 
 interface IKanbanInitialState {
   columns: IColumns[];
@@ -19,6 +20,8 @@ interface IKanbanInitialState {
   isLoading: boolean;
   errorMsg: string | null;
   projId: number | null;
+  ownerId: number | null;
+  isFavorite: boolean;
 }
 
 const initialState: IKanbanInitialState = {
@@ -29,6 +32,8 @@ const initialState: IKanbanInitialState = {
   errorMsg: null,
   projId: null,
   taskWindowInfo: null,
+  ownerId: null,
+  isFavorite: false,
 };
 
 const KanbanSlice = createSlice({
@@ -72,11 +77,12 @@ const KanbanSlice = createSlice({
     // Get Project info
     //
     builder.addCase(fetchProjectInfo.fulfilled, (state, action) => {
-      const { name, description, id } = action.payload;
-
+      const { name, description, id, isFavourite, ownerId } = action.payload;
       state.projectName = name;
       state.projectDesc = description;
       state.projId = id;
+      state.ownerId = ownerId;
+      state.isFavorite = isFavourite;
     });
     //
     // Get project dashboard (columns)
@@ -120,6 +126,12 @@ const KanbanSlice = createSlice({
         }
         return col;
       });
+    });
+    //
+    // Favorite toggle
+    //
+    builder.addCase(fetchFavoriteToggle.fulfilled, (state, action) => {
+      state.isFavorite = action.payload?.isFav || false;
     });
     //
     // Add new column

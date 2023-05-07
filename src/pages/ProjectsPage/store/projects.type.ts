@@ -3,4 +3,6 @@ export interface IProject {
   description: string;
   id: number;
   name: string;
+  ownerId: number;
+  isFavourite: boolean;
 }

@@ -2,6 +2,7 @@ import { AnyAction, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import {
   fetchAddProject,
   fetchDelProject,
+  fetchFavoriteToggle,
   fetchProjects,
 } from './projects.thunk';
 import { IProject } from './projects.type';
@@ -53,6 +54,21 @@ const ProjectsSlice = createSlice({
     builder.addCase(fetchDelProject.fulfilled, (state, action) => {
       state.projects = state.projects.filter((el) => el.id !== action.payload);
     });
+    //
+    // Set project is favorite toggle
+    //
+    builder.addCase(fetchFavoriteToggle.fulfilled, (state, action) => {
+      state.projects = state.projects.map((el: IProject) => {
+        if (action?.payload?.projId === el.id) {
+          return {
+            ...el,
+            isFavourite: action.payload.isFav,
+          };
+        }
+        return el;
+      });
+    });
+
     //todo - add pending
     builder.addMatcher(
       (action: AnyAction) => {
