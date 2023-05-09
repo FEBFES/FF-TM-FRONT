@@ -9,7 +9,6 @@
 }
 
 .cont {
-  padding: 20px 10px;
   z-index: var(--z-index-modalCont);
   min-width: 300px;
   min-height: 50px;

@@ -1,4 +1,5 @@
 .container {
+  padding: 22px 14px 0;
   width: 800px;
   display: flex;
   flex-direction: column;
@@ -7,7 +8,6 @@
 }
 
 .header {
-  padding: 22px 24px 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -25,7 +25,6 @@
 }
 
 .main {
-  padding: 22px 24px 0;
   width: 100%;
   margin-top: 16px;
 }
@@ -43,6 +42,7 @@
 }
 
 .header__left {
+  word-wrap: normal;
   font-weight: 700;
   font-size: 16px;
   color: #989898;
@@ -87,7 +87,7 @@
 }
 
 .footer {
-  padding: 22px 24px 22px;
+  padding: 10px;
   width: 100%;
   border-top: 1px solid #e8e8e8;
   display: flex;

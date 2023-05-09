@@ -21,37 +21,39 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
 
   return (
     <Modal show={show} setShow={setShow}>
-      <div className={styles.cont__header}>
-        <h1 className={styles.cont__headerTitle}>Создать новый проект</h1>
-        <Button theme={'close'} onClick={() => setShow(false)}>
-          x
+      <div className={styles.container}>
+        <div className={styles.cont__header}>
+          <h1 className={styles.cont__headerTitle}>Создать новый проект</h1>
+          <Button theme={'close'} onClick={() => setShow(false)}>
+            x
+          </Button>
+        </div>
+        <div className={styles.projCont}>
+          <InputField
+            type={'text'}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <InputField
+            type={'text'}
+            value={desc}
+            onChange={(e) => setDesc(e.target.value)}
+          />
+        </div>
+
+        <Button
+          theme={'submit'}
+          onClick={() => {
+            dispatch(fetchAddProject({ name, desc }))
+              .unwrap()
+              .finally(() => {
+                setShow(false);
+              });
+          }}
+        >
+          Создать
         </Button>
       </div>
-      <div className={styles.projCont}>
-        <InputField
-          type={'text'}
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <InputField
-          type={'text'}
-          value={desc}
-          onChange={(e) => setDesc(e.target.value)}
-        />
-      </div>
-
-      <Button
-        theme={'submit'}
-        onClick={() => {
-          dispatch(fetchAddProject({ name, desc }))
-            .unwrap()
-            .finally(() => {
-              setShow(false);
-            });
-        }}
-      >
-        Создать
-      </Button>
     </Modal>
   );
 };
