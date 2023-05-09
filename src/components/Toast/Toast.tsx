@@ -11,13 +11,7 @@ import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
 import { v4 } from 'uuid';
 import { delToast } from '../../store/slices/AppSlice';
 import classNames from 'classnames';
-
-export interface IToast {
-  id: string;
-  type?: 'warning' | 'error' | 'success' | 'default';
-  message: string;
-  delay: number;
-}
+import { IToast } from './Toast.props';
 
 export const ToastCont = () => {
   const toasts = useTypedSelector((state) => state.app.toasts);

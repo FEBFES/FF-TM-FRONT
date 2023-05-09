@@ -1,0 +1,66 @@
+.projectCard {
+  background: var(--bg-0);
+  position: relative;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  width: 30%;
+  min-height: 140px;
+  border: 1px solid var(--bg-border);
+  transition: 0.2s;
+}
+.projectCard:hover {
+  scale: 1.02;
+  cursor: pointer;
+}
+
+.projectCard__id {
+  color: var(--font-defautl);
+}
+
+.projectCard__date {
+  color: var(--font-defautl);
+}
+
+.card__title {
+  font-weight: 300;
+  font-size: 20px;
+  color: var(--font-defautl);
+}
+
+.card__subtitle {
+  font-weight: 200;
+  font-size: 16px;
+  color: var(--font-gray);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.del__btn {
+  position: absolute;
+  bottom: 15px;
+  font-size: 14px;
+  padding: 3px 6px;
+  right: 15px;
+}
+
+.ddCont {
+  position: relative;
+  z-index: 1000;
+}

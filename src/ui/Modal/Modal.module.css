@@ -24,12 +24,6 @@
   justify-content: space-between;
 }
 
-.up {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
 .cont__header {
   display: flex;
   justify-content: space-between;

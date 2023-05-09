@@ -7,8 +7,7 @@ import { fetchRegistration } from '../../store/auth.thunk';
 import { IRegisterFormDataType } from '../../store/auth.type';
 import { Link, useNavigate } from 'react-router-dom';
 import { appRoutsPath } from '../../../../routing/routs';
-
-interface RegistrationFormProps {}
+import { RegistrationFormProps } from './RegistrationForm.props';
 
 export const RegistrationForm: React.FC<
   RegistrationFormProps
@@ -41,16 +40,19 @@ export const RegistrationForm: React.FC<
     <div className={styles.regform}>
       <h1 className={styles.regform__title}>Registration</h1>
       <InputField
+        placeholder={'Email'}
         type={'text'}
         value={inputData.email}
         onChange={(e) => changeHandle(e.target.value, 'email')}
       />
       <InputField
+        placeholder={'Username'}
         type={'text'}
         value={inputData.username}
         onChange={(e) => changeHandle(e.target.value, 'username')}
       />
       <InputField
+        placeholder={'Password'}
         type={'password'}
         value={inputData.password}
         onChange={(e) => changeHandle(e.target.value, 'password')}

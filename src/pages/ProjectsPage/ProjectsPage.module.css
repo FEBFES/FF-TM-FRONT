@@ -1,0 +1,8 @@
+.projPage {
+  background: var(--bg-100);
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

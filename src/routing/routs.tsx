@@ -1,11 +1,14 @@
 import React from 'react';
-import { MainPage } from '../pages/MainPage/MainPage';
 import { MainLayout } from '../layouts/MainLayout/MainLayout';
-import { ProjectPage } from '../pages/ProjectPage/ProjectPage';
+import { KanbanPage } from '../pages/KanbanPage/KanbanPage';
 import { EmptyLayout } from '../layouts/EmptyLayout/EmptyLayout';
 import { RegistrationPage } from '../pages/AuthPages/Registration/RegistrationPage';
 import { LoginPage } from '../pages/AuthPages/Login/LoginPage';
 import { SettingsPage } from '../pages/SettingsPage/SettingsPage';
+import { ProjectsPage } from '../pages/ProjectsPage/ProjectsPage';
+import { TimelinePage } from '../pages/TimelinePage/TimelinePage';
+import { MessagesPage } from '../pages/MessagesPage/MessagesPage';
+import { AuthLayout } from '../layouts/AuthLayout/AuthLayout';
 
 export type IAppRouts = {
   title: string;
@@ -22,13 +25,23 @@ export const appRoutsPath = {
   },
   KanbanPage: {
     title: 'Kanban Page',
-    path: '/KanbanPage/:id?',
+    path: '/KanbanPage/',
     to: '/KanbanPage/',
   },
   RegistrationPage: {
     title: 'Registration page',
     path: '/Registration',
     to: '/Registration',
+  },
+  TimelinePage: {
+    title: 'Timeline',
+    path: '/Timeline',
+    to: '/Timeline',
+  },
+  MessagesPage: {
+    title: 'Messages',
+    path: '/Messages',
+    to: '/Messages',
   },
   LoginPage: {
     title: 'Login Page',
@@ -45,13 +58,13 @@ export const appRoutsPath = {
 const privateRoutes: IAppRouts[] = [
   {
     title: appRoutsPath.ProjectPage.title,
-    component: MainPage,
-    layout: MainLayout,
+    component: ProjectsPage,
+    layout: EmptyLayout,
     path: appRoutsPath.ProjectPage.path,
   },
   {
     title: appRoutsPath.KanbanPage.title,
-    component: ProjectPage,
+    component: KanbanPage,
     layout: MainLayout,
     path: appRoutsPath.KanbanPage.path,
   },
@@ -61,19 +74,31 @@ const privateRoutes: IAppRouts[] = [
     layout: MainLayout,
     path: appRoutsPath.SettingsPage.path,
   },
+  {
+    title: appRoutsPath.TimelinePage.title,
+    component: TimelinePage,
+    layout: MainLayout,
+    path: appRoutsPath.TimelinePage.path,
+  },
+  {
+    title: appRoutsPath.MessagesPage.title,
+    component: MessagesPage,
+    layout: MainLayout,
+    path: appRoutsPath.MessagesPage.path,
+  },
 ];
 
 const appRouts: IAppRouts[] = [
   {
     title: appRoutsPath.LoginPage.title,
     component: LoginPage,
-    layout: EmptyLayout,
+    layout: AuthLayout,
     path: appRoutsPath.LoginPage.path,
   },
   {
     title: appRoutsPath.RegistrationPage.title,
     component: RegistrationPage,
-    layout: EmptyLayout,
+    layout: AuthLayout,
     path: appRoutsPath.RegistrationPage.path,
   },
 ];

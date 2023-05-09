@@ -14,6 +14,7 @@ export const App = () => {
 
   return (
     <div className={styles.App}>
+      {/*todo*/}
       <Routes>
         {isAuth
           ? privateRoutes.map((route, i) => {
