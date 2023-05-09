@@ -31,14 +31,15 @@
 
 .input {
   outline: none;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 24px;
   line-height: 28px;
   color: #575757;
-  height: 28px;
-  width: 100%;
   border: none;
   margin: 0;
+}
+.input:hover {
+  border: none;
 }
 
 .header__left {
