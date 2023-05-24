@@ -10,4 +10,5 @@ export interface ITask {
   createDate: string;
   priority: IPriorityType;
   ownerUserPic: string | null;
+  type: string | null;
 }
