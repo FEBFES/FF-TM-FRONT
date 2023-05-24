@@ -45,7 +45,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({
         </div>
 
         <div className={styles.task_avatar}>
-          <img src={human} alt="avatar" />
+          <img src={task.ownerUserPic ? task.ownerUserPic : human} alt="avatar" />
         </div>
       </div>
 
