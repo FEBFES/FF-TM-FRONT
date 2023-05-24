@@ -13,14 +13,14 @@ import { Switcher } from '../../../../ui/Switcher';
 import { AddTaskModalProps } from './AddTaskModal.props';
 import { PrioritySelect } from '../PrioritySelect/PrioritySelect';
 import { IPriorityType } from '../PrioritySelect/PrioritySelect.type';
-import {ITypeSelectType, TypeSelect} from "../TypeSelect/TypeSelect";
+import { ITypeSelectType, TypeSelect } from '../TypeSelect/TypeSelect';
 
 export const AddTaskModal: React.FC<AddTaskModalProps> = ({
   show,
   setShow,
   onSubmit,
 }): JSX.Element => {
-  const [curTaskType, setCurTaskType] = useState<ITypeSelectType>('NONE')
+  const [curTaskType, setCurTaskType] = useState<ITypeSelectType>('NONE');
   const [name, setName] = useState<string>('');
   const [description, setDescription] = useState<string>('');
   const [isMultiple, setIsMultiple] = useState<boolean>(false);
@@ -82,11 +82,8 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
               <div className={styles.task_type}>
                 Type:
                 {/*<span className={styles.task_type}>*/}
-                <TypeSelect
-                  curType={curTaskType}
-                  setCurType={setCurTaskType}
-                />
-              {/*</span>*/}
+                <TypeSelect curType={curTaskType} setCurType={setCurTaskType} />
+                {/*</span>*/}
               </div>
               <div className={styles.task_priority}>
                 Priority:{' '}

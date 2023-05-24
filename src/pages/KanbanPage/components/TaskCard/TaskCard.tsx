@@ -12,6 +12,7 @@ import human from '../../../../assets/img/human.png';
 import { fetchGetTaskInfo } from '../../store/kanban.thunk';
 import { TaskCardProps } from './TaskCard.props';
 import moment from 'moment';
+import classNames from 'classnames';
 
 export const TaskCard: React.FC<TaskCardProps> = ({
   task,
@@ -45,7 +46,10 @@ export const TaskCard: React.FC<TaskCardProps> = ({
         </div>
 
         <div className={styles.task_avatar}>
-          <img src={task.ownerUserPic ? task.ownerUserPic : human} alt="avatar" />
+          <img
+            src={task.ownerUserPic ? task.ownerUserPic : human}
+            alt="avatar"
+          />
         </div>
       </div>
 
@@ -72,7 +76,18 @@ export const TaskCard: React.FC<TaskCardProps> = ({
 
       <div className={styles.task__footer}>
         <div className={styles.footer_left}>
-            {(task.type !== 'NONE' && task.type) && <div className={styles.task_label}>{task.type}</div>}
+          {task.type !== 'NONE' && task.type && (
+            <div
+              className={classNames(`${styles.task_label}`, {
+                [styles.task_label_q]: task.type === 'QUESTION',
+                [styles.task_label_r]: task.type === 'RESEARCH',
+                [styles.task_label_b]: task.type === 'BUG',
+                [styles.task_label_]: task.type === 'FEATURE',
+              })}
+            >
+              {task.type}
+            </div>
+          )}
         </div>
 
         {/*<div className={styles.footer_right}>*/}

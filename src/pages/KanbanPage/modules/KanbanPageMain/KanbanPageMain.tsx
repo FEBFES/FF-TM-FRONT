@@ -13,7 +13,7 @@ import styles from './KanbanPageMain.module.css';
 import { Column, IColumns } from '../../components/Column';
 import { v4 } from 'uuid';
 import { IPriorityType } from '../../components/PrioritySelect/PrioritySelect.type';
-import {ITypeSelectType} from "../../components/TypeSelect/TypeSelect";
+import { ITypeSelectType } from '../../components/TypeSelect/TypeSelect';
 
 interface KanbanPageProps {
   setShowTaskModal: (bool: boolean) => void;

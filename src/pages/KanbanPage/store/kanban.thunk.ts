@@ -7,7 +7,7 @@ import { addTaskToCol } from './kanban.slice';
 import { IColumns } from '../components/Column';
 import { ITask } from '../components/TaskCard';
 import { IPriorityType } from '../components/PrioritySelect/PrioritySelect.type';
-import {ITypeSelectType} from "../components/TypeSelect/TypeSelect";
+import { ITypeSelectType } from '../components/TypeSelect/TypeSelect';
 
 // Get task info
 export const fetchGetTaskInfo = createAsyncThunk(
@@ -92,14 +92,14 @@ export const fetchAddNewTask = createAsyncThunk(
       projId,
       colId,
       priority,
-        type
+      type,
     }: {
       name: string;
       description: string;
       projId: number;
       colId: number;
       priority: IPriorityType;
-        type: ITypeSelectType
+      type: ITypeSelectType;
     },
     { rejectWithValue, dispatch }
   ) => {
@@ -110,7 +110,7 @@ export const fetchAddNewTask = createAsyncThunk(
           name,
           description,
           priority: priority !== 'DEFAULT' ? priority : null,
-            type: type !== 'NONE' ? type : null
+          type: type !== 'NONE' ? type : null,
         }
       );
 

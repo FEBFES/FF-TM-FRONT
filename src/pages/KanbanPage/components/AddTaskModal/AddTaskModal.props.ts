@@ -1,5 +1,5 @@
 import { IPriorityType } from '../PrioritySelect/PrioritySelect.type';
-import {ITypeSelectType} from "../TypeSelect/TypeSelect";
+import { ITypeSelectType } from '../TypeSelect/TypeSelect';
 
 export interface AddTaskModalProps {
   show: boolean;
