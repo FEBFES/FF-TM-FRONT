@@ -1,4 +1,7 @@
 .container {
+  border-radius: 8px;
+  border: 1px solid var(--bg-border);
+  background: var(--bg-100);
   padding: 22px 14px 0;
   width: 800px;
   display: flex;
@@ -90,7 +93,7 @@
 .footer {
   padding: 10px;
   width: 100%;
-  border-top: 1px solid #e8e8e8;
+  border-top: 1px solid var(--bg-border);
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -100,13 +103,14 @@
   margin: 0;
   background: #7bc7f2;
   border-radius: 6px;
-  padding: 6px 18px;
+  padding: 5px 14px !important;
   color: #ffffff;
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 14px !important;
+  font-weight: 400 !important;
 }
 
 .task_type {
+  cursor: pointer;
   margin-right: 8px;
   display: flex;
   justify-content: center;
@@ -118,6 +122,12 @@
   color: orange;
   font-size: 14px;
   font-weight: 700;
+}
+
+.task_priority {
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 .checkbox_label {
