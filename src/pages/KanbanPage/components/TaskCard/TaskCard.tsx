@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './TaskCard.module.css';
 import { delTaskFromCol } from '../../store/kanban.slice';
 import { useAppDispatch } from '../../../../hooks/redux';
 import {
+  AttachmentsIcon,
+  CommentsIcon,
   PriorityDefault,
   PriorityHigh,
   PriorityLow,
@@ -12,12 +14,15 @@ import human from '../../../../assets/img/human.png';
 import { fetchGetTaskInfo } from '../../store/kanban.thunk';
 import { TaskCardProps } from './TaskCard.props';
 import moment from 'moment';
+import { DotsIcon } from '../../../../assets/icons/UtilsIcons';
+import { DropDown } from '../../../../ui/DropDown/DropDown';
 
 export const TaskCard: React.FC<TaskCardProps> = ({
   task,
   delTask,
   setShowTaskModal,
 }): JSX.Element => {
+  const [showDD, setShowDD] = useState<boolean>(false);
   const dispatch = useAppDispatch();
 
   return (
@@ -45,7 +50,10 @@ export const TaskCard: React.FC<TaskCardProps> = ({
         </div>
 
         <div className={styles.task_avatar}>
-          <img src={task.ownerUserPic ? task.ownerUserPic : human} alt="avatar" />
+          <img
+            src={task.ownerUserPic ? task.ownerUserPic : human}
+            alt="avatar"
+          />
         </div>
       </div>
 
@@ -75,16 +83,25 @@ export const TaskCard: React.FC<TaskCardProps> = ({
           <div className={styles.task_label}>Feature</div>
         </div>
 
-        {/*<div className={styles.footer_right}>*/}
-        {/*  <div className={styles.task_attachments}>*/}
-        {/*    <span className={styles.task_attachments_counter}>8</span>*/}
-        {/*    <CommentsIcon />*/}
-        {/*  </div>*/}
-        {/*  <div className={styles.task_attachments}>*/}
-        {/*    <span className={styles.task_attachments_counter}>2</span>*/}
-        {/*    <AttachmentsIcon />*/}
-        {/*  </div>*/}
-        {/*</div>*/}
+        <div className={styles.footer_right}>
+          <div className={styles.task_attachments}>
+            <span className={styles.task_attachments_counter}>8</span>
+            <CommentsIcon />
+          </div>
+          <div className={styles.task_attachments}>
+            <span className={styles.task_attachments_counter}>2</span>
+            <AttachmentsIcon />
+          </div>
+          <div
+            onClick={() => setShowDD(true)}
+            className={styles.task_attachments}
+          >
+            <DropDown show={showDD} setShow={setShowDD}>
+              <p onClick={() => delTask(task.columnId, task.id)}>Удалить</p>
+            </DropDown>
+            <DotsIcon w={12} />
+          </div>
+        </div>
       </div>
     </div>
   );
