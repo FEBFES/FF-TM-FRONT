@@ -1,13 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './GeneralTab.module.css';
 import comStyle from '../../commonStyle.module.css';
 import { PlusIcon } from '../../../../assets/icons/UtilsIcons';
 import { InputField } from '../../../../ui/InputField/InputField';
 import { Button } from '../../../../ui/Button/Button';
+import {instance} from "../../../../api/http";
+import {useTypedSelector} from "../../../../hooks/redux";
 
 interface GeneralTabProps {}
 
 export const GeneralTab: React.FC<GeneralTabProps> = (): JSX.Element => {
+    const [userAvatar, setUserAvatar] = useState(null)
+    // const test = useTypedSelector(state => state.project)
   return (
     <div>
       <h1 className={comStyle.title}>Project</h1>
@@ -21,7 +25,21 @@ export const GeneralTab: React.FC<GeneralTabProps> = (): JSX.Element => {
           <PlusIcon />
         </div>
       </label>
-      <input id={'inputFIle'} className={styles.fileInput} type={'file'} />
+
+      <input
+          id={'inputFIle'}
+          className={styles.fileInput}
+          onChange={(e: any) => {
+              const photo = e.target.files[0]
+              const formData = new FormData();
+              formData.append("photo", photo);
+              instance.post(`users/1/userPic`, formData).then(res => {
+                  console.log(res)
+              })
+          }}
+          type={'file'}
+      />
+
       <p className={comStyle.text}>Pick a logo for your project</p>
 
       <div className={comStyle.brLine} />
