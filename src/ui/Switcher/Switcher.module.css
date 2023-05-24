@@ -5,6 +5,7 @@
   align-items: center;
 }
 .checkbox_input {
+  cursor: pointer;
   position: relative;
   transition: 1s;
   width: 32px;
