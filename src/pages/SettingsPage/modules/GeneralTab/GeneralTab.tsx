@@ -32,8 +32,8 @@ export const GeneralTab: React.FC<GeneralTabProps> = (): JSX.Element => {
           onChange={(e: any) => {
               const photo = e.target.files[0]
               const formData = new FormData();
-              formData.append("photo", photo);
-              instance.post(`users/1/userPic`, formData).then(res => {
+              formData.append("image", photo);
+              instance.post(`files/user-pic/1`, formData).then(res => {
                   console.log(res)
               })
           }}

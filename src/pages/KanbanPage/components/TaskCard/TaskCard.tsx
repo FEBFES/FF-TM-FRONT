@@ -12,6 +12,7 @@ import human from '../../../../assets/img/human.png';
 import { fetchGetTaskInfo } from '../../store/kanban.thunk';
 import { TaskCardProps } from './TaskCard.props';
 import moment from 'moment';
+import {serverString} from "../../../../config";
 
 export const TaskCard: React.FC<TaskCardProps> = ({
   task,
@@ -45,7 +46,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({
         </div>
 
         <div className={styles.task_avatar}>
-          <img src={task.ownerUserPic ? task.ownerUserPic : human} alt="avatar" />
+          <img src={task.ownerUserPic ? `http://febfes.com/api/v1${task.ownerUserPic}` : human} alt="avatar" />
         </div>
       </div>
 
