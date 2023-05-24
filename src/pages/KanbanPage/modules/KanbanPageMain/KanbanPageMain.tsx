@@ -12,6 +12,7 @@ import {
 import styles from './KanbanPageMain.module.css';
 import { Column, IColumns } from '../../components/Column';
 import { v4 } from 'uuid';
+import { IPriorityType } from '../../components/PrioritySelect/PrioritySelect.type';
 
 interface KanbanPageProps {
   setShowTaskModal: (bool: boolean) => void;
@@ -39,11 +40,21 @@ export const KanbanPageMain: React.FC<KanbanPageProps> = ({
     };
   }, [curProjId, dispatch]);
 
-  const addNewTaskHandler = (name: string, description: string) => {
+  const addNewTaskHandler = (
+    name: string,
+    description: string,
+    priority: IPriorityType
+  ) => {
     curCol &&
       curProjId &&
       dispatch(
-        fetchAddNewTask({ name, description, colId: curCol, projId: curProjId })
+        fetchAddNewTask({
+          name,
+          description,
+          priority,
+          colId: curCol,
+          projId: curProjId,
+        })
       );
   };
 

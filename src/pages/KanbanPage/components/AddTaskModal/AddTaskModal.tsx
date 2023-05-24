@@ -9,9 +9,10 @@ import {
   FullIcon,
   PlusIcon,
 } from '../../../../assets/icons/UtilsIcons';
-import { PriorityDefault } from '../../../../assets/icons/TaskIcons';
 import { Switcher } from '../../../../ui/Switcher';
 import { AddTaskModalProps } from './AddTaskModal.props';
+import { PrioritySelect } from '../PrioritySelect/PrioritySelect';
+import { IPriorityType } from '../PrioritySelect/PrioritySelect.type';
 
 export const AddTaskModal: React.FC<AddTaskModalProps> = ({
   show,
@@ -20,7 +21,8 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
 }): JSX.Element => {
   const [name, setName] = useState<string>('');
   const [description, setDescription] = useState<string>('');
-  const [isMultiple, setIsMultiple] = useState(false);
+  const [isMultiple, setIsMultiple] = useState<boolean>(false);
+  const [curPriority, setCurPriority] = useState<IPriorityType>('DEFAULT');
 
   const clearModalData = () => {
     setName('');
@@ -78,8 +80,12 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
               <div>
                 Type: <span className={styles.task_type}>R</span>
               </div>
-              <div>
-                Priority: <PriorityDefault />
+              <div className={styles.task_priority}>
+                Priority:{' '}
+                <PrioritySelect
+                  curPriority={curPriority}
+                  setCurPriority={setCurPriority}
+                />
               </div>
             </div>
 
@@ -104,7 +110,7 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
           </div>
           <Button
             onClick={() => {
-              onSubmit(name, description);
+              onSubmit(name, description, curPriority);
               if (isMultiple) {
                 clearModalData();
               } else {

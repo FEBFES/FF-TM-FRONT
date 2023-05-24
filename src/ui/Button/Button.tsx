@@ -27,7 +27,6 @@ export const Button: React.FC<ButtonProps> = ({
   }
   return (
     <button
-      {...props}
       className={classNames(`${className}`, {
         [styles.buttonSubmit]: theme === 'submit',
         [styles.buttonOutline]: theme === 'outline',
@@ -37,6 +36,7 @@ export const Button: React.FC<ButtonProps> = ({
       onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
         onClick ? onClick(e) : {}
       }
+      {...props}
     >
       {children}
     </button>

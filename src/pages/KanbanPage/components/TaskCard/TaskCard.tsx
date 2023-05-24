@@ -2,7 +2,12 @@ import React from 'react';
 import styles from './TaskCard.module.css';
 import { delTaskFromCol } from '../../store/kanban.slice';
 import { useAppDispatch } from '../../../../hooks/redux';
-import { PriorityDefault } from '../../../../assets/icons/TaskIcons';
+import {
+  PriorityDefault,
+  PriorityHigh,
+  PriorityLow,
+  PriorityMedium,
+} from '../../../../assets/icons/TaskIcons';
 import human from '../../../../assets/img/human.png';
 import { fetchGetTaskInfo } from '../../store/kanban.thunk';
 import { TaskCardProps } from './TaskCard.props';
@@ -14,6 +19,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({
   setShowTaskModal,
 }): JSX.Element => {
   const dispatch = useAppDispatch();
+
   return (
     <div
       onDragStart={(e: any) => {
@@ -30,7 +36,10 @@ export const TaskCard: React.FC<TaskCardProps> = ({
       <div className={styles.header}>
         <div className={styles.header_left}>
           <div className={styles.task_priority}>
-            <PriorityDefault />
+            {task.priority === null && <PriorityDefault />}
+            {task.priority === 'LOW' && <PriorityLow />}
+            {task.priority === 'MEDIUM' && <PriorityMedium />}
+            {task.priority === 'HIGH' && <PriorityHigh />}
           </div>
           <h4 className={styles.task_id}>#{task.id || ''}</h4>
         </div>

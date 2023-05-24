@@ -1,0 +1,31 @@
+.prioritySelect {
+  min-width: 20px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.priorityContainer {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  border: 1px solid var(--bg-border);
+  background: var(--bg-100);
+  box-shadow: 0 8px 24px var(--bg-shadow);
+  border-radius: 6px;
+  justify-content: space-between;
+}
+
+.priorityElement {
+  padding: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+.priorityElement:hover {
+  background: var(--bg-border);
+  cursor: pointer;
+}
+.priorityElement:last-of-type {
+  margin-bottom: 0;
+}
