@@ -1,0 +1,63 @@
+.typeSelect {
+    min-width: 20px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.typeContainer {
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    border: 1px solid var(--bg-border);
+    background: var(--bg-100);
+    box-shadow: 0 8px 24px var(--bg-shadow);
+    border-radius: 6px;
+    justify-content: space-between;
+}
+
+.taskType {
+    margin-left: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 100px;
+    border: 1px solid var(--bg-border);
+    color: var(--font-gray);
+    font-size: 14px;
+    font-weight: 700;
+}
+.taskType_f {
+    border: 1px solid forestgreen;
+    color: forestgreen;
+}
+.taskType_q {
+    border: 1px solid #5b3383;
+    color: #5b3383;
+}
+.taskType_b {
+    border: 1px solid darkred;
+    color: darkred;
+}
+.taskType_r {
+    border: 1px solid orange;
+    color: orange;
+}
+
+.typeElement {
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+.typeElement:hover {
+    background: var(--bg-border);
+    cursor: pointer;
+}
+.typeElement:last-of-type {
+    margin-bottom: 0;
+}

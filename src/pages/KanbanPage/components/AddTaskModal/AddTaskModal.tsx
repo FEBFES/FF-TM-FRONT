@@ -13,12 +13,14 @@ import { Switcher } from '../../../../ui/Switcher';
 import { AddTaskModalProps } from './AddTaskModal.props';
 import { PrioritySelect } from '../PrioritySelect/PrioritySelect';
 import { IPriorityType } from '../PrioritySelect/PrioritySelect.type';
+import {ITypeSelectType, TypeSelect} from "../TypeSelect/TypeSelect";
 
 export const AddTaskModal: React.FC<AddTaskModalProps> = ({
   show,
   setShow,
   onSubmit,
 }): JSX.Element => {
+  const [curTaskType, setCurTaskType] = useState<ITypeSelectType>('NONE')
   const [name, setName] = useState<string>('');
   const [description, setDescription] = useState<string>('');
   const [isMultiple, setIsMultiple] = useState<boolean>(false);
@@ -77,8 +79,14 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
 
           <div className={styles.additionally}>
             <div className={styles.additionally__left}>
-              <div>
-                Type: <span className={styles.task_type}>R</span>
+              <div className={styles.task_type}>
+                Type:
+                {/*<span className={styles.task_type}>*/}
+                <TypeSelect
+                  curType={curTaskType}
+                  setCurType={setCurTaskType}
+                />
+              {/*</span>*/}
               </div>
               <div className={styles.task_priority}>
                 Priority:{' '}
@@ -110,7 +118,7 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
           </div>
           <Button
             onClick={() => {
-              onSubmit(name, description, curPriority);
+              onSubmit(name, description, curPriority, curTaskType);
               if (isMultiple) {
                 clearModalData();
               } else {

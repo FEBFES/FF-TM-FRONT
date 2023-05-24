@@ -110,18 +110,11 @@
 }
 
 .task_type {
-  cursor: pointer;
-  margin-right: 8px;
+  margin-right: 10px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 100px;
-  border: 1px solid orange;
-  color: orange;
-  font-size: 14px;
-  font-weight: 700;
+  position: relative;
+  min-height: 24px;
 }
 
 .task_priority {
