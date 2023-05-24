@@ -105,13 +105,29 @@
 }
 
 .task_label {
-  padding: 4px 9px;
-  border: 1px solid #c583ff;
+  padding: 2px 6px;
+  border: 1px solid var(--bg-border);
+  color: var(--font-gray);
   border-radius: 16px;
-  font-size: 14px;
-  line-height: 16px;
-  color: #c583ff;
-  font-weight: 500;
+  font-size: 10px;
+  line-height: 14px;
+  font-weight: 400;
+}
+.task_label_f {
+  border: 1px solid forestgreen;
+  color: forestgreen;
+}
+.task_label_q {
+  border: 1px solid #5b3383;
+  color: #5b3383;
+}
+.task_label_b {
+  border: 1px solid darkred;
+  color: darkred;
+}
+.task_label_r {
+  border: 1px solid orange;
+  color: orange;
 }
 
 .task_attachments {

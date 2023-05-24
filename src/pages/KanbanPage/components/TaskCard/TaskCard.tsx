@@ -14,6 +14,7 @@ import human from '../../../../assets/img/human.png';
 import { fetchGetTaskInfo } from '../../store/kanban.thunk';
 import { TaskCardProps } from './TaskCard.props';
 import moment from 'moment';
+import classNames from 'classnames';
 import { DotsIcon } from '../../../../assets/icons/UtilsIcons';
 import { DropDown } from '../../../../ui/DropDown/DropDown';
 
@@ -87,7 +88,18 @@ export const TaskCard: React.FC<TaskCardProps> = ({
 
       <div className={styles.task__footer}>
         <div className={styles.footer_left}>
-          <div className={styles.task_label}>Feature</div>
+          {task.type !== 'NONE' && task.type && (
+            <div
+              className={classNames(`${styles.task_label}`, {
+                [styles.task_label_q]: task.type === 'QUESTION',
+                [styles.task_label_r]: task.type === 'RESEARCH',
+                [styles.task_label_b]: task.type === 'BUG',
+                [styles.task_label_]: task.type === 'FEATURE',
+              })}
+            >
+              {task.type}
+            </div>
+          )}
         </div>
 
         <div className={styles.footer_right}>
