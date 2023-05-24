@@ -9,4 +9,6 @@ export interface ITask {
   projectId: number;
   createDate: string;
   priority: IPriorityType;
+  ownerUserPic: string | null;
+  type: string | null;
 }
