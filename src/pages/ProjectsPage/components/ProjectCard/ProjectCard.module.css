@@ -64,3 +64,8 @@
   position: relative;
   z-index: 1000;
 }
+.ddCont__text {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--font-gray)
+}
