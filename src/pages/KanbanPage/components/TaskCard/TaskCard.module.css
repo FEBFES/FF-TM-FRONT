@@ -36,12 +36,13 @@
 .task_avatar {
   height: 27px;
   width: 27px;
-  border: 1px solid white;
-  background: red;
+  border: 1px solid var(--bg-border);
+  background: transparent;
   border-radius: 100px;
   overflow: hidden;
 }
 .task_avatar > img {
+  transform: scale(1.1);
   width: 100%;
   height: 100%;
   border-radius: 100px;
