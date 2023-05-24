@@ -106,9 +106,10 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
       {curSubPage === 'comments' && (
         <div className={styles.comments}>
           <div className={styles.commentsWrap}>
-            {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((el) => {
+            {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((el, i) => {
               return (
                 <div
+                  key={i}
                   className={`${styles.commentCont} ${
                     el % 2 === 0 && styles.commentContAny
                   }`}
@@ -137,6 +138,7 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
             <InputField
               className={styles.comments__footer_input}
               value={''}
+              onChange={() => {}}
               placeholder={'Write a comment...'}
             />
             <div className={styles.comments__footer_sendIconCont}>
