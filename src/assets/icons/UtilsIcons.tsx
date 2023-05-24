@@ -71,11 +71,11 @@ export const FavoriteIcon = ({ isFav = false }: { isFav?: boolean }) => {
   );
 };
 
-export const DotsIcon = () => {
+export const DotsIcon = ({ w, h }: { w?: number; h?: number }) => {
   return (
     <svg
-      width="18"
-      height="5"
+      width={w ? w : 18}
+      height={h ? h : 5}
       viewBox="0 0 18 5"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
