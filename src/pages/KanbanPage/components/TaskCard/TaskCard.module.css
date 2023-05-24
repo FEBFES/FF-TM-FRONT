@@ -12,7 +12,7 @@
 
 .task {
   cursor: grab;
-  padding: 8px 12px 12px 12px;
+  padding: 8px 12px 0px 12px;
   display: flex;
   flex-direction: column;
   width: 288px;
@@ -74,12 +74,13 @@
 }
 
 .task__footer {
-  height: 34px;
-  margin-top: 8px;
+  min-height: 34px;
+  padding-top: 8px;
+  padding-bottom: 12px;
   color: var(--font-gray);
   border-top: 1px solid var(--bg-border);
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -135,7 +136,10 @@
   margin-right: 10px;
 }
 .task_attachments:last-of-type {
+  position: relative;
   margin-right: 0;
+  cursor: pointer;
+  height: 14px;
 }
 
 .task_attachments_counter {
