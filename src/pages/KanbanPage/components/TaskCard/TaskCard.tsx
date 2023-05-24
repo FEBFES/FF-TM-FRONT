@@ -19,11 +19,14 @@ import { DropDown } from '../../../../ui/DropDown/DropDown';
 
 export const TaskCard: React.FC<TaskCardProps> = ({
   task,
-  delTask,
   setShowTaskModal,
 }): JSX.Element => {
   const [showDD, setShowDD] = useState<boolean>(false);
   const dispatch = useAppDispatch();
+
+  // const deleteColumnHandler = (colId: number) => {
+  //     curProjId && dispatch(fetchDelCol({ projId: curProjId, colId: colId }));
+  // };
 
   return (
     <div
@@ -51,7 +54,11 @@ export const TaskCard: React.FC<TaskCardProps> = ({
 
         <div className={styles.task_avatar}>
           <img
-            src={task.ownerUserPic ? task.ownerUserPic : human}
+            src={
+              task.ownerUserPic
+                ? `http://febfes.com/api/v1${task.ownerUserPic}`
+                : human
+            }
             alt="avatar"
           />
         </div>

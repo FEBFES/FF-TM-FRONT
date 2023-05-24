@@ -21,7 +21,9 @@ export const GeneralTab: React.FC<GeneralTabProps> = (): JSX.Element => {
           <PlusIcon />
         </div>
       </label>
+
       <input id={'inputFIle'} className={styles.fileInput} type={'file'} />
+
       <p className={comStyle.text}>Pick a logo for your project</p>
 
       <div className={comStyle.brLine} />

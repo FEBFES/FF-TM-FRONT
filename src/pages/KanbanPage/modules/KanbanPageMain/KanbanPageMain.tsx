@@ -4,7 +4,6 @@ import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { clearKanbanSlice } from '../../store/kanban.slice';
 import {
   fetchAddNewTask,
-  fetchDelCol,
   fetchDelTask,
   fetchProjectDashboard,
   fetchProjectInfo,
@@ -62,10 +61,6 @@ export const KanbanPageMain: React.FC<KanbanPageProps> = ({
     curProjId && dispatch(fetchDelTask({ projId: curProjId, colId, taskId }));
   };
 
-  const deleteColumnHandler = (colId: number) => {
-    curProjId && dispatch(fetchDelCol({ projId: curProjId, colId: colId }));
-  };
-
   return (
     <div className={styles.kanbanMain}>
       <div className={styles.colCont}>
@@ -78,7 +73,6 @@ export const KanbanPageMain: React.FC<KanbanPageProps> = ({
               setCurCol={setCurCol}
               setShowTaskModal={setShowTaskModal}
               setShowAddTaskModal={setShowAddTaskModal}
-              delCol={deleteColumnHandler}
             />
           );
         })}
