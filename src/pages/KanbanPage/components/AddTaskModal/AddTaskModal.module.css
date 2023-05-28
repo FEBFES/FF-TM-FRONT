@@ -101,12 +101,12 @@
 
 .submitBtn {
   margin: 0;
-  background: #7bc7f2;
+  background: var(--bg-primary);
   border-radius: 6px;
   padding: 5px 14px !important;
   color: #ffffff;
   font-size: 14px !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
 }
 
 .task_type {

@@ -4,6 +4,8 @@
   --bg-0: #0d1117;
   --bg-shadow: #010409;
 
+  --bg-primary: #1f6feb;
+
   --font-defautl: #dcdcdc;
   --font-gray: #b0b0b0;
 }
@@ -13,6 +15,8 @@
   --bg-border: #e8e8e8;
   --bg-0: #ffffff;
   --bg-shadow: #d0d0d0;
+
+  --bg-primary: #1f6feb;
 
   --font-defautl: #000000;
   --font-gray: #444444;
