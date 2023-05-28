@@ -60,11 +60,11 @@
   height: 35px;
   width: 10px;
   border-radius: 0 5px 5px 0;
-  background: #7bc7f2;
+  background: var(--bg-primary);
 }
 .linkActive > svg > rect {
-  stroke: #7bc7f2;
+  stroke: var(--bg-primary);
 }
 .linkActive > svg > path {
-  stroke: #7bc7f2;
+  stroke: var(--bg-primary);
 }

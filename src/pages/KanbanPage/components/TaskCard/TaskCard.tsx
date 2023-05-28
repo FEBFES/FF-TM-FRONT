@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styles from './TaskCard.module.css';
 import { delTaskFromCol } from '../../store/kanban.slice';
 import { useAppDispatch } from '../../../../hooks/redux';
@@ -20,14 +20,11 @@ import { DropDown } from '../../../../ui/DropDown/DropDown';
 
 export const TaskCard: React.FC<TaskCardProps> = ({
   task,
+  delTask,
   setShowTaskModal,
 }): JSX.Element => {
   const [showDD, setShowDD] = useState<boolean>(false);
   const dispatch = useAppDispatch();
-
-  // const deleteColumnHandler = (colId: number) => {
-  //     curProjId && dispatch(fetchDelCol({ projId: curProjId, colId: colId }));
-  // };
 
   return (
     <div
@@ -94,10 +91,10 @@ export const TaskCard: React.FC<TaskCardProps> = ({
                 [styles.task_label_q]: task.type === 'QUESTION',
                 [styles.task_label_r]: task.type === 'RESEARCH',
                 [styles.task_label_b]: task.type === 'BUG',
-                [styles.task_label_]: task.type === 'FEATURE',
+                [styles.task_label_f]: task.type === 'FEATURE',
               })}
             >
-              {task.type}
+              {task.type.toLowerCase()}
             </div>
           )}
         </div>

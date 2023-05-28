@@ -52,6 +52,7 @@ export const Column: React.FC<ColumnProps> = ({
         {col?.tasks?.map((task: ITask) => {
           return (
             <TaskCard
+              delTask={delTask}
               setShowTaskModal={setShowTaskModal}
               key={v4()}
               task={task}
