@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { MainLayoutSidebar } from './sidebar/MainLayoutSidebar';
 import styles from './MainLayout.module.css';
 import { MainLayoutProps } from './MainLayout.props';
+import { Sidebar } from '../../components/Sidebar/Sidebar';
 
 export const MainLayout: React.FC<MainLayoutProps> = ({
   children,
@@ -22,7 +22,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
 
   return (
     <div className={styles.mainLay}>
-      <MainLayoutSidebar />
+      <Sidebar />
       <div className={styles.page}>{children}</div>
     </div>
   );
