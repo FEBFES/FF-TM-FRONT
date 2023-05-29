@@ -33,23 +33,24 @@
   font-weight: 700;
 }
 .taskType_f {
-  border: 1px solid forestgreen;
-  color: forestgreen;
+  border: 1px solid #296529;
+  color: #18e022;
 }
 .taskType_q {
-  border: 1px solid #5b3383;
-  color: #5b3383;
+  border: 1px solid #7a2b85;
+  color: #d97ee5;
 }
 .taskType_b {
-  border: 1px solid darkred;
-  color: darkred;
+  border: 1px solid #cc4a4d;
+  color: #fd9b9d;
 }
 .taskType_r {
-  border: 1px solid orange;
-  color: orange;
+  border: 1px solid #88721f;
+  color: #fac905;
 }
 
 .typeElement {
+  border: none;
   padding: 5px;
   margin-bottom: 5px;
   border-radius: 5px;

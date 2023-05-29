@@ -41,7 +41,12 @@ export const TypeSelect: React.FC<TypeSelectProps> = ({
                   setCurType(taskType);
                   setShow(false);
                 }}
-                className={styles.typeElement}
+                className={classNames(styles.typeElement, {
+                  [styles.taskType_f]: taskType === 'FEATURE',
+                  [styles.taskType_q]: taskType === 'QUESTION',
+                  [styles.taskType_b]: taskType === 'BUG',
+                  [styles.taskType_r]: taskType === 'RESEARCH',
+                })}
               >
                 {taskType}
               </div>
