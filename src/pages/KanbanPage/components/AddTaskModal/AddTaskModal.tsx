@@ -29,6 +29,8 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
   const clearModalData = () => {
     setName('');
     setDescription('');
+    setCurTaskType('NONE');
+    setCurPriority('DEFAULT');
   };
 
   return (
