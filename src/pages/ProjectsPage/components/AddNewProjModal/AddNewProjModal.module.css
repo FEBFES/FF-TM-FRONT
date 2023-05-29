@@ -1,10 +1,14 @@
 .container {
-  padding: 20px 10px;
+  z-index: 10;
+  border-radius: 8px;
+  padding: 30px 20px 20px;
+  min-width: 400px;
+  background: var(--bg-100);
 }
 
 .projCont {
   margin-top: 40px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .cont__header {
@@ -18,4 +22,9 @@
   font-size: 20px;
   font-weight: 400;
   color: var(--font-defautl);
+}
+
+.cont__footer {
+  display: flex;
+  justify-content: flex-end;
 }

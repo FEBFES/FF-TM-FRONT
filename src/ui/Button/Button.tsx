@@ -32,6 +32,7 @@ export const Button: React.FC<ButtonProps> = ({
         [styles.buttonOutline]: theme === 'outline',
         [styles.buttonDanger]: theme === 'danger',
         [styles.buttonDefault]: theme === 'default',
+        [styles.buttonPrimary]: theme === 'primary',
       })}
       onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
         onClick ? onClick(e) : {}
