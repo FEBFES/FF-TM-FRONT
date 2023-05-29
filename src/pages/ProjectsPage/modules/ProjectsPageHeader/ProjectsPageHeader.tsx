@@ -12,8 +12,8 @@ export const ProjectsPageHeader: React.FC<
   return (
     <header className={styles.ProjectsPage__header}>
       <span className={styles.page__title}>Projects</span>
-      <Button theme={'submit'} onClick={() => setShow(true)}>
-        add
+      <Button theme={'primary'} onClick={() => setShow(true)}>
+        Create new project
       </Button>
       <AddNewProjModal show={show} setShow={setShow} />
     </header>

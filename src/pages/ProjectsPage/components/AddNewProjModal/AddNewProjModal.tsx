@@ -23,7 +23,7 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
     <Modal show={show} setShow={setShow}>
       <div className={styles.container}>
         <div className={styles.cont__header}>
-          <h1 className={styles.cont__headerTitle}>Создать новый проект</h1>
+          <h1 className={styles.cont__headerTitle}>Create new project</h1>
           <Button theme={'close'} onClick={() => setShow(false)}>
             x
           </Button>
@@ -51,7 +51,7 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
               setShow(false);
             }}
           >
-            Назад
+            Cancel
           </Button>
           <Button
             theme={'primary'}
@@ -63,7 +63,7 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
                 });
             }}
           >
-            Создать
+            Create
           </Button>
         </div>
       </div>

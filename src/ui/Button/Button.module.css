@@ -66,6 +66,5 @@
 /*Primary type*/
 .buttonPrimary {
   color: white;
-  font-weight: 600;
   background: var(--bg-primary);
 }

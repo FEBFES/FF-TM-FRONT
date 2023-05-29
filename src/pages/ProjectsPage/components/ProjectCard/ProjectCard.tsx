@@ -70,7 +70,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               className={styles.ddCont__text}
               onClick={() => dispatch(fetchDelProject(proj.id))}
             >
-              Удалить
+              Delete
             </div>
           </DropDown>
 
