@@ -8,16 +8,13 @@
 .input {
   outline: none;
   background: transparent;
-  border: 1px solid #d5d5d5;
+  border: 1px solid var(--bg-border);
   width: 100%;
   height: 100%;
   border-radius: 8px;
   padding: 0 10px;
   font-size: 14px;
   color: var(--font-defautl);
-}
-.input:hover {
-  border: 1px solid #b2b2b2;
 }
 
 .passwordIcon {
