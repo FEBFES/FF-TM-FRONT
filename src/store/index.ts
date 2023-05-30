@@ -1,15 +1,17 @@
 import { combineReducers } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
-import AppSlice from './slices/AppSlice';
+import AppSlice from './App/AppSlice';
 import ProjectsSlice from '../pages/ProjectsPage/store/projects.slice';
 import AuthSlice from '../pages/AuthPages/store/auth.slice';
 import KanbanSlice from '../pages/KanbanPage/store/kanban.slice';
+import UserSlice from './User/user.slice';
 
 const rootReducer = combineReducers({
   app: AppSlice,
   projects: ProjectsSlice,
   projectKanban: KanbanSlice,
   auth: AuthSlice,
+  user: UserSlice,
 });
 
 export const setupStore = () => {

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instanceWithoutToken } from '../../../api/http';
-import { addToast } from '../../../store/slices/AppSlice';
+import { addToast } from '../../../store/App/AppSlice';
 import { v4 } from 'uuid';
 import { ILoginFormType, IRegisterFormDataType } from './auth.type';
 

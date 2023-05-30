@@ -3,6 +3,7 @@ import styles from './ProfileTab.module.css';
 import comStyle from '../../commonStyle.module.css';
 import { PlusIcon } from '../../../../assets/icons/UtilsIcons';
 import { instance } from '../../../../api/http';
+import { InputField } from '../../../../ui/InputField/InputField';
 
 interface ProfileTabProps {}
 
@@ -13,6 +14,7 @@ export const ProfileTab: React.FC<ProfileTabProps> = (): JSX.Element => {
     formData.append('image', photo);
     instance.post('files/user-pic/1', formData).then((res) => {});
   };
+
   return (
     <div className={styles.profileTab}>
       <h1 className={comStyle.title}>Profile</h1>
@@ -31,6 +33,11 @@ export const ProfileTab: React.FC<ProfileTabProps> = (): JSX.Element => {
           onChange={uploadNewAvatar}
           type={'file'}
         />
+
+        <InputField placeholder={'FirstName'} type={'text'} />
+        <InputField placeholder={'LastName'} type={'text'} />
+        <InputField placeholder={'DisplayName'} type={'text'} />
+        <InputField placeholder={'Password'} type={'text'} />
       </div>
     </div>
   );
