@@ -4,10 +4,13 @@ import comStyle from '../../commonStyle.module.css';
 import { PlusIcon } from '../../../../assets/icons/UtilsIcons';
 import { instance } from '../../../../api/http';
 import { InputField } from '../../../../ui/InputField/InputField';
+import { useTypedSelector } from '../../../../hooks/redux';
 
 interface ProfileTabProps {}
 
 export const ProfileTab: React.FC<ProfileTabProps> = (): JSX.Element => {
+  const userInfo = useTypedSelector((state) => state.user.userInfo);
+
   const uploadNewAvatar = (e: any) => {
     const photo = e.target.files[0];
     const formData = new FormData();
@@ -34,10 +37,28 @@ export const ProfileTab: React.FC<ProfileTabProps> = (): JSX.Element => {
           type={'file'}
         />
 
-        <InputField placeholder={'FirstName'} type={'text'} />
-        <InputField placeholder={'LastName'} type={'text'} />
-        <InputField placeholder={'DisplayName'} type={'text'} />
-        <InputField placeholder={'Password'} type={'text'} />
+        <InputField
+          placeholder={userInfo?.email ? userInfo.email : 'Email'}
+          type={'text'}
+        />
+        <InputField
+          placeholder={userInfo?.username ? userInfo.username : 'Username'}
+          type={'text'}
+        />
+        <InputField
+          placeholder={userInfo?.firstName ? userInfo.firstName : 'FirstName'}
+          type={'text'}
+        />
+        <InputField
+          placeholder={userInfo?.lastName ? userInfo.lastName : 'LastName'}
+          type={'text'}
+        />
+        <InputField
+          placeholder={
+            userInfo?.displayName ? userInfo.displayName : 'DisplayName'
+          }
+          type={'text'}
+        />
       </div>
     </div>
   );
