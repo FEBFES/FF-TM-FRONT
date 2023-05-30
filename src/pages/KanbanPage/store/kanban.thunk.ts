@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../../api/http';
 import { AxiosError } from 'axios';
-import { addToast } from '../../../store/slices/AppSlice';
+import { addToast } from '../../../store/App/AppSlice';
 import { v4 } from 'uuid';
 import { addTaskToCol } from './kanban.slice';
 import { IColumns } from '../components/Column';

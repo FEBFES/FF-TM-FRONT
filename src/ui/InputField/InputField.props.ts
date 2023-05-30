@@ -5,5 +5,5 @@ export interface IInputFieldProps
     InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
   > {
-  value: any;
+  value?: any;
 }
