@@ -106,32 +106,30 @@
 
 .task_label {
   padding: 2px 6px;
-  border: 1px solid var(--bg-border);
-  color: var(--font-gray);
   border-radius: 6px;
   font-size: 10px;
   line-height: 14px;
   font-weight: 400;
 }
 .task_label_f {
-  background: #0e8a162e;
-  border: 1px solid #296529;
-  color: #18e022;
+  background: var(--task-label-f-bg);
+  border: 1px solid var(--task-label-f-border);
+  color: var(--task-label-f-color);
 }
 .task_label_q {
-  background: #d876e32e;
-  border: 1px solid #7a2b85;
-  color: #d97ee5;
+  background: var(--task-label-q-bg);
+  border: 1px solid var(--task-label-q-border);
+  color: var(--task-label-q-color);
 }
 .task_label_b {
-  background: #b602052e;
-  border: 1px solid #cc4a4d;
-  color: #fd9b9d;
+  background: var(--task-label-b-bg);
+  border: 1px solid var(--task-label-b-border);
+  color: var(--task-label-b-color);
 }
 .task_label_r {
-  background: #fbca042e;
-  border: 1px solid #88721f;
-  color: #fac905;
+  background: var(--task-label-r-bg);
+  border: 1px solid var(--task-label-r-border);
+  color: var(--task-label-r-color);
 }
 
 .task_attachments {

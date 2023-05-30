@@ -7,6 +7,15 @@ import { ProfileTab } from './modules/ProfileTab/ProfileTab';
 interface SettingsPageProps {}
 
 export const SettingsPage: React.FC<SettingsPageProps> = (): JSX.Element => {
+  // const userInfo = useTypedSelector((state) => state.user.userInfo);
+  // const dispatch = useAppDispatch();
+
+  // useEffect(() => {
+  //   if (!userInfo) {
+  //     dispatch(fetchGetUserInfo(1));
+  //   }
+  // }, [userInfo]);
+
   return (
     <div className={styles.page}>
       <SettingsSidebar />

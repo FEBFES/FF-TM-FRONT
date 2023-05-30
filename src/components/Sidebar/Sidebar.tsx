@@ -2,12 +2,10 @@ import React from 'react';
 import styles from './Sidebar.module.css';
 import { NavLink, useLocation } from 'react-router-dom';
 import {
-  ChatIcon,
   HomeIcon,
   LeaveIcon,
   ProjectsIcon,
   SettingsIcon,
-  TimeLineIcon,
 } from '../../assets/icons/SidebarIcons';
 import { useAppDispatch } from '../../hooks/redux';
 import { useTheme } from '../../hooks/useTheme';
@@ -30,22 +28,22 @@ const links = [
     to: '/KanbanPage',
     private: true,
   },
-  {
-    title: 'Timeline',
-    icon: TimeLineIcon,
-    to: '/Timeline',
-    private: true,
-  },
-  {
-    title: 'Chat',
-    icon: ChatIcon,
-    to: '/Messages',
-    private: true,
-  },
+  // {
+  //   title: 'Timeline',
+  //   icon: TimeLineIcon,
+  //   to: '/Timeline',
+  //   private: true,
+  // },
+  // {
+  //   title: 'Chat',
+  //   icon: ChatIcon,
+  //   to: '/Messages',
+  //   private: true,
+  // },
   {
     title: 'Settings',
     icon: SettingsIcon,
-    to: '/SettingsPage',
+    to: '/SettingsPage/',
     private: true,
   },
 ];
