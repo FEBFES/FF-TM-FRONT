@@ -1,12 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../../api/http';
 import { AxiosError } from 'axios';
-import { addToast } from '../../../store/slices/AppSlice';
+import { addToast } from '../../../store/App/AppSlice';
 import { v4 } from 'uuid';
 import { addTaskToCol } from './kanban.slice';
 import { IColumns } from '../components/Column';
 import { ITask } from '../components/TaskCard';
 import { IPriorityType } from '../components/PrioritySelect/PrioritySelect.type';
+import { ITypeSelectType } from '../components/TypeSelect/TypeSelect';
 
 // Get task info
 export const fetchGetTaskInfo = createAsyncThunk(
@@ -91,12 +92,14 @@ export const fetchAddNewTask = createAsyncThunk(
       projId,
       colId,
       priority,
+      type,
     }: {
       name: string;
       description: string;
       projId: number;
       colId: number;
       priority: IPriorityType;
+      type: ITypeSelectType;
     },
     { rejectWithValue, dispatch }
   ) => {
@@ -107,6 +110,7 @@ export const fetchAddNewTask = createAsyncThunk(
           name,
           description,
           priority: priority !== 'DEFAULT' ? priority : null,
+          type: type !== 'NONE' ? type : null,
         }
       );
 

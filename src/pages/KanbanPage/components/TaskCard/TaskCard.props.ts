@@ -2,6 +2,6 @@ import { ITask } from './TaskCard.type';
 
 export interface TaskCardProps {
   task: ITask;
-  delTask: (colId: number, taskId: number) => void;
+  delTask: any;
   setShowTaskModal: (bool: boolean) => void;
 }

@@ -9,8 +9,13 @@ import { NotFoundPage } from '../../pages/404/NotFoundPage';
 import { useTheme } from '../../hooks/useTheme';
 
 export const App = () => {
+  // const dispatch = useAppDispatch();
   const isAuth = useTypedSelector((state) => state.auth.isAuth);
   useTheme();
+
+  // useEffect(() => {
+  //   dispatch(fetchGetUserInfo(1));
+  // }, []);
 
   return (
     <div className={styles.App}>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './KanbanPageHeader.module.css';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
-import { AddColModal } from '../../components/AddColModal/AddColModal';
+import { AddColModal } from '../../components/AddColModal';
 import { useNavigate } from 'react-router-dom';
 import { appRoutsPath } from '../../../../routing/routs';
 import {
@@ -11,7 +11,7 @@ import {
   SearchIcon,
 } from '../../../../assets/icons/UtilsIcons';
 import human from '../../../../assets/img/human.png';
-import { Switcher } from '../../../../ui/Switcher/Switcher';
+import { Switcher } from '../../../../ui/Switcher';
 import { useTheme } from '../../../../hooks/useTheme';
 import { fetchFavoriteToggle } from '../../../ProjectsPage/store/projects.thunk';
 

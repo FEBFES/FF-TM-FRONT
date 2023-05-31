@@ -23,11 +23,12 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
     <Modal show={show} setShow={setShow}>
       <div className={styles.container}>
         <div className={styles.cont__header}>
-          <h1 className={styles.cont__headerTitle}>Создать новый проект</h1>
+          <h1 className={styles.cont__headerTitle}>Create new project</h1>
           <Button theme={'close'} onClick={() => setShow(false)}>
             x
           </Button>
         </div>
+
         <div className={styles.projCont}>
           <InputField
             placeholder={'Name'}
@@ -43,18 +44,28 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
           />
         </div>
 
-        <Button
-          theme={'submit'}
-          onClick={() => {
-            dispatch(fetchAddProject({ name, desc }))
-              .unwrap()
-              .finally(() => {
-                setShow(false);
-              });
-          }}
-        >
-          Создать
-        </Button>
+        <div className={styles.cont__footer}>
+          <Button
+            theme={'outline'}
+            onClick={() => {
+              setShow(false);
+            }}
+          >
+            Cancel
+          </Button>
+          <Button
+            theme={'primary'}
+            onClick={() => {
+              dispatch(fetchAddProject({ name, desc }))
+                .unwrap()
+                .finally(() => {
+                  setShow(false);
+                });
+            }}
+          >
+            Create
+          </Button>
+        </div>
       </div>
     </Modal>
   );

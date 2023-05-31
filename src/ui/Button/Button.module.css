@@ -1,6 +1,7 @@
 .buttonDefault,
 .buttonOutline,
 .buttonSubmit,
+.buttonPrimary,
 .buttonDanger {
   margin: 5px;
   padding: 10px 20px;
@@ -13,6 +14,7 @@
 }
 
 .buttonDefault,
+.buttonPrimary,
 .buttonOutline,
 .buttonSubmit,
 .buttonDanger:hover {
@@ -22,17 +24,20 @@
 
 /*Close type*/
 .buttonClose {
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 100px;
   outline: none;
-  border: none;
+  /*border: none;*/
   padding: 10px;
   width: 24px;
   height: 24px;
   font-size: 10px;
   transition: 1s;
+  color: var(--font-gray);
+  border: 1px solid var(--font-gray);
 }
 .buttonClose:hover {
   cursor: pointer;
@@ -53,6 +58,13 @@
 /*Outline type*/
 .buttonOutline {
   background: transparent;
-  border: 1px solid #b4b4b4;
-  color: #707070;
+  border: 1px solid var(--bg-border);
+  color: var(--bg-border);
+  font-weight: 600;
+}
+
+/*Primary type*/
+.buttonPrimary {
+  color: white;
+  background: var(--bg-primary);
 }

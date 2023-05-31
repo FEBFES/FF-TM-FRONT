@@ -1,5 +1,4 @@
 .projectCard {
-  background: var(--bg-0);
   position: relative;
   margin-right: 20px;
   margin-bottom: 20px;
@@ -62,5 +61,10 @@
 
 .ddCont {
   position: relative;
-  z-index: 1000;
+}
+.ddCont__text {
+  z-index: 10;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--font-gray);
 }

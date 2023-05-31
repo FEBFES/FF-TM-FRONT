@@ -4,7 +4,6 @@ import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { clearKanbanSlice } from '../../store/kanban.slice';
 import {
   fetchAddNewTask,
-  fetchDelCol,
   fetchDelTask,
   fetchProjectDashboard,
   fetchProjectInfo,
@@ -13,6 +12,7 @@ import styles from './KanbanPageMain.module.css';
 import { Column, IColumns } from '../../components/Column';
 import { v4 } from 'uuid';
 import { IPriorityType } from '../../components/PrioritySelect/PrioritySelect.type';
+import { ITypeSelectType } from '../../components/TypeSelect/TypeSelect';
 
 interface KanbanPageProps {
   setShowTaskModal: (bool: boolean) => void;
@@ -43,7 +43,8 @@ export const KanbanPageMain: React.FC<KanbanPageProps> = ({
   const addNewTaskHandler = (
     name: string,
     description: string,
-    priority: IPriorityType
+    priority: IPriorityType,
+    type: ITypeSelectType
   ) => {
     curCol &&
       curProjId &&
@@ -52,6 +53,7 @@ export const KanbanPageMain: React.FC<KanbanPageProps> = ({
           name,
           description,
           priority,
+          type,
           colId: curCol,
           projId: curProjId,
         })
@@ -60,10 +62,6 @@ export const KanbanPageMain: React.FC<KanbanPageProps> = ({
 
   const deleteTaskHandler = (colId: number, taskId: number) => {
     curProjId && dispatch(fetchDelTask({ projId: curProjId, colId, taskId }));
-  };
-
-  const deleteColumnHandler = (colId: number) => {
-    curProjId && dispatch(fetchDelCol({ projId: curProjId, colId: colId }));
   };
 
   return (
@@ -78,7 +76,6 @@ export const KanbanPageMain: React.FC<KanbanPageProps> = ({
               setCurCol={setCurCol}
               setShowTaskModal={setShowTaskModal}
               setShowAddTaskModal={setShowAddTaskModal}
-              delCol={deleteColumnHandler}
             />
           );
         })}

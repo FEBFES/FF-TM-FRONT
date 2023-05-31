@@ -66,8 +66,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         {/*</Button>*/}
         <div className={styles.ddCont}>
           <DropDown show={showDD} setShow={setShowDD}>
-            <div onClick={() => dispatch(fetchDelProject(proj.id))}>
-              Удалить
+            <div
+              className={styles.ddCont__text}
+              onClick={() => dispatch(fetchDelProject(proj.id))}
+            >
+              Delete
             </div>
           </DropDown>
 

@@ -107,7 +107,8 @@
   width: 27px;
   height: 27px;
   border-radius: 100px;
-  border: 1px solid white;
+  border: 1px solid var(--bg-border);
+  background: var(--bg-0);
 }
 .avatar:last-of-type {
   transform: translateX(-40%);

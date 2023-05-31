@@ -18,7 +18,7 @@
   position: absolute;
   width: 12px;
   height: 12px;
-  background: #989898;
+  background: #979a9d;
   border-radius: 100px;
   left: 2px;
   transform: translateY(-50%);
@@ -26,6 +26,6 @@
 }
 .checkbox_circleActive {
   transition: 0.4s;
-  background: #7bc7f2;
+  background: var(--bg-primary);
   left: 16px;
 }

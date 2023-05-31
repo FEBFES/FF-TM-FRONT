@@ -60,22 +60,22 @@ export const FavoriteIcon = ({ isFav = false }: { isFav?: boolean }) => {
       width="14"
       height="16"
       viewBox="0 0 14 16"
-      fill={isFav ? 'yellow' : 'none'}
+      fill={isFav ? '#e3b341' : 'none'}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
         d="M2.7343 14.3915C1.73441 14.9529 0.500001 14.2303 0.500001 13.0836L0.500002 3.5C0.500003 2.11929 1.61929 0.999998 3 0.999998L11 0.999999C12.3807 0.999999 13.5 2.11929 13.5 3.5L13.5 13.0836C13.5 14.2303 12.2656 14.9529 11.2657 14.3915L7.7343 12.409C7.27825 12.153 6.72176 12.153 6.2657 12.409L2.7343 14.3915Z"
-        stroke="#989898"
+        stroke="#e3b341"
       />
     </svg>
   );
 };
 
-export const DotsIcon = () => {
+export const DotsIcon = ({ w, h }: { w?: number; h?: number }) => {
   return (
     <svg
-      width="18"
-      height="5"
+      width={w ? w : 18}
+      height={h ? h : 5}
       viewBox="0 0 18 5"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

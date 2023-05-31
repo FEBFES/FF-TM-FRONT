@@ -101,27 +101,20 @@
 
 .submitBtn {
   margin: 0;
-  background: #7bc7f2;
+  background: var(--bg-primary);
   border-radius: 6px;
   padding: 5px 14px !important;
   color: #ffffff;
   font-size: 14px !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
 }
 
 .task_type {
-  cursor: pointer;
-  margin-right: 8px;
+  margin-right: 10px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 100px;
-  border: 1px solid orange;
-  color: orange;
-  font-size: 14px;
-  font-weight: 700;
+  position: relative;
+  min-height: 24px;
 }
 
 .task_priority {

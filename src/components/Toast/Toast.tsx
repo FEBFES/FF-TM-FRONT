@@ -9,7 +9,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
 import { v4 } from 'uuid';
-import { delToast } from '../../store/slices/AppSlice';
+import { delToast } from '../../store/App/AppSlice';
 import classNames from 'classnames';
 import { IToast } from './Toast.props';
 

@@ -1,20 +1,18 @@
 import React from 'react';
-import styles from './MainLayoutSidebar.module.css';
-import { NavLink } from 'react-router-dom';
-import { useAppDispatch } from '../../../hooks/redux';
-import { setIsAuth } from '../../../pages/AuthPages/store/auth.slice';
+import styles from './Sidebar.module.css';
+import { NavLink, useLocation } from 'react-router-dom';
 import {
-  ChatIcon,
   HomeIcon,
   LeaveIcon,
   ProjectsIcon,
   SettingsIcon,
-  TimeLineIcon,
-} from '../../../assets/icons/SidebarIcons';
-import { useTheme } from '../../../hooks/useTheme';
-import { LogoIconLight } from '../../../assets/icons/LogoIconLight';
-import { LogoIconDark } from '../../../assets/icons/LogoIconDark';
-import { appRoutsPath } from '../../../routing/routs';
+} from '../../assets/icons/SidebarIcons';
+import { useAppDispatch } from '../../hooks/redux';
+import { useTheme } from '../../hooks/useTheme';
+import { LogoIconDark } from '../../assets/icons/LogoIconDark';
+import { LogoIconLight } from '../../assets/icons/LogoIconLight';
+import { setIsAuth } from '../../pages/AuthPages/store/auth.slice';
+import { appRoutsPath } from '../../routing/routs';
 
 const links = [
   //TODO to - from string to const appRoutsPath
@@ -22,32 +20,38 @@ const links = [
     title: 'Home',
     icon: HomeIcon,
     to: '/',
+    private: false,
   },
   {
     title: 'Projects',
     icon: ProjectsIcon,
     to: '/KanbanPage',
+    private: true,
   },
-  {
-    title: 'Timeline',
-    icon: TimeLineIcon,
-    to: '/Timeline',
-  },
-  {
-    title: 'Chat',
-    icon: ChatIcon,
-    to: '/Messages',
-  },
+  // {
+  //   title: 'Timeline',
+  //   icon: TimeLineIcon,
+  //   to: '/Timeline',
+  //   private: true,
+  // },
+  // {
+  //   title: 'Chat',
+  //   icon: ChatIcon,
+  //   to: '/Messages',
+  //   private: true,
+  // },
   {
     title: 'Settings',
     icon: SettingsIcon,
-    to: '/SettingsPage',
+    to: '/SettingsPage/',
+    private: true,
   },
 ];
 
-export const MainLayoutSidebar: React.FC = (): JSX.Element => {
+export const Sidebar: React.FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const { theme } = useTheme();
+  const location = useLocation();
 
   return (
     <div className={styles.sidebar}>
@@ -57,6 +61,9 @@ export const MainLayoutSidebar: React.FC = (): JSX.Element => {
 
       <ul className={styles.sidebar__main}>
         {links.map((link, i) => {
+          if (link.private && location.pathname === '/') {
+            return null;
+          }
           return (
             <NavLink
               key={i}
