@@ -32,7 +32,7 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
   return (
     <div className={styles.taskWindow}>
       <header className={styles.header}>
-        <h2 className={styles.taskWindow_id}>{task.id}</h2>
+        <h2 className={styles.taskWindow_id}>#{task.id}</h2>
         <div className={styles.header__right}>
           <FullIcon />
           <div
@@ -66,7 +66,6 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
           <PriorityHigh />
         </div>
 
-        <div className={styles.tag}>Feature</div>
       </div>
 
       <div className={styles.date}></div>
@@ -76,81 +75,81 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
         <p className={styles.description__text}>{task.description || ''}</p>
       </div>
 
-      <div className={styles.windowToggle}>
-        <div
-          onClick={() => setCurSubPage('comments')}
-          className={`${styles.windowToggle__item} ${
-            curSubPage === 'comments' && styles.windowToggle__item_active
-          }`}
-        >
-          Comments 8
-        </div>
-        <div
-          onClick={() => setCurSubPage('files')}
-          className={`${styles.windowToggle__item} ${
-            curSubPage === 'files' && styles.windowToggle__item_active
-          }`}
-        >
-          Files
-        </div>
-        <div
-          onClick={() => setCurSubPage('log')}
-          className={`${styles.windowToggle__item} ${
-            curSubPage === 'log' && styles.windowToggle__item_active
-          }`}
-        >
-          Log
-        </div>
-      </div>
+      {/*<div className={styles.windowToggle}>*/}
+      {/*  <div*/}
+      {/*    onClick={() => setCurSubPage('comments')}*/}
+      {/*    className={`${styles.windowToggle__item} ${*/}
+      {/*      curSubPage === 'comments' && styles.windowToggle__item_active*/}
+      {/*    }`}*/}
+      {/*  >*/}
+      {/*    Comments 8*/}
+      {/*  </div>*/}
+      {/*  <div*/}
+      {/*    onClick={() => setCurSubPage('files')}*/}
+      {/*    className={`${styles.windowToggle__item} ${*/}
+      {/*      curSubPage === 'files' && styles.windowToggle__item_active*/}
+      {/*    }`}*/}
+      {/*  >*/}
+      {/*    Files*/}
+      {/*  </div>*/}
+      {/*  <div*/}
+      {/*    onClick={() => setCurSubPage('log')}*/}
+      {/*    className={`${styles.windowToggle__item} ${*/}
+      {/*      curSubPage === 'log' && styles.windowToggle__item_active*/}
+      {/*    }`}*/}
+      {/*  >*/}
+      {/*    Log*/}
+      {/*  </div>*/}
+      {/*</div>*/}
 
-      {curSubPage === 'comments' && (
-        <div className={styles.comments}>
-          <div className={styles.commentsWrap}>
-            {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((el, i) => {
-              return (
-                <div
-                  key={i}
-                  className={`${styles.commentCont} ${
-                    el % 2 === 0 && styles.commentContAny
-                  }`}
-                >
-                  <div className={styles.commentCont__item}>
-                    <div className={styles.comment__header}>
-                      <h3 className={styles.comment_owner}>Me</h3>
-                      <span className={styles.comment_date}>Jan 1</span>
-                    </div>
-                    <p className={styles.comment_text}>I’ll try to fix that</p>
-                  </div>
-                  <img
-                    className={styles.user__avatar}
-                    src={human}
-                    alt="avatar"
-                  />
-                </div>
-              );
-            })}
-          </div>
+      {/*{curSubPage === 'comments' && (*/}
+      {/*  <div className={styles.comments}>*/}
+      {/*    <div className={styles.commentsWrap}>*/}
+      {/*      {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((el, i) => {*/}
+      {/*        return (*/}
+      {/*          <div*/}
+      {/*            key={i}*/}
+      {/*            className={`${styles.commentCont} ${*/}
+      {/*              el % 2 === 0 && styles.commentContAny*/}
+      {/*            }`}*/}
+      {/*          >*/}
+      {/*            <div className={styles.commentCont__item}>*/}
+      {/*              <div className={styles.comment__header}>*/}
+      {/*                <h3 className={styles.comment_owner}>Me</h3>*/}
+      {/*                <span className={styles.comment_date}>Jan 1</span>*/}
+      {/*              </div>*/}
+      {/*              <p className={styles.comment_text}>I’ll try to fix that</p>*/}
+      {/*            </div>*/}
+      {/*            <img*/}
+      {/*              className={styles.user__avatar}*/}
+      {/*              src={human}*/}
+      {/*              alt="avatar"*/}
+      {/*            />*/}
+      {/*          </div>*/}
+      {/*        );*/}
+      {/*      })}*/}
+      {/*    </div>*/}
 
-          <footer className={styles.comments__footer}>
-            <div className={styles.comments__footer_attachIconCont}>
-              <AttachmentsIcon />
-            </div>
-            <InputField
-              className={styles.comments__footer_input}
-              value={''}
-              onChange={() => {}}
-              placeholder={'Write a comment...'}
-            />
-            <div className={styles.comments__footer_sendIconCont}>
-              <SendIcon />
-            </div>
-          </footer>
-        </div>
-      )}
+      {/*    <footer className={styles.comments__footer}>*/}
+      {/*      <div className={styles.comments__footer_attachIconCont}>*/}
+      {/*        <AttachmentsIcon />*/}
+      {/*      </div>*/}
+      {/*      <InputField*/}
+      {/*        className={styles.comments__footer_input}*/}
+      {/*        value={''}*/}
+      {/*        onChange={() => {}}*/}
+      {/*        placeholder={'Write a comment...'}*/}
+      {/*      />*/}
+      {/*      <div className={styles.comments__footer_sendIconCont}>*/}
+      {/*        <SendIcon />*/}
+      {/*      </div>*/}
+      {/*    </footer>*/}
+      {/*  </div>*/}
+      {/*)}*/}
 
-      {curSubPage === 'files' && <div></div>}
+      {/*{curSubPage === 'files' && <div></div>}*/}
 
-      {curSubPage === 'log' && <div></div>}
+      {/*{curSubPage === 'log' && <div></div>}*/}
     </div>
   );
 };

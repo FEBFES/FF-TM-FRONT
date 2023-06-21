@@ -92,7 +92,7 @@
   width: 32px;
   height: 32px;
   border-radius: 100px;
-  border: 1px solid lightgrey;
+  border: 1px solid var(--bg-border);
   margin: 5px;
 }
 
@@ -119,15 +119,6 @@
   font-weight: 400;
   font-size: 14px;
   color: #575757;
-}
-
-.tag {
-  font-weight: 500;
-  font-size: 14px;
-  padding: 3px 12px;
-  background: #c6eac6;
-  border-radius: 17px;
-  color: #599659;
 }
 
 .commentsWrap {
