@@ -8,10 +8,12 @@ import { IRegisterFormDataType } from '../../store/auth.type';
 import { Link, useNavigate } from 'react-router-dom';
 import { appRoutsPath } from '../../../../routing/routs';
 import { RegistrationFormProps } from './RegistrationForm.props';
+import { useTranslation } from 'react-i18next';
 
 export const RegistrationForm: React.FC<
   RegistrationFormProps
 > = (): JSX.Element => {
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -38,21 +40,21 @@ export const RegistrationForm: React.FC<
 
   return (
     <div className={styles.regform}>
-      <h1 className={styles.regform__title}>Registration</h1>
+      <h1 className={styles.regform__title}>{t('pages.registration.title')}</h1>
       <InputField
-        placeholder={'Email'}
+        placeholder={t('pages.registration.input.email.placeholder')}
         type={'text'}
         value={inputData.email}
         onChange={(e) => changeHandle(e.target.value, 'email')}
       />
       <InputField
-        placeholder={'Username'}
+        placeholder={t('pages.registration.input.username.placeholder')}
         type={'text'}
         value={inputData.username}
         onChange={(e) => changeHandle(e.target.value, 'username')}
       />
       <InputField
-        placeholder={'Password'}
+        placeholder={t('pages.registration.input.password.placeholder')}
         type={'password'}
         value={inputData.password}
         onChange={(e) => changeHandle(e.target.value, 'password')}
@@ -62,12 +64,14 @@ export const RegistrationForm: React.FC<
         theme={'submit'}
         onClick={submitHandler}
       >
-        Submit
+        {t('pages.registration.button.submit')}
       </Button>
 
       <div className={styles.btnLinkLogin}>
-        <span>Already have an account? </span>
-        <Link to={appRoutsPath.LoginPage.to}>Log in</Link>
+        <span>{t('pages.registration.login.label')}</span>
+        <Link to={appRoutsPath.LoginPage.to}>
+          {t('pages.registration.login.action')}
+        </Link>
       </div>
     </div>
   );

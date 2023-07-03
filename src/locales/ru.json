@@ -1,13 +1,25 @@
 {
-  "routes.sidebar.home": "Начальная страница",
+  "routes.sidebar.home": "Домашняя",
   "routes.sidebar.projects": "Проекты",
   "routes.sidebar.settings": "Настройки",
 
-  "pages.notFoundPage.title": "Похоже, вы заблудились.",
+  "pages.notFoundPage.title": "Похоже, вы заблудились...",
   "pages.notFoundPage.subTitle": "Страница, которую вы ищете, недоступна!",
   "pages.notFoundPage.titleCode": "404",
   "pages.notFoundPage.backButton": "Предыдущая страница",
   "pages.notFoundPage.homeButton": "Домашняя страница",
 
-  "test": "Войти"
+  "pages.login.form.title": "Вход",
+  "pages.login.form.input.username.placeholder": "Логин",
+  "pages.login.form.input.password.placeholder": "Пароль",
+  "pages.login.form.button.submit": "Войти",
+  "pages.login.form.button.newAcc": "Создать новый аккаунт",
+
+  "pages.registration.title": "Регистрация",
+  "pages.registration.input.email.placeholder": "Емейл",
+  "pages.registration.input.username.placeholder": "Логин",
+  "pages.registration.input.password.placeholder": "Пароль",
+  "pages.registration.button.submit": "Зарегистрироваться",
+  "pages.registration.login.label": "У вас уже есть учетная запись?",
+  "pages.registration.login.action": "Войти"
 }

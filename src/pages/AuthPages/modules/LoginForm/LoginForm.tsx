@@ -35,15 +35,15 @@ export const LoginForm: React.FC<LoginFormProps> = (): JSX.Element => {
 
   return (
     <div className={styles.loginForm}>
-      <h1 className={styles.title}>Sign in</h1>
+      <h1 className={styles.title}>{t('pages.login.form.title')}</h1>
       <InputField
-        placeholder={'Username'}
+        placeholder={t('pages.login.form.input.username.placeholder')}
         type={'text'}
         value={inputData.username}
         onChange={(e) => changeHandle(e.target.value, 'username')}
       />
       <InputField
-        placeholder={'Password'}
+        placeholder={t('pages.login.form.input.password.placeholder')}
         type={'password'}
         value={inputData.password}
         onChange={(e) => changeHandle(e.target.value, 'password')}
@@ -53,7 +53,7 @@ export const LoginForm: React.FC<LoginFormProps> = (): JSX.Element => {
         className={styles.btnSubmit}
         theme={'submit'}
       >
-        {t('test')}
+        {t('pages.login.form.button.submit')}
       </Button>
 
       <div className={styles.line} />
@@ -64,7 +64,7 @@ export const LoginForm: React.FC<LoginFormProps> = (): JSX.Element => {
         className={styles.btnNewAcc}
         theme={'outline'}
       >
-        Create new account
+        {t('pages.login.form.button.newAcc')}
       </Button>
     </div>
   );
