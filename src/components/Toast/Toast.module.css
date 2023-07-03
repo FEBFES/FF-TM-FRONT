@@ -23,6 +23,7 @@
   border-radius: 10px;
   width: 100%;
   height: 60px;
+  color: #454a4d;
   background: white;
   z-index: var(--z-index-toastCard);
   box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
@@ -45,27 +46,27 @@
   overflow: hidden;
   width: 90%;
   text-overflow: ellipsis;
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: 500;
   text-transform: capitalize;
 }
 
-.toastDefault {
-  padding-left: 25px;
-  border-left: 4px solid #8f8f8f;
-  color: #8f8f8f;
+.toastPrimary {
+  border: 1px solid #91caff;
+  background: #e6f4ff;
 }
 
 .toastError {
-  border-left: 4px solid #ff4367;
-  color: #e72a2a;
+  border: 1px solid #fcccc7;
+  background: #fef2f0;
 }
 
 .toastWarning {
-  border-left: 4px solid #e0e000;
-  color: #afaf00;
+  border: 1px solid #fde58f;
+  background: #fffbe6;
 }
 
 .toastSuccess {
-  border-left: 4px solid limegreen;
-  color: limegreen;
+  border: 1px solid #b7eb8f;
+  background: #f6ffed;
 }

@@ -4,8 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCircleCheck,
   faTriangleExclamation,
-  faCircleExclamation,
-  faExclamation,
+  faCircleExclamation
 } from '@fortawesome/free-solid-svg-icons';
 import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
 import { v4 } from 'uuid';
@@ -18,7 +17,7 @@ export const ToastCont = () => {
 
   return toasts.length ? (
     <div className={styles.toast__container}>
-      {toasts.map((toast) => {
+      {toasts.map((toast: IToast) => {
         return (
           <Toast
             id={toast.id}
@@ -70,7 +69,7 @@ export const Toast: React.FC<IToast> = ({
     <div
       className={classNames(styles.toast , {
         [styles.toastError]: type === 'error',
-        [styles.toastDefault]: type === 'default',
+        [styles.toastPrimary]: type === 'primary',
         [styles.toastSuccess]: type === 'success',
         [styles.toastWarning]: type === 'warning',
         [styles.toast__del]: del
@@ -78,16 +77,16 @@ export const Toast: React.FC<IToast> = ({
     >
       <div className={classNames(styles.toast__icon)}>
         {type === 'warning' && (
-          <FontAwesomeIcon icon={faTriangleExclamation} size={'lg'} />
+          <FontAwesomeIcon icon={faTriangleExclamation} color='#fde58f' size={'sm'} />
         )}
         {type === 'error' && (
-          <FontAwesomeIcon icon={faCircleExclamation} size={'lg'} />
+          <FontAwesomeIcon icon={faCircleExclamation} color='#fcccc7' size={'sm'} />
         )}
         {type === 'success' && (
-          <FontAwesomeIcon icon={faCircleCheck} size={'lg'} />
+          <FontAwesomeIcon icon={faCircleCheck} color='#b7eb8f' size={'sm'} />
         )}
-        {type === 'default' && (
-          <FontAwesomeIcon icon={faExclamation} size={'lg'} />
+        {type === 'primary' && (
+          <FontAwesomeIcon icon={faCircleCheck} color='#91caff' size={'sm'} />
         )}
       </div>
       <span className={styles.toast_text}>{message}</span>
