@@ -8,13 +8,11 @@
   top: 0;
   bottom: 0;
   width: 25%;
+  max-width: 350px;
   z-index: var(--z-index-toastCont);
 }
 
-.toast-default,
-.toast-warning,
-.toast-error,
-.toast-success {
+.toast {
   transition: 0.4s;
   margin-top: 10px;
   display: flex;
@@ -29,10 +27,7 @@
   z-index: var(--z-index-toastCard);
   box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
 }
-.toast-default,
-.toast-warning,
-.toast-error,
-.toast-success:hover {
+.toast:hover {
   transform: scale(1.04);
   cursor: pointer;
 }
@@ -54,23 +49,23 @@
   text-transform: capitalize;
 }
 
-.toast-default {
+.toastDefault {
   padding-left: 25px;
   border-left: 4px solid #8f8f8f;
   color: #8f8f8f;
 }
 
-.toast-error {
+.toastError {
   border-left: 4px solid #ff4367;
   color: #e72a2a;
 }
 
-.toast-warning {
+.toastWarning {
   border-left: 4px solid #e0e000;
   color: #afaf00;
 }
 
-.toast-success {
+.toastSuccess {
   border-left: 4px solid limegreen;
   color: limegreen;
 }
