@@ -21,6 +21,11 @@
   align-items: center;
 }
 
+.prevBtn > svg {
+  margin-right: 10px;
+  transform: rotate(90deg);
+}
+
 .homeBtn {
   background: var(--bg-0);
   color: var(--font-defautl);

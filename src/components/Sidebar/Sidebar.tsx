@@ -13,35 +13,36 @@ import { LogoIconDark } from '../../assets/icons/LogoIconDark';
 import { LogoIconLight } from '../../assets/icons/LogoIconLight';
 import { setIsAuth } from '../../pages/AuthPages/store/auth.slice';
 import { appRoutsPath } from '../../routing/routs';
+import i18n from 'i18next';
 
 const links = [
   //TODO to - from string to const appRoutsPath
   {
-    title: 'Home',
+    title: i18n.t('routes.sidebar.home'),
     icon: HomeIcon,
     to: '/',
     private: false,
   },
   {
-    title: 'Projects',
+    title: i18n.t('routes.sidebar.projects'),
     icon: ProjectsIcon,
     to: '/KanbanPage',
     private: true,
   },
   // {
-  //   title: 'Timeline',
+  //   title:  i18n.t(''),
   //   icon: TimeLineIcon,
   //   to: '/Timeline',
   //   private: true,
   // },
   // {
-  //   title: 'Chat',
+  //   title: i18n.t(''),
   //   icon: ChatIcon,
   //   to: '/Messages',
   //   private: true,
   // },
   {
-    title: 'Settings',
+    title: i18n.t('routes.sidebar.settings'),
     icon: SettingsIcon,
     to: '/SettingsPage/',
     private: true,

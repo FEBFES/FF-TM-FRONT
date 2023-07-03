@@ -7,11 +7,13 @@ import { EmptyLayout } from '../../layouts/EmptyLayout/EmptyLayout';
 import { useTypedSelector } from '../../hooks/redux';
 import { NotFoundPage } from '../../pages/404/NotFoundPage';
 import { useTheme } from '../../hooks/useTheme';
+import { useLocales } from '../../hooks/useLocales';
 
 export const App = () => {
   // const dispatch = useAppDispatch();
   const isAuth = useTypedSelector((state) => state.auth.isAuth);
   useTheme();
+  useLocales();
 
   // useEffect(() => {
   //   dispatch(fetchGetUserInfo(1));

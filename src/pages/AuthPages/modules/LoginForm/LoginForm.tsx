@@ -7,8 +7,10 @@ import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchLogin } from '../../store/auth.thunk';
 import { appRoutsPath } from '../../../../routing/routs';
 import { LoginFormProps } from './LoginForm.props';
+import { useTranslation } from 'react-i18next';
 
 export const LoginForm: React.FC<LoginFormProps> = (): JSX.Element => {
+  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const [inputData, setInputData] = useState({
     username: '',
@@ -51,7 +53,7 @@ export const LoginForm: React.FC<LoginFormProps> = (): JSX.Element => {
         className={styles.btnSubmit}
         theme={'submit'}
       >
-        Sign in
+        {t('test')}
       </Button>
 
       <div className={styles.line} />

@@ -1,0 +1,13 @@
+{
+  "routes.sidebar.home": "Начальная страница",
+  "routes.sidebar.projects": "Проекты",
+  "routes.sidebar.settings": "Настройки",
+
+  "pages.notFoundPage.title": "Похоже, вы заблудились.",
+  "pages.notFoundPage.subTitle": "Страница, которую вы ищете, недоступна!",
+  "pages.notFoundPage.titleCode": "404",
+  "pages.notFoundPage.backButton": "Предыдущая страница",
+  "pages.notFoundPage.homeButton": "Домашняя страница",
+
+  "test": "Войти"
+}
