@@ -23,6 +23,7 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
     <Modal show={show} setShow={setShow}>
       <div className={styles.container}>
         <div className={styles.cont__header}>
+          {/* todo i18next */}
           <h1 className={styles.cont__headerTitle}>Create new project</h1>
           <Button theme={'close'} onClick={() => setShow(false)}>
             x
@@ -30,12 +31,14 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
         </div>
 
         <div className={styles.projCont}>
+          {/* todo i18next */}
           <InputField
             placeholder={'Name'}
             type={'text'}
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
+          {/* todo i18next */}
           <InputField
             placeholder={'Description'}
             type={'text'}
@@ -51,6 +54,7 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
               setShow(false);
             }}
           >
+            {/* todo i18next */}
             Cancel
           </Button>
           <Button
@@ -63,6 +67,7 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
                 });
             }}
           >
+            {/* todo i18next */}
             Create
           </Button>
         </div>

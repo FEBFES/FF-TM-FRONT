@@ -22,6 +22,7 @@ export const AddColModal: React.FC<AddColModalProps> = ({
   // };
 
   return (
+    //todo add placeholders to inputs
     <Modal setShow={setShow} show={show}>
       <div className={styles.contCol}>
         <InputField

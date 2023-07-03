@@ -11,7 +11,9 @@ export const ProjectsPageHeader: React.FC<
   const [show, setShow] = useState(false);
   return (
     <header className={styles.ProjectsPage__header}>
+      {/* todo i18next */}
       <span className={styles.page__title}>Projects</span>
+      {/* todo i18next */}
       <Button theme={'primary'} onClick={() => setShow(true)}>
         Create new project
       </Button>
