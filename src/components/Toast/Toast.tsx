@@ -68,11 +68,12 @@ export const Toast: React.FC<IToast> = ({
 
   return visible ? (
     <div
-      className={classNames(`${del && styles.toast__del}`, {
+      className={classNames(styles.toast , {
         [styles.toastError]: type === 'error',
         [styles.toastDefault]: type === 'default',
         [styles.toastSuccess]: type === 'success',
         [styles.toastWarning]: type === 'warning',
+        [styles.toast__del]: del
       })}
     >
       <div className={classNames(styles.toast__icon)}>
