@@ -27,7 +27,7 @@ export const Button: React.FC<ButtonProps> = ({
   }
   return (
     <button
-      className={classNames(`${className}`, {
+      className={classNames(`${styles.btnDefault} ${className}`, {
         [styles.buttonSubmit]: theme === 'submit',
         [styles.buttonOutline]: theme === 'outline',
         [styles.buttonDanger]: theme === 'danger',

@@ -1,20 +1,61 @@
 .fileInput {
   display: none;
 }
-.fileInput_label {
+
+.userBackground {
+  width: 100%;
+  height: 180px;
+  border-radius: 10px;
+  background: var(--bg-border);
+}
+
+.userAvatarCont {
+  top: -80px;
+  left: 20px;
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 100px;
+  background: var(--bg-100);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: -40px;
+}
+.userAvatarCont__image {
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  object-fit: cover;
+}
+
+.fileInput__btn {
+  position: absolute;
+  bottom: 5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
-  position: relative;
-  width: 90px;
-  height: 90px;
-  background: var(--bg-100);
+  background: var(--bg-border);
 }
-.fileInput_label_text {
-  transition: 0.4s;
+.fileInput__btn:hover .fileInput__btn > * {
+  transform: scale(1.5);
 }
-.fileInput_label:hover .fileInput_label_text {
-  transform: scale(1.3);
+
+.fileInput_label {
+  right: 0;
+}
+
+.fileInput_delete {
+  left: 0;
+}
+
+.btnContainer {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
