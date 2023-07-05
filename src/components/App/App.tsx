@@ -1,23 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './App.module.css';
 import { Routes, Route } from 'react-router-dom';
 import { appRouts, privateRoutes } from '../../routing/routs';
 import { ToastCont } from '../Toast/Toast';
 import { EmptyLayout } from '../../layouts/EmptyLayout/EmptyLayout';
-import { useTypedSelector } from '../../hooks/redux';
+import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
 import { NotFoundPage } from '../../pages/404/NotFoundPage';
 import { useTheme } from '../../hooks/useTheme';
 import { useLocales } from '../../hooks/useLocales';
+import { fetchGetUserInfo } from '../../store/User/user.thunk';
 
 export const App = () => {
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
   const isAuth = useTypedSelector((state) => state.auth.isAuth);
+  const userId = useTypedSelector((state) => state.user.userId);
+
   useTheme();
   useLocales();
 
-  // useEffect(() => {
-  //   dispatch(fetchGetUserInfo(1));
-  // }, []);
+  useEffect(() => {
+    dispatch(fetchGetUserInfo(userId));
+  }, [userId, dispatch]);
 
   return (
     <div className={styles.App}>
