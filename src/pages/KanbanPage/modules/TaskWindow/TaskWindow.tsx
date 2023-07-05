@@ -3,11 +3,12 @@ import styles from './TaskWindow.module.css';
 import { CloseIcon, FullIcon } from '../../../../assets/icons/UtilsIcons';
 import { useTypedSelector } from '../../../../hooks/redux';
 import human from '../../../../assets/img/human.png';
-import { PriorityHigh } from '../../../../assets/icons/TaskIcons';
 import { instance } from '../../../../api/http';
 import { downloadFile } from '../../../../utils/download';
 import { serverString } from '../../../../config';
 import { IFile } from '../../components/TaskCard';
+import { TaskLabel } from '../../../../ui/TaskLabel/TaskLabel';
+import { PriorityLabel } from '../../../../ui/PriorityLabel/PriorityLabel';
 
 interface TaskWindowProps {
   setShowWindow: (bool: boolean) => void;
@@ -88,14 +89,14 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
         <div className={styles.priority__container}>
           {/* // todo i18next */}
           <span className={styles.user__title}>Proirity:</span>
-          <PriorityHigh />
+          <PriorityLabel priority={task.priority} />
         </div>
 
         <div className={styles.priority__container}>
           {/* // todo i18next */}
           <span className={styles.user__title}>Type:</span>
           {/*todo change to ui comp badge*/}
-          <div className={styles.tag}>Feature</div>
+          <TaskLabel type={task.type} />
         </div>
       </div>
 
