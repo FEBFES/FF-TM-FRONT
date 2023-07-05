@@ -130,6 +130,7 @@ export const ProfileTab: React.FC<ProfileTabProps> = (): JSX.Element => {
         <h2 className={comStyle.subtitle}>User info</h2>
         {/* todo i18next */}
         <InputField
+          withLabel
           value={inputEmail}
           onChange={(e) => setInputEmail(e.target.value)}
           placeholder={'Email'}
@@ -137,6 +138,7 @@ export const ProfileTab: React.FC<ProfileTabProps> = (): JSX.Element => {
         />
         {/* todo i18next */}
         <InputField
+          withLabel
           value={inputUsername}
           onChange={(e) => setInputUsername(e.target.value)}
           placeholder={'Username'}
@@ -144,6 +146,7 @@ export const ProfileTab: React.FC<ProfileTabProps> = (): JSX.Element => {
         />
         {/* todo i18next */}
         <InputField
+          withLabel
           value={inputFirstName}
           onChange={(e) => setInputFirstName(e.target.value)}
           placeholder={'FirstName'}
@@ -151,6 +154,7 @@ export const ProfileTab: React.FC<ProfileTabProps> = (): JSX.Element => {
         />
         {/* todo i18next */}
         <InputField
+          withLabel
           value={inputLastName}
           onChange={(e) => setInputLastName(e.target.value)}
           placeholder={'LastName'}
@@ -158,6 +162,7 @@ export const ProfileTab: React.FC<ProfileTabProps> = (): JSX.Element => {
         />
         {/* todo i18next */}
         <InputField
+          withLabel
           value={inputDisplayName}
           onChange={(e) => setInputUserDisplayName(e.target.value)}
           placeholder={'DisplayName'}
