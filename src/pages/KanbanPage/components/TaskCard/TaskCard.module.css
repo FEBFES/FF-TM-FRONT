@@ -1,8 +1,5 @@
-.task_priority {
-  margin-right: 10px;
-}
-
 .task_id {
+  margin-left: 10px;
   font-size: 16px;
   font-weight: 500;
   line-height: 19px;

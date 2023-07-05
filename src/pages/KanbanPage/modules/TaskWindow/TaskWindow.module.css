@@ -124,15 +124,6 @@
   color: #575757;
 }
 
-.tag {
-  font-weight: 500;
-  font-size: 14px;
-  padding: 3px 12px;
-  background: #c6eac6;
-  border-radius: 17px;
-  color: #599659;
-}
-
 .windowToggle {
   margin: 20px 18px 0;
   display: flex;
