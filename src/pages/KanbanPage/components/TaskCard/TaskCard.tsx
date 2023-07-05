@@ -104,10 +104,14 @@ export const TaskCard: React.FC<TaskCardProps> = ({
             <span className={styles.task_attachments_counter}>8</span>
             <CommentsIcon />
           </div>
-          <div className={styles.task_attachments}>
-            <span className={styles.task_attachments_counter}>2</span>
-            <AttachmentsIcon />
-          </div>
+          {task.filesCounter !== 0 && (
+            <div className={styles.task_attachments}>
+              <span className={styles.task_attachments_counter}>
+                {task.filesCounter || ''}
+              </span>
+              <AttachmentsIcon />
+            </div>
+          )}
           <div
             onClick={() => setShowDD(true)}
             className={styles.task_attachments}
