@@ -20,6 +20,5 @@ export interface ITask {
   filesCounter: number;
   createDate: string;
   priority: IPriorityType;
-  ownerUserPic: string | null;
   type: string | null;
 }

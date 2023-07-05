@@ -53,8 +53,8 @@ export const TaskCard: React.FC<TaskCardProps> = ({
         <div className={styles.task_avatar}>
           <img
             src={
-              task.ownerUserPic
-                ? `http://febfes.com/api/v1${task.ownerUserPic}`
+              task.owner?.userPic
+                ? `http://febfes.com/api/v1${task.owner.userPic}`
                 : human
             }
             alt="avatar"
