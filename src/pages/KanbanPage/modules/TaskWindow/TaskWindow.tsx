@@ -1,17 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './TaskWindow.module.css';
-import {
-  CloseIcon,
-  FullIcon,
-  SendIcon,
-} from '../../../../assets/icons/UtilsIcons';
+import { CloseIcon, FullIcon } from '../../../../assets/icons/UtilsIcons';
 import { useTypedSelector } from '../../../../hooks/redux';
 import human from '../../../../assets/img/human.png';
-import {
-  AttachmentsIcon,
-  PriorityHigh,
-} from '../../../../assets/icons/TaskIcons';
-import { InputField } from '../../../../ui/InputField/InputField';
+import { PriorityHigh } from '../../../../assets/icons/TaskIcons';
+import { instance } from '../../../../api/http';
+import { downloadFile } from '../../../../utils/download';
 
 interface TaskWindowProps {
   setShowWindow: (bool: boolean) => void;
@@ -20,14 +14,33 @@ interface TaskWindowProps {
 export const TaskWindow: React.FC<TaskWindowProps> = ({
   setShowWindow,
 }): JSX.Element | null => {
-  const [curSubPage, setCurSubPage] = useState<'comments' | 'files' | 'log'>(
-    'comments'
-  );
+  const [curSubPage, setCurSubPage] = useState<'files'>('files');
+  const [files, setFiles] = useState([]);
   const task = useTypedSelector((state) => state.projectKanban.taskWindowInfo);
+
+  useEffect(() => {
+    if (!task) {
+      return;
+    }
+    instance
+      .get(
+        `projects/${task?.projectId}/columns/${task?.columnId}/tasks/${task?.id}`
+      )
+      .then((res) => {
+        setFiles(res.data.files);
+      });
+  }, [task]);
 
   if (task === null) {
     return null;
   }
+
+  const uploadNewFile = (e: any) => {
+    const files = e.target.files[0];
+    const formData = new FormData();
+    formData.append('files', files);
+    instance.post(`files/task/${task.id}`, formData);
+  };
 
   return (
     <div className={styles.taskWindow}>
@@ -46,8 +59,6 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
 
       <div className={styles.subheader}>
         <h1 className={styles.subheader__title}>{task.name || ''}</h1>
-        {/* // todo i18next */}
-        <div className={styles.subheader__type}>Bug</div>
       </div>
 
       <div className={styles.users}>
@@ -64,14 +75,18 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
       </div>
 
       <div className={styles.priority}>
-        <div className={styles.priority__cont}>
+        <div className={styles.priority__container}>
           {/* // todo i18next */}
           <span className={styles.user__title}>Proirity:</span>
           <PriorityHigh />
         </div>
 
-        {/* // todo i18next */}
-        <div className={styles.tag}>Feature</div>
+        <div className={styles.priority__container}>
+          {/* // todo i18next */}
+          <span className={styles.user__title}>Type:</span>
+          {/*todo change to ui comp badge*/}
+          <div className={styles.tag}>Feature</div>
+        </div>
       </div>
 
       <div className={styles.date}></div>
@@ -84,85 +99,47 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
 
       <div className={styles.windowToggle}>
         <div
-          onClick={() => setCurSubPage('comments')}
-          className={`${styles.windowToggle__item} ${
-            curSubPage === 'comments' && styles.windowToggle__item_active
-          }`}
-        >
-          {/* // todo i18next */}
-          Comments 8
-        </div>
-        <div
           onClick={() => setCurSubPage('files')}
-          className={`${styles.windowToggle__item} ${
-            curSubPage === 'files' && styles.windowToggle__item_active
-          }`}
+          className={`${styles.windowToggle__item}`}
         >
           {/* // todo i18next */}
-          Files
-        </div>
-        <div
-          onClick={() => setCurSubPage('log')}
-          className={`${styles.windowToggle__item} ${
-            curSubPage === 'log' && styles.windowToggle__item_active
-          }`}
-        >
-          {/* // todo i18next */}
-          Log
+          Files {task.filesCounter}
         </div>
       </div>
 
-      {curSubPage === 'comments' && (
-        <div className={styles.comments}>
-          <div className={styles.commentsWrap}>
-            {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((el, i) => {
-              return (
-                <div
-                  key={i}
-                  className={`${styles.commentCont} ${
-                    el % 2 === 0 && styles.commentContAny
-                  }`}
-                >
-                  <div className={styles.commentCont__item}>
-                    <div className={styles.comment__header}>
-                      {/* // todo i18next */}
-                      <h3 className={styles.comment_owner}>Me</h3>
-                      {/* // todo i18next */}
-                      <span className={styles.comment_date}>Jan 1</span>
-                    </div>
-                    {/* // todo i18next */}
-                    <p className={styles.comment_text}>I’ll try to fix that</p>
-                  </div>
-                  <img
-                    className={styles.user__avatar}
-                    src={human}
-                    alt="avatar"
-                  />
-                </div>
-              );
-            })}
+      {curSubPage === 'files' && (
+        <div className={styles.filesUploadContainer}>
+          <div className={styles.fileInput__container}>
+            <label className={styles.fileInput_label} htmlFor="inputFIle">
+              Upload new file
+            </label>
+            <input
+              id={'inputFIle'}
+              className={styles.fileInput}
+              onChange={uploadNewFile}
+              type={'file'}
+            />
           </div>
 
-          <footer className={styles.comments__footer}>
-            <div className={styles.comments__footer_attachIconCont}>
-              <AttachmentsIcon />
-            </div>
-            <InputField
-              className={styles.comments__footer_input}
-              value={''}
-              onChange={() => {}}
-              placeholder={'Write a comment...'}
-            />
-            <div className={styles.comments__footer_sendIconCont}>
-              <SendIcon />
-            </div>
-          </footer>
+          <ul className={styles.fileCont}>
+            {
+              // todo Interface for file
+              files.map((file: any) => {
+                return (
+                  <li
+                    onClick={() => downloadFile(file.fileUrn, file.name)}
+                    className={styles.file}
+                  >
+                    {file.name}
+                  </li>
+                );
+              })
+            }
+          </ul>
         </div>
       )}
 
-      {curSubPage === 'files' && <div></div>}
-
-      {curSubPage === 'log' && <div></div>}
+      {/*{curSubPage === 'log' && <div></ >}*/}
     </div>
   );
 };
