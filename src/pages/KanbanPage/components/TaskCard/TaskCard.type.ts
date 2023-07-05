@@ -22,3 +22,12 @@ export interface ITask {
   priority: IPriorityType;
   type: string | null;
 }
+
+export interface IFile {
+  createDate: string;
+  fileUrn: string;
+  id: number;
+  name: string;
+  type: string | null;
+  userId: number;
+}
