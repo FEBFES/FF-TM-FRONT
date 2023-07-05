@@ -13,7 +13,7 @@ export const EmptyLayout: React.FC<EmptyLayoutProps> = ({
     return () => {
       document.title = initialDocTitle;
     };
-  });
+  }, []);
 
   useEffect(() => {
     document.title = pageTitle;

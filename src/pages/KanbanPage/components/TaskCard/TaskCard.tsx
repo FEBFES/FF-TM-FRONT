@@ -53,8 +53,8 @@ export const TaskCard: React.FC<TaskCardProps> = ({
         <div className={styles.task_avatar}>
           <img
             src={
-              task.ownerUserPic
-                ? `http://febfes.com/api/v1${task.ownerUserPic}`
+              task.owner?.userPic
+                ? `http://febfes.com/api/v1${task.owner.userPic}`
                 : human
             }
             alt="avatar"
@@ -104,15 +104,20 @@ export const TaskCard: React.FC<TaskCardProps> = ({
             <span className={styles.task_attachments_counter}>8</span>
             <CommentsIcon />
           </div>
-          <div className={styles.task_attachments}>
-            <span className={styles.task_attachments_counter}>2</span>
-            <AttachmentsIcon />
-          </div>
+          {task.filesCounter !== 0 && (
+            <div className={styles.task_attachments}>
+              <span className={styles.task_attachments_counter}>
+                {task.filesCounter || ''}
+              </span>
+              <AttachmentsIcon />
+            </div>
+          )}
           <div
             onClick={() => setShowDD(true)}
             className={styles.task_attachments}
           >
             <DropDown show={showDD} setShow={setShowDD}>
+              {/* todo i18next */}
               <p onClick={() => delTask(task.columnId, task.id)}>Delete</p>
             </DropDown>
             <DotsIcon w={12} />

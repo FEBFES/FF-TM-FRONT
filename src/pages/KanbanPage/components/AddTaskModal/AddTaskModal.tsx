@@ -38,8 +38,9 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
       <div className={styles.container}>
         <header className={styles.header}>
           <div className={styles.header__left}>
+            {/* //todo add i18next */}
             <span>id: FRONT</span>
-
+            {/* //todo add i18next */}
             <span>status: BACKLOG</span>
           </div>
 
@@ -67,6 +68,7 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
           <InputField
             type={'text'}
             value={name}
+            // {/* //todo add i18next */}
             placeholder={'Task title'}
             className={styles.input}
             onChange={(e) => setName(e.target.value)}
@@ -74,6 +76,7 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
           <InputField
             type={'text'}
             value={description}
+            // {/* //todo add i18next */}
             placeholder={'Task description...'}
             className={styles.input}
             onChange={(e) => setDescription(e.target.value)}
@@ -82,12 +85,14 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
           <div className={styles.additionally}>
             <div className={styles.additionally__left}>
               <div className={styles.task_type}>
+                {/* //todo add i18next */}
                 Type:
                 {/*<span className={styles.task_type}>*/}
                 <TypeSelect curType={curTaskType} setCurType={setCurTaskType} />
                 {/*</span>*/}
               </div>
               <div className={styles.task_priority}>
+                {/* //todo add i18next */}
                 Priority:{' '}
                 <PrioritySelect
                   curPriority={curPriority}
@@ -98,9 +103,11 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
 
             <div className={styles.additionally__right}>
               <div>
+                {/* //todo add i18next */}
                 Assignee: <PlusIcon />
               </div>
               <div>
+                {/* //todo add i18next */}
                 Tags: <PlusIcon />
               </div>
             </div>
@@ -109,6 +116,7 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
 
         <footer className={styles.footer}>
           <div className={styles.checkbox}>
+            {/* //todo add i18next */}
             <span className={styles.checkbox_label}>Create multiple:</span>
             <Switcher
               onClick={() => setIsMultiple((prevState) => !prevState)}
@@ -127,6 +135,7 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
             theme={'default'}
             className={styles.submitBtn}
           >
+            {/* //todo add i18next */}
             Create Task
           </Button>
         </footer>

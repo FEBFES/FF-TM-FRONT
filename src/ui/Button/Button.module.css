@@ -1,8 +1,4 @@
-.buttonDefault,
-.buttonOutline,
-.buttonSubmit,
-.buttonPrimary,
-.buttonDanger {
+.btnDefault {
   margin: 5px;
   padding: 10px 20px;
   border: none;
@@ -13,13 +9,13 @@
   transition: 0.2s;
 }
 
-.buttonDefault,
-.buttonPrimary,
-.buttonOutline,
-.buttonSubmit,
-.buttonDanger:hover {
+.btnDefault:hover {
   cursor: pointer;
   transform: scale(1.05);
+}
+
+.btnDefault:disabled {
+  opacity: 0.5;
 }
 
 /*Close type*/

@@ -5,4 +5,5 @@ export interface IUser {
   id: number;
   lastName: string | null;
   username: string | null;
+  userPic: string | null;
 }

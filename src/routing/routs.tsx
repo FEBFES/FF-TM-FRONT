@@ -19,36 +19,43 @@ export type IAppRouts = {
 
 export const appRoutsPath = {
   ProjectPage: {
+    //todo i18next
     title: 'Project Page',
     path: '/',
     to: '/',
   },
   KanbanPage: {
+    //todo i18next
     title: 'Kanban Page',
     path: '/KanbanPage/',
     to: '/KanbanPage/',
   },
   RegistrationPage: {
+    //todo i18next
     title: 'Registration page',
     path: '/Registration',
     to: '/Registration',
   },
   TimelinePage: {
+    //todo i18next
     title: 'Timeline',
     path: '/Timeline',
     to: '/Timeline',
   },
   MessagesPage: {
+    //todo i18next
     title: 'Messages',
     path: '/Messages',
     to: '/Messages',
   },
   LoginPage: {
+    //todo i18next
     title: 'Login Page',
     path: '/',
     to: '/',
   },
   SettingsPage: {
+    //todo i18next
     title: 'Settings',
     path: '/SettingsPage/*',
     to: 'SettingsPage',
