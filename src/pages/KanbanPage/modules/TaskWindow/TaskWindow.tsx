@@ -6,6 +6,8 @@ import human from '../../../../assets/img/human.png';
 import { PriorityHigh } from '../../../../assets/icons/TaskIcons';
 import { instance } from '../../../../api/http';
 import { downloadFile } from '../../../../utils/download';
+import { serverString } from '../../../../config';
+import { IFile } from '../../components/TaskCard';
 
 interface TaskWindowProps {
   setShowWindow: (bool: boolean) => void;
@@ -65,7 +67,15 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
         <div className={styles.user__block}>
           {/* // todo i18next */}
           <span className={styles.user__title}>Owner:</span>
-          <img className={styles.user__avatar} src={human} alt={'human'} />
+          <img
+            className={styles.user__avatar}
+            src={
+              task.owner?.userPic
+                ? `${serverString}${task.owner.userPic}`
+                : human
+            }
+            alt={'human'}
+          />
         </div>
         <div className={styles.user__block}>
           {/* // todo i18next */}
@@ -122,19 +132,17 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
           </div>
 
           <ul className={styles.fileCont}>
-            {
-              // todo Interface for file
-              files.map((file: any) => {
-                return (
-                  <li
-                    onClick={() => downloadFile(file.fileUrn, file.name)}
-                    className={styles.file}
-                  >
-                    {file.name}
-                  </li>
-                );
-              })
-            }
+            {files.map((file: IFile, i: number) => {
+              return (
+                <li
+                  key={`${file.name}${i}`}
+                  onClick={() => downloadFile(file.fileUrn, file.name)}
+                  className={styles.file}
+                >
+                  {file.name}
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}
