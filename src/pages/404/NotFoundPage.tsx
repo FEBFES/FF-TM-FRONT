@@ -4,15 +4,17 @@ import { ArrowIcon } from '../../assets/icons/UtilsIcons';
 import { Button } from '../../ui/Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { appRoutsPath } from '../../routing/routs';
+import { useTranslation } from 'react-i18next';
 
 export const NotFoundPage = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   return (
     <div className={styles.notFoundPage}>
-      <h1 className={styles.title}>404</h1>
-      <span className={styles.subtitle}>looks life you're lost</span>
+      <h1 className={styles.title}>{t('pages.notFoundPage.titleCode')}</h1>
+      <span className={styles.subtitle}>{t('pages.notFoundPage.title')}</span>
       <span className={styles.subtitle}>
-        the page you are looking for not available!
+        {t('pages.notFoundPage.subTitle')}
       </span>
       <div className={styles.btnCont}>
         <Button
@@ -20,14 +22,15 @@ export const NotFoundPage = () => {
           onClick={() => navigate(-1)}
           theme={'default'}
         >
-          <ArrowIcon /> Previous Page
+          <ArrowIcon />
+          {t('pages.notFoundPage.backButton')}
         </Button>
         <Button
           className={styles.homeBtn}
           onClick={() => navigate(appRoutsPath.ProjectPage.path)}
           theme={'default'}
         >
-          Home Page
+          {t('pages.notFoundPage.homeButton')}
         </Button>
       </div>
     </div>

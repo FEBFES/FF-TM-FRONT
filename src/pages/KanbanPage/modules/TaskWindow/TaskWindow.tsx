@@ -46,15 +46,18 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
 
       <div className={styles.subheader}>
         <h1 className={styles.subheader__title}>{task.name || ''}</h1>
+        {/* // todo i18next */}
         <div className={styles.subheader__type}>Bug</div>
       </div>
 
       <div className={styles.users}>
         <div className={styles.user__block}>
+          {/* // todo i18next */}
           <span className={styles.user__title}>Owner:</span>
           <img className={styles.user__avatar} src={human} alt={'human'} />
         </div>
         <div className={styles.user__block}>
+          {/* // todo i18next */}
           <span className={styles.user__title}>Assignee:</span>
           <img className={styles.user__avatar} src={human} alt={'human'} />
         </div>
@@ -62,16 +65,19 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
 
       <div className={styles.priority}>
         <div className={styles.priority__cont}>
+          {/* // todo i18next */}
           <span className={styles.user__title}>Proirity:</span>
           <PriorityHigh />
         </div>
 
+        {/* // todo i18next */}
         <div className={styles.tag}>Feature</div>
       </div>
 
       <div className={styles.date}></div>
 
       <div className={styles.description}>
+        {/* // todo i18next */}
         <h3 className={styles.user__title}>Description:</h3>
         <p className={styles.description__text}>{task.description || ''}</p>
       </div>
@@ -83,6 +89,7 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
             curSubPage === 'comments' && styles.windowToggle__item_active
           }`}
         >
+          {/* // todo i18next */}
           Comments 8
         </div>
         <div
@@ -91,6 +98,7 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
             curSubPage === 'files' && styles.windowToggle__item_active
           }`}
         >
+          {/* // todo i18next */}
           Files
         </div>
         <div
@@ -99,6 +107,7 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
             curSubPage === 'log' && styles.windowToggle__item_active
           }`}
         >
+          {/* // todo i18next */}
           Log
         </div>
       </div>
@@ -116,9 +125,12 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
                 >
                   <div className={styles.commentCont__item}>
                     <div className={styles.comment__header}>
+                      {/* // todo i18next */}
                       <h3 className={styles.comment_owner}>Me</h3>
+                      {/* // todo i18next */}
                       <span className={styles.comment_date}>Jan 1</span>
                     </div>
+                    {/* // todo i18next */}
                     <p className={styles.comment_text}>I’ll try to fix that</p>
                   </div>
                   <img

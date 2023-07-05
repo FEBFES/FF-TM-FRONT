@@ -18,7 +18,9 @@
   background: royalblue !important;
 }
 
-.btn-new-acc {
+.btnNewAcc {
+  font-weight: 400;
+  color: rgb(142, 142, 142);
   width: 80%;
 }
 

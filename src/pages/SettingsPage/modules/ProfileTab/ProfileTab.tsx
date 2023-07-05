@@ -20,10 +20,13 @@ export const ProfileTab: React.FC<ProfileTabProps> = (): JSX.Element => {
 
   return (
     <div className={styles.profileTab}>
+      {/* todo i18next */}
       <h1 className={comStyle.title}>Profile</h1>
+      {/* todo i18next */}
       <p className={comStyle.text}>Manage your F/F profile</p>
 
       <div>
+        {/* todo i18next */}
         <h2 className={comStyle.subtitle}>Profile image</h2>
         <label className={styles.fileInput_label} htmlFor="inputFIle">
           <div className={styles.fileInput_label_text}>
@@ -37,22 +40,27 @@ export const ProfileTab: React.FC<ProfileTabProps> = (): JSX.Element => {
           type={'file'}
         />
 
+        {/* todo i18next */}
         <InputField
           placeholder={userInfo?.email ? userInfo.email : 'Email'}
           type={'text'}
         />
+        {/* todo i18next */}
         <InputField
           placeholder={userInfo?.username ? userInfo.username : 'Username'}
           type={'text'}
         />
+        {/* todo i18next */}
         <InputField
           placeholder={userInfo?.firstName ? userInfo.firstName : 'FirstName'}
           type={'text'}
         />
+        {/* todo i18next */}
         <InputField
           placeholder={userInfo?.lastName ? userInfo.lastName : 'LastName'}
           type={'text'}
         />
+        {/* todo i18next */}
         <InputField
           placeholder={
             userInfo?.displayName ? userInfo.displayName : 'DisplayName'

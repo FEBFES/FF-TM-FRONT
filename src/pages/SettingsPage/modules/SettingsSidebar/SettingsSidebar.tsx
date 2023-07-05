@@ -9,6 +9,7 @@ export const SettingsSidebar: React.FC<
 > = (): JSX.Element => {
   return (
     <nav className={styles.sidebar}>
+      {/* todo i18next */}
       <h1 className={styles.sidebar__title}>Settings</h1>
 
       {/*<h2 className={styles.sidebar__subtitle}>Workspace</h2>*/}
@@ -37,6 +38,7 @@ export const SettingsSidebar: React.FC<
       {/*  </NavLink>*/}
       {/*</li>*/}
 
+      {/* todo i18next */}
       <h2 className={styles.sidebar__subtitle}>Account</h2>
       <li className={styles.sidebar__link}>
         <NavLink
@@ -46,6 +48,7 @@ export const SettingsSidebar: React.FC<
               : `${styles.sidebar__link_item}`
           }
           // to={'/SettingsPage/profile'}
+          //todo i18next
           to={'/SettingsPage/'}
         >
           Profile

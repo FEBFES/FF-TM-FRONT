@@ -52,6 +52,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       </main>
       <footer className={styles.footer}>
         <p className={styles.projectCard__date}>
+          {/* todo i18next */}
           Creation date: {new Date(proj.createDate).toDateString() || ''}
         </p>
         {/*<Button*/}
@@ -70,6 +71,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               className={styles.ddCont__text}
               onClick={() => dispatch(fetchDelProject(proj.id))}
             >
+              {/* todo i18next */}
               Delete
             </div>
           </DropDown>

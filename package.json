@@ -12,6 +12,7 @@
     "classnames": "^2.3.2",
     "eslint": "^8.32.0",
     "eslint-config-prettier": "^8.6.0",
+    "i18next": "^23.2.6",
     "lighthouse": "^9.6.8",
     "moment": "^2.29.4",
     "normalize.css": "^8.0.1",
