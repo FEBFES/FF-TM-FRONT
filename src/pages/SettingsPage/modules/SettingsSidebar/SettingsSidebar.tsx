@@ -54,6 +54,18 @@ export const SettingsSidebar: React.FC<
           Profile
         </NavLink>
       </li>
+      <li className={styles.sidebar__link}>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? `${styles.sidebar__link_active}`
+              : `${styles.sidebar__link_item}`
+          }
+          to={'/SettingsPage/project'}
+        >
+          Project
+        </NavLink>
+      </li>
     </nav>
   );
 };

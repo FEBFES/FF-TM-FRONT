@@ -1,0 +1,25 @@
+.modal {
+  padding: 25px 20px 10px;
+}
+
+.modal__main {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal__title {
+  font-size: 16px;
+  color: var(--font-defautl);
+}
+
+.modal__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
