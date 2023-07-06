@@ -89,8 +89,6 @@ export const ProfileTab: React.FC<ProfileTabProps> = (): JSX.Element => {
     <div className={styles.profileTab}>
       {/* todo i18next */}
       <h1 className={comStyle.title}>Profile</h1>
-      {/* todo i18next */}
-      <p className={comStyle.text}>Manage your F/F profile</p>
 
       <div className={styles.userBackground} />
 
@@ -128,6 +126,9 @@ export const ProfileTab: React.FC<ProfileTabProps> = (): JSX.Element => {
       <div className={styles.inputsContainer}>
         {/* todo i18next */}
         <h2 className={comStyle.subtitle}>User info</h2>
+        {/* todo i18next */}
+        <p className={comStyle.text}>Manage your F/F profile</p>
+
         {/* todo i18next */}
         <InputField
           withLabel

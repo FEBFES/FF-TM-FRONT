@@ -6,10 +6,12 @@ import {
   fetchProjects,
 } from './projects.thunk';
 import { IProject } from './projects.type';
+import { IColumns } from '../../KanbanPage/components/Column';
 
 interface IProjectInitialState {
   projects: IProject[];
   curProj: IProject | null;
+  curDashboard: IColumns[] | null;
   isLoad: boolean;
   error: string | null;
 }
@@ -19,6 +21,7 @@ const projectInitialState: IProjectInitialState = {
   curProj: null,
   isLoad: false,
   error: null,
+  curDashboard: null,
 };
 
 const ProjectsSlice = createSlice({
@@ -27,6 +30,11 @@ const ProjectsSlice = createSlice({
   reducers: {
     setCurProj: (state, action: PayloadAction<IProject>) => {
       state.curProj = action.payload;
+    },
+    setCurDashboard: (state, action: PayloadAction<IColumns[]>) => {
+      state.curDashboard = action.payload.sort(
+        (a: IColumns, b: IColumns) => a.columnOrder - b.columnOrder
+      );
     },
   },
   extraReducers: (builder) => {
@@ -82,5 +90,5 @@ const ProjectsSlice = createSlice({
   },
 });
 
-export const { setCurProj } = ProjectsSlice.actions;
+export const { setCurProj, setCurDashboard } = ProjectsSlice.actions;
 export default ProjectsSlice.reducer;

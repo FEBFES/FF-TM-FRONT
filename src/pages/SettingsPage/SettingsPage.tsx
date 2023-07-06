@@ -3,6 +3,7 @@ import styles from './SettingsPage.module.css';
 import { Routes, Route } from 'react-router-dom';
 import { SettingsSidebar } from './modules/SettingsSidebar/SettingsSidebar';
 import { ProfileTab } from './modules/ProfileTab/ProfileTab';
+import { ProjectTab } from './modules/ProjectTab/ProjectTab';
 
 interface SettingsPageProps {}
 
@@ -24,6 +25,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = (): JSX.Element => {
         <div className={styles.pageWrap}>
           <Routes>
             <Route path={'/'} element={<ProfileTab />} />
+            <Route path={'/project'} element={<ProjectTab />} />
             {/*<Route path={'/'} element={<GeneralTab />} />*/}
             {/*<Route path={'/members'} element={<MembersTab />} />*/}
             {/*<Route path={'/profile'} element={<ProfileTab />} />*/}

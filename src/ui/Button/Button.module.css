@@ -1,6 +1,6 @@
 .btnDefault {
   margin: 5px;
-  padding: 10px 20px;
+  padding: 6px 16px;
   border: none;
   border-radius: 5px;
   font-size: 14px;
@@ -11,7 +11,7 @@
 
 .btnDefault:hover {
   cursor: pointer;
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .btnDefault:disabled {
@@ -31,7 +31,7 @@
   width: 24px;
   height: 24px;
   font-size: 10px;
-  transition: 1s;
+  transition: 2s;
   color: var(--font-gray);
   border: 1px solid var(--font-gray);
 }
@@ -47,8 +47,8 @@
 }
 
 .buttonDanger {
-  color: #ff0000;
-  background: #eac4c4;
+  color: white;
+  background: #bb5050;
 }
 
 /*Outline type*/

@@ -8,6 +8,7 @@ import { IColumns } from '../components/Column';
 import { ITask } from '../components/TaskCard';
 import { IPriorityType } from '../components/PrioritySelect/PrioritySelect.type';
 import { ITypeSelectType } from '../components/TypeSelect/TypeSelect';
+import { setCurDashboard } from '../../ProjectsPage/store/projects.slice';
 
 // Get task info
 export const fetchGetTaskInfo = createAsyncThunk(
@@ -70,10 +71,12 @@ export const fetchProjectInfo = createAsyncThunk(
 //Get project dashboard
 export const fetchProjectDashboard = createAsyncThunk(
   'projects/fetchAllProjectColumns',
-  async (projId: number, { rejectWithValue }) => {
+  async (projId: number, { rejectWithValue, dispatch }) => {
     try {
+      // ?taskFilter=[{"property":"name","operator":"LIKE","value":"1"}]
       const res = await instance.get(`projects/${projId}/dashboard`);
       if (res.status === 200) {
+        dispatch(setCurDashboard(res.data.columns));
         return res.data;
       }
     } catch (err) {
