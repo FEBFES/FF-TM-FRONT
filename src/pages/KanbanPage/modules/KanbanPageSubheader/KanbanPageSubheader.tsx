@@ -5,6 +5,7 @@ import { PrioritySelect } from '../../components/PrioritySelect/PrioritySelect';
 import { TypeSelect } from '../../components/TypeSelect/TypeSelect';
 import { IPriorityType } from '../../components/PrioritySelect/PrioritySelect.type';
 import { ITaskLabelType } from '../../../../ui/TaskLabel/TaskLabel.props';
+import i18n from 'i18next';
 
 interface TableViewControllerProps {}
 
@@ -18,7 +19,7 @@ export const KanbanPageSubheader: React.FC<
     <div className={styles.subheader}>
       <div className={styles.filters__cont}>
         <FilterCard
-          title={'Priority'}
+          title={i18n.t('utils.any.priority')}
           component={
             <PrioritySelect
               direction={'bottom'}
@@ -28,7 +29,7 @@ export const KanbanPageSubheader: React.FC<
           }
         />
         <FilterCard
-          title={'Type'}
+          title={i18n.t('utils.any.type')}
           component={
             <TypeSelect
               direction={'bottom'}

@@ -8,6 +8,7 @@ import { Switcher } from '../../../../ui/Switcher';
 import { useTheme } from '../../../../hooks/useTheme';
 import { fetchFavoriteToggle } from '../../../ProjectsPage/store/projects.thunk';
 import { AddColModal } from '../../components/AddColModal/AddColModal';
+import i18n from 'i18next';
 
 export const KanbanPageHeader: React.FC = (): JSX.Element => {
   const { projectName, projId, isFavorite } = useTypedSelector(
@@ -24,7 +25,7 @@ export const KanbanPageHeader: React.FC = (): JSX.Element => {
       <div className={styles.header__left}>
         <div className={styles.breadcrumbs}>
           <span onClick={() => navigate(appRoutsPath.ProjectPage.path)}>
-            Projects
+            {i18n.t('pages.kanban.header.breadcrumbs.1')}
           </span>
           <span>/</span>
           <span>{projectName || ''}</span>

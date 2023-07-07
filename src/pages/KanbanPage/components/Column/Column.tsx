@@ -32,7 +32,7 @@ export const Column: React.FC<ColumnProps> = ({
     <div className={styles.colWrap} key={v4()}>
       <div className={styles.col__header}>
         <h1 className={styles.col__title}>
-          {col.name || ''} {col.tasks.length !== 0 ? col.tasks.length : null}
+          {col.name || ''} {col.tasks?.length !== 0 ? col.tasks?.length : null}
         </h1>
         <FontAwesomeIcon
           className={styles.col__addTask_btn}

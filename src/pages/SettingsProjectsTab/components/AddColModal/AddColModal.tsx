@@ -26,6 +26,7 @@ export const AddColModal: React.FC<AddColModalProps> = ({
       })
     ).finally(() => {
       setShow(false);
+      setColDesc('');
       setColName('');
     });
   };

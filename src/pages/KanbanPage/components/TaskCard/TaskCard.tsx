@@ -14,6 +14,7 @@ import { DotsIcon } from '../../../../assets/icons/UtilsIcons';
 import { DropDown } from '../../../../ui/DropDown/DropDown';
 import { TaskLabel } from '../../../../ui/TaskLabel/TaskLabel';
 import { PriorityLabel } from '../../../../ui/PriorityLabel/PriorityLabel';
+import i18n from 'i18next';
 
 export const TaskCard: React.FC<TaskCardProps> = ({
   task,
@@ -49,7 +50,8 @@ export const TaskCard: React.FC<TaskCardProps> = ({
                 ? `http://febfes.com/api/v1${task.owner.userPic}`
                 : human
             }
-            alt="avatar"
+            key={task.id}
+            alt={i18n.t('utils.any.avatar')}
           />
         </div>
       </div>
