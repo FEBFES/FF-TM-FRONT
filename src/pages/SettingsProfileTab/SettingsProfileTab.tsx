@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import styles from './ProfileTab.module.css';
-import comStyle from '../../commonStyle.module.css';
+import styles from './SettingsProfileTab.module.css';
+import comStyle from '../SettingsPage/commonStyle.module.css';
 import { faPen, faTrash, faCamera } from '@fortawesome/free-solid-svg-icons';
-import { instance } from '../../../../api/http';
-import { InputField } from '../../../../ui/InputField/InputField';
-import { useTypedSelector } from '../../../../hooks/redux';
-import { serverString } from '../../../../config';
-import { Button } from '../../../../ui/Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useTypedSelector } from '../../hooks/redux';
+import { instance } from '../../api/http';
+import { serverString } from '../../config';
+import { InputField } from '../../ui/InputField/InputField';
+import { Button } from '../../ui/Button/Button';
 
 interface ProfileTabProps {}
 
-export const ProfileTab: React.FC<ProfileTabProps> = (): JSX.Element => {
+export const SettingsProfileTab: React.FC<
+  ProfileTabProps
+> = (): JSX.Element => {
   const userInfo = useTypedSelector((state) => state.user.userInfo);
-
   const [btnDisabled, setBtnDisabled] = useState<boolean>(true);
-
   const [inputEmail, setInputEmail] = useState<string>(userInfo?.email || '');
   const [inputUsername, setInputUsername] = useState<string>(
     userInfo?.username || ''

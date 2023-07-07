@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
-import styles from './ProjectTab.module.css';
-import comStyles from '../../commonStyle.module.css';
-import { useTypedSelector } from '../../../../hooks/redux';
-import { ColumnCard } from '../../components/ColumnCard/ColumnCard';
-import { IColumns } from '../../../KanbanPage/components/Column';
-import { Button } from '../../../../ui/Button/Button';
-import { AddColModal } from '../../components/AddColModal/AddColModal';
-import { instance } from '../../../../api/http';
+import styles from './SettingsProjectsTab.module.css';
+import comStyles from '../SettingsPage/commonStyle.module.css';
+import { useTypedSelector } from '../../hooks/redux';
+import { instance } from '../../api/http';
+import { Button } from '../../ui/Button/Button';
+import { IColumns } from '../KanbanPage/components/Column';
+import { AddColModal } from './components/AddColModal/AddColModal';
+import { ColumnCard } from './components/ColumnCard/ColumnCard';
 
-export const ProjectTab: React.FC = (): JSX.Element => {
+export const SettingsProjectsTab: React.FC = (): JSX.Element => {
   const projName = useTypedSelector((state) => state.projects?.curProj?.name);
   const columns = useTypedSelector((state) => state.projects?.curDashboard);
-  const [isChanged, setIsChanged] = useState<boolean>(false);
+  const [isChanged] = useState<boolean>(false);
   const [showAddColModal, setShowAddColModal] = useState<boolean>(false);
 
   //добавить uiComp confirm
   const deleteColumn = (projId: number, colId: number) => {
     //1. todo нужно подтверждение при удалении
     //2. todo нужно перенести в action
-    instance.delete(`projects/${projId}/columns/${colId}`).then((res) => {
+    instance.delete(`projects/${projId}/colum12ns/${colId}`).then((res) => {
       //3. todo при успешном удалении удалять колунку из стейта
     });
   };
