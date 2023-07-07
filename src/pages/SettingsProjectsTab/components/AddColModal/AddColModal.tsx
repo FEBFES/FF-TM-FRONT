@@ -35,7 +35,7 @@ export const AddColModal: React.FC<AddColModalProps> = ({
       <div className={styles.modal}>
         <div className={styles.modal__header}>
           <h1 className={styles.modal__title}>
-            {i18n.t('pages.settings.tabs.profile.column.addNew')}
+            {i18n.t('pages.settings.tabs.project.column.addNew')}
           </h1>
 
           <Button theme={'close'} onClick={() => setShow(false)} />
