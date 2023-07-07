@@ -10,7 +10,7 @@ export const InputField: React.FC<IInputFieldProps> = ({
   value,
   withLabel,
   className,
-    containerStyle,
+  containerStyle,
   ...props
 }): JSX.Element => {
   const [showPassword, setShowPassword] = useState(false);

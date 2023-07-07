@@ -4,8 +4,8 @@
   margin-bottom: 20px;
   padding: 10px 15px;
   border-radius: 10px;
-  width: 30%;
-  min-height: 140px;
+  width: 23%;
+  min-height: 100px;
   border: 1px solid var(--bg-border);
   transition: 0.2s;
 }
@@ -36,13 +36,13 @@
 
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 }
 
 .main {
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin-top: -10px;
+  margin-bottom: 0;
 }
 
 .footer {
