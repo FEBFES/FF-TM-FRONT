@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { AddTaskModal } from '../../components/AddTaskModal/AddTaskModal';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
-import { clearKanbanSlice } from '../../store/kanban.slice';
 import {
   fetchAddNewTask,
   fetchDelTask,
@@ -9,10 +8,11 @@ import {
   fetchProjectInfo,
 } from '../../store/kanban.thunk';
 import styles from './KanbanPageMain.module.css';
-import { Column, IColumns } from '../../components/Column';
 import { v4 } from 'uuid';
 import { IPriorityType } from '../../components/PrioritySelect/PrioritySelect.type';
 import { ITypeSelectType } from '../../components/TypeSelect/TypeSelect';
+import { IColumns } from '../../components/Column/Column.type';
+import { Column } from '../../components/Column/Column';
 
 interface KanbanPageProps {
   setShowTaskModal: (bool: boolean) => void;
@@ -35,9 +35,9 @@ export const KanbanPageMain: React.FC<KanbanPageProps> = ({
       dispatch(fetchProjectInfo(curProjId));
     }
 
-    return () => {
-      dispatch(clearKanbanSlice());
-    };
+    // return () => {
+    //   dispatch(clearKanbanSlice());
+    // };
   }, [curProjId, dispatch]);
 
   const addNewTaskHandler = (

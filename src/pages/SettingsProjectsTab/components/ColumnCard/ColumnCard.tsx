@@ -9,11 +9,14 @@ export const ColumnCard: React.FC<ColumnCardProps> = ({
   onDelete,
 }): JSX.Element => {
   return (
-    <div draggable className={styles.column}>
+    <div
+      // draggable
+      className={styles.column}
+    >
       <div className={styles.column__left}>
         <p className={styles.subtitle}>#{column.id}</p>
         <h2 className={styles.title}>
-          {column.name} - {column.tasks.length}
+          {column.name} - {column?.tasks?.length}
         </h2>
       </div>
 

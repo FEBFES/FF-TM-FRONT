@@ -18,20 +18,18 @@ interface ProjectCardProps {
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   proj,
 }): JSX.Element => {
-  const [showDD, setShowDD] = useState(false);
+  const [showDropDown, setShowDropDown] = useState(false);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
+  const navigateToKanban = () => {
+    navigate(appRoutsPath.KanbanPage.to);
+    dispatch(setCurProj(proj));
+    localStorage.setItem('curProj', JSON.stringify(proj.id));
+  };
+
   return (
-    <div
-      onClick={() => {
-        navigate(appRoutsPath.KanbanPage.to);
-        dispatch(setCurProj(proj));
-        localStorage.setItem('curProj', JSON.stringify(proj.id));
-      }}
-      key={v4()}
-      className={styles.projectCard}
-    >
+    <div onClick={navigateToKanban} key={v4()} className={styles.projectCard}>
       <header className={styles.header}>
         <span className={styles.projectCard__id}>#{proj.id || ''}</span>
         <div
@@ -66,7 +64,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         {/*    D*/}
         {/*</Button>*/}
         <div className={styles.ddCont}>
-          <DropDown show={showDD} setShow={setShowDD}>
+          <DropDown show={showDropDown} setShow={setShowDropDown}>
             <div
               className={styles.ddCont__text}
               onClick={() => dispatch(fetchDelProject(proj.id))}
@@ -79,7 +77,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           <div
             onClick={(e) => {
               e.stopPropagation();
-              setShowDD(true);
+              setShowDropDown(true);
             }}
           >
             <DotsIcon />

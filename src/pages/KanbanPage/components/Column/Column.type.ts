@@ -1,4 +1,4 @@
-import { ITask } from '../TaskCard';
+import { ITask } from '../TaskCard/TaskCard.type';
 
 export interface IColumns {
   projectId: number;

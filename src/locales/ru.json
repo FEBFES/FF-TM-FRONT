@@ -1,4 +1,11 @@
 {
+  "utils.buttons.add": "Добавить",
+  "utils.buttons.create": "Создать",
+  "utils.buttons.cancel": "Назад",
+  "utils.buttons.update": "Обновить",
+  "utils.any.name": "Название",
+  "utils.any.description": "Описание",
+
   "routes.sidebar.home": "Домашняя",
   "routes.sidebar.projects": "Проекты",
   "routes.sidebar.settings": "Настройки",
@@ -21,5 +28,18 @@
   "pages.registration.input.password.placeholder": "Пароль",
   "pages.registration.button.submit": "Зарегистрироваться",
   "pages.registration.login.label": "У вас уже есть учетная запись?",
-  "pages.registration.login.action": "Войти"
+  "pages.registration.login.action": "Войти",
+
+  "pages.projects.header.addBtn": "Создать новый проект",
+  "pages.projects.header.title": "Проекты",
+
+  "pages.settings.sidebar.title": "Настройки",
+  "pages.settings.sidebar.link.title": "Акаунт",
+  "pages.settings.sidebar.link.profile": "Профиль",
+  "pages.settings.sidebar.link.project": "Проект",
+
+  "pages.settings.tabs.profile.title": "Проекты",
+  "pages.settings.tabs.profile.column.subtitle": "Колонки",
+  "pages.settings.tabs.profile.column.text": "Редактируйте колонки проекта",
+  "pages.settings.tabs.profile.column.addNew": "Добавить новую колонку"
 }

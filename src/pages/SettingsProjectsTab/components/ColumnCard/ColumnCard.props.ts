@@ -1,4 +1,4 @@
-import { IColumns } from '../../../KanbanPage/components/Column';
+import { IColumns } from '../../../KanbanPage/components/Column/Column.type';
 
 export interface ColumnCardProps {
   column: IColumns;

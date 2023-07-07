@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styles from './KanbanPageHeader.module.css';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
-import { AddColModal } from '../../components/AddColModal';
 import { useNavigate } from 'react-router-dom';
 import { appRoutsPath } from '../../../../routing/routs';
 import {
@@ -14,6 +13,7 @@ import human from '../../../../assets/img/human.png';
 import { Switcher } from '../../../../ui/Switcher';
 import { useTheme } from '../../../../hooks/useTheme';
 import { fetchFavoriteToggle } from '../../../ProjectsPage/store/projects.thunk';
+import { AddColModal } from '../../components/AddColModal/AddColModal';
 
 export const KanbanPageHeader: React.FC = (): JSX.Element => {
   const { projectName, projId, isFavorite } = useTypedSelector(
