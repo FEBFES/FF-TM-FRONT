@@ -1,24 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './MainLayout.module.css';
 import { MainLayoutProps } from './MainLayout.props';
 import { Sidebar } from '../../components/Sidebar/Sidebar';
+import { useTitle } from '../../hooks/useTitle';
 
 export const MainLayout: React.FC<MainLayoutProps> = ({
   children,
   pageTitle,
 }): JSX.Element => {
-  //todo объеединить в хук во всех лайоутах
-  useEffect(() => {
-    const initialDocTitle = document.title;
-
-    return () => {
-      document.title = initialDocTitle;
-    };
-  }, []);
-
-  useEffect(() => {
-    document.title = pageTitle;
-  }, [pageTitle]);
+  useTitle(pageTitle);
 
   return (
     <div className={styles.mainLay}>

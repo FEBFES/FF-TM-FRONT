@@ -8,6 +8,7 @@ import { instance } from '../../api/http';
 import { serverString } from '../../config';
 import { InputField } from '../../ui/InputField/InputField';
 import { Button } from '../../ui/Button/Button';
+import i18n from 'i18next';
 
 interface ProfileTabProps {}
 
@@ -64,10 +65,12 @@ export const SettingsProfileTab: React.FC<
     setInputUserDisplayName(userInfo?.displayName || '');
   };
 
+  //todo убрать грязь
   const deleteUserAvatar = () => {
     instance.post(`files/user-pic/${userInfo?.id}`, '');
   };
 
+  //todo убрать грязь
   const changeUserInfo = () => {
     instance.put(`users/${userInfo?.id}`, {
       email: inputEmail,
@@ -78,6 +81,7 @@ export const SettingsProfileTab: React.FC<
     });
   };
 
+  //todo убрать грязь
   const uploadNewAvatar = (e: any) => {
     const photo = e.target.files[0];
     const formData = new FormData();
@@ -88,7 +92,9 @@ export const SettingsProfileTab: React.FC<
   return (
     <div className={styles.profileTab}>
       {/* todo i18next */}
-      <h1 className={comStyle.title}>Profile</h1>
+      <h1 className={comStyle.title}>
+        {i18n.t('pages.settings.tabs.profile.title')}
+      </h1>
 
       <div className={styles.userBackground} />
 
@@ -97,8 +103,7 @@ export const SettingsProfileTab: React.FC<
           <img
             className={styles.userAvatarCont__image}
             src={`${serverString}${userInfo.userPic}`}
-            // todo i18next
-            alt="avatar"
+            alt={i18n.t('utils.any.avatar')}
           />
         ) : (
           <FontAwesomeIcon icon={faCamera} size={'lg'} />
@@ -124,58 +129,54 @@ export const SettingsProfileTab: React.FC<
       </div>
 
       <div className={styles.inputsContainer}>
-        {/* todo i18next */}
-        <h2 className={comStyle.subtitle}>User info</h2>
-        {/* todo i18next */}
-        <p className={comStyle.text}>Manage your F/F profile</p>
+        <h2 className={comStyle.subtitle}>
+          {i18n.t('pages.settings.tabs.profile.sectionTitle')}
+        </h2>
+        <p className={comStyle.text}>
+          {i18n.t('pages.settings.tabs.profile.sectionSubTitle')}
+        </p>
 
-        {/* todo i18next */}
         <InputField
           withLabel
           value={inputEmail}
           onChange={(e) => setInputEmail(e.target.value)}
-          placeholder={'Email'}
+          placeholder={i18n.t('utils.any.email')}
           type={'text'}
         />
-        {/* todo i18next */}
         <InputField
           withLabel
           value={inputUsername}
           onChange={(e) => setInputUsername(e.target.value)}
-          placeholder={'Username'}
+          placeholder={i18n.t('utils.any.username')}
           type={'text'}
         />
-        {/* todo i18next */}
         <InputField
           withLabel
           value={inputFirstName}
           onChange={(e) => setInputFirstName(e.target.value)}
-          placeholder={'FirstName'}
+          placeholder={i18n.t('utils.any.firstname')}
           type={'text'}
         />
-        {/* todo i18next */}
         <InputField
           withLabel
           value={inputLastName}
           onChange={(e) => setInputLastName(e.target.value)}
-          placeholder={'LastName'}
+          placeholder={i18n.t('utils.any.lastname')}
           type={'text'}
         />
-        {/* todo i18next */}
         <InputField
           withLabel
           value={inputDisplayName}
           onChange={(e) => setInputUserDisplayName(e.target.value)}
-          placeholder={'DisplayName'}
+          placeholder={i18n.t('utils.any.displayName')}
           type={'text'}
         />
       </div>
 
       <div className={styles.btnContainer}>
-        {/*todo i18next*/}
         {!btnDisabled && (
           <Button theme={'danger'} onClick={resetInputsData}>
-            Cancel
+            {i18n.t('utils.buttons.cancel')}
           </Button>
         )}
         <Button
@@ -183,7 +184,7 @@ export const SettingsProfileTab: React.FC<
           theme={'primary'}
           onClick={changeUserInfo}
         >
-          Update
+          {i18n.t('utils.buttons.update')}
         </Button>
       </div>
     </div>
