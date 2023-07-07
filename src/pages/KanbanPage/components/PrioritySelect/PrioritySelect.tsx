@@ -9,6 +9,7 @@ import {
 } from '../../../../assets/icons/TaskIcons';
 import { useClickOutside } from '../../../../hooks/useClickOutside';
 import { IPriorityTypeItem } from './PrioritySelect.type';
+import classNames from 'classnames';
 
 const priorityArr: IPriorityTypeItem[] = [
   // todo i18next
@@ -36,6 +37,7 @@ const priorityArr: IPriorityTypeItem[] = [
 export const PrioritySelect: React.FC<PrioritySelectProps> = ({
   curPriority = 'DEFAULT',
   setCurPriority,
+  direction,
 }): JSX.Element => {
   const [show, setShow] = useState(false);
   const { ref } = useClickOutside(setShow);
@@ -43,7 +45,13 @@ export const PrioritySelect: React.FC<PrioritySelectProps> = ({
   return (
     <div className={styles.prioritySelect}>
       {show ? (
-        <div ref={ref} className={styles.priorityContainer}>
+        <div
+          ref={ref}
+          className={classNames(styles.priorityContainer, {
+            [styles.priorityContainer_bot]: direction === 'bottom',
+            [styles.priorityContainer_top]: direction === 'top',
+          })}
+        >
           {priorityArr.map((priority, i) => {
             return (
               <div

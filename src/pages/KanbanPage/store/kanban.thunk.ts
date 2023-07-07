@@ -71,10 +71,19 @@ export const fetchProjectInfo = createAsyncThunk(
 //Get project dashboard
 export const fetchProjectDashboard = createAsyncThunk(
   'projects/fetchAllProjectColumns',
-  async (projId: number, { rejectWithValue, dispatch }) => {
+  async (
+    { projId, filters }: { projId: number; filters?: any[] },
+    { rejectWithValue, dispatch }
+  ) => {
     try {
       // ?taskFilter=[{"property":"name","operator":"LIKE","value":"1"}]
-      const res = await instance.get(`projects/${projId}/dashboard`);
+      const res = await instance.get(
+        `projects/${projId}/dashboard${
+          filters && filters?.length !== 0
+            ? `?taskFilter=${JSON.stringify(filters)}`
+            : ''
+        }`
+      );
       if (res.status === 200) {
         dispatch(setCurDashboard(res.data.columns));
         return res.data;

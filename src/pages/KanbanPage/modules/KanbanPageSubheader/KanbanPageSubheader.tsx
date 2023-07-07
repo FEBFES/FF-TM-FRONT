@@ -1,35 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './KanbanPageSubheader.module.css';
-import { Button } from '../../../../ui/Button/Button';
-import { PlusIcon } from '../../../../assets/icons/UtilsIcons';
+import { FilterCard } from '../../components/FilterCard/FilterCard';
+import { PrioritySelect } from '../../components/PrioritySelect/PrioritySelect';
+import { TypeSelect } from '../../components/TypeSelect/TypeSelect';
+import { IPriorityType } from '../../components/PrioritySelect/PrioritySelect.type';
+import { ITaskLabelType } from '../../../../ui/TaskLabel/TaskLabel.props';
 
 interface TableViewControllerProps {}
 
 export const KanbanPageSubheader: React.FC<
   TableViewControllerProps
 > = (): JSX.Element => {
+  const [curType, setCurType] = useState<ITaskLabelType>('NONE');
+  const [curPriority, setCurPriority] = useState<IPriorityType>('DEFAULT');
+
   return (
     <div className={styles.subheader}>
       <div className={styles.filters__cont}>
-        <h2 className={styles.filterTitle}>Filter by:</h2>
-        <div className={styles.filter}>
-          <span className={styles.filter__name}>Assignee:</span>
-          <span className={styles.filter__value}>Denis Bitaev</span>
-        </div>
-        <div className={styles.filter}>
-          <span className={styles.filter__name}>Status:</span>
-          <span className={styles.filter__value}>In progress</span>
-        </div>
-
-        <Button theme={'default'} className={styles.addBtn}>
-          <PlusIcon />
-        </Button>
-      </div>
-
-      <div>
-        <Button theme={'default'} className={styles.clearBtn}>
-          Clear filters
-        </Button>
+        <FilterCard
+          title={'Priority'}
+          component={
+            <PrioritySelect
+              direction={'bottom'}
+              curPriority={curPriority}
+              setCurPriority={setCurPriority}
+            />
+          }
+        />
+        <FilterCard
+          title={'Type'}
+          component={
+            <TypeSelect
+              direction={'bottom'}
+              curType={curType}
+              setCurType={setCurType}
+            />
+          }
+        />
       </div>
     </div>
   );

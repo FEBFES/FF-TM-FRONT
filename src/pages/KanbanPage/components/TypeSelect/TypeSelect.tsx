@@ -6,6 +6,7 @@ import classNames from 'classnames';
 interface TypeSelectProps {
   curType: ITypeSelectType;
   setCurType: (type: ITypeSelectType) => void;
+  direction: 'bottom' | 'top';
 }
 export type ITypeSelectType =
   | 'NONE'
@@ -25,6 +26,7 @@ const typeArr: ITypeSelectType[] = [
 export const TypeSelect: React.FC<TypeSelectProps> = ({
   setCurType,
   curType,
+  direction,
 }): JSX.Element => {
   const [show, setShow] = useState(false);
   const { ref } = useClickOutside(setShow);
@@ -32,7 +34,13 @@ export const TypeSelect: React.FC<TypeSelectProps> = ({
   return (
     <div>
       {show ? (
-        <div ref={ref} className={styles.typeContainer}>
+        <div
+          ref={ref}
+          className={classNames(styles.typeContainer, {
+            [styles.typeContainer_bot]: direction === 'bottom',
+            [styles.typeContainer_top]: direction === 'top',
+          })}
+        >
           {typeArr.map((taskType, i) => {
             return (
               <div
