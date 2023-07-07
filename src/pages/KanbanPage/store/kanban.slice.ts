@@ -6,7 +6,7 @@ import {
   fetchDelTask,
   fetchGetTaskInfo,
   fetchProjectDashboard,
-  fetchProjectInfo,
+  fetchProjectInfo, fetchUpdateCol,
 } from './kanban.thunk';
 import { fetchFavoriteToggle } from '../../ProjectsPage/store/projects.thunk';
 import { IColumns } from '../components/Column/Column.type';
@@ -148,6 +148,20 @@ const KanbanSlice = createSlice({
     builder.addCase(fetchGetTaskInfo.fulfilled, (state, action) => {
       state.taskWindowInfo = action.payload;
     });
+    //
+    // Update column
+    //
+    builder.addCase(fetchUpdateCol.fulfilled, (state, action) => {
+      state.columns = state.columns.map((col) => {
+        if (col.id === action.payload?.colId) {
+          return {
+            ...col,
+            name: action.payload?.name
+          }
+        }
+        return col
+      })
+    })
   },
 });
 

@@ -10,6 +10,7 @@ export const InputField: React.FC<IInputFieldProps> = ({
   value,
   withLabel,
   className,
+    containerStyle,
   ...props
 }): JSX.Element => {
   const [showPassword, setShowPassword] = useState(false);
@@ -24,7 +25,7 @@ export const InputField: React.FC<IInputFieldProps> = ({
 
   return (
     <div
-      className={styles.inputCont}
+      className={classNames(styles.inputCont, containerStyle)}
       onClick={() => {
         if (withLabel) setInputActive(true);
       }}

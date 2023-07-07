@@ -7,4 +7,5 @@ export interface IInputFieldProps
   > {
   value?: any;
   withLabel?: boolean;
+  containerStyle?: string;
 }
