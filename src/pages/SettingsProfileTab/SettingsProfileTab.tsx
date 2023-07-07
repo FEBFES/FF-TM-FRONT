@@ -18,6 +18,7 @@ export const SettingsProfileTab: React.FC<
   const userInfo = useTypedSelector((state) => state.user.userInfo);
   const [btnDisabled, setBtnDisabled] = useState<boolean>(true);
   const [inputEmail, setInputEmail] = useState<string>(userInfo?.email || '');
+  const [userAvatar, setUserAvatar] = useState(userInfo?.userPic || null);
   const [inputUsername, setInputUsername] = useState<string>(
     userInfo?.username || ''
   );
@@ -67,7 +68,11 @@ export const SettingsProfileTab: React.FC<
 
   //todo убрать грязь
   const deleteUserAvatar = () => {
-    instance.post(`files/user-pic/${userInfo?.id}`, '');
+    instance.delete(`files/user-pic/${userInfo?.id}`).then((res) => {
+      if (res.status === 200) {
+        setUserAvatar(null);
+      }
+    });
   };
 
   //todo убрать грязь
@@ -86,7 +91,11 @@ export const SettingsProfileTab: React.FC<
     const photo = e.target.files[0];
     const formData = new FormData();
     formData.append('image', photo);
-    instance.post(`files/user-pic/${userInfo?.id}`, formData);
+    instance.post(`files/user-pic/${userInfo?.id}`, formData).then((res) => {
+      if (res.status === 200) {
+        setUserAvatar(res.data.fileUrn);
+      }
+    });
   };
 
   return (
@@ -99,10 +108,10 @@ export const SettingsProfileTab: React.FC<
       <div className={styles.userBackground} />
 
       <div className={styles.userAvatarCont}>
-        {userInfo?.userPic ? (
+        {userAvatar ? (
           <img
             className={styles.userAvatarCont__image}
-            src={`${serverString}${userInfo.userPic}`}
+            src={`${serverString}${userAvatar}`}
             alt={i18n.t('utils.any.avatar')}
           />
         ) : (
