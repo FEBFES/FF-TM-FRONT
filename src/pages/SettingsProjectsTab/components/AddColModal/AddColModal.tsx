@@ -4,33 +4,39 @@ import { AddColModalProps } from './AddColModal.props';
 import { Modal } from '../../../../ui/Modal/Modal';
 import { Button } from '../../../../ui/Button/Button';
 import { InputField } from '../../../../ui/InputField/InputField';
-import { instance } from '../../../../api/http';
-import { useTypedSelector } from '../../../../hooks/redux';
+import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
+import { fetchAddNewCol } from '../../../KanbanPage/store/kanban.thunk';
+import i18n from 'i18next';
 
 export const AddColModal: React.FC<AddColModalProps> = ({
   show,
   setShow,
 }): JSX.Element => {
   const [colName, setColName] = useState<string>('');
-  //todo изменить логику чтоб curproj не был null
-  const projId = useTypedSelector((state) => state.projects?.curProj?.id);
+  const [colDesc, setColDesc] = useState<string>('');
+  const projId = useTypedSelector((state) => state.projectKanban.projId);
+  const dispatch = useAppDispatch();
 
-  //todo change to action, добавить обработку тостами и при успешном запросе добавлять колонку в стейт
   const addNewColumn = () => {
-    instance
-      .post(`projects/${projId}/columns`, {
+    dispatch(
+      fetchAddNewCol({
         name: colName,
+        description: colDesc,
+        projId: String(projId),
       })
-      .then((res) => {
-        setShow(false);
-      });
+    ).finally(() => {
+      setShow(false);
+      setColName('');
+    });
   };
 
   return (
     <Modal show={show} setShow={setShow}>
       <div className={styles.modal}>
         <div className={styles.modal__header}>
-          <h1 className={styles.modal__title}>Add new column</h1>
+          <h1 className={styles.modal__title}>
+            {i18n.t('pages.settings.tabs.profile.column.addNew')}
+          </h1>
 
           <Button theme={'close'} onClick={() => setShow(false)} />
         </div>
@@ -40,17 +46,28 @@ export const AddColModal: React.FC<AddColModalProps> = ({
             withLabel
             value={colName}
             onChange={(e) => setColName(e.target.value)}
-            placeholder={'Column name'}
+            placeholder={i18n.t('utils.any.name')}
+            type={'text'}
+          />
+          <InputField
+            withLabel
+            value={colDesc}
+            onChange={(e) => setColDesc(e.target.value)}
+            placeholder={i18n.t('utils.any.description')}
             type={'text'}
           />
         </div>
 
         <div className={styles.modal__footer}>
           <Button theme={'danger'} onClick={() => setShow(false)}>
-            Cancel
+            {i18n.t('utils.buttons.cancel')}
           </Button>
-          <Button theme={'primary'} onClick={addNewColumn}>
-            Add
+          <Button
+            disabled={colName === ''}
+            theme={'primary'}
+            onClick={addNewColumn}
+          >
+            {i18n.t('utils.buttons.create')}
           </Button>
         </div>
       </div>

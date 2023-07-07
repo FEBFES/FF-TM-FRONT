@@ -8,9 +8,9 @@ import {
   fetchProjectDashboard,
   fetchProjectInfo,
 } from './kanban.thunk';
-import { IColumns } from '../components/Column';
-import { ITask } from '../components/TaskCard';
 import { fetchFavoriteToggle } from '../../ProjectsPage/store/projects.thunk';
+import { IColumns } from '../components/Column/Column.type';
+import { ITask } from '../components/TaskCard/TaskCard.type';
 
 interface IKanbanInitialState {
   columns: IColumns[];

@@ -1,12 +1,13 @@
 import React from 'react';
 import styles from './Column.module.css';
 import { v4 } from 'uuid';
-import { TaskCard, ITask } from '../TaskCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchChangeTask } from '../../store/kanban.thunk';
 import { ColumnProps } from './Column.props';
+import { TaskCard } from '../TaskCard/TaskCard';
+import { ITask } from '../TaskCard/TaskCard.type';
 
 export const Column: React.FC<ColumnProps> = ({
   col,

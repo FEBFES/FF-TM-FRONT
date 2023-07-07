@@ -6,7 +6,7 @@ import {
   fetchProjects,
 } from './projects.thunk';
 import { IProject } from './projects.type';
-import { IColumns } from '../../KanbanPage/components/Column';
+import { IColumns } from '../../KanbanPage/components/Column/Column.type';
 
 interface IProjectInitialState {
   projects: IProject[];

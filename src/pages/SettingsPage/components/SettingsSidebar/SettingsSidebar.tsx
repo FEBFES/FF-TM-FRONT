@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './SettingsSidebar.module.css';
 import { NavLink } from 'react-router-dom';
+import i18n from 'i18next';
 
 interface SettingsSidebarProps {}
 
@@ -9,8 +10,9 @@ export const SettingsSidebar: React.FC<
 > = (): JSX.Element => {
   return (
     <nav className={styles.sidebar}>
-      {/* todo i18next */}
-      <h1 className={styles.sidebar__title}>Settings</h1>
+      <h1 className={styles.sidebar__title}>
+        {i18n.t('pages.settings.sidebar.title')}
+      </h1>
 
       {/*<h2 className={styles.sidebar__subtitle}>Workspace</h2>*/}
       {/*<li className={styles.sidebar__link}>*/}
@@ -39,7 +41,9 @@ export const SettingsSidebar: React.FC<
       {/*</li>*/}
 
       {/* todo i18next */}
-      <h2 className={styles.sidebar__subtitle}>Account</h2>
+      <h2 className={styles.sidebar__subtitle}>
+        {i18n.t('pages.settings.sidebar.link.title')}
+      </h2>
       <li className={styles.sidebar__link}>
         <NavLink
           className={({ isActive }) =>
@@ -51,7 +55,7 @@ export const SettingsSidebar: React.FC<
           //todo i18next
           to={'/SettingsPage/'}
         >
-          Profile
+          {i18n.t('pages.settings.sidebar.link.profile')}
         </NavLink>
       </li>
       <li className={styles.sidebar__link}>
@@ -63,7 +67,7 @@ export const SettingsSidebar: React.FC<
           }
           to={'/SettingsPage/project'}
         >
-          Project
+          {i18n.t('pages.settings.sidebar.link.project')}
         </NavLink>
       </li>
     </nav>
