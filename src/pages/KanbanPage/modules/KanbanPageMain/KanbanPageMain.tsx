@@ -31,7 +31,7 @@ export const KanbanPageMain: React.FC<KanbanPageProps> = ({
 
   useEffect(() => {
     if (curProjId) {
-      dispatch(fetchProjectDashboard(curProjId));
+      dispatch(fetchProjectDashboard({ projId: curProjId }));
       dispatch(fetchProjectInfo(curProjId));
     }
 

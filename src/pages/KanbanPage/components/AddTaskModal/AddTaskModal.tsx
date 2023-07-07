@@ -88,13 +88,18 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
                 {/* //todo add i18next */}
                 Type:
                 {/*<span className={styles.task_type}>*/}
-                <TypeSelect curType={curTaskType} setCurType={setCurTaskType} />
+                <TypeSelect
+                  direction={'bottom'}
+                  curType={curTaskType}
+                  setCurType={setCurTaskType}
+                />
                 {/*</span>*/}
               </div>
               <div className={styles.task_priority}>
                 {/* //todo add i18next */}
                 Priority:{' '}
                 <PrioritySelect
+                  direction={'bottom'}
                   curPriority={curPriority}
                   setCurPriority={setCurPriority}
                 />
