@@ -3,6 +3,7 @@
   "utils.buttons.create": "Создать",
   "utils.buttons.cancel": "Назад",
   "utils.buttons.update": "Обновить",
+  "utils.buttons.confirm": "Подтвердить",
   "utils.any.name": "Название",
   "utils.any.description": "Описание",
   "utils.any.avatar": "Аватар",
@@ -51,5 +52,6 @@
   "pages.settings.tabs.project.title": "Проект",
   "pages.settings.tabs.project.column.subtitle": "Колонки",
   "pages.settings.tabs.project.column.text": "Редактируйте колонки проекта",
-  "pages.settings.tabs.project.column.addNew": "Добавить новую колонку"
+  "pages.settings.tabs.project.column.addNew": "Добавить новую колонку",
+  "pages.settings.tabs.project.column.confirm.delete": "Вы хотите удалить колонку?"
 }

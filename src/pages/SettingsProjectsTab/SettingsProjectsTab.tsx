@@ -8,6 +8,7 @@ import { ColumnCard } from './components/ColumnCard/ColumnCard';
 import { IColumns } from '../KanbanPage/components/Column/Column.type';
 import { fetchDelCol } from '../KanbanPage/store/kanban.thunk';
 import i18n from 'i18next';
+import { Confirm } from '../../ui/Confirm/Confirm';
 
 export const SettingsProjectsTab: React.FC = (): JSX.Element => {
   const columns = useTypedSelector((state) => state.projectKanban.columns);
@@ -15,16 +16,14 @@ export const SettingsProjectsTab: React.FC = (): JSX.Element => {
 
   const [isChanged] = useState<boolean>(false);
   const [showAddColModal, setShowAddColModal] = useState<boolean>(false);
+  const [showConfirmModal, setShowConfirmModal] = useState<boolean>(false);
+  // todo need refactoring
+  const [curCol, setCurCol] = useState<any>(null);
   const dispatch = useAppDispatch();
 
-  //добавить uiComp confirm
   const deleteColumn = (projId: number, colId: number) => {
-    // //1. todo нужно подтверждение при удалении
-    // //2. todo нужно перенести в action
-    // instance.delete(`projects/${projId}/columns/${colId}`).then((res) => {
-    //   //3. todo при успешном удалении удалять колунку из стейта
-    // });
-    dispatch(fetchDelCol({ projId, colId }));
+    setCurCol({ projId, colId });
+    setShowConfirmModal(true);
   };
 
   return (
@@ -70,6 +69,12 @@ export const SettingsProjectsTab: React.FC = (): JSX.Element => {
       )}
 
       <AddColModal show={showAddColModal} setShow={setShowAddColModal} />
+      <Confirm
+        show={showConfirmModal}
+        setShow={setShowConfirmModal}
+        title={i18n.t('pages.settings.tabs.project.column.confirm.delete')}
+        onConfirm={() => dispatch(fetchDelCol(curCol))}
+      />
     </div>
   );
 };
