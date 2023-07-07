@@ -10,6 +10,7 @@ import { setCurProj } from '../../store/projects.slice';
 import { fetchFavoriteToggle } from '../../store/projects.thunk';
 import { DropDown } from '../../../../ui/DropDown/DropDown';
 import { fetchDelProject } from '../../store/projects.thunk';
+import i18n from 'i18next';
 
 interface ProjectCardProps {
   proj: IProject;
@@ -44,13 +45,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       </header>
 
       <main className={styles.main}>
-        <h3 className={styles.card__title}> {proj.name || ''}</h3>
+        <h3 className={styles.card__title}>{proj.name || ''}</h3>
         <p className={styles.card__subtitle}>{proj.description || ''}</p>
       </main>
       <footer className={styles.footer}>
         <p className={styles.projectCard__date}>
-          {/* todo i18next */}
-          Creation date: {new Date(proj.createDate).toDateString() || ''}
+          {i18n.t('pages.kanban.main.card.create.date')}:{' '}
+          {new Date(proj.createDate).toDateString() || ''}
         </p>
         {/*<Button*/}
         {/*    theme={'danger'}*/}
