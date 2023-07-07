@@ -14,7 +14,7 @@
   border: 1px solid var(--bg-border);
 }
 .column_edit {
-  border: 1px solid var(--bg-primary)
+  border: 1px solid var(--bg-primary);
 }
 
 .column__left {

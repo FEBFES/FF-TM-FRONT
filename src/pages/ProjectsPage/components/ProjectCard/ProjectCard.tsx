@@ -31,7 +31,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <div onClick={navigateToKanban} key={v4()} className={styles.projectCard}>
       <header className={styles.header}>
-        <span className={styles.projectCard__id}>#{proj.id || ''}</span>
         <div
           onClick={(e) => {
             e.stopPropagation();

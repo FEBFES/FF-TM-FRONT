@@ -214,19 +214,29 @@ export const fetchDelCol = createAsyncThunk(
   }
 );
 
-export const fetchUpdateCol = createAsyncThunk('projects/fetchUpdateCol', async ( { projId, colId, newName }: { projId: number; colId: number, newName: string }, {rejectWithValue}) => {
+export const fetchUpdateCol = createAsyncThunk(
+  'projects/fetchUpdateCol',
+  async (
+    {
+      projId,
+      colId,
+      newName,
+    }: { projId: number; colId: number; newName: string },
+    { rejectWithValue }
+  ) => {
     try {
-        const res = await instance.put(`projects/${projId}/columns/${colId}`, {
-            name: newName
-        });
+      const res = await instance.put(`projects/${projId}/columns/${colId}`, {
+        name: newName,
+      });
 
-        if (res.status === 200) {
-            return {
-                colId: colId,
-                name: newName
-            };
-        }
+      if (res.status === 200) {
+        return {
+          colId: colId,
+          name: newName,
+        };
+      }
     } catch (err) {
-        return
+      return;
     }
-})
+  }
+);
