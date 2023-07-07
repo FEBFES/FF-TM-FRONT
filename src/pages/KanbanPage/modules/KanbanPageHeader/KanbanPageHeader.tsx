@@ -3,13 +3,7 @@ import styles from './KanbanPageHeader.module.css';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { useNavigate } from 'react-router-dom';
 import { appRoutsPath } from '../../../../routing/routs';
-import {
-  DotsIcon,
-  FavoriteIcon,
-  PlusIcon,
-  SearchIcon,
-} from '../../../../assets/icons/UtilsIcons';
-import human from '../../../../assets/img/human.png';
+import { FavoriteIcon } from '../../../../assets/icons/UtilsIcons';
 import { Switcher } from '../../../../ui/Switcher';
 import { useTheme } from '../../../../hooks/useTheme';
 import { fetchFavoriteToggle } from '../../../ProjectsPage/store/projects.thunk';
@@ -40,21 +34,21 @@ export const KanbanPageHeader: React.FC = (): JSX.Element => {
 
       <div className={styles.header__right}>
         <Switcher isActive={theme === 'dark'} onClick={changeTheme} />
-        <div className={styles.inputCont}>
-          <input className={styles.input} type="text" />
-          <div className={styles.inputIcon}>
-            <SearchIcon />
-          </div>
-        </div>
+        {/*<div className={styles.inputCont}>*/}
+        {/*  <input className={styles.input} type="text" />*/}
+        {/*  <div className={styles.inputIcon}>*/}
+        {/*    <SearchIcon />*/}
+        {/*  </div>*/}
+        {/*</div>*/}
 
-        <div className={styles.teams}>
-          {/*//todo change to avatar component*/}
-          <img className={styles.avatar} src={human} alt="avatar" />
-          <img className={styles.avatar} src={human} alt="avatar" />
-          <div className={styles.addUserBtn}>
-            <PlusIcon />
-          </div>
-        </div>
+        {/*<div className={styles.teams}>*/}
+        {/*//todo change to avatar component*/}
+        {/*  <img className={styles.avatar} src={human} alt="avatar" />*/}
+        {/*  <img className={styles.avatar} src={human} alt="avatar" />*/}
+        {/*  <div className={styles.addUserBtn}>*/}
+        {/*    <PlusIcon />*/}
+        {/*  </div>*/}
+        {/*</div>*/}
         <div className={styles.line} />
         <div
           className={styles.favoriteBtn}
@@ -66,9 +60,9 @@ export const KanbanPageHeader: React.FC = (): JSX.Element => {
         >
           <FavoriteIcon isFav={isFavorite} />
         </div>
-        <div className={styles.settingsBtn}>
-          <DotsIcon />
-        </div>
+        {/*<div className={styles.settingsBtn}>*/}
+        {/*  <DotsIcon />*/}
+        {/*</div>*/}
       </div>
 
       <AddColModal show={showAddColModal} setShow={setShowAddColModal} />

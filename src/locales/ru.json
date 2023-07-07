@@ -5,6 +5,12 @@
   "utils.buttons.update": "Обновить",
   "utils.any.name": "Название",
   "utils.any.description": "Описание",
+  "utils.any.avatar": "Аватар",
+  "utils.any.email": "Почта",
+  "utils.any.username": "Логин",
+  "utils.any.firstname": "Имя",
+  "utils.any.lastname": "Фамилия",
+  "utils.any.displayName": "Краткое имя",
 
   "routes.sidebar.home": "Домашняя",
   "routes.sidebar.projects": "Проекты",
@@ -23,7 +29,7 @@
   "pages.login.form.button.newAcc": "Создать новый аккаунт",
 
   "pages.registration.title": "Регистрация",
-  "pages.registration.input.email.placeholder": "Емейл",
+  "pages.registration.input.email.placeholder": "Почта",
   "pages.registration.input.username.placeholder": "Логин",
   "pages.registration.input.password.placeholder": "Пароль",
   "pages.registration.button.submit": "Зарегистрироваться",
@@ -38,8 +44,12 @@
   "pages.settings.sidebar.link.profile": "Профиль",
   "pages.settings.sidebar.link.project": "Проект",
 
-  "pages.settings.tabs.profile.title": "Проекты",
-  "pages.settings.tabs.profile.column.subtitle": "Колонки",
-  "pages.settings.tabs.profile.column.text": "Редактируйте колонки проекта",
-  "pages.settings.tabs.profile.column.addNew": "Добавить новую колонку"
+  "pages.settings.tabs.profile.title": "Профиль",
+  "pages.settings.tabs.profile.sectionTitle": "Информация о пользователе",
+  "pages.settings.tabs.profile.sectionSubTitle": "Управляйте своим профилем F/F",
+
+  "pages.settings.tabs.project.title": "Проекты",
+  "pages.settings.tabs.project.column.subtitle": "Колонки",
+  "pages.settings.tabs.project.column.text": "Редактируйте колонки проекта",
+  "pages.settings.tabs.project.column.addNew": "Добавить новую колонку"
 }

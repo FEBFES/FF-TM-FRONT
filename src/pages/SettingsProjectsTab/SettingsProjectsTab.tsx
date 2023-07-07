@@ -30,23 +30,23 @@ export const SettingsProjectsTab: React.FC = (): JSX.Element => {
   return (
     <div>
       <h1 className={comStyles.title}>
-        {i18n.t('pages.settings.tabs.profile.title')} {projName || ''}
+        {i18n.t('pages.settings.tabs.project.title')} {projName || ''}
       </h1>
 
       <div className={styles.columnContainer}>
         <div className={styles.columnContainer__header}>
           <div>
             <h2 className={styles.title}>
-              {i18n.t('pages.settings.tabs.profile.column.subtitle')}
+              {i18n.t('pages.settings.tabs.project.column.subtitle')}
             </h2>
             <p className={styles.subtitle}>
-              {i18n.t('pages.settings.tabs.profile.column.text')}
+              {i18n.t('pages.settings.tabs.project.column.text')}
             </p>
           </div>
 
           <div>
             <Button theme={'primary'} onClick={() => setShowAddColModal(true)}>
-              {i18n.t('pages.settings.tabs.profile.column.addNew')}
+              {i18n.t('pages.settings.tabs.project.column.addNew')}
             </Button>
           </div>
         </div>
