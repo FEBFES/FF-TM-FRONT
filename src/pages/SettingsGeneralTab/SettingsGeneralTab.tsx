@@ -1,13 +1,15 @@
 import React from 'react';
-import styles from './GeneralTab.module.css';
-import comStyle from '../../commonStyle.module.css';
-import { PlusIcon } from '../../../../assets/icons/UtilsIcons';
-import { InputField } from '../../../../ui/InputField/InputField';
-import { Button } from '../../../../ui/Button/Button';
+import styles from './SettingsGeneralTab.module.css';
+import comStyle from '../SettingsPage/commonStyle.module.css';
+import { PlusIcon } from '../../assets/icons/UtilsIcons';
+import { InputField } from '../../ui/InputField/InputField';
+import { Button } from '../../ui/Button/Button';
 
 interface GeneralTabProps {}
 
-export const GeneralTab: React.FC<GeneralTabProps> = (): JSX.Element => {
+export const SettingsGeneralTab: React.FC<
+  GeneralTabProps
+> = (): JSX.Element => {
   return (
     <div>
       {/* todo i18next */}

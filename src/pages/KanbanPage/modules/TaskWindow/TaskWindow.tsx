@@ -6,9 +6,9 @@ import human from '../../../../assets/img/human.png';
 import { instance } from '../../../../api/http';
 import { downloadFile } from '../../../../utils/download';
 import { serverString } from '../../../../config';
-import { IFile } from '../../components/TaskCard';
 import { TaskLabel } from '../../../../ui/TaskLabel/TaskLabel';
 import { PriorityLabel } from '../../../../ui/PriorityLabel/PriorityLabel';
+import { IFile } from '../../components/TaskCard/TaskCard.type';
 
 interface TaskWindowProps {
   setShowWindow: (bool: boolean) => void;
@@ -22,6 +22,7 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
   const task = useTypedSelector((state) => state.projectKanban.taskWindowInfo);
 
   useEffect(() => {
+    //todo грязь
     if (!task) {
       return;
     }
@@ -38,6 +39,7 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
     return null;
   }
 
+  //todo грязь
   const uploadNewFile = (e: any) => {
     const files = e.target.files[0];
     const formData = new FormData();

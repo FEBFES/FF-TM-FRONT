@@ -7,10 +7,11 @@ import {
   fetchGetTaskInfo,
   fetchProjectDashboard,
   fetchProjectInfo,
+  fetchUpdateCol,
 } from './kanban.thunk';
-import { IColumns } from '../components/Column';
-import { ITask } from '../components/TaskCard';
 import { fetchFavoriteToggle } from '../../ProjectsPage/store/projects.thunk';
+import { IColumns } from '../components/Column/Column.type';
+import { ITask } from '../components/TaskCard/TaskCard.type';
 
 interface IKanbanInitialState {
   columns: IColumns[];
@@ -147,6 +148,20 @@ const KanbanSlice = createSlice({
     });
     builder.addCase(fetchGetTaskInfo.fulfilled, (state, action) => {
       state.taskWindowInfo = action.payload;
+    });
+    //
+    // Update column
+    //
+    builder.addCase(fetchUpdateCol.fulfilled, (state, action) => {
+      state.columns = state.columns.map((col) => {
+        if (col.id === action.payload?.colId) {
+          return {
+            ...col,
+            name: action.payload?.name,
+          };
+        }
+        return col;
+      });
     });
   },
 });

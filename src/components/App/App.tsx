@@ -9,6 +9,7 @@ import { NotFoundPage } from '../../pages/404/NotFoundPage';
 import { useTheme } from '../../hooks/useTheme';
 import { useLocales } from '../../hooks/useLocales';
 import { fetchGetUserInfo } from '../../store/User/user.thunk';
+import { fetchProjects } from '../../pages/ProjectsPage/store/projects.thunk';
 
 export const App = () => {
   const dispatch = useAppDispatch();
@@ -19,6 +20,7 @@ export const App = () => {
   useLocales();
 
   useEffect(() => {
+    dispatch(fetchProjects());
     dispatch(fetchGetUserInfo(userId));
   }, [userId, dispatch]);
 

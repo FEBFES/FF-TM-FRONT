@@ -10,6 +10,7 @@ import { setCurProj } from '../../store/projects.slice';
 import { fetchFavoriteToggle } from '../../store/projects.thunk';
 import { DropDown } from '../../../../ui/DropDown/DropDown';
 import { fetchDelProject } from '../../store/projects.thunk';
+import i18n from 'i18next';
 
 interface ProjectCardProps {
   proj: IProject;
@@ -18,22 +19,19 @@ interface ProjectCardProps {
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   proj,
 }): JSX.Element => {
-  const [showDD, setShowDD] = useState(false);
+  const [showDropDown, setShowDropDown] = useState(false);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
+  const navigateToKanban = () => {
+    navigate(appRoutsPath.KanbanPage.to);
+    dispatch(setCurProj(proj));
+    localStorage.setItem('curProj', JSON.stringify(proj.id));
+  };
+
   return (
-    <div
-      onClick={() => {
-        navigate(appRoutsPath.KanbanPage.to);
-        dispatch(setCurProj(proj));
-        localStorage.setItem('curProj', JSON.stringify(proj.id));
-      }}
-      key={v4()}
-      className={styles.projectCard}
-    >
+    <div onClick={navigateToKanban} key={v4()} className={styles.projectCard}>
       <header className={styles.header}>
-        <span className={styles.projectCard__id}>#{proj.id || ''}</span>
         <div
           onClick={(e) => {
             e.stopPropagation();
@@ -47,13 +45,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       </header>
 
       <main className={styles.main}>
-        <h3 className={styles.card__title}> {proj.name || ''}</h3>
+        <h3 className={styles.card__title}>{proj.name || ''}</h3>
         <p className={styles.card__subtitle}>{proj.description || ''}</p>
       </main>
       <footer className={styles.footer}>
         <p className={styles.projectCard__date}>
-          {/* todo i18next */}
-          Creation date: {new Date(proj.createDate).toDateString() || ''}
+          {i18n.t('pages.kanban.main.card.create.date')}:{' '}
+          {new Date(proj.createDate).toDateString() || ''}
         </p>
         {/*<Button*/}
         {/*    theme={'danger'}*/}
@@ -66,7 +64,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         {/*    D*/}
         {/*</Button>*/}
         <div className={styles.ddCont}>
-          <DropDown show={showDD} setShow={setShowDD}>
+          <DropDown show={showDropDown} setShow={setShowDropDown}>
             <div
               className={styles.ddCont__text}
               onClick={() => dispatch(fetchDelProject(proj.id))}
@@ -79,7 +77,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           <div
             onClick={(e) => {
               e.stopPropagation();
-              setShowDD(true);
+              setShowDropDown(true);
             }}
           >
             <DotsIcon />

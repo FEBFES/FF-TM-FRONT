@@ -1,4 +1,20 @@
 {
+  "utils.buttons.add": "Добавить",
+  "utils.buttons.create": "Создать",
+  "utils.buttons.cancel": "Назад",
+  "utils.buttons.update": "Обновить",
+  "utils.buttons.confirm": "Подтвердить",
+  "utils.any.name": "Название",
+  "utils.any.description": "Описание",
+  "utils.any.avatar": "Аватар",
+  "utils.any.email": "Почта",
+  "utils.any.username": "Логин",
+  "utils.any.firstname": "Имя",
+  "utils.any.lastname": "Фамилия",
+  "utils.any.displayName": "Краткое имя",
+  "utils.any.priority": "Приоритет",
+  "utils.any.type": "Тип",
+
   "routes.sidebar.home": "Домашняя",
   "routes.sidebar.projects": "Проекты",
   "routes.sidebar.settings": "Настройки",
@@ -16,10 +32,31 @@
   "pages.login.form.button.newAcc": "Создать новый аккаунт",
 
   "pages.registration.title": "Регистрация",
-  "pages.registration.input.email.placeholder": "Емейл",
+  "pages.registration.input.email.placeholder": "Почта",
   "pages.registration.input.username.placeholder": "Логин",
   "pages.registration.input.password.placeholder": "Пароль",
   "pages.registration.button.submit": "Зарегистрироваться",
   "pages.registration.login.label": "У вас уже есть учетная запись?",
-  "pages.registration.login.action": "Войти"
+  "pages.registration.login.action": "Войти",
+
+  "pages.kanban.header.breadcrumbs.1": "Проекты",
+  "pages.kanban.main.card.create.date": "Дата создания",
+
+  "pages.projects.header.addBtn": "Создать новый проект",
+  "pages.projects.header.title": "Проекты",
+
+  "pages.settings.sidebar.title": "Настройки",
+  "pages.settings.sidebar.link.title": "Акаунт",
+  "pages.settings.sidebar.link.profile": "Профиль",
+  "pages.settings.sidebar.link.project": "Проект",
+
+  "pages.settings.tabs.profile.title": "Профиль",
+  "pages.settings.tabs.profile.sectionTitle": "Информация о пользователе",
+  "pages.settings.tabs.profile.sectionSubTitle": "Управляйте своим профилем F/F",
+
+  "pages.settings.tabs.project.title": "Проект",
+  "pages.settings.tabs.project.column.subtitle": "Колонки",
+  "pages.settings.tabs.project.column.text": "Редактируйте колонки проекта",
+  "pages.settings.tabs.project.column.addNew": "Добавить новую колонку",
+  "pages.settings.tabs.project.column.confirm.delete": "Вы хотите удалить колонку?"
 }

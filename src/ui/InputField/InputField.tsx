@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './InputField.module.css';
 import classNames from 'classnames';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
@@ -8,19 +8,51 @@ import { IInputFieldProps } from './InputField.props';
 export const InputField: React.FC<IInputFieldProps> = ({
   type,
   value,
+  withLabel,
   className,
+  containerStyle,
   ...props
 }): JSX.Element => {
   const [showPassword, setShowPassword] = useState(false);
+  const [inputActive, setInputActive] = useState<boolean>(!!value);
+
+  useEffect(() => {
+    if (withLabel) {
+      setInputActive(!!value);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value]);
 
   return (
-    <div className={styles.inputCont}>
+    <div
+      className={classNames(styles.inputCont, containerStyle)}
+      onClick={() => {
+        if (withLabel) setInputActive(true);
+      }}
+      onBlur={() => {
+        if (!value && withLabel) {
+          setInputActive(false);
+        }
+      }}
+    >
       <input
         value={value}
         type={showPassword ? 'text' : type}
         className={classNames(className, styles.input)}
         {...props}
+        placeholder={withLabel ? '' : props.placeholder}
+        id={'input'}
       />
+      {withLabel && (
+        <label
+          className={`${styles.input_label} ${
+            inputActive && styles.input_label_active
+          }`}
+          htmlFor="input"
+        >
+          {props.placeholder}
+        </label>
+      )}
       {type === 'password' && value !== '' && (
         <div
           onMouseDown={() => setShowPassword(true)}

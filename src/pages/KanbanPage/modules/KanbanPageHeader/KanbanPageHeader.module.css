@@ -85,6 +85,7 @@
 }
 
 .line {
+  margin-left: 48px;
   margin-right: 48px;
   height: 34px;
   width: 2px;

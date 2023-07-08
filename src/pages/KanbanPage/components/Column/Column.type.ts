@@ -1,9 +1,9 @@
-import { ITask } from '../TaskCard';
+import { ITask } from '../TaskCard/TaskCard.type';
 
 export interface IColumns {
   projectId: number;
   id: number;
   name: string;
-  order: number;
+  columnOrder: number;
   tasks: ITask[];
 }

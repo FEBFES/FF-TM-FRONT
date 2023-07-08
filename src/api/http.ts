@@ -3,6 +3,8 @@ import axios from 'axios';
 import { setIsAuth } from '../pages/AuthPages/store/auth.slice';
 import { store } from '../index';
 import { appRoutsPath } from '../routing/routs';
+import { addToast } from '../store/App/AppSlice';
+import { v4 } from 'uuid';
 
 export const instanceWithoutToken = axios.create({
   baseURL: serverString,
@@ -88,6 +90,15 @@ instance.interceptors.response.use(
             isRefreshing = false;
           });
       });
+    } else {
+      store.dispatch(
+        addToast({
+          type: 'error',
+          message: err.message,
+          id: v4(),
+          delay: 3000,
+        })
+      );
     }
 
     return Promise.reject(err);

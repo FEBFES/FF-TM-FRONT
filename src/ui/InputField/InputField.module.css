@@ -16,6 +16,21 @@
   font-size: 14px;
   color: var(--font-defautl);
 }
+.input_label {
+  font-size: 14px;
+  transition: 0.2s;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--font-gray);
+}
+.input_label_active {
+  font-size: 12px;
+  top: 10px;
+  background: transparent;
+  left: 12px;
+}
 
 .passwordIcon {
   cursor: pointer;

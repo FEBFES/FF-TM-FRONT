@@ -6,4 +6,6 @@ export interface IInputFieldProps
     HTMLInputElement
   > {
   value?: any;
+  withLabel?: boolean;
+  containerStyle?: string;
 }

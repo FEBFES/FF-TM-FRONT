@@ -2,10 +2,11 @@
   position: relative;
   margin-right: 20px;
   margin-bottom: 20px;
-  padding: 10px 15px;
+  padding: 18px 12px;
   border-radius: 10px;
-  width: 30%;
-  min-height: 140px;
+  width: 20%;
+  min-width: 280px;
+  min-height: 100px;
   border: 1px solid var(--bg-border);
   transition: 0.2s;
 }
@@ -19,30 +20,33 @@
 }
 
 .projectCard__date {
+  margin-top: 15px;
+  font-size: 12px;
   color: var(--font-defautl);
 }
 
 .card__title {
   font-weight: 300;
-  font-size: 20px;
+  font-size: 18px;
   color: var(--font-defautl);
 }
 
 .card__subtitle {
+  margin-top: 0;
   font-weight: 200;
-  font-size: 16px;
+  font-size: 14px;
   color: var(--font-gray);
 }
 
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 }
 
 .main {
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin-top: -10px;
+  margin-bottom: 0;
 }
 
 .footer {

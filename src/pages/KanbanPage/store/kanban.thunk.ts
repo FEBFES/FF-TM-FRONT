@@ -4,10 +4,11 @@ import { AxiosError } from 'axios';
 import { addToast } from '../../../store/App/AppSlice';
 import { v4 } from 'uuid';
 import { addTaskToCol } from './kanban.slice';
-import { IColumns } from '../components/Column';
-import { ITask } from '../components/TaskCard';
 import { IPriorityType } from '../components/PrioritySelect/PrioritySelect.type';
 import { ITypeSelectType } from '../components/TypeSelect/TypeSelect';
+import { setCurDashboard } from '../../ProjectsPage/store/projects.slice';
+import { IColumns } from '../components/Column/Column.type';
+import { ITask } from '../components/TaskCard/TaskCard.type';
 
 // Get task info
 export const fetchGetTaskInfo = createAsyncThunk(
@@ -70,10 +71,21 @@ export const fetchProjectInfo = createAsyncThunk(
 //Get project dashboard
 export const fetchProjectDashboard = createAsyncThunk(
   'projects/fetchAllProjectColumns',
-  async (projId: number, { rejectWithValue }) => {
+  async (
+    { projId, filters }: { projId: number; filters?: any[] },
+    { rejectWithValue, dispatch }
+  ) => {
     try {
-      const res = await instance.get(`projects/${projId}/dashboard`);
+      // ?taskFilter=[{"property":"name","operator":"LIKE","value":"1"}]
+      const res = await instance.get(
+        `projects/${projId}/dashboard${
+          filters && filters?.length !== 0
+            ? `?taskFilter=${JSON.stringify(filters)}`
+            : ''
+        }`
+      );
       if (res.status === 200) {
+        dispatch(setCurDashboard(res.data.columns));
         return res.data;
       }
     } catch (err) {
@@ -198,6 +210,33 @@ export const fetchDelCol = createAsyncThunk(
       }
     } catch (err) {
       return rejectWithValue(err as AxiosError);
+    }
+  }
+);
+
+export const fetchUpdateCol = createAsyncThunk(
+  'projects/fetchUpdateCol',
+  async (
+    {
+      projId,
+      colId,
+      newName,
+    }: { projId: number; colId: number; newName: string },
+    { rejectWithValue }
+  ) => {
+    try {
+      const res = await instance.put(`projects/${projId}/columns/${colId}`, {
+        name: newName,
+      });
+
+      if (res.status === 200) {
+        return {
+          colId: colId,
+          name: newName,
+        };
+      }
+    } catch (err) {
+      return;
     }
   }
 );

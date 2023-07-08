@@ -6,12 +6,13 @@
   width: 360px;
   border-left: 1px solid var(--bg-border);
   background: var(--bg-0);
+  max-height: 100vh;
   height: 100vh;
   z-index: 10;
 }
 
 .header {
-  padding: 0 18px;
+  padding: 32px 18px 0;
   width: 100%;
   display: flex;
   align-items: flex-end;
@@ -178,7 +179,6 @@
 }
 
 .fileCont {
-  height: 45vh;
   overflow-y: scroll;
   margin-top: 20px;
   display: flex;

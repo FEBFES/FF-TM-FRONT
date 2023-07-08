@@ -70,3 +70,9 @@
   border: 1px solid #b7eb8f;
   background: #f6ffed;
 }
+
+@media screen and (max-width: 1200px) {
+  .toast__container {
+    width: 400px;
+  }
+}
