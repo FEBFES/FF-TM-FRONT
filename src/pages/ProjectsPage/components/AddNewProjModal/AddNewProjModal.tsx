@@ -5,6 +5,7 @@ import { InputField } from '../../../../ui/InputField/InputField';
 import { Modal } from '../../../../ui/Modal/Modal';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { Button } from '../../../../ui/Button/Button';
+import i18n from 'i18next';
 
 interface AddNewProjModalProps {
   show: boolean;
@@ -23,24 +24,24 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
     <Modal show={show} setShow={setShow}>
       <div className={styles.container}>
         <div className={styles.cont__header}>
-          {/* todo i18next */}
-          <h1 className={styles.cont__headerTitle}>Create new project</h1>
-          <Button theme={'close'} onClick={() => setShow(false)}>
-            x
-          </Button>
+          <h1 className={styles.cont__headerTitle}>
+            {i18n.t('pages.projects.header.addBtn')}
+          </h1>
+          <Button theme={'close'} onClick={() => setShow(false)} />
         </div>
 
         <div className={styles.projCont}>
-          {/* todo i18next */}
           <InputField
-            placeholder={'Name'}
+            placeholder={i18n.t('utils.any.name')}
+            withLabel
             type={'text'}
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
           {/* todo i18next */}
           <InputField
-            placeholder={'Description'}
+            placeholder={i18n.t('utils.any.description')}
+            withLabel
             type={'text'}
             value={desc}
             onChange={(e) => setDesc(e.target.value)}
@@ -54,8 +55,7 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
               setShow(false);
             }}
           >
-            {/* todo i18next */}
-            Cancel
+            {i18n.t('utils.buttons.cancel')}
           </Button>
           <Button
             theme={'primary'}
@@ -67,8 +67,7 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
                 });
             }}
           >
-            {/* todo i18next */}
-            Create
+            {i18n.t('utils.buttons.create')}
           </Button>
         </div>
       </div>
