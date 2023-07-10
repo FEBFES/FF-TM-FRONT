@@ -1,6 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { appRouts } from '../../../../routing/routs';
+import { EmptyLayout } from '../../../../layouts/EmptyLayout/EmptyLayout';
+import { NotFoundPage } from '../../../404/NotFoundPage';
 
 export const NotAuthAppRoutes: React.FC = () => {
   return (
@@ -18,6 +20,14 @@ export const NotAuthAppRoutes: React.FC = () => {
           />
         );
       })}
+      <Route
+        path="*"
+        element={
+          <EmptyLayout pageTitle={'No Found Page'}>
+            <NotFoundPage />
+          </EmptyLayout>
+        }
+      />
     </Routes>
   );
 };

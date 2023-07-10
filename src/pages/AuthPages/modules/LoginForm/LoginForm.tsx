@@ -6,8 +6,9 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchLogin } from '../../store/auth.thunk';
 import { appRoutsPath } from '../../../../routing/routs';
-import { LoginFormProps } from './LoginForm.props';
 import { useTranslation } from 'react-i18next';
+
+interface LoginFormProps {}
 
 export const LoginForm: React.FC<LoginFormProps> = (): JSX.Element => {
   const { t } = useTranslation();

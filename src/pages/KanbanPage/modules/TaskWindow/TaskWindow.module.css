@@ -144,7 +144,9 @@
 .windowToggle__item.windowToggle__item_active {
   color: #000000;
 }
-
+.date__container {
+  padding: 20px 20px 10px;
+}
 .filesUploadContainer {
   width: 100%;
   padding: 20px;
@@ -168,7 +170,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--bg-border);
+  color: var(--font-gray);
   position: absolute;
   left: 0;
   top: 0;
@@ -179,21 +181,7 @@
 }
 
 .fileCont {
-  overflow-y: scroll;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-}
-
-.file:first-of-type {
-  margin-top: 0;
-}
-.file {
-  font-size: 14px;
-  margin-top: 10px;
-  color: var(--bg-border);
-}
-.file:hover {
-  text-decoration: underline;
-  cursor: pointer;
 }
