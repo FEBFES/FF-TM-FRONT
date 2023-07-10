@@ -64,6 +64,7 @@ export const SettingsProfileTab: React.FC<
     setInputFirstName(userInfo?.firstName || '');
     setInputLastName(userInfo?.lastName || '');
     setInputUserDisplayName(userInfo?.displayName || '');
+    setUserAvatar(userInfo?.userPic || '');
   };
 
   //todo убрать грязь
@@ -87,7 +88,8 @@ export const SettingsProfileTab: React.FC<
   };
 
   //todo убрать грязь
-  const uploadNewAvatar = (e: any) => {
+  const uploadNewAvatar = async (e: any) => {
+    await deleteUserAvatar();
     const photo = e.target.files[0];
     const formData = new FormData();
     formData.append('image', photo);
