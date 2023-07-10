@@ -61,7 +61,7 @@ export const AddColModal: React.FC<AddColModalProps> = ({
 
         <div className={styles.modal__footer}>
           <Button theme={'danger'} onClick={() => setShow(false)}>
-            {i18n.t('utils.buttons.cancel')}
+            {i18n.t('utils.buttons.back')}
           </Button>
           <Button
             disabled={colName === ''}
