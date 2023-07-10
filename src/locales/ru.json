@@ -9,6 +9,8 @@
   "utils.buttons.edit": "Редактировать",
   "utils.buttons.cancel": "Отменить",
 
+  "utils.any.assignee": "Ответственный",
+  "utils.any.status": "Статус",
   "utils.any.name": "Название",
   "utils.any.description": "Описание",
   "utils.any.avatar": "Аватар",
@@ -46,6 +48,7 @@
 
   "pages.kanban.header.breadcrumbs.1": "Проекты",
   "pages.kanban.main.card.create.date": "Дата создания",
+  "pages.kanban.components.modal.add.createMultiple": "Создать несколько",
 
   "pages.projects.header.addBtn": "Создать новый проект",
   "pages.projects.header.title": "Проекты",

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './KanbanPageHeader.module.css';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { useNavigate } from 'react-router-dom';
@@ -7,7 +7,6 @@ import { FavoriteIcon } from '../../../../assets/icons/UtilsIcons';
 import { Switcher } from '../../../../ui/Switcher';
 import { useTheme } from '../../../../hooks/useTheme';
 import { fetchFavoriteToggle } from '../../../ProjectsPage/store/projects.thunk';
-import { AddColModal } from '../../components/AddColModal/AddColModal';
 import i18n from 'i18next';
 
 export const KanbanPageHeader: React.FC = (): JSX.Element => {
@@ -15,7 +14,6 @@ export const KanbanPageHeader: React.FC = (): JSX.Element => {
     (state) => state.projectKanban
   );
   const theme = useTypedSelector((state) => state.app.theme);
-  const [showAddColModal, setShowAddColModal] = useState(false);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { changeTheme } = useTheme();
@@ -65,8 +63,6 @@ export const KanbanPageHeader: React.FC = (): JSX.Element => {
         {/*  <DotsIcon />*/}
         {/*</div>*/}
       </div>
-
-      <AddColModal show={showAddColModal} setShow={setShowAddColModal} />
     </header>
   );
 };

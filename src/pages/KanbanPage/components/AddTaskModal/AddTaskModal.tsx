@@ -14,11 +14,13 @@ import { AddTaskModalProps } from './AddTaskModal.props';
 import { PrioritySelect } from '../PrioritySelect/PrioritySelect';
 import { IPriorityType } from '../PrioritySelect/PrioritySelect.type';
 import { ITypeSelectType, TypeSelect } from '../TypeSelect/TypeSelect';
+import i18n from 'i18next';
 
 export const AddTaskModal: React.FC<AddTaskModalProps> = ({
   show,
   setShow,
   onSubmit,
+  curCol,
 }): JSX.Element => {
   const [curTaskType, setCurTaskType] = useState<ITypeSelectType>('NONE');
   const [name, setName] = useState<string>('');
@@ -38,10 +40,9 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
       <div className={styles.container}>
         <header className={styles.header}>
           <div className={styles.header__left}>
-            {/* //todo add i18next */}
-            <span>id: FRONT</span>
-            {/* //todo add i18next */}
-            <span>status: BACKLOG</span>
+            <span>
+              {i18n.t('utils.any.status')}: {curCol?.name}
+            </span>
           </div>
 
           <div className={styles.header__right}>
@@ -68,16 +69,14 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
           <InputField
             type={'text'}
             value={name}
-            // {/* //todo add i18next */}
-            placeholder={'Task title'}
+            placeholder={i18n.t('utils.any.name')}
             className={styles.input}
             onChange={(e) => setName(e.target.value)}
           />
           <InputField
             type={'text'}
             value={description}
-            // {/* //todo add i18next */}
-            placeholder={'Task description...'}
+            placeholder={i18n.t('utils.any.description')}
             className={styles.input}
             onChange={(e) => setDescription(e.target.value)}
           />
@@ -85,19 +84,15 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
           <div className={styles.additionally}>
             <div className={styles.additionally__left}>
               <div className={styles.task_type}>
-                {/* //todo add i18next */}
-                Type:
-                {/*<span className={styles.task_type}>*/}
+                {i18n.t('utils.any.type')}:
                 <TypeSelect
                   direction={'bottom'}
                   curType={curTaskType}
                   setCurType={setCurTaskType}
                 />
-                {/*</span>*/}
               </div>
               <div className={styles.task_priority}>
-                {/* //todo add i18next */}
-                Priority:{' '}
+                {i18n.t('utils.any.priority')}:
                 <PrioritySelect
                   direction={'bottom'}
                   curPriority={curPriority}
@@ -108,12 +103,7 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
 
             <div className={styles.additionally__right}>
               <div>
-                {/* //todo add i18next */}
-                Assignee: <PlusIcon />
-              </div>
-              <div>
-                {/* //todo add i18next */}
-                Tags: <PlusIcon />
+                {i18n.t('utils.any.assignee')}: <PlusIcon />
               </div>
             </div>
           </div>
@@ -121,8 +111,9 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
 
         <footer className={styles.footer}>
           <div className={styles.checkbox}>
-            {/* //todo add i18next */}
-            <span className={styles.checkbox_label}>Create multiple:</span>
+            <span className={styles.checkbox_label}>
+              {i18n.t('pages.kanban.components.modal.add.createMultiple')}:
+            </span>
             <Switcher
               onClick={() => setIsMultiple((prevState) => !prevState)}
               isActive={isMultiple}
@@ -140,8 +131,7 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
             theme={'default'}
             className={styles.submitBtn}
           >
-            {/* //todo add i18next */}
-            Create Task
+            {i18n.t('utils.buttons.create')}
           </Button>
         </footer>
       </div>

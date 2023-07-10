@@ -39,7 +39,7 @@ export const Column: React.FC<ColumnProps> = ({
           icon={faPlus}
           onClick={() => {
             setShowAddTaskModal(true);
-            setCurCol(col.id);
+            setCurCol(col);
           }}
         />
       </div>

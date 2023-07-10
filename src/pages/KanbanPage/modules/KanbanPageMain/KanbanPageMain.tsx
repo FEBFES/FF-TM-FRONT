@@ -27,7 +27,7 @@ export const KanbanPageMain: React.FC<KanbanPageProps> = ({
     useTypedSelector((state) => state.projects.curProj)?.id ||
     Number(localStorage.getItem('curProj'));
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
-  const [curCol, setCurCol] = useState<number | null>(null);
+  const [curCol, setCurCol] = useState<IColumns | null>(null);
 
   useEffect(() => {
     if (curProjId) {
@@ -54,7 +54,7 @@ export const KanbanPageMain: React.FC<KanbanPageProps> = ({
           description,
           priority,
           type,
-          colId: curCol,
+          colId: curCol.id,
           projId: curProjId,
         })
       );
@@ -86,6 +86,7 @@ export const KanbanPageMain: React.FC<KanbanPageProps> = ({
           show={showAddTaskModal}
           setShow={setShowAddTaskModal}
           onSubmit={addNewTaskHandler}
+          curCol={curCol}
         />
       )}
     </div>
