@@ -63,5 +63,7 @@
   "pages.settings.tabs.project.column.subtitle": "Колонки",
   "pages.settings.tabs.project.column.text": "Редактируйте колонки проекта",
   "pages.settings.tabs.project.column.addNew": "Добавить новую колонку",
-  "pages.settings.tabs.project.column.confirm.delete": "Вы хотите удалить колонку?"
+  "pages.settings.tabs.project.column.confirm.delete": "Вы хотите удалить колонку?",
+  "pages.settings.tabs.section.project.title": "Проект",
+  "pages.settings.tabs.section.project.subtitle": "Редактируйте проект F/F"
 }
