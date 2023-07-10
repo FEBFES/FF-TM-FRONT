@@ -12,22 +12,18 @@ import { IPriorityTypeItem } from './PrioritySelect.type';
 import classNames from 'classnames';
 
 const priorityArr: IPriorityTypeItem[] = [
-  // todo i18next
   {
     title: 'DEFAULT',
     value: <PriorityDefault />,
   },
-  // todo i18next
   {
     title: 'LOW',
     value: <PriorityLow />,
   },
-  // todo i18next
   {
     title: 'MEDIUM',
     value: <PriorityMedium />,
   },
-  // todo i18next
   {
     title: 'HIGH',
     value: <PriorityHigh />,

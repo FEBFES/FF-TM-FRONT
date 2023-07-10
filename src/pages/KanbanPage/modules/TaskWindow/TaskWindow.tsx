@@ -9,6 +9,7 @@ import { serverString } from '../../../../config';
 import { TaskLabel } from '../../../../ui/TaskLabel/TaskLabel';
 import { PriorityLabel } from '../../../../ui/PriorityLabel/PriorityLabel';
 import { IFile } from '../../components/TaskCard/TaskCard.type';
+import i18n from 'i18next';
 
 interface TaskWindowProps {
   setShowWindow: (bool: boolean) => void;
@@ -68,8 +69,9 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
 
       <div className={styles.users}>
         <div className={styles.user__block}>
-          {/* // todo i18next */}
-          <span className={styles.user__title}>Owner:</span>
+          <span className={styles.user__title}>
+            {i18n.t('utils.any.owner')}:
+          </span>
           <img
             className={styles.user__avatar}
             src={
@@ -81,23 +83,25 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
           />
         </div>
         <div className={styles.user__block}>
-          {/* // todo i18next */}
-          <span className={styles.user__title}>Assignee:</span>
+          <span className={styles.user__title}>
+            {i18n.t('utils.any.assignee')}:
+          </span>
           <img className={styles.user__avatar} src={human} alt={'human'} />
         </div>
       </div>
 
       <div className={styles.priority}>
         <div className={styles.priority__container}>
-          {/* // todo i18next */}
-          <span className={styles.user__title}>Proirity:</span>
+          <span className={styles.user__title}>
+            {i18n.t('utils.any.priority')}:
+          </span>
           <PriorityLabel priority={task.priority} />
         </div>
 
         <div className={styles.priority__container}>
-          {/* // todo i18next */}
-          <span className={styles.user__title}>Type:</span>
-          {/*todo change to ui comp badge*/}
+          <span className={styles.user__title}>
+            {i18n.t('utils.any.type')}:
+          </span>
           <TaskLabel type={task.type} />
         </div>
       </div>
@@ -105,8 +109,9 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
       <div className={styles.date}></div>
 
       <div className={styles.description}>
-        {/* // todo i18next */}
-        <h3 className={styles.user__title}>Description:</h3>
+        <h3 className={styles.user__title}>
+          {i18n.t('utils.any.description')}:
+        </h3>
         <p className={styles.description__text}>{task.description || ''}</p>
       </div>
 
@@ -115,8 +120,8 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
           onClick={() => setCurSubPage('files')}
           className={`${styles.windowToggle__item}`}
         >
-          {/* // todo i18next */}
-          Files {task.filesCounter}
+          {i18n.t('pages.kanban.taskWindow.tabs.files.title')}{' '}
+          {task.filesCounter}
         </div>
       </div>
 
@@ -124,7 +129,7 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
         <div className={styles.filesUploadContainer}>
           <div className={styles.fileInput__container}>
             <label className={styles.fileInput_label} htmlFor="inputFIle">
-              Upload new file
+              {i18n.t('pages.kanban.taskWindow.tabs.files.uploadText')}
             </label>
             <input
               id={'inputFIle'}

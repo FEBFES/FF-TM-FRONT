@@ -69,8 +69,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               className={styles.ddCont__text}
               onClick={() => dispatch(fetchDelProject(proj.id))}
             >
-              {/* todo i18next */}
-              Delete
+              {i18n.t('utils.buttons.delete')}
             </div>
           </DropDown>
 

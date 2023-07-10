@@ -80,7 +80,7 @@
 }
 .additionally__right {
   width: 25%;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   display: flex;
 }
