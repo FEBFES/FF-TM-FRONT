@@ -100,8 +100,12 @@ export const TaskCard: React.FC<TaskCardProps> = ({
             className={styles.task_attachments}
           >
             <DropDown show={showDD} setShow={setShowDD}>
-              {/* todo i18next */}
-              <p onClick={() => delTask(task.columnId, task.id)}>Delete</p>
+              <p
+                className={styles.delBtn}
+                onClick={() => delTask(task.columnId, task.id)}
+              >
+                {i18n.t('utils.buttons.delete')}
+              </p>
             </DropDown>
             <DotsIcon w={12} />
           </div>

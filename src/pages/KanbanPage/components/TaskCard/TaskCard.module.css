@@ -148,3 +148,7 @@
   margin-right: 2px;
   transform: translateY(-1px);
 }
+
+.delBtn {
+  font-size: 12px;
+}

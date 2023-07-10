@@ -9,6 +9,7 @@
   "utils.buttons.edit": "Редактировать",
   "utils.buttons.cancel": "Отменить",
 
+  "utils.any.owner": "Владелец",
   "utils.any.assignee": "Ответственный",
   "utils.any.status": "Статус",
   "utils.any.name": "Название",
@@ -21,6 +22,11 @@
   "utils.any.displayName": "Краткое имя",
   "utils.any.priority": "Приоритет",
   "utils.any.type": "Тип",
+
+  "ui.components.priority.default": "Обычный",
+  "ui.components.priority.low": "Низкий",
+  "ui.components.priority.medium": "Средний",
+  "ui.components.priority.high": "Высокий",
 
   "routes.sidebar.home": "Домашняя",
   "routes.sidebar.projects": "Проекты",
@@ -46,6 +52,8 @@
   "pages.registration.login.label": "У вас уже есть учетная запись?",
   "pages.registration.login.action": "Войти",
 
+  "pages.kanban.taskWindow.tabs.files.title": "Файлы",
+  "pages.kanban.taskWindow.tabs.files.uploadText": "Загрузить новый файл",
   "pages.kanban.header.breadcrumbs.1": "Проекты",
   "pages.kanban.main.card.create.date": "Дата создания",
   "pages.kanban.components.modal.add.createMultiple": "Создать несколько",

@@ -38,7 +38,6 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          {/* todo i18next */}
           <InputField
             placeholder={i18n.t('utils.any.description')}
             withLabel
