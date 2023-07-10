@@ -1,7 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../../api/http';
 import { AxiosError } from 'axios';
-import { addToast } from '../../../store/App/AppSlice';
 import { v4 } from 'uuid';
 import { addTaskToCol } from './kanban.slice';
 import { IPriorityType } from '../components/PrioritySelect/PrioritySelect.type';
@@ -9,6 +8,7 @@ import { ITypeSelectType } from '../components/TypeSelect/TypeSelect';
 import { setCurDashboard } from '../../ProjectsPage/store/projects.slice';
 import { IColumns } from '../components/Column/Column.type';
 import { ITask } from '../components/TaskCard/TaskCard.type';
+import { addToast } from '../../Root/store/AppSlice';
 
 // Get task info
 export const fetchGetTaskInfo = createAsyncThunk(
