@@ -1,9 +1,14 @@
 {
   "utils.buttons.add": "Добавить",
   "utils.buttons.create": "Создать",
-  "utils.buttons.cancel": "Назад",
+  "utils.buttons.back": "Назад",
   "utils.buttons.update": "Обновить",
   "utils.buttons.confirm": "Подтвердить",
+  "utils.buttons.save": "Сохранить",
+  "utils.buttons.delete": "Удалить",
+  "utils.buttons.edit": "Редактировать",
+  "utils.buttons.cancel": "Отменить",
+
   "utils.any.name": "Название",
   "utils.any.description": "Описание",
   "utils.any.avatar": "Аватар",

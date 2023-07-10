@@ -17,7 +17,7 @@ export const Confirm: React.FC<ConfirmProps> = ({
         <h1 className={styles.title}>{title}</h1>
         <div className={styles.btnCont}>
           <Button theme={'danger'} onClick={() => setShow(false)}>
-            {i18n.t('utils.buttons.cancel')}
+            {i18n.t('utils.buttons.back')}
           </Button>
           <Button
             theme={'primary'}
