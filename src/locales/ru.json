@@ -52,6 +52,7 @@
   "pages.registration.login.label": "У вас уже есть учетная запись?",
   "pages.registration.login.action": "Войти",
 
+  "pages.kanban.taskWindow.main.info.creationDate": "Дата создания",
   "pages.kanban.taskWindow.tabs.files.title": "Файлы",
   "pages.kanban.taskWindow.tabs.files.uploadText": "Загрузить новый файл",
   "pages.kanban.header.breadcrumbs.1": "Проекты",

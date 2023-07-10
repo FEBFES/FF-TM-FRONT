@@ -7,8 +7,9 @@ import { fetchRegistration } from '../../store/auth.thunk';
 import { IRegisterFormDataType } from '../../store/auth.type';
 import { Link, useNavigate } from 'react-router-dom';
 import { appRoutsPath } from '../../../../routing/routs';
-import { RegistrationFormProps } from './RegistrationForm.props';
 import { useTranslation } from 'react-i18next';
+
+interface RegistrationFormProps {}
 
 export const RegistrationForm: React.FC<
   RegistrationFormProps

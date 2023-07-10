@@ -4,6 +4,8 @@ import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { fetchProjects } from '../../../ProjectsPage/store/projects.thunk';
 import { fetchGetUserInfo } from '../../../../store/User/user.thunk';
 import { privateRoutes } from '../../../../routing/routs';
+import { EmptyLayout } from '../../../../layouts/EmptyLayout/EmptyLayout';
+import { NotFoundPage } from '../../../404/NotFoundPage';
 
 export const AuthAppRoutes: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -29,6 +31,14 @@ export const AuthAppRoutes: React.FC = () => {
           />
         );
       })}
+      <Route
+        path="*"
+        element={
+          <EmptyLayout pageTitle={'No Found Page'}>
+            <NotFoundPage />
+          </EmptyLayout>
+        }
+      />
     </Routes>
   );
 };
