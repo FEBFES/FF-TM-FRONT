@@ -27,7 +27,7 @@ const links = [
     title: i18n.t('routes.sidebar.projects'),
     icon: ProjectsIcon,
     to: '/KanbanPage',
-    private: true,
+    private: false,
   },
   // {
   //   title:  i18n.t(''),
@@ -45,7 +45,7 @@ const links = [
     title: i18n.t('routes.sidebar.settings'),
     icon: SettingsIcon,
     to: '/SettingsPage/',
-    private: true,
+    private: false,
   },
 ];
 
