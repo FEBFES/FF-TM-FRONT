@@ -39,7 +39,7 @@ export const AddColModal: React.FC<AddColModalProps> = ({
             {i18n.t('pages.settings.tabs.project.column.addNew')}
           </h1>
 
-          <Button theme={'close'} onClick={() => setShow(false)} />
+          {/*<Button theme={'close'} onClick={() => setShow(false)} />*/}
         </div>
 
         <div className={styles.modal__main}>
@@ -60,12 +60,12 @@ export const AddColModal: React.FC<AddColModalProps> = ({
         </div>
 
         <div className={styles.modal__footer}>
-          <Button theme={'danger'} onClick={() => setShow(false)}>
+          <Button variant={'secondary'} onClick={() => setShow(false)}>
             {i18n.t('utils.buttons.back')}
           </Button>
           <Button
             disabled={colName === ''}
-            theme={'primary'}
+            variant={'primary'}
             onClick={addNewColumn}
           >
             {i18n.t('utils.buttons.create')}

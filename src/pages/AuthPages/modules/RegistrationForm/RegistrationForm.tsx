@@ -62,7 +62,7 @@ export const RegistrationForm: React.FC<
       />
       <Button
         className={styles.regform__btn}
-        theme={'submit'}
+        variant={'submit'}
         onClick={submitHandler}
       >
         {t('pages.registration.button.submit')}

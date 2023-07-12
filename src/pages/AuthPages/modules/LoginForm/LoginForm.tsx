@@ -52,7 +52,7 @@ export const LoginForm: React.FC<LoginFormProps> = (): JSX.Element => {
       <Button
         onClick={submitHandler}
         className={styles.btnSubmit}
-        theme={'submit'}
+        variant={'primary'}
       >
         {t('pages.login.form.button.submit')}
       </Button>
@@ -63,7 +63,7 @@ export const LoginForm: React.FC<LoginFormProps> = (): JSX.Element => {
           navigate(appRoutsPath.RegistrationPage.to);
         }}
         className={styles.btnNewAcc}
-        theme={'outline'}
+        variant={'submit'}
       >
         {t('pages.login.form.button.newAcc')}
       </Button>

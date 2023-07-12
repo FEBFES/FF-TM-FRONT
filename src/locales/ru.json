@@ -8,6 +8,7 @@
   "utils.buttons.delete": "Удалить",
   "utils.buttons.edit": "Редактировать",
   "utils.buttons.cancel": "Отменить",
+  "utils.buttons.reset": "Сбросить",
 
   "utils.any.owner": "Владелец",
   "utils.any.assignee": "Ответственный",
