@@ -96,7 +96,11 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
         <h3 className={styles.user__title}>
           {i18n.t('utils.any.description')}:
         </h3>
-        <p className={styles.description__text}>{task.description || ''}</p>
+        <textarea
+          className={styles.description__text}
+          value={task.description || ''}
+          onChange={() => {}}
+        />
       </div>
 
       <div className={styles.windowToggle}>
