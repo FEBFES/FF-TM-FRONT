@@ -9,8 +9,7 @@ import { useTheme } from '../../../../hooks/useTheme';
 import { fetchFavoriteToggle } from '../../../ProjectsPage/store/projects.thunk';
 import i18n from 'i18next';
 import { fetchGetProjectMembers } from '../../store/kanban.thunk';
-import { Avatar } from '../../../../ui/Avatar/Avatar';
-import human from '../../../../assets/img/human.png';
+import { AvatarGroup } from '../../../../ui/AvatarGroup/AvatarGroup';
 
 export const KanbanPageHeader: React.FC = (): JSX.Element => {
   const { projectName, projId, isFavorite, members } = useTypedSelector(
@@ -40,6 +39,10 @@ export const KanbanPageHeader: React.FC = (): JSX.Element => {
       </div>
 
       <div className={styles.header__right}>
+        <div className={styles.teams}>
+          <AvatarGroup members={members} />
+        </div>
+
         <Switcher isActive={theme === 'dark'} onClick={changeTheme} />
         {/*<div className={styles.inputCont}>*/}
         {/*  <input className={styles.input} type="text" />*/}
@@ -47,13 +50,6 @@ export const KanbanPageHeader: React.FC = (): JSX.Element => {
         {/*    <SearchIcon />*/}
         {/*  </div>*/}
         {/*</div>*/}
-
-        <div className={styles.teams}>
-          {/*todo add members UI COMPONENT*/}
-          {members.map((el: any) => {
-            return <Avatar src={el.userPic ? el.userPic : human} bordered />;
-          })}
-        </div>
 
         <div className={styles.line} />
         <div

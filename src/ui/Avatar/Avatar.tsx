@@ -14,11 +14,13 @@ interface AvatarProps
 
 export const Avatar: React.FC<AvatarProps> = ({
   size = 's',
-  bordered,
+  bordered = true,
   ...props
 }): JSX.Element => {
   return (
     <img
+      alt={i18n.t('utils.any.avatar')}
+      {...props}
       className={classNames(styles.avatar, {
         [styles.avatar_bordered]: bordered,
         [styles.avatar_2xs]: size === '2xs',
@@ -30,8 +32,6 @@ export const Avatar: React.FC<AvatarProps> = ({
         [styles.avatar_2xl]: size === '2xl',
         [styles.avatar_fit]: size === 'fit',
       })}
-      alt={i18n.t('utils.any.avatar')}
-      {...props}
     />
   );
 };

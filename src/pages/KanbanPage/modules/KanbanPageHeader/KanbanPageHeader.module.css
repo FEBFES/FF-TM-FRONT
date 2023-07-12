@@ -44,6 +44,7 @@
 }
 
 .teams {
+  position: relative;
   margin-right: 48px;
   margin-left: 48px;
 }
