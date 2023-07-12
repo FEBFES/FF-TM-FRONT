@@ -4,12 +4,14 @@ import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { ButtonProps } from './Button.props';
+import { Loader } from '../Loader/Loader';
 
 export const Button: React.FC<ButtonProps> = ({
   onClick,
   theme,
   children,
   className,
+  load = false,
   ...props
 }): JSX.Element => {
   if (theme === 'close') {
@@ -34,12 +36,15 @@ export const Button: React.FC<ButtonProps> = ({
         [styles.buttonDefault]: theme === 'default',
         [styles.buttonPrimary]: theme === 'primary',
       })}
-      onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
-        onClick ? onClick(e) : {}
-      }
+      onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+        if (onClick && !load) {
+          onClick(e);
+        }
+      }}
       {...props}
     >
       {children}
+      {load && <Loader />}
     </button>
   );
 };
