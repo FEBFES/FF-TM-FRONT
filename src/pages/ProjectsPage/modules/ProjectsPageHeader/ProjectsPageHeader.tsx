@@ -12,7 +12,7 @@ export const ProjectsPageHeader: React.FC = (): JSX.Element => {
       <h1 className={styles.page__title}>
         {i18n.t('pages.projects.header.title')}
       </h1>
-      <Button theme={'primary'} onClick={() => setShow(true)}>
+      <Button variant={'primary'} onClick={() => setShow(true)}>
         {i18n.t('pages.projects.header.addBtn')}
       </Button>
       <AddNewProjModal show={show} setShow={setShow} />

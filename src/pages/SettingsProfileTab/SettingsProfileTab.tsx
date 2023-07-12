@@ -181,13 +181,13 @@ export const SettingsProfileTab: React.FC<
 
       <div className={styles.btnContainer}>
         {!btnDisabled && (
-          <Button theme={'danger'} onClick={resetInputsData}>
-            {i18n.t('utils.buttons.back')}
+          <Button variant={'danger'} onClick={resetInputsData}>
+            {i18n.t('utils.buttons.reset')}
           </Button>
         )}
         <Button
           disabled={btnDisabled}
-          theme={'primary'}
+          variant={'primary'}
           onClick={changeUserInfo}
         >
           {i18n.t('utils.buttons.update')}

@@ -16,11 +16,11 @@ export const Confirm: React.FC<ConfirmProps> = ({
       <div className={styles.cont}>
         <h1 className={styles.title}>{title}</h1>
         <div className={styles.btnCont}>
-          <Button theme={'danger'} onClick={() => setShow(false)}>
+          <Button variant={'danger'} onClick={() => setShow(false)}>
             {i18n.t('utils.buttons.back')}
           </Button>
           <Button
-            theme={'primary'}
+            variant={'primary'}
             onClick={() => {
               onConfirm();
               setShow(false);

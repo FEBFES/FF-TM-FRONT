@@ -40,7 +40,10 @@ export const ColumnsSection: React.FC<
           </div>
 
           <div>
-            <Button theme={'primary'} onClick={() => setShowAddColModal(true)}>
+            <Button
+              variant={'primary'}
+              onClick={() => setShowAddColModal(true)}
+            >
               {i18n.t('pages.settings.tabs.project.column.addNew')}
             </Button>
           </div>
@@ -58,8 +61,8 @@ export const ColumnsSection: React.FC<
       </div>
       {isChanged && (
         <div className={styles.columnContainer__footer}>
-          <Button theme={'danger'}>Cancel</Button>
-          <Button theme={'submit'}>Save</Button>
+          <Button variant={'danger'}>Cancel</Button>
+          <Button variant={'submit'}>Save</Button>
         </div>
       )}
 

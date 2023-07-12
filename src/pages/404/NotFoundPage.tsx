@@ -20,7 +20,7 @@ export const NotFoundPage = () => {
         <Button
           className={styles.prevBtn}
           onClick={() => navigate(-1)}
-          theme={'default'}
+          variant={'secondary'}
         >
           <ArrowIcon />
           {t('pages.notFoundPage.backButton')}
@@ -28,7 +28,7 @@ export const NotFoundPage = () => {
         <Button
           className={styles.homeBtn}
           onClick={() => navigate(appRoutsPath.ProjectPage.path)}
-          theme={'default'}
+          variant={'primary'}
         >
           {t('pages.notFoundPage.homeButton')}
         </Button>

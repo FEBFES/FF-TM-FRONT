@@ -51,10 +51,10 @@ export const ProjectSection: React.FC<
 
         {isEdit && (
           <div className={styles.header__right}>
-            <Button onClick={() => clearInputs()} theme={'danger'}>
+            <Button onClick={() => clearInputs()} variant={'danger'}>
               {i18n.t('utils.buttons.cancel')}
             </Button>
-            <Button onClick={() => updateProjInfoHandler()} theme={'submit'}>
+            <Button onClick={() => updateProjInfoHandler()} variant={'submit'}>
               {i18n.t('utils.buttons.save')}
             </Button>
           </div>

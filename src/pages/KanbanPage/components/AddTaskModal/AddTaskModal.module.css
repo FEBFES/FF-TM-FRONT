@@ -99,16 +99,6 @@
   align-items: center;
 }
 
-.submitBtn {
-  margin: 0;
-  background: var(--bg-primary);
-  border-radius: 6px;
-  padding: 5px 14px !important;
-  color: #ffffff;
-  font-size: 14px !important;
-  font-weight: 500 !important;
-}
-
 .task_type {
   margin-right: 10px;
   display: flex;

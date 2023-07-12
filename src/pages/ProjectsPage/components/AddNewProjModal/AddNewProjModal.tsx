@@ -27,7 +27,7 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
           <h1 className={styles.cont__headerTitle}>
             {i18n.t('pages.projects.header.addBtn')}
           </h1>
-          <Button theme={'close'} onClick={() => setShow(false)} />
+          <Button btnType={'close'} onClick={() => setShow(false)} />
         </div>
 
         <div className={styles.projCont}>
@@ -49,7 +49,7 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
 
         <div className={styles.cont__footer}>
           <Button
-            theme={'outline'}
+            variant={'secondary'}
             onClick={() => {
               setShow(false);
             }}
@@ -57,7 +57,7 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
             {i18n.t('utils.buttons.cancel')}
           </Button>
           <Button
-            theme={'primary'}
+            variant={'primary'}
             onClick={() => {
               dispatch(fetchAddProject({ name, desc }))
                 .unwrap()

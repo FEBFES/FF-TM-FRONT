@@ -128,8 +128,7 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
                 setShow(false);
               }
             }}
-            theme={'default'}
-            className={styles.submitBtn}
+            variant={'primary'}
           >
             {i18n.t('utils.buttons.create')}
           </Button>
