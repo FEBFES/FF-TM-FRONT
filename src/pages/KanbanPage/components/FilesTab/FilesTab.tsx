@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styles from '../../modules/TaskWindow/TaskWindow.module.css';
 import i18n from 'i18next';
 import { IFile } from '../TaskCard/TaskCard.type';
@@ -6,11 +6,16 @@ import { instance } from '../../../../api/http';
 import { useTypedSelector } from '../../../../hooks/redux';
 import { FileCard } from '../FileCard/FileCard';
 
-interface FilesTabProps {}
+interface FilesTabProps {
+  files: IFile[] | [];
+  setFiles: (files: IFile[]) => void;
+}
 
-export const FilesTab: React.FC<FilesTabProps> = (): JSX.Element => {
+export const FilesTab: React.FC<FilesTabProps> = ({
+  files,
+  setFiles,
+}): JSX.Element => {
   const task = useTypedSelector((state) => state.projectKanban.taskWindowInfo);
-  const [files, setFiles] = useState<IFile[] | []>([]);
 
   useEffect(() => {
     if (!task) {
@@ -23,7 +28,7 @@ export const FilesTab: React.FC<FilesTabProps> = (): JSX.Element => {
       .then((res) => {
         setFiles(res.data.files);
       });
-  }, [task]);
+  }, [task, setFiles]);
 
   const uploadNewFile = (e: any) => {
     const photo = e.target.files[0];
