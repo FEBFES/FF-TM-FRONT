@@ -45,14 +45,7 @@
 
 .teams {
   margin-right: 48px;
-  display: flex;
-  align-items: center;
-}
-
-.addUserBtn {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+  margin-left: 48px;
 }
 
 .inputCont {
@@ -102,15 +95,4 @@
 .settingsBtn {
   display: flex;
   align-items: center;
-}
-
-.avatar {
-  width: 27px;
-  height: 27px;
-  border-radius: 100px;
-  border: 1px solid var(--bg-border);
-  background: var(--bg-0);
-}
-.avatar:last-of-type {
-  transform: translateX(-40%);
 }
