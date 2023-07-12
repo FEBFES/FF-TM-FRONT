@@ -103,19 +103,23 @@
 }
 
 .description {
-  height: 5%;
   padding: 0 18px;
   margin-top: 20px;
-  min-height: 50px;
+  min-height: 100px;
 }
 
 .description__text {
-  height: 100%;
-  overflow-y: scroll;
+  height: 100px;
+  position: relative;
+  width: 100%;
+  resize: none;
+  background: transparent;
+  border: 5px;
   margin-top: 6px;
   font-weight: 400;
   font-size: 14px;
   color: #575757;
+  outline: none;
 }
 
 .windowToggle {
