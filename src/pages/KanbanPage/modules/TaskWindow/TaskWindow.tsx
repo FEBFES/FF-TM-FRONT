@@ -10,6 +10,7 @@ import i18n from 'i18next';
 import { FilesTab } from '../../components/FilesTab/FilesTab';
 import moment from 'moment';
 import { Avatar } from '../../../../ui/Avatar/Avatar';
+import { IFile } from '../../components/TaskCard/TaskCard.type';
 
 interface TaskWindowProps {
   setShowWindow: (bool: boolean) => void;
@@ -20,6 +21,7 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
 }): JSX.Element | null => {
   const [curSubPage, setCurSubPage] = useState<'files'>('files');
   const task = useTypedSelector((state) => state.projectKanban.taskWindowInfo);
+  const [files, setFiles] = useState<IFile[] | []>([]);
 
   if (task === null) {
     return null;
@@ -103,11 +105,11 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
           className={`${styles.windowToggle__item}`}
         >
           {i18n.t('pages.kanban.taskWindow.tabs.files.title')}{' '}
-          {task.filesCounter}
+          {files?.length || ''}
         </div>
       </div>
 
-      {curSubPage === 'files' && <FilesTab />}
+      {curSubPage === 'files' && <FilesTab files={files} setFiles={setFiles} />}
     </div>
   );
 };
