@@ -9,6 +9,7 @@ import { PriorityLabel } from '../../../../ui/PriorityLabel/PriorityLabel';
 import i18n from 'i18next';
 import { FilesTab } from '../../components/FilesTab/FilesTab';
 import moment from 'moment';
+import { Avatar } from '../../../../ui/Avatar/Avatar';
 
 interface TaskWindowProps {
   setShowWindow: (bool: boolean) => void;
@@ -48,21 +49,21 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
           <span className={styles.user__title}>
             {i18n.t('utils.any.owner')}:
           </span>
-          <img
-            className={styles.user__avatar}
+          <Avatar
+            bordered
+            size={'m'}
             src={
               task.owner?.userPic
                 ? `${serverString}${task.owner.userPic}`
                 : human
             }
-            alt={'human'}
           />
         </div>
         <div className={styles.user__block}>
           <span className={styles.user__title}>
             {i18n.t('utils.any.assignee')}:
           </span>
-          <img className={styles.user__avatar} src={human} alt={'human'} />
+          <Avatar size={'m'} bordered src={human} alt={'human'} />
         </div>
       </div>
 

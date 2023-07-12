@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './SettingsProfileTab.module.css';
 import comStyle from '../SettingsPage/commonStyle.module.css';
-import { faPen, faTrash, faCamera } from '@fortawesome/free-solid-svg-icons';
+import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
 import { serverString } from '../../config';
@@ -13,6 +13,8 @@ import {
   fetchDeleteUserAvatar,
   fetchUploadNewUserAvatar,
 } from '../../store/User/user.thunk';
+import { Avatar } from '../../ui/Avatar/Avatar';
+import human from '../../assets/img/human.png';
 
 interface ProfileTabProps {}
 
@@ -105,15 +107,11 @@ export const SettingsProfileTab: React.FC<
       <div className={styles.userBackground} />
 
       <div className={styles.userAvatarCont}>
-        {userAvatar ? (
-          <img
-            className={styles.userAvatarCont__image}
-            src={`${serverString}${userAvatar}`}
-            alt={i18n.t('utils.any.avatar')}
-          />
-        ) : (
-          <FontAwesomeIcon icon={faCamera} size={'lg'} />
-        )}
+        <Avatar
+          size={'2xl'}
+          src={userAvatar ? `${serverString}${userAvatar}` : human}
+          alt={i18n.t('utils.any.avatar')}
+        />
         {userPic && (
           <div
             className={`${styles.fileInput__btn} ${styles.fileInput_delete}`}

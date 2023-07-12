@@ -41,9 +41,8 @@ export const KanbanPageHeader: React.FC = (): JSX.Element => {
         {/*</div>*/}
 
         {/*<div className={styles.teams}>*/}
-        {/*//todo change to avatar component*/}
-        {/*  <img className={styles.avatar} src={human} alt="avatar" />*/}
-        {/*  <img className={styles.avatar} src={human} alt="avatar" />*/}
+        {/*  <Avatar className={styles.avatar} src={human} />*/}
+        {/*  <Avatar className={styles.avatar} src={human} />*/}
         {/*  <div className={styles.addUserBtn}>*/}
         {/*    <PlusIcon />*/}
         {/*  </div>*/}

@@ -89,13 +89,6 @@
   margin-right: 10px;
 }
 
-.user__avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 100px;
-  border: 1px solid var(--bg-border);
-  margin: 5px;
-}
 .priority__container {
   display: flex;
   align-items: center;
