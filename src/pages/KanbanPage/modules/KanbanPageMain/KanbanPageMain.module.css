@@ -2,28 +2,4 @@
   background: var(--bg-100);
   width: 100%;
   height: 85%;
-  /*overflow: scroll;*/
-}
-
-.colCont {
-  padding-left: 10px;
-  background: var(--bg-0);
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  overflow-x: scroll;
-  height: 100%;
-}
-
-.colCont::-webkit-scrollbar {
-  height: 8px;
-}
-
-.colCont::-webkit-scrollbar-track {
-  background: var(--bg-0);
-}
-
-.colCont::-webkit-scrollbar-thumb {
-  background-color: var(--bg-primary);
-  border-radius: 10px;
 }

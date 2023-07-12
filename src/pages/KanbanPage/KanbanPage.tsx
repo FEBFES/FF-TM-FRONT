@@ -7,14 +7,16 @@ import { TaskWindow } from './modules/TaskWindow/TaskWindow';
 
 export const KanbanPage: React.FC = (): JSX.Element => {
   const [showTaskModal, setShowTaskModal] = useState<boolean>(false);
+  const [curView, setCurView] = useState<'col' | 'row'>('col');
+
   return (
     <div className={styles.wrap}>
       <div
         className={`${styles.KanbanPage} ${showTaskModal && styles.showModal}`}
       >
         <KanbanPageHeader />
-        <KanbanPageSubheader />
-        <KanbanPageMain setShowTaskModal={setShowTaskModal} />
+        <KanbanPageSubheader curView={curView} setCurView={setCurView} />
+        <KanbanPageMain curView={curView} setShowTaskModal={setShowTaskModal} />
       </div>
 
       {showTaskModal && <TaskWindow setShowWindow={setShowTaskModal} />}
