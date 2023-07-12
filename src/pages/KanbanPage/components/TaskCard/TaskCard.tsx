@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import styles from './TaskCard.module.css';
 import { delTaskFromCol } from '../../store/kanban.slice';
 import { useAppDispatch } from '../../../../hooks/redux';
-import {
-  AttachmentsIcon,
-  CommentsIcon,
-} from '../../../../assets/icons/TaskIcons';
+import { AttachmentsIcon } from '../../../../assets/icons/TaskIcons';
 import human from '../../../../assets/img/human.png';
 import { fetchGetTaskInfo } from '../../store/kanban.thunk';
 import { TaskCardProps } from './TaskCard.props';
@@ -81,10 +78,10 @@ export const TaskCard: React.FC<TaskCardProps> = ({
         </div>
 
         <div className={styles.footer_right}>
-          <div className={styles.task_attachments}>
-            <span className={styles.task_attachments_counter}>8</span>
-            <CommentsIcon />
-          </div>
+          {/*<div className={styles.task_attachments}>*/}
+          {/*  <span className={styles.task_attachments_counter}>8</span>*/}
+          {/*  <CommentsIcon />*/}
+          {/*</div>*/}
           {task.filesCounter !== 0 && (
             <div className={styles.task_attachments}>
               <span className={styles.task_attachments_counter}>
