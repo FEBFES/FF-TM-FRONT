@@ -30,20 +30,6 @@
   justify-content: flex-start;
 }
 
-.task_avatar {
-  height: 27px;
-  width: 27px;
-  border: 1px solid var(--bg-border);
-  border-radius: 100px;
-  overflow: hidden;
-}
-.task_avatar > img {
-  transform: scale(1.1);
-  width: 100%;
-  height: 100%;
-  border-radius: 100px;
-}
-
 .task__main {
   padding-bottom: 10px;
   display: flex;
