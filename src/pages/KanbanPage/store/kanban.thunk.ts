@@ -68,6 +68,62 @@ export const fetchProjectInfo = createAsyncThunk(
   }
 );
 
+//Get project members
+export const fetchGetProjectMembers = createAsyncThunk(
+  'projects/fetchGetProjectMembers',
+  async ({ projId }: { projId: number }, { rejectWithValue }) => {
+    try {
+      const res = await instance.get(`projects/${projId}/members`);
+
+      if (res.status === 200) {
+        return res.data;
+      }
+    } catch (err) {
+      return rejectWithValue(err as AxiosError);
+    }
+  }
+);
+
+//Add member to project
+export const fetchAddMemberToProject = createAsyncThunk(
+  'project/fetchAddMemberToProject',
+  async (
+    { projId, memberIds }: { projId: number; memberIds: number[] },
+    { rejectWithValue }
+  ) => {
+    try {
+      const res = await instance.post(`projects/${projId}/members`, memberIds);
+
+      if (res.status === 200) {
+        return res.data;
+      }
+    } catch (err) {
+      return rejectWithValue(err as AxiosError);
+    }
+  }
+);
+
+//Delete member from project
+export const fetchDeleteMemberFromProject = createAsyncThunk(
+  'project/fetchDeleteMemberFromProject',
+  async (
+    { projId, memberId }: { projId: number; memberId: number },
+    { rejectWithValue }
+  ) => {
+    try {
+      const res = await instance.delete(
+        `projects/${projId}/members/${memberId}`
+      );
+
+      if (res.status === 200) {
+        return memberId;
+      }
+    } catch (err) {
+      return rejectWithValue(err as AxiosError);
+    }
+  }
+);
+
 //Get project dashboard
 export const fetchProjectDashboard = createAsyncThunk(
   'projects/fetchAllProjectColumns',

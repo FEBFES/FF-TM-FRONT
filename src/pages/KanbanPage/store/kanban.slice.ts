@@ -1,9 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
+  fetchAddMemberToProject,
   fetchAddNewCol,
   fetchAddNewTask,
   fetchDelCol,
+  fetchDeleteMemberFromProject,
   fetchDelTask,
+  fetchGetProjectMembers,
   fetchGetTaskInfo,
   fetchProjectDashboard,
   fetchProjectInfo,
@@ -12,6 +15,7 @@ import {
 import { fetchFavoriteToggle } from '../../ProjectsPage/store/projects.thunk';
 import { IColumns } from '../components/Column/Column.type';
 import { ITask } from '../components/TaskCard/TaskCard.type';
+import { IMember } from './kanban.type';
 
 interface IKanbanInitialState {
   columns: IColumns[];
@@ -23,6 +27,7 @@ interface IKanbanInitialState {
   projId: number | null;
   ownerId: number | null;
   isFavorite: boolean;
+  members: IMember[];
 }
 
 const initialState: IKanbanInitialState = {
@@ -35,6 +40,7 @@ const initialState: IKanbanInitialState = {
   taskWindowInfo: null,
   ownerId: null,
   isFavorite: false,
+  members: [],
 };
 
 const KanbanSlice = createSlice({
@@ -162,6 +168,20 @@ const KanbanSlice = createSlice({
         }
         return col;
       });
+    });
+    // Set project members
+    builder.addCase(fetchGetProjectMembers.fulfilled, (state, action) => {
+      state.members = action.payload;
+    });
+    // Add new member to project
+    builder.addCase(fetchAddMemberToProject.fulfilled, (state, action) => {
+      state.members.push(action.payload);
+    });
+    // Delete member from project
+    builder.addCase(fetchDeleteMemberFromProject.fulfilled, (state, action) => {
+      state.members = state.members.filter(
+        (el: IMember) => el.id !== action.payload
+      );
     });
   },
 });

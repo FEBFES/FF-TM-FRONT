@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './KanbanPageHeader.module.css';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { useNavigate } from 'react-router-dom';
@@ -8,15 +8,23 @@ import { Switcher } from '../../../../ui/Switcher';
 import { useTheme } from '../../../../hooks/useTheme';
 import { fetchFavoriteToggle } from '../../../ProjectsPage/store/projects.thunk';
 import i18n from 'i18next';
+import { fetchGetProjectMembers } from '../../store/kanban.thunk';
+import { Avatar } from '../../../../ui/Avatar/Avatar';
+import human from '../../../../assets/img/human.png';
 
 export const KanbanPageHeader: React.FC = (): JSX.Element => {
-  const { projectName, projId, isFavorite } = useTypedSelector(
+  const { projectName, projId, isFavorite, members } = useTypedSelector(
     (state) => state.projectKanban
   );
   const theme = useTypedSelector((state) => state.app.theme);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { changeTheme } = useTheme();
+
+  useEffect(() => {
+    if (projId && members.length === 0)
+      dispatch(fetchGetProjectMembers({ projId }));
+  }, [projId, members, dispatch]);
 
   return (
     <header className={styles.header}>
@@ -40,13 +48,13 @@ export const KanbanPageHeader: React.FC = (): JSX.Element => {
         {/*  </div>*/}
         {/*</div>*/}
 
-        {/*<div className={styles.teams}>*/}
-        {/*  <Avatar className={styles.avatar} src={human} />*/}
-        {/*  <Avatar className={styles.avatar} src={human} />*/}
-        {/*  <div className={styles.addUserBtn}>*/}
-        {/*    <PlusIcon />*/}
-        {/*  </div>*/}
-        {/*</div>*/}
+        <div className={styles.teams}>
+          {/*todo add members UI COMPONENT*/}
+          {members.map((el: any) => {
+            return <Avatar src={el.userPic ? el.userPic : human} bordered />;
+          })}
+        </div>
+
         <div className={styles.line} />
         <div
           className={styles.favoriteBtn}
