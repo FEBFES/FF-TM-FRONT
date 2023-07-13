@@ -3,6 +3,7 @@ import styles from './ColumnView.module.css';
 import { IColumns } from '../Column/Column.type';
 import { Column } from '../Column/Column';
 import { v4 } from 'uuid';
+import classNames from 'classnames';
 
 interface ColumnViewProps {
   columns: IColumns[];
@@ -20,7 +21,7 @@ export const ColumnView: React.FC<ColumnViewProps> = ({
   setShowAddTaskModal,
 }): JSX.Element => {
   return (
-    <div className={styles.colCont}>
+    <div className={classNames('scrollbar', styles.colCont)}>
       {columns.map((col: IColumns) => {
         return (
           <Column
