@@ -39,21 +39,19 @@
 }
 
 .subheader {
-  height: 7%;
-  margin-top: 35px;
+  height: 15%;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   padding: 0 18px 12px;
   border-bottom: 1px solid var(--bg-border);
 }
 
 .subheader__title {
-  margin: 0;
   width: 80%;
   font-weight: 600;
   font-size: 20px;
-  color: #414141;
+  color: var(--font-defautl);
   overflow: hidden;
   text-overflow: ellipsis;
 }
