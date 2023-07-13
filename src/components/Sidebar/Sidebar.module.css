@@ -10,7 +10,8 @@
   top: 0;
   bottom: 0;
   z-index: var(--z-index-mainLay-sidebar);
-  background: var(--bg-100);
+  background: var(--bg-0);
+  border-right: 1px solid var(--bg-border);
 }
 
 .sidebar__header {
@@ -26,8 +27,9 @@
 }
 
 .sidebar__main {
+  padding-left: 15px;
   width: 100%;
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
   margin-top: 40px;
@@ -43,14 +45,29 @@
 }
 
 .link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 35px;
   margin-bottom: 0;
 }
+.link > span,
+.linkActive > span {
+  margin-left: 20px;
+  font-size: 14px;
+  color: var(--font-gray);
+}
 
 .linkActive {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 35px;
   margin-bottom: 0;
   position: relative;
+}
+.linkActive > span {
+  color: var(--bg-primary);
 }
 .linkActive::before {
   content: "";

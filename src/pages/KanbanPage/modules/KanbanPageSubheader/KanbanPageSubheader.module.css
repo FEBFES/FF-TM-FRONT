@@ -2,13 +2,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: 18px;
-  padding-right: 18px;
+  padding: 0 18px;
   height: 5%;
   background: var(--bg-0);
   font-size: 14px;
-  margin-top: 5px;
   border-radius: 5px 5px 0 0;
+  border-bottom: 1px solid var(--bg-border);
 }
 
 .filters__cont {
@@ -17,7 +16,7 @@
 }
 
 .switcher {
-  padding: 4px;
+  padding: 2px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -29,7 +28,8 @@
 
   cursor: pointer;
   transition: 0.1s;
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: 500;
   color: var(--font-gray);
 }
 .switcher__item:first-of-type {

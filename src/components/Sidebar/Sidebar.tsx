@@ -18,13 +18,13 @@ import i18n from 'i18next';
 const links = [
   //TODO to - from string to const appRoutsPath
   {
-    title: i18n.t('routes.sidebar.home'),
+    title: 'routes.sidebar.projects',
     icon: HomeIcon,
     to: '/',
     private: false,
   },
   {
-    title: i18n.t('routes.sidebar.projects'),
+    title: 'routes.sidebar.kanban',
     icon: ProjectsIcon,
     to: '/KanbanPage',
     private: false,
@@ -42,7 +42,7 @@ const links = [
   //   private: true,
   // },
   {
-    title: i18n.t('routes.sidebar.settings'),
+    title: 'routes.sidebar.settings',
     icon: SettingsIcon,
     to: '/SettingsPage/',
     private: false,
@@ -75,6 +75,9 @@ export const Sidebar: React.FC = (): JSX.Element => {
               to={link.to}
             >
               <link.icon />
+              <span className={styles.link__text}>
+                {i18n.t(link.title) || ''}
+              </span>
             </NavLink>
           );
         })}

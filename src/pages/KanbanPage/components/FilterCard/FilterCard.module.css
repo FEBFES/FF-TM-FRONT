@@ -4,17 +4,16 @@
   align-items: center;
   margin-right: 5px;
   border: 1px solid var(--bg-border);
-  border-radius: 14px;
+  border-radius: 6px;
 }
 
 .filter {
   cursor: pointer;
-  padding: 4px 8px;
+  padding: 2px 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 12px;
-  line-height: 16px;
   font-weight: 400;
   margin-right: 5px;
 }

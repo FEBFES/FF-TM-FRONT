@@ -29,7 +29,11 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
       {members.map((member: IMember, i: number) => {
         if (maxCount && i + 1 > maxCount) return null;
         return (
-          <Tooltip placement={'bottom'} title={`${member.username || member}`}>
+          <Tooltip
+            key={member.id}
+            placement={'bottom'}
+            title={`${member.username || member}`}
+          >
             <div
               key={`${i}-${member.id}`}
               className={styles.avatarCont}

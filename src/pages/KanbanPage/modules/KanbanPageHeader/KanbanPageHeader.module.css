@@ -6,6 +6,7 @@
   height: 10%;
   background: var(--bg-0);
   border-radius: 0 0 5px 5px;
+  border-bottom: 1px solid var(--bg-border);
 }
 
 .header__left {
@@ -18,9 +19,9 @@
   align-items: center;
 }
 .breadcrumbs > span {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
-  color: #989898;
+  color: var(--font-gray);
   margin-right: 5px;
 }
 .breadcrumbs > span:hover {
@@ -32,9 +33,9 @@
 }
 
 .title {
-  font-weight: 700;
-  font-size: 26px;
-  color: #414141;
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--font-defautl);
 }
 
 .header__right {

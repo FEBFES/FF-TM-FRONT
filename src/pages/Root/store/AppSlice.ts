@@ -12,7 +12,7 @@ const initialState: IAppSlice = {
   toasts: [],
   theme: (localStorage.getItem('theme') as theme)
     ? (localStorage.getItem('theme') as theme)
-    : 'light',
+    : 'dark',
 };
 
 export const AppSlice = createSlice({
