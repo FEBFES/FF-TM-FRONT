@@ -16,7 +16,9 @@ export const Tooltip: React.FC<TooltipProps> = ({
 
   return (
     <div
-      className={`${children?.props?.className}`}
+      className={`${
+        children?.props?.className ? children?.props?.className : ''
+      }`}
       onMouseEnter={() => {
         hoverHandler(true);
       }}

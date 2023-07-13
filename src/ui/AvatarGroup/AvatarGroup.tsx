@@ -9,11 +9,13 @@ import { Tooltip } from '../Tooltip/Tooltip';
 interface AvatarGroupProps {
   members: IMember[];
   maxCount?: number;
+  avatarSize: '2xs' | 'xs' | 's' | 'm' | 'l' | 'xl' | '2xl' | 'fit';
 }
 
 export const AvatarGroup: React.FC<AvatarGroupProps> = ({
   members,
   maxCount,
+  avatarSize,
 }): JSX.Element => {
   const otherMember = members.length - (maxCount || 0);
 
@@ -27,26 +29,23 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
       {members.map((member: IMember, i: number) => {
         if (maxCount && i + 1 > maxCount) return null;
         return (
-          <div
-            key={`${i}-${member.id}`}
-            className={styles.avatarCont}
-            style={{
-              left: `${i * 15}px`,
-              zIndex: `${i + 1}`,
-            }}
-          >
-            <Tooltip
-              placement={'bottom'}
-              title={`${member.username || member}`}
+          <Tooltip placement={'bottom'} title={`${member.username || member}`}>
+            <div
+              key={`${i}-${member.id}`}
+              className={styles.avatarCont}
+              style={{
+                left: `${i * 15}px`,
+                zIndex: `${i + 1}`,
+              }}
             >
               <Avatar
-                size={'fit'}
+                size={avatarSize}
                 src={
                   member?.userPic ? `${serverString}${member.userPic}` : human
                 }
               />
-            </Tooltip>
-          </div>
+            </div>
+          </Tooltip>
         );
       })}
       {maxCount !== undefined && (

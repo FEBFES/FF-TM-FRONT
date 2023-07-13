@@ -40,7 +40,7 @@ export const KanbanPageHeader: React.FC = (): JSX.Element => {
 
       <div className={styles.header__right}>
         <div className={styles.teams}>
-          <AvatarGroup members={members} />
+          <AvatarGroup members={members} avatarSize={'s'} />
         </div>
 
         <Switcher isActive={theme === 'dark'} onClick={changeTheme} />
