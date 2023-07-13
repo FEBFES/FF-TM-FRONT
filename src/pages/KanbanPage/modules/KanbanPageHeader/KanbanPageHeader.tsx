@@ -28,6 +28,7 @@ export const KanbanPageHeader: React.FC = (): JSX.Element => {
   return (
     <header className={styles.header}>
       <div className={styles.header__left}>
+        <h1 className={styles.title}>{projectName || ''}</h1>
         <div className={styles.breadcrumbs}>
           <span onClick={() => navigate(appRoutsPath.ProjectPage.path)}>
             {i18n.t('pages.kanban.header.breadcrumbs.1')}
@@ -35,7 +36,6 @@ export const KanbanPageHeader: React.FC = (): JSX.Element => {
           <span>/</span>
           <span>{projectName || ''}</span>
         </div>
-        <h1 className={styles.title}>{projectName || ''}</h1>
       </div>
 
       <div className={styles.header__right}>

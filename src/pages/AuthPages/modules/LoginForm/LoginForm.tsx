@@ -62,7 +62,6 @@ export const LoginForm: React.FC<LoginFormProps> = (): JSX.Element => {
         onClick={() => {
           navigate(appRoutsPath.RegistrationPage.to);
         }}
-        className={styles.btnNewAcc}
         variant={'submit'}
       >
         {t('pages.login.form.button.newAcc')}

@@ -44,22 +44,22 @@ export const KanbanPageSubheader: React.FC<TableViewControllerProps> = ({
       </div>
       <div className={styles.filters__cont}>
         <FilterCard
-          title={i18n.t('utils.any.priority')}
-          component={
-            <PrioritySelect
-              direction={'bottom'}
-              curPriority={curPriority}
-              setCurPriority={setCurPriority}
-            />
-          }
-        />
-        <FilterCard
           title={i18n.t('utils.any.type')}
           component={
             <TypeSelect
               direction={'bottom'}
               curType={curType}
               setCurType={setCurType}
+            />
+          }
+        />
+        <FilterCard
+          title={i18n.t('utils.any.priority')}
+          component={
+            <PrioritySelect
+              direction={'bottom'}
+              curPriority={curPriority}
+              setCurPriority={setCurPriority}
             />
           }
         />

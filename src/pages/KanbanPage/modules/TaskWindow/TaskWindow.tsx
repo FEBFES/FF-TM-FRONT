@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './TaskWindow.module.css';
-import { CloseIcon, FullIcon } from '../../../../assets/icons/UtilsIcons';
+import { CloseIcon } from '../../../../assets/icons/UtilsIcons';
 import { useTypedSelector } from '../../../../hooks/redux';
 import human from '../../../../assets/img/human.png';
 import { serverString } from '../../../../config';
@@ -32,7 +32,7 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
       <header className={styles.header}>
         <h2 className={styles.taskWindow_id}>{task.id}</h2>
         <div className={styles.header__right}>
-          <FullIcon />
+          {/*<FullIcon />*/}
           <div
             className={styles.closeIcon}
             onClick={() => setShowWindow(false)}

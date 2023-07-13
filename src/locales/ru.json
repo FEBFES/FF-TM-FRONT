@@ -29,7 +29,7 @@
   "ui.components.priority.medium": "Средний",
   "ui.components.priority.high": "Высокий",
 
-  "routes.sidebar.home": "Домашняя",
+  "routes.sidebar.kanban": "Доска",
   "routes.sidebar.projects": "Проекты",
   "routes.sidebar.settings": "Настройки",
 

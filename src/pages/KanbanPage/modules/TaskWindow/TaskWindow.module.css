@@ -33,6 +33,7 @@
 
 .closeIcon {
   display: flex;
+  cursor: pointer;
   align-items: center;
   margin-left: 40px;
 }

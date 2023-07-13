@@ -9,11 +9,13 @@
 
 .task {
   cursor: grab;
-  padding: 8px 12px 0px 12px;
+  padding: 8px 12px 0 12px;
   display: flex;
   flex-direction: column;
   width: 288px;
+  background: var(--bg-0);
   border: 1px solid var(--bg-border);
+  /*box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;*/
   margin-bottom: 10px;
   border-radius: 6px;
 }
@@ -45,7 +47,8 @@
   word-wrap: break-word;
   width: 70%;
   font-size: 14px;
-  color: #575757;
+  font-weight: 500;
+  color: var(--font-defautl);
 }
 .task_title:hover {
   text-decoration: underline;

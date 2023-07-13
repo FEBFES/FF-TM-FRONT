@@ -22,6 +22,9 @@ export const RowView: React.FC<RowViewProps> = ({
   return (
     <div className={styles.rowCont}>
       {columns.map((row: IColumns) => {
+        if (row.tasks.length === 0) {
+          return null;
+        }
         return (
           <Row
             key={v4()}
