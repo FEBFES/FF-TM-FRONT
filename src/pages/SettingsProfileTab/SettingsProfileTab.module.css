@@ -6,7 +6,7 @@
   width: 100%;
   height: 180px;
   border-radius: 10px;
-  background: var(--bg-border);
+  background: var(--bg-0);
 }
 
 .userAvatarCont {
