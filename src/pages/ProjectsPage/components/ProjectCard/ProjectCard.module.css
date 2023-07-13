@@ -9,6 +9,7 @@
   min-height: 100px;
   border: 1px solid var(--bg-border);
   transition: 0.2s;
+  background: var(--bg-0);
 }
 .projectCard:hover {
   scale: 1.02;

@@ -27,7 +27,7 @@
 }
 
 .sidebar__main {
-  padding-left: 15px;
+  padding-left: 18px;
   width: 100%;
   align-items: flex-start;
   display: flex;
@@ -53,8 +53,9 @@
 }
 .link > span,
 .linkActive > span {
-  margin-left: 20px;
+  margin-left: 18px;
   font-size: 14px;
+  font-weight: 500;
   color: var(--font-gray);
 }
 
