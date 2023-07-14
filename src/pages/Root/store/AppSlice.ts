@@ -6,6 +6,7 @@ type theme = 'dark' | 'light';
 interface IAppSlice {
   toasts: IToast[];
   theme: theme;
+  sidebarFullView: boolean;
 }
 
 const initialState: IAppSlice = {
@@ -13,12 +14,20 @@ const initialState: IAppSlice = {
   theme: (localStorage.getItem('theme') as theme)
     ? (localStorage.getItem('theme') as theme)
     : 'dark',
+  sidebarFullView: true,
 };
 
 export const AppSlice = createSlice({
   name: 'appSlice',
   initialState,
   reducers: {
+    setSidebarView: (state, action) => {
+      state.sidebarFullView = action.payload;
+      document.documentElement.style.setProperty(
+        '--sideBarWidth',
+        action.payload ? '170px' : '60px'
+      );
+    },
     addToast: (state, action: PayloadAction<IToast>) => {
       state.toasts.push(action.payload);
     },
@@ -31,5 +40,6 @@ export const AppSlice = createSlice({
   },
 });
 
-export const { addToast, delToast, changeAppTheme } = AppSlice.actions;
+export const { addToast, delToast, setSidebarView, changeAppTheme } =
+  AppSlice.actions;
 export default AppSlice.reducer;
