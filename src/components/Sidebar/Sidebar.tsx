@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './Sidebar.module.css';
 import { NavLink, useLocation } from 'react-router-dom';
-import { useAppDispatch } from '../../hooks/redux';
+import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
 import { useTheme } from '../../hooks/useTheme';
 import { LogoIconDark } from '../../assets/icons/LogoIconDark';
 import { LogoIconLight } from '../../assets/icons/LogoIconLight';
@@ -17,6 +17,7 @@ import {
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
+import { setSidebarView } from '../../pages/Root/store/AppSlice';
 
 const links = [
   //TODO to - from string to const appRoutsPath
@@ -56,7 +57,7 @@ export const Sidebar: React.FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const { theme } = useTheme();
   const location = useLocation();
-  const [isFullView, setIsFullView] = useState<boolean>(true);
+  const isFullView = useTypedSelector((state) => state.app.sidebarFullView);
 
   return (
     <div className={classNames(styles.sidebar)}>
@@ -66,11 +67,7 @@ export const Sidebar: React.FC = (): JSX.Element => {
 
       <div
         onClick={() => {
-          setIsFullView(!isFullView);
-          document.documentElement.style.setProperty(
-            '--sideBarWidth',
-            isFullView ? '60px' : '170px'
-          );
+          dispatch(setSidebarView(!isFullView));
         }}
         className={classNames(styles.sidebar__toggle, {
           [styles.sidebar__toggle_full]: isFullView,
