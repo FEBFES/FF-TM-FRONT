@@ -12,6 +12,8 @@ import classNames from 'classnames';
 import { InputField } from '../../../../ui/InputField/InputField';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchUpdateCol } from '../../../KanbanPage/store/kanban.thunk';
+import { Tooltip } from '../../../../ui/Tooltip/Tooltip';
+import i18n from 'i18next';
 
 export const ColumnCard: React.FC<ColumnCardProps> = ({
   column,
@@ -61,33 +63,41 @@ export const ColumnCard: React.FC<ColumnCardProps> = ({
 
       <div className={styles.btnContainer}>
         {isEditMode ? (
-          <div
-            onClick={editModeToggle}
-            className={classNames(styles.btn, styles.trashBtn)}
-          >
-            <FontAwesomeIcon size={'xs'} icon={faClose} />
-          </div>
+          <Tooltip title={i18n.t('utils.buttons.cancel')}>
+            <div
+              onClick={editModeToggle}
+              className={classNames(styles.btn, styles.trashBtn)}
+            >
+              <FontAwesomeIcon size={'xs'} icon={faClose} />
+            </div>
+          </Tooltip>
         ) : (
-          <div
-            onClick={editModeToggle}
-            className={classNames(styles.btn, styles.editBtn)}
-          >
-            <FontAwesomeIcon size={'xs'} icon={faPen} />
-          </div>
+          <Tooltip title={i18n.t('utils.buttons.edit')}>
+            <div
+              onClick={editModeToggle}
+              className={classNames(styles.btn, styles.editBtn)}
+            >
+              <FontAwesomeIcon size={'xs'} icon={faPen} />
+            </div>
+          </Tooltip>
         )}
-        <div
-          className={classNames(styles.btn, styles.trashBtn)}
-          onClick={() => onDelete(column.projectId, column.id)}
-        >
-          <FontAwesomeIcon size={'xs'} icon={faTrashCan} />
-        </div>
-        {isEditMode && (
+        <Tooltip title={i18n.t('utils.buttons.delete')}>
           <div
-            className={classNames(styles.btn, styles.saveBtn)}
-            onClick={() => updateColumn(column.projectId, column.id)}
+            className={classNames(styles.btn, styles.trashBtn)}
+            onClick={() => onDelete(column.projectId, column.id)}
           >
-            <FontAwesomeIcon size={'xs'} icon={faSave} />
+            <FontAwesomeIcon size={'xs'} icon={faTrashCan} />
           </div>
+        </Tooltip>
+        {isEditMode && (
+          <Tooltip title={i18n.t('utils.buttons.save')}>
+            <div
+              className={classNames(styles.btn, styles.saveBtn)}
+              onClick={() => updateColumn(column.projectId, column.id)}
+            >
+              <FontAwesomeIcon size={'xs'} icon={faSave} />
+            </div>
+          </Tooltip>
         )}
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useTypedSelector } from './redux';
-import { changeAppTheme } from '../store/App/AppSlice';
+import { changeAppTheme } from '../pages/Root/store/AppSlice';
 
 export const useTheme = () => {
   const theme = useTypedSelector((state) => state.app.theme);

@@ -40,7 +40,6 @@ export const SettingsSidebar: React.FC<
       {/*  </NavLink>*/}
       {/*</li>*/}
 
-      {/* todo i18next */}
       <h2 className={styles.sidebar__subtitle}>
         {i18n.t('pages.settings.sidebar.link.title')}
       </h2>
@@ -52,7 +51,6 @@ export const SettingsSidebar: React.FC<
               : `${styles.sidebar__link_item}`
           }
           // to={'/SettingsPage/profile'}
-          //todo i18next
           to={'/SettingsPage/'}
         >
           {i18n.t('pages.settings.sidebar.link.profile')}

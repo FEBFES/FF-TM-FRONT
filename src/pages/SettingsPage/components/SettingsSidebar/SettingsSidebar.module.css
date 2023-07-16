@@ -2,6 +2,7 @@
   padding: 80px 100px;
   display: flex;
   flex-direction: column;
+  background: var(--bg-100);
 }
 
 .sidebar__title {

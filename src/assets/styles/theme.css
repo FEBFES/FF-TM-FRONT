@@ -1,7 +1,7 @@
 :root[data-theme="dark"] {
-  --bg-100: #161b22;
+  --bg-100: #11151a;
   --bg-border: #30363d;
-  --bg-0: #0d1117;
+  --bg-0: #161a20;
   --bg-shadow: #2d2a2a;
 
   --bg-primary: #1f6feb;
@@ -28,12 +28,12 @@
 }
 
 :root[data-theme="light"] {
-  --bg-100: #f5f6f8;
-  --bg-border: #e8e8e8;
+  --bg-100: #f4f6f8;
+  --bg-border: #dcdcdc;
   --bg-0: #ffffff;
   --bg-shadow: #ffffff;
 
-  --bg-primary: #1f6feb;
+  --bg-primary: rgb(89, 142, 255);
 
   --font-defautl: #000000;
   --font-gray: #444444;

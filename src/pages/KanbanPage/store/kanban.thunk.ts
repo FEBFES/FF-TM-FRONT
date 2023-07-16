@@ -1,7 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../../api/http';
 import { AxiosError } from 'axios';
-import { addToast } from '../../../store/App/AppSlice';
 import { v4 } from 'uuid';
 import { addTaskToCol } from './kanban.slice';
 import { IPriorityType } from '../components/PrioritySelect/PrioritySelect.type';
@@ -9,6 +8,7 @@ import { ITypeSelectType } from '../components/TypeSelect/TypeSelect';
 import { setCurDashboard } from '../../ProjectsPage/store/projects.slice';
 import { IColumns } from '../components/Column/Column.type';
 import { ITask } from '../components/TaskCard/TaskCard.type';
+import { addToast } from '../../Root/store/AppSlice';
 
 // Get task info
 export const fetchGetTaskInfo = createAsyncThunk(
@@ -64,6 +64,62 @@ export const fetchProjectInfo = createAsyncThunk(
       }
     } catch (err) {
       return rejectWithValue(err as Error);
+    }
+  }
+);
+
+//Get project members
+export const fetchGetProjectMembers = createAsyncThunk(
+  'projects/fetchGetProjectMembers',
+  async ({ projId }: { projId: number }, { rejectWithValue }) => {
+    try {
+      const res = await instance.get(`projects/${projId}/members`);
+
+      if (res.status === 200) {
+        return res.data;
+      }
+    } catch (err) {
+      return rejectWithValue(err as AxiosError);
+    }
+  }
+);
+
+//Add member to project
+export const fetchAddMemberToProject = createAsyncThunk(
+  'project/fetchAddMemberToProject',
+  async (
+    { projId, memberIds }: { projId: number; memberIds: number[] },
+    { rejectWithValue }
+  ) => {
+    try {
+      const res = await instance.post(`projects/${projId}/members`, memberIds);
+
+      if (res.status === 200) {
+        return res.data;
+      }
+    } catch (err) {
+      return rejectWithValue(err as AxiosError);
+    }
+  }
+);
+
+//Delete member from project
+export const fetchDeleteMemberFromProject = createAsyncThunk(
+  'project/fetchDeleteMemberFromProject',
+  async (
+    { projId, memberId }: { projId: number; memberId: number },
+    { rejectWithValue }
+  ) => {
+    try {
+      const res = await instance.delete(
+        `projects/${projId}/members/${memberId}`
+      );
+
+      if (res.status === 200) {
+        return memberId;
+      }
+    } catch (err) {
+      return rejectWithValue(err as AxiosError);
     }
   }
 );

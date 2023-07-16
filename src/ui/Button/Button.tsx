@@ -4,15 +4,18 @@ import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { ButtonProps } from './Button.props';
+import { Loader } from '../Loader/Loader';
 
 export const Button: React.FC<ButtonProps> = ({
   onClick,
-  theme,
+  variant = 'primary',
+  btnType = 'primary',
   children,
   className,
+  load = false,
   ...props
 }): JSX.Element => {
-  if (theme === 'close') {
+  if (btnType === 'close') {
     return (
       <button
         {...props}
@@ -21,25 +24,33 @@ export const Button: React.FC<ButtonProps> = ({
           onClick ? onClick(e) : {}
         }
       >
-        <FontAwesomeIcon icon={faXmark} size={'lg'} />
+        <FontAwesomeIcon icon={faXmark} size={'sm'} />
       </button>
     );
   }
+
   return (
     <button
-      className={classNames(`${styles.btnDefault} ${className}`, {
-        [styles.buttonSubmit]: theme === 'submit',
-        [styles.buttonOutline]: theme === 'outline',
-        [styles.buttonDanger]: theme === 'danger',
-        [styles.buttonDefault]: theme === 'default',
-        [styles.buttonPrimary]: theme === 'primary',
+      className={classNames(`${styles.btn} ${className}`, {
+        // [styles.btnDefault]: btnType === 'default',
+        // [styles.btnPrimary]: btnType === 'primary',
+        // [styles.btnDashed]: btnType === 'dashed',
+        // [styles.btnText]: btnType === 'text',
+        // [styles.btnLink]: btnType === 'link',
+        [styles.buttonSubmit]: variant === 'submit',
+        [styles.buttonDanger]: variant === 'danger',
+        [styles.buttonPrimary]: variant === 'primary',
+        [styles.buttonSecondary]: variant === 'secondary',
       })}
-      onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
-        onClick ? onClick(e) : {}
-      }
+      onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+        if (onClick && !load) {
+          onClick(e);
+        }
+      }}
       {...props}
     >
       {children}
+      {load && <Loader />}
     </button>
   );
 };

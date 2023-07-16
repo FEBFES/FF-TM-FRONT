@@ -1,44 +1,46 @@
 import React, { useEffect, useState } from 'react';
 import styles from './SettingsProfileTab.module.css';
 import comStyle from '../SettingsPage/commonStyle.module.css';
-import { faPen, faTrash, faCamera } from '@fortawesome/free-solid-svg-icons';
+import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useTypedSelector } from '../../hooks/redux';
-import { instance } from '../../api/http';
+import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
 import { serverString } from '../../config';
 import { InputField } from '../../ui/InputField/InputField';
 import { Button } from '../../ui/Button/Button';
 import i18n from 'i18next';
+import {
+  fetchChangeUserInfo,
+  fetchDeleteUserAvatar,
+  fetchUploadNewUserAvatar,
+} from '../../store/User/user.thunk';
+import { Avatar } from '../../ui/Avatar/Avatar';
+import human from '../../assets/img/human.png';
 
 interface ProfileTabProps {}
 
 export const SettingsProfileTab: React.FC<
   ProfileTabProps
 > = (): JSX.Element => {
-  const userInfo = useTypedSelector((state) => state.user.userInfo);
+  const dispatch = useAppDispatch();
+  const { firstName, lastName, displayName, email, id, userPic, username } =
+    useTypedSelector((state) => state.user);
   const [btnDisabled, setBtnDisabled] = useState<boolean>(true);
-  const [inputEmail, setInputEmail] = useState<string>(userInfo?.email || '');
-  const [userAvatar, setUserAvatar] = useState(userInfo?.userPic || null);
-  const [inputUsername, setInputUsername] = useState<string>(
-    userInfo?.username || ''
-  );
-  const [inputFirstName, setInputFirstName] = useState<string>(
-    userInfo?.firstName || ''
-  );
-  const [inputLastName, setInputLastName] = useState<string>(
-    userInfo?.lastName || ''
-  );
+  const [inputEmail, setInputEmail] = useState<string>(email || '');
+  const [userAvatar, setUserAvatar] = useState(userPic || null);
+  const [inputUsername, setInputUsername] = useState<string>(username || '');
+  const [inputFirstName, setInputFirstName] = useState<string>(firstName || '');
+  const [inputLastName, setInputLastName] = useState<string>(lastName || '');
   const [inputDisplayName, setInputUserDisplayName] = useState<string>(
-    userInfo?.displayName || ''
+    displayName || ''
   );
 
   useEffect(() => {
     if (
-      inputEmail !== userInfo?.email ||
-      inputUsername !== userInfo?.username ||
-      inputFirstName !== userInfo?.firstName ||
-      inputLastName !== userInfo?.lastName ||
-      inputDisplayName !== userInfo?.displayName
+      inputEmail !== email ||
+      inputUsername !== username ||
+      inputFirstName !== firstName ||
+      inputLastName !== lastName ||
+      inputDisplayName !== displayName
     ) {
       setBtnDisabled(false);
     } else {
@@ -56,51 +58,48 @@ export const SettingsProfileTab: React.FC<
   useEffect(() => {
     resetInputsData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userInfo]);
+  }, [firstName, lastName, displayName, email, id, userPic, username]);
 
   const resetInputsData = () => {
-    setInputEmail(userInfo?.email || '');
-    setInputUsername(userInfo?.username || '');
-    setInputFirstName(userInfo?.firstName || '');
-    setInputLastName(userInfo?.lastName || '');
-    setInputUserDisplayName(userInfo?.displayName || '');
+    setInputEmail(email || '');
+    setInputUsername(username || '');
+    setInputFirstName(firstName || '');
+    setInputLastName(lastName || '');
+    setInputUserDisplayName(displayName || '');
+    setUserAvatar(userPic || '');
   };
 
-  //todo убрать грязь
   const deleteUserAvatar = () => {
-    instance.delete(`files/user-pic/${userInfo?.id}`).then((res) => {
-      if (res.status === 200) {
-        setUserAvatar(null);
-      }
-    });
+    dispatch(fetchDeleteUserAvatar(id));
   };
 
-  //todo убрать грязь
   const changeUserInfo = () => {
-    instance.put(`users/${userInfo?.id}`, {
+    const data = {
       email: inputEmail,
       username: inputUsername,
       firstName: inputFirstName,
       lastName: inputLastName,
       displayName: inputDisplayName,
-    });
+    };
+    dispatch(fetchChangeUserInfo({ userId: id, data }));
   };
 
-  //todo убрать грязь
-  const uploadNewAvatar = (e: any) => {
+  const uploadNewAvatar = async (e: any) => {
     const photo = e.target.files[0];
     const formData = new FormData();
     formData.append('image', photo);
-    instance.post(`files/user-pic/${userInfo?.id}`, formData).then((res) => {
-      if (res.status === 200) {
-        setUserAvatar(res.data.fileUrn);
-      }
-    });
+    if (id)
+      dispatch(
+        fetchUploadNewUserAvatar({
+          userId: id,
+          userPic: userPic,
+          formData: formData,
+        })
+      );
   };
 
   return (
     <div className={styles.profileTab}>
-      {/* todo i18next */}
       <h1 className={comStyle.title}>
         {i18n.t('pages.settings.tabs.profile.title')}
       </h1>
@@ -108,21 +107,19 @@ export const SettingsProfileTab: React.FC<
       <div className={styles.userBackground} />
 
       <div className={styles.userAvatarCont}>
-        {userAvatar ? (
-          <img
-            className={styles.userAvatarCont__image}
-            src={`${serverString}${userAvatar}`}
-            alt={i18n.t('utils.any.avatar')}
-          />
-        ) : (
-          <FontAwesomeIcon icon={faCamera} size={'lg'} />
+        <Avatar
+          size={'2xl'}
+          src={userAvatar ? `${serverString}${userAvatar}` : human}
+          alt={i18n.t('utils.any.avatar')}
+        />
+        {userPic && (
+          <div
+            className={`${styles.fileInput__btn} ${styles.fileInput_delete}`}
+            onClick={deleteUserAvatar}
+          >
+            <FontAwesomeIcon icon={faTrash} size={'2xs'} />
+          </div>
         )}
-        <div
-          className={`${styles.fileInput__btn} ${styles.fileInput_delete}`}
-          onClick={deleteUserAvatar}
-        >
-          <FontAwesomeIcon icon={faTrash} size={'2xs'} />
-        </div>
         <label
           className={`${styles.fileInput__btn} ${styles.fileInput_label}`}
           htmlFor="inputFIle"
@@ -184,13 +181,13 @@ export const SettingsProfileTab: React.FC<
 
       <div className={styles.btnContainer}>
         {!btnDisabled && (
-          <Button theme={'danger'} onClick={resetInputsData}>
-            {i18n.t('utils.buttons.cancel')}
+          <Button variant={'danger'} onClick={resetInputsData}>
+            {i18n.t('utils.buttons.reset')}
           </Button>
         )}
         <Button
           disabled={btnDisabled}
-          theme={'primary'}
+          variant={'primary'}
           onClick={changeUserInfo}
         >
           {i18n.t('utils.buttons.update')}

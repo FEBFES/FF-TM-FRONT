@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styles from './TaskWindow.module.css';
-import { CloseIcon, FullIcon } from '../../../../assets/icons/UtilsIcons';
+import { CloseIcon } from '../../../../assets/icons/UtilsIcons';
 import { useTypedSelector } from '../../../../hooks/redux';
 import human from '../../../../assets/img/human.png';
-import { instance } from '../../../../api/http';
-import { downloadFile } from '../../../../utils/download';
 import { serverString } from '../../../../config';
 import { TaskLabel } from '../../../../ui/TaskLabel/TaskLabel';
 import { PriorityLabel } from '../../../../ui/PriorityLabel/PriorityLabel';
+import i18n from 'i18next';
+import { FilesTab } from '../../components/FilesTab/FilesTab';
+import moment from 'moment';
+import { Avatar } from '../../../../ui/Avatar/Avatar';
 import { IFile } from '../../components/TaskCard/TaskCard.type';
 
 interface TaskWindowProps {
@@ -18,41 +20,19 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
   setShowWindow,
 }): JSX.Element | null => {
   const [curSubPage, setCurSubPage] = useState<'files'>('files');
-  const [files, setFiles] = useState([]);
   const task = useTypedSelector((state) => state.projectKanban.taskWindowInfo);
-
-  useEffect(() => {
-    //todo грязь
-    if (!task) {
-      return;
-    }
-    instance
-      .get(
-        `projects/${task?.projectId}/columns/${task?.columnId}/tasks/${task?.id}`
-      )
-      .then((res) => {
-        setFiles(res.data.files);
-      });
-  }, [task]);
+  const [files, setFiles] = useState<IFile[] | []>([]);
 
   if (task === null) {
     return null;
   }
-
-  //todo грязь
-  const uploadNewFile = (e: any) => {
-    const files = e.target.files[0];
-    const formData = new FormData();
-    formData.append('files', files);
-    instance.post(`files/task/${task.id}`, formData);
-  };
 
   return (
     <div className={styles.taskWindow}>
       <header className={styles.header}>
         <h2 className={styles.taskWindow_id}>{task.id}</h2>
         <div className={styles.header__right}>
-          <FullIcon />
+          {/*<FullIcon />*/}
           <div
             className={styles.closeIcon}
             onClick={() => setShowWindow(false)}
@@ -68,46 +48,59 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
 
       <div className={styles.users}>
         <div className={styles.user__block}>
-          {/* // todo i18next */}
-          <span className={styles.user__title}>Owner:</span>
-          <img
-            className={styles.user__avatar}
+          <span className={styles.user__title}>
+            {i18n.t('utils.any.owner')}:
+          </span>
+          <Avatar
+            bordered
+            size={'m'}
             src={
               task.owner?.userPic
                 ? `${serverString}${task.owner.userPic}`
                 : human
             }
-            alt={'human'}
           />
         </div>
         <div className={styles.user__block}>
-          {/* // todo i18next */}
-          <span className={styles.user__title}>Assignee:</span>
-          <img className={styles.user__avatar} src={human} alt={'human'} />
+          <span className={styles.user__title}>
+            {i18n.t('utils.any.assignee')}:
+          </span>
+          <Avatar size={'m'} bordered src={human} alt={'human'} />
         </div>
       </div>
 
       <div className={styles.priority}>
         <div className={styles.priority__container}>
-          {/* // todo i18next */}
-          <span className={styles.user__title}>Proirity:</span>
+          <span className={styles.user__title}>
+            {i18n.t('utils.any.priority')}:
+          </span>
           <PriorityLabel priority={task.priority} />
         </div>
 
         <div className={styles.priority__container}>
-          {/* // todo i18next */}
-          <span className={styles.user__title}>Type:</span>
-          {/*todo change to ui comp badge*/}
+          <span className={styles.user__title}>
+            {i18n.t('utils.any.type')}:
+          </span>
           <TaskLabel type={task.type} />
         </div>
       </div>
 
-      <div className={styles.date}></div>
+      <div className={styles.date__container}>
+        <h3 className={styles.user__title}>
+          {i18n.t('pages.kanban.taskWindow.main.info.creationDate')}:
+          {moment(task.createDate).format('DD.MM.YYYY')}
+        </h3>
+      </div>
 
       <div className={styles.description}>
-        {/* // todo i18next */}
-        <h3 className={styles.user__title}>Description:</h3>
-        <p className={styles.description__text}>{task.description || ''}</p>
+        <h3 className={styles.user__title}>
+          {i18n.t('utils.any.description')}:
+        </h3>
+        <textarea
+          className={styles.description__text}
+          value={task.description || ''}
+          onChange={() => {}}
+        />
       </div>
 
       <div className={styles.windowToggle}>
@@ -115,42 +108,12 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
           onClick={() => setCurSubPage('files')}
           className={`${styles.windowToggle__item}`}
         >
-          {/* // todo i18next */}
-          Files {task.filesCounter}
+          {i18n.t('pages.kanban.taskWindow.tabs.files.title')}{' '}
+          {files?.length || ''}
         </div>
       </div>
 
-      {curSubPage === 'files' && (
-        <div className={styles.filesUploadContainer}>
-          <div className={styles.fileInput__container}>
-            <label className={styles.fileInput_label} htmlFor="inputFIle">
-              Upload new file
-            </label>
-            <input
-              id={'inputFIle'}
-              className={styles.fileInput}
-              onChange={uploadNewFile}
-              type={'file'}
-            />
-          </div>
-
-          <ul className={styles.fileCont}>
-            {files.map((file: IFile, i: number) => {
-              return (
-                <li
-                  key={`${file.name}${i}`}
-                  onClick={() => downloadFile(file.fileUrn, file.name)}
-                  className={styles.file}
-                >
-                  {file.name}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      )}
-
-      {/*{curSubPage === 'log' && <div></ >}*/}
+      {curSubPage === 'files' && <FilesTab files={files} setFiles={setFiles} />}
     </div>
   );
 };

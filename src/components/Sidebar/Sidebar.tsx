@@ -1,33 +1,37 @@
 import React from 'react';
 import styles from './Sidebar.module.css';
 import { NavLink, useLocation } from 'react-router-dom';
-import {
-  HomeIcon,
-  LeaveIcon,
-  ProjectsIcon,
-  SettingsIcon,
-} from '../../assets/icons/SidebarIcons';
-import { useAppDispatch } from '../../hooks/redux';
+import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
 import { useTheme } from '../../hooks/useTheme';
 import { LogoIconDark } from '../../assets/icons/LogoIconDark';
 import { LogoIconLight } from '../../assets/icons/LogoIconLight';
 import { setIsAuth } from '../../pages/AuthPages/store/auth.slice';
 import { appRoutsPath } from '../../routing/routs';
 import i18n from 'i18next';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faHouse,
+  faCog,
+  faBorderAll,
+  faDoorOpen,
+  faChevronRight,
+} from '@fortawesome/free-solid-svg-icons';
+import classNames from 'classnames';
+import { setSidebarView } from '../../pages/Root/store/AppSlice';
 
 const links = [
   //TODO to - from string to const appRoutsPath
   {
-    title: i18n.t('routes.sidebar.home'),
-    icon: HomeIcon,
+    title: 'routes.sidebar.projects',
+    icon: faHouse,
     to: '/',
     private: false,
   },
   {
-    title: i18n.t('routes.sidebar.projects'),
-    icon: ProjectsIcon,
+    title: 'routes.sidebar.kanban',
+    icon: faBorderAll,
     to: '/KanbanPage',
-    private: true,
+    private: false,
   },
   // {
   //   title:  i18n.t(''),
@@ -42,10 +46,10 @@ const links = [
   //   private: true,
   // },
   {
-    title: i18n.t('routes.sidebar.settings'),
-    icon: SettingsIcon,
+    title: 'routes.sidebar.settings',
+    icon: faCog,
     to: '/SettingsPage/',
-    private: true,
+    private: false,
   },
 ];
 
@@ -53,11 +57,23 @@ export const Sidebar: React.FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const { theme } = useTheme();
   const location = useLocation();
+  const isFullView = useTypedSelector((state) => state.app.sidebarFullView);
 
   return (
-    <div className={styles.sidebar}>
+    <div className={classNames(styles.sidebar)}>
       <div className={styles.sidebar__header}>
         {theme === 'dark' ? <LogoIconDark /> : <LogoIconLight />}
+      </div>
+
+      <div
+        onClick={() => {
+          dispatch(setSidebarView(!isFullView));
+        }}
+        className={classNames(styles.sidebar__toggle, {
+          [styles.sidebar__toggle_full]: isFullView,
+        })}
+      >
+        <FontAwesomeIcon size={'xs'} icon={faChevronRight} />
       </div>
 
       <ul className={styles.sidebar__main}>
@@ -70,11 +86,18 @@ export const Sidebar: React.FC = (): JSX.Element => {
               key={i}
               aria-label={link.title}
               className={({ isActive }) =>
-                isActive ? `${styles.linkActive}` : `${styles.link}`
+                isActive
+                  ? `${styles.linkActive} ${styles.link}`
+                  : `${styles.link}`
               }
               to={link.to}
             >
-              <link.icon />
+              <FontAwesomeIcon icon={link.icon} />
+              {isFullView && (
+                <span className={styles.link__text}>
+                  {i18n.t(link.title) || ''}
+                </span>
+              )}
             </NavLink>
           );
         })}
@@ -90,7 +113,7 @@ export const Sidebar: React.FC = (): JSX.Element => {
           to={appRoutsPath.LoginPage.to}
           replace={true}
         >
-          <LeaveIcon />
+          <FontAwesomeIcon icon={faDoorOpen} />
         </NavLink>
       </footer>
     </div>

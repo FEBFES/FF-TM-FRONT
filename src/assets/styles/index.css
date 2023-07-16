@@ -12,13 +12,19 @@
   display: none;
 }
 
-/* ползунок скроллбара */
-*::-webkit-scrollbar-thumb {
-  display: none;
+.scrollbar::-webkit-scrollbar {
+  display: block !important;
+  height: 8px !important;
+  width: 8px !important;
 }
 
-*::-webkit-scrollbar-thumb:hover {
-  background-color: #253861;
+.scrollbar::-webkit-scrollbar-track {
+  background: var(--bg-0) !important;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--bg-primary) !important;
+  border-radius: 10px !important;
 }
 
 body {

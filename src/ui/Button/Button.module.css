@@ -1,20 +1,21 @@
-.btnDefault {
+.btn {
   margin: 5px;
-  padding: 6px 16px;
+  display: flex;
+  align-items: center;
+  padding: 5px 15px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   font-size: 14px;
-  text-transform: capitalize;
   font-weight: 500;
   transition: 0.2s;
+  max-width: fit-content;
 }
 
-.btnDefault:hover {
+.btn:hover {
   cursor: pointer;
-  transform: scale(1.1);
 }
 
-.btnDefault:disabled {
+.btn:disabled {
   opacity: 0.5;
 }
 
@@ -31,36 +32,46 @@
   width: 24px;
   height: 24px;
   font-size: 10px;
-  transition: 2s;
   color: var(--font-gray);
   border: 1px solid var(--font-gray);
 }
 .buttonClose:hover {
   cursor: pointer;
-  transform: scale(1.1);
+  color: var(--font-defautl);
+  border: 1px solid var(--font-defautl);
 }
 
 /* Submit type*/
 .buttonSubmit {
-  background: #50ce69;
+  background: #168d1b;
   color: #ffffff;
+}
+.buttonSubmit:hover {
+  background-color: #20b427;
 }
 
 .buttonDanger {
+  background: #fc4143;
   color: white;
-  background: #bb5050;
+}
+.buttonDanger:hover {
+  background-color: #ff585a;
 }
 
 /*Outline type*/
-.buttonOutline {
-  background: transparent;
-  border: 1px solid var(--bg-border);
-  color: var(--bg-border);
-  font-weight: 600;
+.buttonSecondary {
+  background: #606060;
+  color: white;
+}
+.buttonSecondary:hover {
+  background-color: #606060;
 }
 
 /*Primary type*/
 .buttonPrimary {
   color: white;
   background: var(--bg-primary);
+}
+.buttonPrimary:hover {
+  background-color: #1677ff;
 }

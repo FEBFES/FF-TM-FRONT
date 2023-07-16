@@ -9,19 +9,11 @@
   width: 80%;
   height: 1px;
   background: var(--bg-border);
-  margin: 30px 0;
+  margin: 30px 0 10px;
 }
 
 .btnSubmit {
   margin: 20px 0 0 !important;
-  width: 95%;
-  background: royalblue !important;
-}
-
-.btnNewAcc {
-  font-weight: 400;
-  color: rgb(142, 142, 142);
-  width: 80%;
 }
 
 .title {

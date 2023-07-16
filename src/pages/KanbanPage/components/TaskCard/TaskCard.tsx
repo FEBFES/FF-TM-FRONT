@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import styles from './TaskCard.module.css';
 import { delTaskFromCol } from '../../store/kanban.slice';
 import { useAppDispatch } from '../../../../hooks/redux';
-import {
-  AttachmentsIcon,
-  CommentsIcon,
-} from '../../../../assets/icons/TaskIcons';
+import { AttachmentsIcon } from '../../../../assets/icons/TaskIcons';
 import human from '../../../../assets/img/human.png';
 import { fetchGetTaskInfo } from '../../store/kanban.thunk';
 import { TaskCardProps } from './TaskCard.props';
@@ -15,6 +12,7 @@ import { DropDown } from '../../../../ui/DropDown/DropDown';
 import { TaskLabel } from '../../../../ui/TaskLabel/TaskLabel';
 import { PriorityLabel } from '../../../../ui/PriorityLabel/PriorityLabel';
 import i18n from 'i18next';
+import { Avatar } from '../../../../ui/Avatar/Avatar';
 
 export const TaskCard: React.FC<TaskCardProps> = ({
   task,
@@ -43,17 +41,14 @@ export const TaskCard: React.FC<TaskCardProps> = ({
           <h4 className={styles.task_id}>#{task.id || ''}</h4>
         </div>
 
-        <div className={styles.task_avatar}>
-          <img
-            src={
-              task.owner?.userPic
-                ? `http://febfes.com/api/v1${task.owner.userPic}`
-                : human
-            }
-            key={task.id}
-            alt={i18n.t('utils.any.avatar')}
-          />
-        </div>
+        <Avatar
+          size={'s'}
+          src={
+            task.owner?.userPic
+              ? `http://febfes.com/api/v1${task.owner.userPic}`
+              : human
+          }
+        />
       </div>
 
       <div className={styles.task__main}>
@@ -83,10 +78,10 @@ export const TaskCard: React.FC<TaskCardProps> = ({
         </div>
 
         <div className={styles.footer_right}>
-          <div className={styles.task_attachments}>
-            <span className={styles.task_attachments_counter}>8</span>
-            <CommentsIcon />
-          </div>
+          {/*<div className={styles.task_attachments}>*/}
+          {/*  <span className={styles.task_attachments_counter}>8</span>*/}
+          {/*  <CommentsIcon />*/}
+          {/*</div>*/}
           {task.filesCounter !== 0 && (
             <div className={styles.task_attachments}>
               <span className={styles.task_attachments_counter}>
@@ -100,8 +95,12 @@ export const TaskCard: React.FC<TaskCardProps> = ({
             className={styles.task_attachments}
           >
             <DropDown show={showDD} setShow={setShowDD}>
-              {/* todo i18next */}
-              <p onClick={() => delTask(task.columnId, task.id)}>Delete</p>
+              <p
+                className={styles.delBtn}
+                onClick={() => delTask(task.columnId, task.id)}
+              >
+                {i18n.t('utils.buttons.delete')}
+              </p>
             </DropDown>
             <DotsIcon w={12} />
           </div>

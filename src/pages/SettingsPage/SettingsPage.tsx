@@ -10,15 +10,14 @@ import { fetchGetUserInfo } from '../../store/User/user.thunk';
 interface SettingsPageProps {}
 
 export const SettingsPage: React.FC<SettingsPageProps> = (): JSX.Element => {
-  const userInfo = useTypedSelector((state) => state.user.userInfo);
   const userId = useTypedSelector((state) => state.user.userId);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (!userInfo) {
+    if (!userId) {
       dispatch(fetchGetUserInfo(userId));
     }
-  }, [userInfo, dispatch, userId]);
+  }, [dispatch, userId]);
 
   return (
     <div className={styles.page}>

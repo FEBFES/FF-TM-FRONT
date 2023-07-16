@@ -1,0 +1,33 @@
+.project {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 60px;
+}
+
+.title {
+  font-size: 18px;
+  color: var(--font-defautl);
+}
+
+.subtitle {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--font-gray);
+}
+
+.project__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__left {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+}

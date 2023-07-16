@@ -31,8 +31,10 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  overflow-x: hidden;
   overflow-y: auto;
+}
+.col::-webkit-scrollbar {
+  display: none;
 }
 
 .col__title {

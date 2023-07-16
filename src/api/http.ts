@@ -3,8 +3,8 @@ import axios from 'axios';
 import { setIsAuth } from '../pages/AuthPages/store/auth.slice';
 import { store } from '../index';
 import { appRoutsPath } from '../routing/routs';
-import { addToast } from '../store/App/AppSlice';
 import { v4 } from 'uuid';
+import { addToast } from '../pages/Root/store/AppSlice';
 
 export const instanceWithoutToken = axios.create({
   baseURL: serverString,

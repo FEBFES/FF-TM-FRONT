@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import styles from './KanbanPageHeader.module.css';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { useNavigate } from 'react-router-dom';
@@ -7,22 +7,28 @@ import { FavoriteIcon } from '../../../../assets/icons/UtilsIcons';
 import { Switcher } from '../../../../ui/Switcher';
 import { useTheme } from '../../../../hooks/useTheme';
 import { fetchFavoriteToggle } from '../../../ProjectsPage/store/projects.thunk';
-import { AddColModal } from '../../components/AddColModal/AddColModal';
 import i18n from 'i18next';
+import { fetchGetProjectMembers } from '../../store/kanban.thunk';
+import { AvatarGroup } from '../../../../ui/AvatarGroup/AvatarGroup';
 
 export const KanbanPageHeader: React.FC = (): JSX.Element => {
-  const { projectName, projId, isFavorite } = useTypedSelector(
+  const { projectName, projId, isFavorite, members } = useTypedSelector(
     (state) => state.projectKanban
   );
   const theme = useTypedSelector((state) => state.app.theme);
-  const [showAddColModal, setShowAddColModal] = useState(false);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { changeTheme } = useTheme();
 
+  useEffect(() => {
+    if (projId && members.length === 0)
+      dispatch(fetchGetProjectMembers({ projId }));
+  }, [projId, members, dispatch]);
+
   return (
     <header className={styles.header}>
       <div className={styles.header__left}>
+        <h1 className={styles.title}>{projectName || ''}</h1>
         <div className={styles.breadcrumbs}>
           <span onClick={() => navigate(appRoutsPath.ProjectPage.path)}>
             {i18n.t('pages.kanban.header.breadcrumbs.1')}
@@ -30,10 +36,13 @@ export const KanbanPageHeader: React.FC = (): JSX.Element => {
           <span>/</span>
           <span>{projectName || ''}</span>
         </div>
-        <h1 className={styles.title}>{projectName || ''}</h1>
       </div>
 
       <div className={styles.header__right}>
+        <div className={styles.teams}>
+          <AvatarGroup members={members} avatarSize={'s'} />
+        </div>
+
         <Switcher isActive={theme === 'dark'} onClick={changeTheme} />
         {/*<div className={styles.inputCont}>*/}
         {/*  <input className={styles.input} type="text" />*/}
@@ -42,14 +51,6 @@ export const KanbanPageHeader: React.FC = (): JSX.Element => {
         {/*  </div>*/}
         {/*</div>*/}
 
-        {/*<div className={styles.teams}>*/}
-        {/*//todo change to avatar component*/}
-        {/*  <img className={styles.avatar} src={human} alt="avatar" />*/}
-        {/*  <img className={styles.avatar} src={human} alt="avatar" />*/}
-        {/*  <div className={styles.addUserBtn}>*/}
-        {/*    <PlusIcon />*/}
-        {/*  </div>*/}
-        {/*</div>*/}
         <div className={styles.line} />
         <div
           className={styles.favoriteBtn}
@@ -65,8 +66,6 @@ export const KanbanPageHeader: React.FC = (): JSX.Element => {
         {/*  <DotsIcon />*/}
         {/*</div>*/}
       </div>
-
-      <AddColModal show={showAddColModal} setShow={setShowAddColModal} />
     </header>
   );
 };

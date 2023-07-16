@@ -8,17 +8,19 @@ import {
   fetchProjectInfo,
 } from '../../store/kanban.thunk';
 import styles from './KanbanPageMain.module.css';
-import { v4 } from 'uuid';
 import { IPriorityType } from '../../components/PrioritySelect/PrioritySelect.type';
 import { ITypeSelectType } from '../../components/TypeSelect/TypeSelect';
 import { IColumns } from '../../components/Column/Column.type';
-import { Column } from '../../components/Column/Column';
+import { ColumnView } from '../../components/ColumnView/ColumnView';
+import { RowView } from '../../components/RowView/RowView';
 
 interface KanbanPageProps {
   setShowTaskModal: (bool: boolean) => void;
+  curView: 'row' | 'col';
 }
 
 export const KanbanPageMain: React.FC<KanbanPageProps> = ({
+  curView,
   setShowTaskModal,
 }): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -27,7 +29,7 @@ export const KanbanPageMain: React.FC<KanbanPageProps> = ({
     useTypedSelector((state) => state.projects.curProj)?.id ||
     Number(localStorage.getItem('curProj'));
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
-  const [curCol, setCurCol] = useState<number | null>(null);
+  const [curCol, setCurCol] = useState<IColumns | null>(null);
 
   useEffect(() => {
     if (curProjId) {
@@ -54,7 +56,7 @@ export const KanbanPageMain: React.FC<KanbanPageProps> = ({
           description,
           priority,
           type,
-          colId: curCol,
+          colId: curCol.id,
           projId: curProjId,
         })
       );
@@ -66,26 +68,30 @@ export const KanbanPageMain: React.FC<KanbanPageProps> = ({
 
   return (
     <div className={styles.kanbanMain}>
-      <div className={styles.colCont}>
-        {columns.map((col: IColumns) => {
-          return (
-            <Column
-              key={v4()}
-              col={col}
-              delTask={deleteTaskHandler}
-              setCurCol={setCurCol}
-              setShowTaskModal={setShowTaskModal}
-              setShowAddTaskModal={setShowAddTaskModal}
-            />
-          );
-        })}
-      </div>
+      {curView === 'col' ? (
+        <ColumnView
+          columns={columns}
+          deleteTaskHandler={deleteTaskHandler}
+          setCurCol={setCurCol}
+          setShowTaskModal={setShowTaskModal}
+          setShowAddTaskModal={setShowAddTaskModal}
+        />
+      ) : (
+        <RowView
+          columns={columns}
+          deleteTaskHandler={deleteTaskHandler}
+          setCurCol={setCurCol}
+          setShowTaskModal={setShowTaskModal}
+          setShowAddTaskModal={setShowAddTaskModal}
+        />
+      )}
 
       {showAddTaskModal && (
         <AddTaskModal
           show={showAddTaskModal}
           setShow={setShowAddTaskModal}
           onSubmit={addNewTaskHandler}
+          curCol={curCol}
         />
       )}
     </div>

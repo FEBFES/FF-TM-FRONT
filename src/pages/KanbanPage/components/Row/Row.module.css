@@ -1,0 +1,25 @@
+.row {
+  border-bottom: 1px solid var(--bg-border);
+  padding-bottom: 40px;
+}
+
+.row__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.row__title {
+  font-size: 14px;
+  color: var(--font-gray);
+}
+
+.tasksEmptyAlert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: var(--font-gray);
+}

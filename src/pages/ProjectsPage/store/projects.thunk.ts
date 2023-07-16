@@ -76,3 +76,24 @@ export const fetchDelProject = createAsyncThunk(
     }
   }
 );
+
+//Update project info (name/desc)
+export const fetchUpdateProject = createAsyncThunk(
+  'projects/fetchUpdateProjetct',
+  async (
+    { id, name, desc }: { id: number; name: string; desc: string },
+    { rejectWithValue }
+  ) => {
+    try {
+      const res = await instance.put(`projects/${id}`, {
+        name,
+        description: desc,
+      });
+      if (res.status === 200) {
+        return id;
+      }
+    } catch (err) {
+      return rejectWithValue(err as Error);
+    }
+  }
+);
