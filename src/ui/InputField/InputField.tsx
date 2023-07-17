@@ -22,7 +22,7 @@ interface IInputFieldProps
 export const InputField: React.FC<IInputFieldProps> = ({
   type,
   value,
-  withLabel,
+  withLabel = true,
   className,
   containerStyle,
   ...props

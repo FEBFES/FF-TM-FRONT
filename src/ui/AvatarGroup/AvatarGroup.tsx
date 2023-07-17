@@ -35,15 +35,12 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
             key={member.id}
             placement={placement}
             title={`${member.username || member}`}
+            style={{
+              right: `${i * 10}px`,
+              zIndex: `${i + 1}`,
+            }}
           >
-            <div
-              key={`${i}-${member.id}`}
-              className={styles.avatarCont}
-              style={{
-                right: `${i * 10}px`,
-                zIndex: `${i + 1}`,
-              }}
-            >
+            <div key={`${i}-${member.id}`} className={styles.avatarCont}>
               <Avatar
                 size={avatarSize}
                 src={getAvatarUrlOrHuman(member?.userPic)}
