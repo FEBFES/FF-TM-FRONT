@@ -6,6 +6,9 @@ import { TypeSelect } from '../../components/TypeSelect/TypeSelect';
 import { IPriorityType } from '../../components/PrioritySelect/PrioritySelect.type';
 import { ITaskLabelType } from '../../../../ui/TaskLabel/TaskLabel.props';
 import i18n from 'i18next';
+import { KanbanViewSwitcher } from '../../components/KanbanViewSwitcher/KanbanViewSwitcher';
+import { AvatarGroup } from '../../../../ui/AvatarGroup/AvatarGroup';
+import { useTypedSelector } from '../../../../hooks/redux';
 
 interface TableViewControllerProps {
   curView: 'row' | 'col';
@@ -18,30 +21,15 @@ export const KanbanPageSubheader: React.FC<TableViewControllerProps> = ({
 }): JSX.Element => {
   const [curType, setCurType] = useState<ITaskLabelType>('NONE');
   const [curPriority, setCurPriority] = useState<IPriorityType>('DEFAULT');
+  const members = useTypedSelector((state) => state.projectKanban.members);
 
   return (
     <div className={styles.subheader}>
-      <div className={styles.switcher}>
-        {/*todo i18next*/}
-        <span
-          className={`${styles.switcher__item} ${
-            curView === 'col' && styles.switcher__item_active
-          }`}
-          onClick={() => setCurView('col')}
-        >
-          kanban
-        </span>
-        {/*todo i18next*/}
-
-        <span
-          className={`${styles.switcher__item} ${
-            curView === 'row' && styles.switcher__item_active
-          }`}
-          onClick={() => setCurView('row')}
-        >
-          list
-        </span>
+      <div className={styles.subheader__left}>
+        <KanbanViewSwitcher curView={curView} setCurView={setCurView} />
+        <AvatarGroup placement={'top'} members={members} avatarSize={'s'} />
       </div>
+
       <div className={styles.filters__cont}>
         <FilterCard
           title={i18n.t('utils.any.type')}

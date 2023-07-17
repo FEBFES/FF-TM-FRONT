@@ -128,17 +128,13 @@ export const fetchDeleteMemberFromProject = createAsyncThunk(
 export const fetchProjectDashboard = createAsyncThunk(
   'projects/fetchAllProjectColumns',
   async (
-    { projId, filters }: { projId: number; filters?: any[] },
+    { projId, params }: { projId: number; params?: string },
     { rejectWithValue, dispatch }
   ) => {
     try {
       // ?taskFilter=[{"property":"name","operator":"LIKE","value":"1"}]
       const res = await instance.get(
-        `projects/${projId}/dashboard${
-          filters && filters?.length !== 0
-            ? `?taskFilter=${JSON.stringify(filters)}`
-            : ''
-        }`
+        `projects/${projId}/dashboard${params ? `?${params}` : ''}`
       );
       if (res.status === 200) {
         dispatch(setCurDashboard(res.data.columns));

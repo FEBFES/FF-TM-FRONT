@@ -9,7 +9,7 @@ import { useTheme } from '../../../../hooks/useTheme';
 import { fetchFavoriteToggle } from '../../../ProjectsPage/store/projects.thunk';
 import i18n from 'i18next';
 import { fetchGetProjectMembers } from '../../store/kanban.thunk';
-import { AvatarGroup } from '../../../../ui/AvatarGroup/AvatarGroup';
+import { SearchInput } from '../../components/SearchInput/SearchInput';
 
 export const KanbanPageHeader: React.FC = (): JSX.Element => {
   const { projectName, projId, isFavorite, members } = useTypedSelector(
@@ -39,17 +39,9 @@ export const KanbanPageHeader: React.FC = (): JSX.Element => {
       </div>
 
       <div className={styles.header__right}>
-        <div className={styles.teams}>
-          <AvatarGroup members={members} avatarSize={'s'} />
-        </div>
-
         <Switcher isActive={theme === 'dark'} onClick={changeTheme} />
-        {/*<div className={styles.inputCont}>*/}
-        {/*  <input className={styles.input} type="text" />*/}
-        {/*  <div className={styles.inputIcon}>*/}
-        {/*    <SearchIcon />*/}
-        {/*  </div>*/}
-        {/*</div>*/}
+
+        <SearchInput />
 
         <div className={styles.line} />
         <div
