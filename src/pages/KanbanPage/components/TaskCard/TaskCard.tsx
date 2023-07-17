@@ -4,7 +4,6 @@ import { delTaskFromCol } from '../../store/kanban.slice';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { AttachmentsIcon } from '../../../../assets/icons/TaskIcons';
 import { fetchGetTaskInfo } from '../../store/kanban.thunk';
-import { TaskCardProps } from './TaskCard.props';
 import moment from 'moment';
 import { DotsIcon } from '../../../../assets/icons/UtilsIcons';
 import { DropDown } from '../../../../ui/DropDown/DropDown';
@@ -13,6 +12,14 @@ import { PriorityLabel } from '../../../../ui/PriorityLabel/PriorityLabel';
 import i18n from 'i18next';
 import { Avatar } from '../../../../ui/Avatar/Avatar';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
+import { ITask } from './TaskCard.type';
+import 'moment/locale/ru';
+
+interface TaskCardProps {
+  task: ITask;
+  delTask: any;
+  setShowTaskModal: (bool: boolean) => void;
+}
 
 export const TaskCard: React.FC<TaskCardProps> = ({
   task,
@@ -61,7 +68,8 @@ export const TaskCard: React.FC<TaskCardProps> = ({
           {task.name || ''}
         </h1>
         <span className={styles.task_creationDate}>
-          {moment(task.createDate).format('MMM DD')}
+          {/*todo Сделать авто смену локали и связать с i18n мб черзе хук */}
+          {moment(task.createDate).locale('ru').format('MMM DD')}
         </span>
       </div>
 
