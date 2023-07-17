@@ -65,7 +65,16 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
           <span className={styles.user__title}>
             {i18n.t('utils.any.assignee')}:
           </span>
-          <Avatar size={'m'} bordered src={human} alt={'human'} />
+          <Avatar
+            size={'m'}
+            bordered
+            src={
+              task.assignee?.userPic
+                ? `${serverString}${task.assignee.userPic}`
+                : human
+            }
+            alt={'human'}
+          />
         </div>
       </div>
 
