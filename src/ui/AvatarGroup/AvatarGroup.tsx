@@ -5,10 +5,12 @@ import { Avatar } from '../Avatar/Avatar';
 import human from '../../assets/img/human.png';
 import { serverString } from '../../config';
 import { Tooltip } from '../Tooltip/Tooltip';
+import { PlacementType } from '../Tooltip/Tooltip.props';
 
 interface AvatarGroupProps {
   members: IMember[];
   maxCount?: number;
+  placement?: PlacementType;
   avatarSize: '2xs' | 'xs' | 's' | 'm' | 'l' | 'xl' | '2xl' | 'fit';
 }
 
@@ -16,6 +18,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
   members,
   maxCount,
   avatarSize,
+  placement,
 }): JSX.Element => {
   const otherMember = members.length - (maxCount || 0);
 
@@ -31,7 +34,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
         return (
           <Tooltip
             key={member.id}
-            placement={'bottom'}
+            placement={placement}
             title={`${member.username || member}`}
           >
             <div
