@@ -11,7 +11,11 @@ import i18n from 'i18next';
 import { fetchGetProjectMembers } from '../../store/kanban.thunk';
 import { SearchInput } from '../../components/SearchInput/SearchInput';
 
-export const KanbanPageHeader: React.FC = (): JSX.Element => {
+interface KanbanPageHeaderProps {}
+
+export const KanbanPageHeader: React.FC<
+  KanbanPageHeaderProps
+> = (): JSX.Element => {
   const { projectName, projId, isFavorite, members } = useTypedSelector(
     (state) => state.projectKanban
   );

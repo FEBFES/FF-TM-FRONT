@@ -124,17 +124,33 @@ export const fetchDeleteMemberFromProject = createAsyncThunk(
   }
 );
 
+const checkParams = async (params: { key: string; value: string }[] | null) => {
+  let paramsUrl = '';
+  if (params) {
+    paramsUrl += '?';
+    for (const filter of params) {
+      paramsUrl += `${filter.key}=${filter.value}&`;
+    }
+  } else {
+    return null;
+  }
+  return paramsUrl;
+};
+
 //Get project dashboard
 export const fetchProjectDashboard = createAsyncThunk(
   'projects/fetchAllProjectColumns',
   async (
-    { projId, params }: { projId: number; params?: string },
+    {
+      projId,
+      params,
+    }: { projId: number; params: { key: string; value: string }[] | null },
     { rejectWithValue, dispatch }
   ) => {
     try {
-      // ?taskFilter=[{"property":"name","operator":"LIKE","value":"1"}]
+      const paramsUlr = await checkParams(params);
       const res = await instance.get(
-        `projects/${projId}/dashboard${params ? `?${params}` : ''}`
+        `projects/${projId}/dashboard${paramsUlr ? `${paramsUlr}` : ''}`
       );
       if (res.status === 200) {
         dispatch(setCurDashboard(res.data.columns));

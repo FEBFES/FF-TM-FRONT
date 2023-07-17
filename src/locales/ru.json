@@ -60,6 +60,7 @@
   "pages.kanban.header.input.placeholder": "Найти задачу по названию",
   "pages.kanban.main.card.create.date": "Дата создания",
   "pages.kanban.components.modal.add.createMultiple": "Создать несколько",
+  "pages.kanban.subheader.clear.btn": "Очистить фильтры",
 
   "pages.projects.header.addBtn": "Создать новый проект",
   "pages.projects.header.title": "Проекты",

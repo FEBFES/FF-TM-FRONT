@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import {
   fetchAddMemberToProject,
   fetchAddNewCol,
@@ -28,6 +28,7 @@ interface IKanbanInitialState {
   ownerId: number | null;
   isFavorite: boolean;
   members: IMember[];
+  filters: { key: string; value: string }[];
 }
 
 const initialState: IKanbanInitialState = {
@@ -41,6 +42,7 @@ const initialState: IKanbanInitialState = {
   ownerId: null,
   isFavorite: false,
   members: [],
+  filters: [],
 };
 
 const KanbanSlice = createSlice({
@@ -77,6 +79,33 @@ const KanbanSlice = createSlice({
         }
         return col;
       });
+    },
+    setFilters: (state, action) => {
+      const haveFilter =
+        state.filters.filter((filter) => filter.key === action.payload.key)
+          .length >= 1;
+
+      if (!haveFilter) {
+        state.filters.push(action.payload);
+      } else {
+        state.filters = state.filters.map((filter) => {
+          if (filter.key === action.payload.key) {
+            return {
+              ...filter,
+              value: action.payload.value,
+            };
+          }
+          return filter;
+        });
+      }
+    },
+    delFilters: (state, action: PayloadAction<string>) => {
+      state.filters = state.filters.filter(
+        (filter) => filter.key !== action.payload
+      );
+    },
+    clearAllFilters: (state) => {
+      state.filters = [];
     },
   },
   extraReducers: (builder) => {
@@ -186,6 +215,12 @@ const KanbanSlice = createSlice({
   },
 });
 
-export const { clearKanbanSlice, delTaskFromCol, addTaskToCol } =
-  KanbanSlice.actions;
+export const {
+  setFilters,
+  delFilters,
+  clearKanbanSlice,
+  delTaskFromCol,
+  addTaskToCol,
+  clearAllFilters,
+} = KanbanSlice.actions;
 export default KanbanSlice.reducer;

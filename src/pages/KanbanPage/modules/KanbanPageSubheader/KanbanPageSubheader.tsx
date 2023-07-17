@@ -1,14 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './KanbanPageSubheader.module.css';
 import { FilterCard } from '../../components/FilterCard/FilterCard';
 import { PrioritySelect } from '../../components/PrioritySelect/PrioritySelect';
-import { TypeSelect } from '../../components/TypeSelect/TypeSelect';
+import {
+  ITypeSelectType,
+  TypeSelect,
+} from '../../components/TypeSelect/TypeSelect';
 import { IPriorityType } from '../../components/PrioritySelect/PrioritySelect.type';
-import { ITaskLabelType } from '../../../../ui/TaskLabel/TaskLabel.props';
 import i18n from 'i18next';
 import { KanbanViewSwitcher } from '../../components/KanbanViewSwitcher/KanbanViewSwitcher';
 import { AvatarGroup } from '../../../../ui/AvatarGroup/AvatarGroup';
-import { useTypedSelector } from '../../../../hooks/redux';
+import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
+import {
+  clearAllFilters,
+  delFilters,
+  setFilters,
+} from '../../store/kanban.slice';
 
 interface TableViewControllerProps {
   curView: 'row' | 'col';
@@ -19,9 +26,15 @@ export const KanbanPageSubheader: React.FC<TableViewControllerProps> = ({
   curView,
   setCurView,
 }): JSX.Element => {
-  const [curType, setCurType] = useState<ITaskLabelType>('NONE');
-  const [curPriority, setCurPriority] = useState<IPriorityType>('DEFAULT');
+  // const [curType, setCurType] = useState<ITaskLabelType>('NONE');
+  // const [curPriority, setCurPriority] = useState<IPriorityType>('DEFAULT');
   const members = useTypedSelector((state) => state.projectKanban.members);
+  const dispatch = useAppDispatch();
+  const filters = useTypedSelector((state) => state.projectKanban.filters);
+  const haveFilters = filters.length >= 1;
+  const curType = filters.find((el) => el.key === 'taskType')?.value || 'NONE';
+  const curPriority =
+    filters.find((el) => el.key === 'taskPriority')?.value || 'DEFAULT';
 
   return (
     <div className={styles.subheader}>
@@ -36,8 +49,15 @@ export const KanbanPageSubheader: React.FC<TableViewControllerProps> = ({
           component={
             <TypeSelect
               direction={'bottom'}
-              curType={curType}
-              setCurType={setCurType}
+              curType={curType as ITypeSelectType}
+              setCurType={(type) => {
+                const curType = type === 'NONE' ? null : type;
+                if (curType) {
+                  dispatch(setFilters({ key: 'taskType', value: type }));
+                } else {
+                  dispatch(delFilters('taskType'));
+                }
+              }}
             />
           }
         />
@@ -46,11 +66,29 @@ export const KanbanPageSubheader: React.FC<TableViewControllerProps> = ({
           component={
             <PrioritySelect
               direction={'bottom'}
-              curPriority={curPriority}
-              setCurPriority={setCurPriority}
+              curPriority={curPriority as IPriorityType}
+              setCurPriority={(priority) => {
+                const curPriority = priority === 'DEFAULT' ? null : priority;
+                if (curPriority) {
+                  dispatch(
+                    setFilters({ key: 'taskPriority', value: priority })
+                  );
+                } else {
+                  dispatch(delFilters('taskPriority'));
+                }
+              }}
             />
           }
         />
+
+        {haveFilters && (
+          <div
+            className={styles.clearFilters_btn}
+            onClick={() => dispatch(clearAllFilters())}
+          >
+            {i18n.t('pages.kanban.subheader.clear.btn')}
+          </div>
+        )}
       </div>
     </div>
   );

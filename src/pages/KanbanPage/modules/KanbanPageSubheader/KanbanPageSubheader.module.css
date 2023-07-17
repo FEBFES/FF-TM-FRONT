@@ -21,3 +21,16 @@
   justify-content: space-between;
   display: flex;
 }
+
+.clearFilters_btn {
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--font-gray);
+  height: 26px;
+  border-radius: 4px;
+  padding: 0 14px;
+  border: 1px dashed var(--font-gray);
+}
