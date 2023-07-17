@@ -4,6 +4,9 @@
   border-radius: 100px;
   object-fit: cover;
   background: var(--bg-0);
+  text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .avatar_bordered {
