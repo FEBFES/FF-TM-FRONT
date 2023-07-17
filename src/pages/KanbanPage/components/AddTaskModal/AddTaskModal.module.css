@@ -124,3 +124,13 @@
   display: flex;
   align-items: center;
 }
+
+.assignee__container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.assignee__label {
+  margin-right: 10px;
+}

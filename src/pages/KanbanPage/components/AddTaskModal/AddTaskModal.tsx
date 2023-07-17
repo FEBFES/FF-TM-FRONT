@@ -7,14 +7,29 @@ import {
   CloseIcon,
   EyeIcons,
   FullIcon,
-  PlusIcon,
 } from '../../../../assets/icons/UtilsIcons';
 import { Switcher } from '../../../../ui/Switcher';
-import { AddTaskModalProps } from './AddTaskModal.props';
 import { PrioritySelect } from '../PrioritySelect/PrioritySelect';
 import { IPriorityType } from '../PrioritySelect/PrioritySelect.type';
 import { ITypeSelectType, TypeSelect } from '../TypeSelect/TypeSelect';
 import i18n from 'i18next';
+import { IMember } from '../../store/kanban.type';
+import { MemberCard } from '../MemberCard/MemberCard';
+import { IColumns } from '../Column/Column.type';
+import { AddAssigneeModal } from '../AddAssigneeModal/AddAssigneeModal';
+
+interface AddTaskModalProps {
+  show: boolean;
+  setShow: (bool: boolean) => void;
+  curCol: IColumns | null;
+  onSubmit: (
+    name: string,
+    description: string,
+    priority: IPriorityType,
+    type: ITypeSelectType,
+    assigneeId: number | null | undefined
+  ) => void;
+}
 
 export const AddTaskModal: React.FC<AddTaskModalProps> = ({
   show,
@@ -27,12 +42,15 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
   const [description, setDescription] = useState<string>('');
   const [isMultiple, setIsMultiple] = useState<boolean>(false);
   const [curPriority, setCurPriority] = useState<IPriorityType>('DEFAULT');
+  const [curAssignee, setCurAssignee] = useState<IMember | null>(null);
+  const [showAssignee, setShowAssignee] = useState<boolean>(false);
 
   const clearModalData = () => {
     setName('');
     setDescription('');
     setCurTaskType('NONE');
     setCurPriority('DEFAULT');
+    setCurAssignee(null);
   };
 
   return (
@@ -102,8 +120,23 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
             </div>
 
             <div className={styles.additionally__right}>
-              <div>
-                {i18n.t('utils.any.assignee')}: <PlusIcon />
+              <div className={styles.assignee__container}>
+                <span className={styles.assignee__label}>
+                  {i18n.t('utils.any.assignee')}:
+                </span>
+                {curAssignee === null ? (
+                  <AddAssigneeModal
+                    setShowAssignee={setShowAssignee}
+                    showAssignee={showAssignee}
+                    setCurAssignee={setCurAssignee}
+                  />
+                ) : (
+                  <MemberCard
+                    bordered
+                    member={curAssignee}
+                    onClick={() => setCurAssignee(null)}
+                  />
+                )}
               </div>
             </div>
           </div>
@@ -121,7 +154,13 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
           </div>
           <Button
             onClick={() => {
-              onSubmit(name, description, curPriority, curTaskType);
+              onSubmit(
+                name,
+                description,
+                curPriority,
+                curTaskType,
+                curAssignee?.id
+              );
               if (isMultiple) {
                 clearModalData();
               } else {

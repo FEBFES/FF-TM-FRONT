@@ -30,7 +30,8 @@ export const KanbanPageMain: React.FC<KanbanPageProps> = ({
     name: string,
     description: string,
     priority: IPriorityType,
-    type: ITypeSelectType
+    type: ITypeSelectType,
+    assigneeId: number | null | undefined
   ) => {
     curCol &&
       curProjId &&
@@ -42,6 +43,7 @@ export const KanbanPageMain: React.FC<KanbanPageProps> = ({
           type,
           colId: curCol.id,
           projId: curProjId,
+          assigneeId: assigneeId,
         })
       );
   };

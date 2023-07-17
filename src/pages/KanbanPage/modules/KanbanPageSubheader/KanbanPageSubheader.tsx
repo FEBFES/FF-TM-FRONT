@@ -26,8 +26,6 @@ export const KanbanPageSubheader: React.FC<TableViewControllerProps> = ({
   curView,
   setCurView,
 }): JSX.Element => {
-  // const [curType, setCurType] = useState<ITaskLabelType>('NONE');
-  // const [curPriority, setCurPriority] = useState<IPriorityType>('DEFAULT');
   const members = useTypedSelector((state) => state.projectKanban.members);
   const dispatch = useAppDispatch();
   const filters = useTypedSelector((state) => state.projectKanban.filters);
