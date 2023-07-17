@@ -1,7 +1,12 @@
 import React from 'react';
-import { DropDownProps } from './DropDown.props';
 import styles from './DropDown.module.css';
 import { useClickOutside } from '../../hooks/useClickOutside';
+
+interface DropDownProps {
+  children: React.ReactNode;
+  setShow: (bool: boolean) => void;
+  show: boolean;
+}
 
 export const DropDown: React.FC<DropDownProps> = ({
   children,

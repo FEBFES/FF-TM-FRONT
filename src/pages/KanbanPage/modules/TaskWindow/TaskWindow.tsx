@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import styles from './TaskWindow.module.css';
 import { CloseIcon } from '../../../../assets/icons/UtilsIcons';
 import { useTypedSelector } from '../../../../hooks/redux';
-import human from '../../../../assets/img/human.png';
-import { serverString } from '../../../../config';
 import { TaskLabel } from '../../../../ui/TaskLabel/TaskLabel';
 import { PriorityLabel } from '../../../../ui/PriorityLabel/PriorityLabel';
 import i18n from 'i18next';
@@ -11,6 +9,7 @@ import { FilesTab } from '../../components/FilesTab/FilesTab';
 import moment from 'moment';
 import { Avatar } from '../../../../ui/Avatar/Avatar';
 import { IFile } from '../../components/TaskCard/TaskCard.type';
+import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 
 interface TaskWindowProps {
   setShowWindow: (bool: boolean) => void;
@@ -54,11 +53,7 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
           <Avatar
             bordered
             size={'m'}
-            src={
-              task.owner?.userPic
-                ? `${serverString}${task.owner.userPic}`
-                : human
-            }
+            src={getAvatarUrlOrHuman(task.owner?.userPic)}
           />
         </div>
         <div className={styles.user__block}>
@@ -68,11 +63,7 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
           <Avatar
             size={'m'}
             bordered
-            src={
-              task.assignee?.userPic
-                ? `${serverString}${task.assignee.userPic}`
-                : human
-            }
+            src={getAvatarUrlOrHuman(task.assignee?.userPic)}
             alt={'human'}
           />
         </div>

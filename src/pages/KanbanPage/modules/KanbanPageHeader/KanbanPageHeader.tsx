@@ -4,7 +4,7 @@ import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { useNavigate } from 'react-router-dom';
 import { appRoutsPath } from '../../../../routing/routs';
 import { FavoriteIcon } from '../../../../assets/icons/UtilsIcons';
-import { Switcher } from '../../../../ui/Switcher';
+import { Switcher } from '../../../../ui/Switcher/Switcher';
 import { useTheme } from '../../../../hooks/useTheme';
 import { fetchFavoriteToggle } from '../../../ProjectsPage/store/projects.thunk';
 import i18n from 'i18next';

@@ -1,7 +1,17 @@
 import React from 'react';
-import { TaskLabelProps } from './TaskLabel.props';
 import classNames from 'classnames';
 import styles from '../../pages/KanbanPage/components/TaskCard/TaskCard.module.css';
+
+export type ITaskLabelType =
+  | 'NONE'
+  | 'QUESTION'
+  | 'RESEARCH'
+  | 'BUG'
+  | 'FEATURE';
+
+export interface TaskLabelProps {
+  type: ITaskLabelType | null | string;
+}
 
 export const TaskLabel: React.FC<TaskLabelProps> = ({ type }): JSX.Element => {
   return (

@@ -12,13 +12,13 @@
   width: 100%;
   height: 100%;
   border-radius: 8px;
-  padding: 0 10px;
+  padding: 16px 10px 0 10px;
   font-size: 14px;
   color: var(--font-defautl);
 }
 .input_label {
   font-size: 14px;
-  transition: 0.2s;
+  transition: 0.1s;
   position: absolute;
   left: 10px;
   top: 50%;
@@ -27,7 +27,7 @@
 }
 .input_label_active {
   font-size: 12px;
-  top: 10px;
+  top: 16px;
   background: transparent;
   left: 12px;
 }

@@ -13,18 +13,18 @@ export const KanbanPage: React.FC = (): JSX.Element => {
   const [curView, setCurView] = useState<'col' | 'row'>('col');
   const curProjId =
     useTypedSelector((state) => state.projects.curProj)?.id ||
-    Number(localStorage.getItem('curProj'));
+    localStorage.getItem('curProj');
   const filters = useTypedSelector((state) => state.projectKanban.filters);
 
   useEffect(() => {
     if (curProjId) {
       dispatch(
         fetchProjectDashboard({
-          projId: curProjId,
+          projId: +curProjId,
           params: filters.length !== 0 ? filters : null,
         })
       );
-      dispatch(fetchProjectInfo(curProjId));
+      dispatch(fetchProjectInfo(+curProjId));
     }
   }, [curProjId, dispatch, filters]);
 

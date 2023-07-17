@@ -1,7 +1,12 @@
 import React from 'react';
 import styles from './Modal.module.css';
 import cn from 'classnames';
-import { IModalProps } from './Modal.props';
+
+export interface IModalProps {
+  show: boolean;
+  setShow: (boolValue: boolean) => void;
+  children: React.ReactNode;
+}
 
 export const Modal: React.FC<IModalProps> = ({
   show,

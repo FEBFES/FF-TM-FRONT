@@ -1,10 +1,9 @@
 import React from 'react';
 import styles from './MemberCard.module.css';
 import { Avatar } from '../../../../ui/Avatar/Avatar';
-import { serverString } from '../../../../config';
-import human from '../../../../assets/img/human.png';
 import { IMember } from '../../store/kanban.type';
 import classNames from 'classnames';
+import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 
 interface MemberCardProps {
   member: IMember;
@@ -24,10 +23,7 @@ export const MemberCard: React.FC<MemberCardProps> = ({
       })}
       onClick={onClick}
     >
-      <Avatar
-        size={'xs'}
-        src={member.userPic ? `${serverString}${member.userPic}` : human}
-      />
+      <Avatar size={'xs'} src={getAvatarUrlOrHuman(member.userPic)} />
       <p>{member.username}</p>
       <span>{member.email}</span>
     </div>

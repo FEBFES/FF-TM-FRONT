@@ -4,7 +4,6 @@ import comStyle from '../SettingsPage/commonStyle.module.css';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
-import { serverString } from '../../config';
 import { InputField } from '../../ui/InputField/InputField';
 import { Button } from '../../ui/Button/Button';
 import i18n from 'i18next';
@@ -14,7 +13,7 @@ import {
   fetchUploadNewUserAvatar,
 } from '../../store/User/user.thunk';
 import { Avatar } from '../../ui/Avatar/Avatar';
-import human from '../../assets/img/human.png';
+import { getAvatarUrlOrHuman } from '../../utils/utils';
 
 interface ProfileTabProps {}
 
@@ -109,7 +108,7 @@ export const SettingsProfileTab: React.FC<
       <div className={styles.userAvatarCont}>
         <Avatar
           size={'2xl'}
-          src={userAvatar ? `${serverString}${userAvatar}` : human}
+          src={getAvatarUrlOrHuman(userAvatar)}
           alt={i18n.t('utils.any.avatar')}
         />
         {userPic && (
