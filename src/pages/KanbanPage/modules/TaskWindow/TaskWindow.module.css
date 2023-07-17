@@ -109,7 +109,7 @@
   padding: 0 18px;
   margin-top: 25px;
   margin-bottom: 20px;
-  min-height: 100px;
+  height: 100px;
 }
 
 .description__text {
@@ -156,7 +156,7 @@
 .filesUploadContainer {
   margin-top: 20px;
   width: 100%;
-  padding: 20px;
+  padding: 0 20px 0 20px;
 }
 
 .fileInput__container {
@@ -190,7 +190,7 @@
 .fileCont {
   padding-left: 6px;
   padding-right: 6px;
-  height: 250px;
+  height: 150px;
   overflow-y: scroll;
   margin-top: 20px;
   display: flex;
