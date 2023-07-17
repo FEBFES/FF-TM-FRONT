@@ -61,7 +61,7 @@ export const FilesTab: React.FC<FilesTabProps> = ({
         />
       </div>
 
-      <ul className={styles.fileCont}>
+      <ul className={`${styles.fileCont} scrollbar`}>
         {files.map((file: IFile) => {
           return (
             <FileCard

@@ -10,6 +10,7 @@ import moment from 'moment';
 import { Avatar } from '../../../../ui/Avatar/Avatar';
 import { IFile } from '../../components/TaskCard/TaskCard.type';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
+import { Tooltip } from '../../../../ui/Tooltip/Tooltip';
 
 interface TaskWindowProps {
   setShowWindow: (bool: boolean) => void;
@@ -60,12 +61,14 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
           <span className={styles.user__title}>
             {i18n.t('utils.any.assignee')}:
           </span>
-          <Avatar
-            size={'m'}
-            bordered
-            src={getAvatarUrlOrHuman(task.assignee?.userPic)}
-            alt={'human'}
-          />
+          <Tooltip title={task?.assignee?.username || ''}>
+            <Avatar
+              size={'m'}
+              bordered
+              src={getAvatarUrlOrHuman(task.assignee?.userPic)}
+              alt={'human'}
+            />
+          </Tooltip>
         </div>
       </div>
 
@@ -97,7 +100,7 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
           {i18n.t('utils.any.description')}:
         </h3>
         <textarea
-          className={styles.description__text}
+          className={`${styles.description__text} scrollbar`}
           value={task.description || ''}
           onChange={() => {}}
         />
