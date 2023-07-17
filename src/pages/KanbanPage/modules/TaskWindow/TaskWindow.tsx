@@ -90,8 +90,13 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
 
       <div className={styles.date__container}>
         <h3 className={styles.user__title}>
-          {i18n.t('pages.kanban.taskWindow.main.info.creationDate')}:
-          {moment(task.createDate).format('DD.MM.YYYY')}
+          {i18n.t('pages.kanban.taskWindow.main.info.creationDate')}:{' '}
+          {task.createDate ? moment(task.createDate).format('DD.MM.YYYY') : '-'}
+        </h3>
+
+        <h3 className={styles.user__title}>
+          {i18n.t('pages.kanban.taskWindow.main.info.updateDate')}:{' '}
+          {task.updateDate ? moment(task.updateDate).format('DD.MM.YYYY') : '-'}
         </h3>
       </div>
 
