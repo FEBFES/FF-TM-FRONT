@@ -58,7 +58,9 @@ export const Sidebar: React.FC = (): JSX.Element => {
   const { theme } = useTheme();
   const location = useLocation();
   const isFullView = useTypedSelector((state) => state.app.sidebarFullView);
-
+  const curProjId =
+    useTypedSelector((state) => state.projects.curProj)?.id ||
+    localStorage.getItem('curProj');
   return (
     <div className={classNames(styles.sidebar)}>
       <div className={styles.sidebar__header}>
@@ -79,6 +81,9 @@ export const Sidebar: React.FC = (): JSX.Element => {
       <ul className={styles.sidebar__main}>
         {links.map((link, i) => {
           if (link.private && location.pathname === '/') {
+            return null;
+          }
+          if (link.title === 'routes.sidebar.kanban' && !curProjId) {
             return null;
           }
           return (

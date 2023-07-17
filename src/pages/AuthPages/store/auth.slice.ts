@@ -19,6 +19,7 @@ const AuthSlice = createSlice({
     setIsAuth: (state, action: PayloadAction<boolean>) => {
       if (!action.payload) {
         localStorage.clear();
+        window.location.pathname = '/';
       }
       state.isAuth = action.payload;
     },
