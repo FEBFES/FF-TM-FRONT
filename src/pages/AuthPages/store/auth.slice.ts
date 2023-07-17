@@ -18,8 +18,7 @@ const AuthSlice = createSlice({
     },
     setIsAuth: (state, action: PayloadAction<boolean>) => {
       if (!action.payload) {
-        localStorage.removeItem('accessToken');
-        localStorage.removeItem('refreshToken');
+        localStorage.clear();
       }
       state.isAuth = action.payload;
     },

@@ -2,10 +2,9 @@ import React from 'react';
 import { IMember } from '../../pages/KanbanPage/store/kanban.type';
 import styles from './AvatarGroup.module.css';
 import { Avatar } from '../Avatar/Avatar';
-import human from '../../assets/img/human.png';
-import { serverString } from '../../config';
 import { Tooltip } from '../Tooltip/Tooltip';
 import { PlacementType } from '../Tooltip/Tooltip.props';
+import { getAvatarUrlOrHuman } from '../../utils/utils';
 
 interface AvatarGroupProps {
   members: IMember[];
@@ -47,9 +46,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
             >
               <Avatar
                 size={avatarSize}
-                src={
-                  member?.userPic ? `${serverString}${member.userPic}` : human
-                }
+                src={getAvatarUrlOrHuman(member?.userPic)}
               />
             </div>
           </Tooltip>

@@ -3,7 +3,6 @@ import styles from './TaskCard.module.css';
 import { delTaskFromCol } from '../../store/kanban.slice';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { AttachmentsIcon } from '../../../../assets/icons/TaskIcons';
-import human from '../../../../assets/img/human.png';
 import { fetchGetTaskInfo } from '../../store/kanban.thunk';
 import { TaskCardProps } from './TaskCard.props';
 import moment from 'moment';
@@ -13,6 +12,7 @@ import { TaskLabel } from '../../../../ui/TaskLabel/TaskLabel';
 import { PriorityLabel } from '../../../../ui/PriorityLabel/PriorityLabel';
 import i18n from 'i18next';
 import { Avatar } from '../../../../ui/Avatar/Avatar';
+import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 
 export const TaskCard: React.FC<TaskCardProps> = ({
   task,
@@ -41,14 +41,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({
           <h4 className={styles.task_id}>#{task.id || ''}</h4>
         </div>
 
-        <Avatar
-          size={'s'}
-          src={
-            task.owner?.userPic
-              ? `http://febfes.com/api/v1${task.owner.userPic}`
-              : human
-          }
-        />
+        <Avatar size={'s'} src={getAvatarUrlOrHuman(task.owner?.userPic)} />
       </div>
 
       <div className={styles.task__main}>

@@ -3,14 +3,13 @@ import styles from './TaskRowCard.module.css';
 import { ITask } from '../TaskCard/TaskCard.type';
 import { PriorityLabel } from '../../../../ui/PriorityLabel/PriorityLabel';
 import { Avatar } from '../../../../ui/Avatar/Avatar';
-import { serverString } from '../../../../config';
-import human from '../../../../assets/img/human.png';
 import { TaskLabel } from '../../../../ui/TaskLabel/TaskLabel';
 import { fetchGetTaskInfo } from '../../store/kanban.thunk';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { DropDown } from '../../../../ui/DropDown/DropDown';
 import i18n from 'i18next';
 import { DotsIcon } from '../../../../assets/icons/UtilsIcons';
+import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 
 export interface TaskRowCardProps {
   task: ITask;
@@ -60,12 +59,7 @@ export const TaskRowCard: React.FC<TaskRowCardProps> = ({
         <div className={styles.card_task_label}>
           <TaskLabel type={task.type} />
         </div>
-        <Avatar
-          size={'m'}
-          src={
-            task.owner.userPic ? `${serverString}${task.owner.userPic}` : human
-          }
-        />
+        <Avatar size={'m'} src={getAvatarUrlOrHuman(task.owner.userPic)} />
         <div
           onClick={() => {
             setShowDD(true);
