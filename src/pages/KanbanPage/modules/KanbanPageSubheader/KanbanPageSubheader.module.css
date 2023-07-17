@@ -16,9 +16,7 @@
 }
 
 .subheader__left {
-  width: 10%;
-  min-width: 100px;
-  justify-content: space-between;
+  justify-content: flex-start;
   display: flex;
 }
 

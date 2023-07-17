@@ -1,0 +1,29 @@
+.xs {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.s {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.sm {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.m {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.l {
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.xl {
+  margin-left: 32px;
+  margin-right: 32px;
+}

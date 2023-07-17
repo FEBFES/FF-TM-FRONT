@@ -5,6 +5,7 @@ import { useTypedSelector } from '../../../../hooks/redux';
 import { IMember } from '../../store/kanban.type';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { useClickOutside } from '../../../../hooks/useClickOutside';
 
 interface AddAssigneeModalProps {
   showAssignee: boolean;
@@ -18,9 +19,10 @@ export const AddAssigneeModal: React.FC<AddAssigneeModalProps> = ({
   setCurAssignee,
 }): JSX.Element => {
   const members = useTypedSelector((state) => state.projectKanban.members);
+  const { ref } = useClickOutside(setShowAssignee);
 
   return showAssignee ? (
-    <div className={styles.assignee__modal}>
+    <div ref={ref} className={styles.assignee__modal}>
       {[...members].map((member, i) => {
         return (
           <MemberCard

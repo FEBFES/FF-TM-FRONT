@@ -9,13 +9,14 @@ import {
 import { IPriorityType } from '../../components/PrioritySelect/PrioritySelect.type';
 import i18n from 'i18next';
 import { KanbanViewSwitcher } from '../../components/KanbanViewSwitcher/KanbanViewSwitcher';
-import { AvatarGroup } from '../../../../ui/AvatarGroup/AvatarGroup';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import {
   clearAllFilters,
   delFilters,
   setFilters,
 } from '../../store/kanban.slice';
+import { MembersSelect } from '../../components/MembersSelect/MembersSelect';
+import { Space } from '../../../../ui/Space/Space';
 
 interface TableViewControllerProps {
   curView: 'row' | 'col';
@@ -26,7 +27,6 @@ export const KanbanPageSubheader: React.FC<TableViewControllerProps> = ({
   curView,
   setCurView,
 }): JSX.Element => {
-  const members = useTypedSelector((state) => state.projectKanban.members);
   const dispatch = useAppDispatch();
   const filters = useTypedSelector((state) => state.projectKanban.filters);
   const haveFilters = filters.length >= 1;
@@ -38,7 +38,8 @@ export const KanbanPageSubheader: React.FC<TableViewControllerProps> = ({
     <div className={styles.subheader}>
       <div className={styles.subheader__left}>
         <KanbanViewSwitcher curView={curView} setCurView={setCurView} />
-        <AvatarGroup placement={'top'} members={members} avatarSize={'s'} />
+        <Space mx={'l'} />
+        <MembersSelect />
       </div>
 
       <div className={styles.filters__cont}>
