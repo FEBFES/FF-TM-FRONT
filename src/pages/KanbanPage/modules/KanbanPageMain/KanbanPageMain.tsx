@@ -1,12 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { AddTaskModal } from '../../components/AddTaskModal/AddTaskModal';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
-import {
-  fetchAddNewTask,
-  fetchDelTask,
-  fetchProjectDashboard,
-  fetchProjectInfo,
-} from '../../store/kanban.thunk';
+import { fetchAddNewTask, fetchDelTask } from '../../store/kanban.thunk';
 import styles from './KanbanPageMain.module.css';
 import { IPriorityType } from '../../components/PrioritySelect/PrioritySelect.type';
 import { ITypeSelectType } from '../../components/TypeSelect/TypeSelect';
@@ -30,17 +25,6 @@ export const KanbanPageMain: React.FC<KanbanPageProps> = ({
     Number(localStorage.getItem('curProj'));
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
   const [curCol, setCurCol] = useState<IColumns | null>(null);
-
-  useEffect(() => {
-    if (curProjId) {
-      dispatch(fetchProjectDashboard({ projId: curProjId }));
-      dispatch(fetchProjectInfo(curProjId));
-    }
-
-    // return () => {
-    //   dispatch(clearKanbanSlice());
-    // };
-  }, [curProjId, dispatch]);
 
   const addNewTaskHandler = (
     name: string,

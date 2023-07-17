@@ -11,7 +11,7 @@ export const FilterCard: React.FC<FilterCardProps> = ({
       <div className={styles.filter}>
         <span className={styles.filter__name}>{title}:</span>
       </div>
-      {component}
+      <div className={styles.componentCont}>{component}</div>
     </div>
   );
 };

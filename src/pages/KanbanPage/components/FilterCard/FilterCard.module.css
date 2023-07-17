@@ -5,6 +5,7 @@
   margin-right: 5px;
   border: 1px solid var(--bg-border);
   border-radius: 6px;
+  min-height: 26px;
 }
 
 .filter {
@@ -17,6 +18,11 @@
   font-weight: 400;
   margin-right: 5px;
 }
+
+.componentCont {
+  min-width: 30px;
+}
+
 .filter:last-of-type {
   margin-right: 0;
 }
