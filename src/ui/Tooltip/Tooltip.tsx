@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
-import { TooltipProps } from './Tooltip.props';
 import styles from './Tooltip.module.css';
 import classNames from 'classnames';
+
+export type PlacementType = 'left' | 'top' | 'right' | 'bottom';
+
+interface TooltipProps {
+  title: string;
+  children: any;
+  placement?: PlacementType;
+}
 
 export const Tooltip: React.FC<TooltipProps> = ({
   children,
