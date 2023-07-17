@@ -26,7 +26,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
     <div
       className={styles.avatarGroupCont}
       style={{
-        marginRight: `${18 * (maxCount ? maxCount : members.length)}px`,
+        marginRight: `-${10 * (maxCount ? maxCount : members.length)}px`,
       }}
     >
       {members.map((member: IMember, i: number) => {
@@ -41,7 +41,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
               key={`${i}-${member.id}`}
               className={styles.avatarCont}
               style={{
-                left: `${i * 15}px`,
+                right: `${i * 10}px`,
                 zIndex: `${i + 1}`,
               }}
             >
@@ -58,7 +58,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
       {maxCount !== undefined && (
         <div
           style={{
-            left: `${maxCount * 15}px`,
+            left: `${maxCount * 14}px`,
             zIndex: maxCount + 1,
           }}
           className={styles.otherMember}

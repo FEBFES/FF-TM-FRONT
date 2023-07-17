@@ -14,6 +14,7 @@ export const SearchInput: React.FC<SearchInputProps> = (): JSX.Element => {
 
   const clearFilters = () => {
     dispatch(delFilters('taskName'));
+    setInputValue('');
   };
 
   const handleSubmit = () => {

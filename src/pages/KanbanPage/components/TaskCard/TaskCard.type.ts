@@ -11,6 +11,7 @@ export interface IOwnerType {
 }
 
 export interface ITask {
+  assignee: IOwnerType;
   id: number;
   columnId: number;
   description: string;

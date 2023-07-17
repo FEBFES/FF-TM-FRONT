@@ -173,6 +173,7 @@ export const fetchAddNewTask = createAsyncThunk(
       colId,
       priority,
       type,
+      assigneeId,
     }: {
       name: string;
       description: string;
@@ -180,6 +181,7 @@ export const fetchAddNewTask = createAsyncThunk(
       colId: number;
       priority: IPriorityType;
       type: ITypeSelectType;
+      assigneeId: number | null | undefined;
     },
     { rejectWithValue, dispatch }
   ) => {
@@ -191,6 +193,7 @@ export const fetchAddNewTask = createAsyncThunk(
           description,
           priority: priority !== 'DEFAULT' ? priority : null,
           type: type !== 'NONE' ? type : null,
+          assigneeId: assigneeId ? assigneeId : null,
         }
       );
 
