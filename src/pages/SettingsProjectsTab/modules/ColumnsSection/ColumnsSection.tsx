@@ -14,7 +14,7 @@ interface ColumnsSectionProps {}
 export const ColumnsSection: React.FC<
   ColumnsSectionProps
 > = (): JSX.Element => {
-  const columns = useTypedSelector((state) => state.projectKanban.columns);
+  const columns = useTypedSelector((state) => state.curProj.columns);
 
   const [isChanged] = useState<boolean>(false);
   const [showAddColModal, setShowAddColModal] = useState<boolean>(false);

@@ -17,7 +17,7 @@ export const KanbanPageHeader: React.FC<
   KanbanPageHeaderProps
 > = (): JSX.Element => {
   const { projectName, projId, isFavorite, members } = useTypedSelector(
-    (state) => state.projectKanban
+    (state) => state.curProj
   );
   const theme = useTypedSelector((state) => state.app.theme);
   const dispatch = useAppDispatch();

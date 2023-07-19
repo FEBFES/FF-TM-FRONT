@@ -18,7 +18,7 @@ export const AddAssigneeModal: React.FC<AddAssigneeModalProps> = ({
   setShowAssignee,
   setCurAssignee,
 }): JSX.Element => {
-  const members = useTypedSelector((state) => state.projectKanban.members);
+  const members = useTypedSelector((state) => state.curProj.members);
   const { ref } = useClickOutside(setShowAssignee);
 
   return showAssignee ? (

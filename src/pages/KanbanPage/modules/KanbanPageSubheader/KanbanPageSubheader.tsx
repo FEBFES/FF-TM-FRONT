@@ -20,7 +20,7 @@ import { Space } from '../../../../ui/Space/Space';
 
 export const KanbanPageSubheader: React.FC = () => {
   const dispatch = useAppDispatch();
-  const filters = useTypedSelector((state) => state.projectKanban.filters);
+  const filters = useTypedSelector((state) => state.curProj.filters);
   const haveFilters = filters.length >= 1;
   const curType = filters.find((el) => el.key === 'taskType')?.value || 'NONE';
   const curPriority =

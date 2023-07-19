@@ -6,11 +6,11 @@ import { v4 } from 'uuid';
 import { useNavigate } from 'react-router-dom';
 import { DotsIcon, FavoriteIcon } from '../../../../assets/icons/UtilsIcons';
 import { useAppDispatch } from '../../../../hooks/redux';
-import { setCurProj } from '../../store/projects.slice';
 import { fetchFavoriteToggle } from '../../store/projects.thunk';
 import { DropDown } from '../../../../ui/DropDown/DropDown';
 import { fetchDelProject } from '../../store/projects.thunk';
 import i18n from 'i18next';
+import { setCurProjId } from '../../../KanbanPage/store/kanban.slice';
 
 interface ProjectCardProps {
   proj: IProject;
@@ -24,9 +24,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   const dispatch = useAppDispatch();
 
   const navigateToKanban = () => {
+    dispatch(setCurProjId(proj.id));
     navigate(appRoutsPath.KanbanPage.to);
-    dispatch(setCurProj(proj));
-    localStorage.setItem('curProj', JSON.stringify(proj.id));
   };
 
   return (

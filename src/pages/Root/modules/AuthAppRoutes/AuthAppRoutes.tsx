@@ -6,15 +6,22 @@ import { fetchGetUserInfo } from '../../../../store/User/user.thunk';
 import { privateRoutes } from '../../../../routing/routs';
 import { EmptyLayout } from '../../../../layouts/EmptyLayout/EmptyLayout';
 import { NotFoundPage } from '../../../404/NotFoundPage';
+import {
+  fetchProjectDashboard,
+  fetchProjectInfo,
+} from '../../../KanbanPage/store/kanban.thunk';
 
 export const AuthAppRoutes: React.FC = () => {
   const dispatch = useAppDispatch();
   const userId = useTypedSelector((state) => state.user.userId);
+  const projId = useTypedSelector((state) => state.curProj.projId);
 
   useEffect(() => {
     dispatch(fetchProjects());
     dispatch(fetchGetUserInfo(userId));
-  }, [userId, dispatch]);
+    projId && dispatch(fetchProjectDashboard({ projId }));
+    projId && dispatch(fetchProjectInfo(projId));
+  }, [userId, dispatch, projId]);
 
   return (
     <Routes>

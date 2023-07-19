@@ -6,36 +6,31 @@ import {
   fetchProjects,
 } from './projects.thunk';
 import { IProject } from './projects.type';
-import { IColumns } from '../../KanbanPage/components/Column/Column.type';
 
 interface IProjectInitialState {
   projects: IProject[];
-  curProj: IProject | null;
-  curDashboard: IColumns[] | null;
   isLoad: boolean;
   error: string | null;
 }
 
 const projectInitialState: IProjectInitialState = {
   projects: [],
-  curProj: null,
   isLoad: false,
   error: null,
-  curDashboard: null,
 };
 
 const ProjectsSlice = createSlice({
   name: 'projects',
   initialState: projectInitialState,
   reducers: {
-    setCurProj: (state, action: PayloadAction<IProject>) => {
-      state.curProj = action.payload;
-    },
-    setCurDashboard: (state, action: PayloadAction<IColumns[]>) => {
-      state.curDashboard = action.payload.sort(
-        (a: IColumns, b: IColumns) => a.columnOrder - b.columnOrder
-      );
-    },
+    // setCurProj: (state, action: PayloadAction<IProject>) => {
+    //   state.curProj = action.payload;
+    // },
+    // setCurDashboard: (state, action: PayloadAction<IColumns[]>) => {
+    //   state.curDashboard = action.payload.sort(
+    //     (a: IColumns, b: IColumns) => a.columnOrder - b.columnOrder
+    //   );
+    // },
   },
   extraReducers: (builder) => {
     //
@@ -90,5 +85,5 @@ const ProjectsSlice = createSlice({
   },
 });
 
-export const { setCurProj, setCurDashboard } = ProjectsSlice.actions;
+// export const { setCurProj, setCurDashboard } = ProjectsSlice.actions;
 export default ProjectsSlice.reducer;

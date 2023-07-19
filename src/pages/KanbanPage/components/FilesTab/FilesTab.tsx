@@ -15,7 +15,7 @@ export const FilesTab: React.FC<FilesTabProps> = ({
   files,
   setFiles,
 }): JSX.Element => {
-  const task = useTypedSelector((state) => state.projectKanban.taskWindowInfo);
+  const task = useTypedSelector((state) => state.curProj.taskWindowInfo);
 
   useEffect(() => {
     if (!task) {
