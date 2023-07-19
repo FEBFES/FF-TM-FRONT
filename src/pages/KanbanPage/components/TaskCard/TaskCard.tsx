@@ -48,7 +48,12 @@ export const TaskCard: React.FC<TaskCardProps> = ({
           <h4 className={styles.task_id}>#{task.id || ''}</h4>
         </div>
 
-        <Avatar size={'s'} src={getAvatarUrlOrHuman(task.owner?.userPic)} />
+        {task.assignee?.userPic && (
+          <Avatar
+            size={'s'}
+            src={getAvatarUrlOrHuman(task.assignee?.userPic)}
+          />
+        )}
       </div>
 
       <div className={styles.task__main}>

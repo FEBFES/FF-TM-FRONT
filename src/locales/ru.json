@@ -10,7 +10,7 @@
   "utils.buttons.cancel": "Отменить",
   "utils.buttons.reset": "Сбросить",
 
-  "utils.any.owner": "Владелец",
+  "utils.any.owner": "Создатель",
   "utils.any.assignee": "Ответственный",
   "utils.any.status": "Статус",
   "utils.any.name": "Название",

@@ -46,9 +46,6 @@
   cursor: pointer;
   transition: 0.2s;
 }
-.btn:last-of-type {
-  margin-right: 0;
-}
 
 .inputCont {
   margin-top: 0;
