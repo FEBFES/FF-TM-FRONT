@@ -14,8 +14,8 @@ import { Avatar } from '../../../../ui/Avatar/Avatar';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 import { ITask } from './TaskCard.type';
 import 'moment/locale/ru';
-import { Paragraph } from '../../../../ui/Typography/Paragraph/Paragraph';
 import { Text, Title } from '../../../../ui/Typography';
+import { Space } from '../../../../ui/Space/Space';
 
 interface TaskCardProps {
   task: ITask;
@@ -47,9 +47,10 @@ export const TaskCard: React.FC<TaskCardProps> = ({
       <div className={styles.header}>
         <div className={styles.header_left}>
           <PriorityLabel priority={task.priority} />
+          <Space mx={'2xs'} />
           <Title
-          //todo
-          // className={styles.task_id}
+            // color: #989898; todo
+            level={'h6'}
           >
             #{task.id || ''}
           </Title>
@@ -65,8 +66,10 @@ export const TaskCard: React.FC<TaskCardProps> = ({
 
       <div className={styles.task__main}>
         <Title
-          // todo
-          // className={styles.task_title}
+          hover={'underline'}
+          cursor={'pointer'}
+          level={'h6'}
+          // color: var(--font-defautl); hover: underline
           onClick={() => {
             setShowTaskModal(true);
             dispatch(
@@ -115,12 +118,9 @@ export const TaskCard: React.FC<TaskCardProps> = ({
             className={styles.task_attachments}
           >
             <DropDown show={showDD} setShow={setShowDD}>
-              <Paragraph
-                className={styles.delBtn}
-                onClick={() => delTask(task.columnId, task.id)}
-              >
+              <Text onClick={() => delTask(task.columnId, task.id)}>
                 {i18n.t('utils.buttons.delete')}
-              </Paragraph>
+              </Text>
             </DropDown>
             <DotsIcon w={12} />
           </div>

@@ -12,6 +12,7 @@ import { IFile } from '../../components/TaskCard/TaskCard.type';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 import { Tooltip } from '../../../../ui/Tooltip/Tooltip';
 import { Title } from '../../../../ui/Typography';
+import { Space } from '../../../../ui/Space/Space';
 
 interface TaskWindowProps {
   setShowWindow: (bool: boolean) => void;
@@ -31,12 +32,7 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
   return (
     <div className={styles.taskWindow}>
       <header className={styles.header}>
-        <Title
-        // todo
-        // className={styles.taskWindow_id}
-        >
-          #{task.id}
-        </Title>
+        <Title level={'h4'}>#{task.id}</Title>
         <div className={styles.header__right}>
           {/*<FullIcon />*/}
           <div
@@ -49,17 +45,13 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
       </header>
 
       <div className={styles.subheader}>
-        <h1 className={styles.subheader__title}>{task.name || ''}</h1>
+        <Title level={'h3'}>{task.name || ''}</Title>
       </div>
 
       <div className={styles.users}>
         <div className={styles.user__block}>
-          <Title
-          // className={styles.user__title}
-          >
-            {/*//todo*/}
-            {i18n.t('utils.any.owner')}:
-          </Title>
+          <Title level={'h6'}>{i18n.t('utils.any.owner')}:</Title>
+          <Space mx={'xs'} />
           <Tooltip title={task.owner?.username || ''}>
             <Avatar
               bordered
@@ -69,12 +61,8 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
           </Tooltip>
         </div>
         <div className={styles.user__block}>
-          <Title
-          //todo
-          // className={styles.user__title}
-          >
-            {i18n.t('utils.any.assignee')}:
-          </Title>
+          <Title level={'h6'}>{i18n.t('utils.any.assignee')}:</Title>
+          <Space mx={'xs'} />
           <Tooltip title={task?.assignee?.username || ''}>
             <Avatar
               size={'m'}
@@ -88,51 +76,34 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
 
       <div className={styles.priority}>
         <div className={styles.priority__container}>
-          <Title
-          //todo
-          // /**/className={styles.user__title}
-          >
-            {i18n.t('utils.any.priority')}:
-          </Title>
+          <Title level={'h6'}>{i18n.t('utils.any.priority')}:</Title>
+          <Space mx={'xs'} />
           <PriorityLabel priority={task.priority} />
         </div>
 
         <div className={styles.priority__container}>
-          <Title
-          //todo
-          // className={styles.user__title}
-          >
-            {i18n.t('utils.any.type')}:
-          </Title>
+          <Title level={'h6'}>{i18n.t('utils.any.type')}:</Title>
+          <Space mx={'xs'} />
           <TaskLabel type={task.type} />
         </div>
       </div>
 
       <div className={styles.date__container}>
-        <Title
-        //todo
-        // className={styles.user__title}
-        >
-          {i18n.t('pages.kanban.taskWindow.main.info.creationDate')}:{' '}
+        <Title level={'h6'}>
+          {i18n.t('pages.kanban.taskWindow.main.info.creationDate')}:
+          <Space mx={'2xs'} />
           {task.createDate ? moment(task.createDate).format('DD.MM.YYYY') : '-'}
         </Title>
 
-        <Title
-        //todo
-        // className={styles.user__title}
-        >
-          {i18n.t('pages.kanban.taskWindow.main.info.updateDate')}:{' '}
+        <Title level={'h6'}>
+          {i18n.t('pages.kanban.taskWindow.main.info.updateDate')}:
+          <Space mx={'2xs'} />
           {task.updateDate ? moment(task.updateDate).format('DD.MM.YYYY') : '-'}
         </Title>
       </div>
 
       <div className={styles.description}>
-        <Title
-        //todo
-        // className={styles.user__title}
-        >
-          {i18n.t('utils.any.description')}:
-        </Title>
+        <Title level={'h6'}>{i18n.t('utils.any.description')}</Title>
         <textarea
           className={`${styles.description__text} scrollbar`}
           value={task.description || ''}

@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import i18n from 'i18next';
 import { useTypedSelector } from '../../../../hooks/redux';
 import { Title } from '../../../../ui/Typography';
+import { Space } from '../../../../ui/Space/Space';
 
 interface SettingsSidebarProps {}
 
@@ -14,13 +15,8 @@ export const SettingsSidebar: React.FC<
 
   return (
     <nav className={styles.sidebar}>
-      <Title
-      //todo
-      // className={styles.sidebar__title}
-      >
-        {i18n.t('pages.settings.sidebar.title')}
-      </Title>
-
+      <Title level={'h2'}>{i18n.t('pages.settings.sidebar.title')}</Title>
+      <Space my={'xl'} />
       {/*<Title */}
       {/*    //todo*/}
       {/*    // className={styles.sidebar__subtitle}*/}
@@ -50,12 +46,7 @@ export const SettingsSidebar: React.FC<
       {/*  </NavLink>*/}
       {/*</li>*/}
 
-      <Title
-      //todo
-      // className={styles.sidebar__subtitle}
-      >
-        {i18n.t('pages.settings.sidebar.link.title')}
-      </Title>
+      <Title level={'h4'}>{i18n.t('pages.settings.sidebar.link.title')}</Title>
       <li className={styles.sidebar__link}>
         <NavLink
           className={({ isActive }) =>

@@ -82,14 +82,6 @@
   align-items: center;
 }
 
-.user__title {
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 16px;
-  color: #575757;
-  margin-right: 10px;
-}
-
 .priority__container {
   display: flex;
   align-items: center;

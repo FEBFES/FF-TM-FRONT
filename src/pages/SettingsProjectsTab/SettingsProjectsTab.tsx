@@ -5,6 +5,7 @@ import { ColumnsSection } from './modules/ColumnsSection/ColumnsSection';
 import { ProjectSection } from './modules/ProjectSection/ProjectSection';
 import { useNavigate } from 'react-router-dom';
 import { Title } from '../../ui/Typography';
+import { Space } from '../../ui/Space/Space';
 
 export const SettingsProjectsTab: React.FC = (): JSX.Element => {
   const projectName = useTypedSelector((state) => state.curProj.projectName);
@@ -19,12 +20,10 @@ export const SettingsProjectsTab: React.FC = (): JSX.Element => {
 
   return (
     <div>
-      <Title
-      // todo
-      //   className={comStyles.title}
-      >
+      <Title level={'h3'}>
         {i18n.t('pages.settings.tabs.project.title')} - {projectName || ''}
       </Title>
+      <Space my={'xl'} />
 
       <ProjectSection />
       <ColumnsSection />

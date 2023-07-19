@@ -10,11 +10,7 @@ export const ProjectsPageHeader: React.FC = (): JSX.Element => {
 
   return (
     <header className={styles.ProjectsPage__header}>
-      <Title
-      //todo
-      >
-        {i18n.t('pages.projects.header.title')}
-      </Title>
+      <Title level={'h4'}>{i18n.t('pages.projects.header.title')}</Title>
       <Button variant={'primary'} onClick={() => setShow(true)}>
         {i18n.t('pages.projects.header.addBtn')}
       </Button>

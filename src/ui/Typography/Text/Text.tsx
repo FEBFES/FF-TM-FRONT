@@ -4,8 +4,8 @@ import classNames from 'classnames';
 
 interface TextProps
   extends DetailedHTMLProps<
-    React.AllHTMLAttributes<HTMLSpanElement>,
-    HTMLSpanElement
+    React.AllHTMLAttributes<HTMLParagraphElement>,
+    HTMLParagraphElement
   > {
   children: React.ReactNode;
 }
@@ -15,8 +15,8 @@ export const Text: React.FC<TextProps> = ({
   ...props
 }): JSX.Element => {
   return (
-    <span {...props} className={classNames(styles.text, props.className)}>
+    <p {...props} className={classNames(styles.text)}>
       {children}
-    </span>
+    </p>
   );
 };

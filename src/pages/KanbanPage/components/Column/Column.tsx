@@ -32,10 +32,7 @@ export const Column: React.FC<ColumnProps> = ({
   return (
     <div className={styles.colWrap} key={v4()}>
       <div className={styles.col__header}>
-        <Title
-        //todo
-        // className={styles.col__title}
-        >
+        <Title level={'h6'}>
           {col.name || ''} {col.tasks?.length !== 0 ? col.tasks?.length : null}
         </Title>
         <FontAwesomeIcon

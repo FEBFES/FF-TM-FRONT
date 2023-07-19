@@ -1,29 +1,90 @@
-.xs {
+.mx_2xs,
+.mx_xs,
+.mx_s,
+.mx_sm,
+.mx_m,
+.mx_l,
+.mx_xl {
+  display: inline-block;
+}
+.mx_2xs {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.mx_xs {
   margin-left: 6px;
   margin-right: 6px;
 }
 
-.s {
+.mx_s {
   margin-left: 8px;
   margin-right: 8px;
 }
 
-.sm {
+.mx_sm {
   margin-left: 12px;
   margin-right: 12px;
 }
 
-.m {
+.mx_m {
   margin-left: 16px;
   margin-right: 16px;
 }
 
-.l {
+.mx_l {
   margin-left: 24px;
   margin-right: 24px;
 }
 
-.xl {
+.mx_xl {
   margin-left: 32px;
   margin-right: 32px;
+}
+
+/*
+* MY
+*/
+.my_2xs,
+.my_xs,
+.my_s,
+.my_sm,
+.my_m,
+.my_l,
+.my_xl {
+  display: block;
+}
+.my_2xs {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.my_xs {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.my_s {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.my_sm {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.my_m {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.my_l {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.my_xl {
+  margin-top: 32px;
+  margin-bottom: 32px;
 }

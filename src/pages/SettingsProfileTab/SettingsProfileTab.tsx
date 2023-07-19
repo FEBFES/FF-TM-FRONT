@@ -13,8 +13,8 @@ import {
 } from '../../store/User/user.thunk';
 import { Avatar } from '../../ui/Avatar/Avatar';
 import { getAvatarUrlOrHuman } from '../../utils/utils';
-import { Title } from '../../ui/Typography';
-import { Paragraph } from '../../ui/Typography/Paragraph/Paragraph';
+import { Title, Text } from '../../ui/Typography';
+import { Space } from '../../ui/Space/Space';
 
 interface ProfileTabProps {}
 
@@ -100,12 +100,8 @@ export const SettingsProfileTab: React.FC<
 
   return (
     <div className={styles.profileTab}>
-      <Title
-      // todo
-      // className={comStyle.title}
-      >
-        {i18n.t('pages.settings.tabs.profile.title')}
-      </Title>
+      <Title level={'h3'}>{i18n.t('pages.settings.tabs.profile.title')}</Title>
+      <Space my={'xl'} />
 
       <div className={styles.userBackground} />
 
@@ -138,18 +134,11 @@ export const SettingsProfileTab: React.FC<
       </div>
 
       <div className={styles.inputsContainer}>
-        <Title
-        // todo
-        // className={comStyle.subtitle}
-        >
+        <Title level={'h4'}>
           {i18n.t('pages.settings.tabs.profile.sectionTitle')}
         </Title>
-        <Paragraph
-        // todo
-        // className={comStyle.text}
-        >
-          {i18n.t('pages.settings.tabs.profile.sectionSubTitle')}
-        </Paragraph>
+        <Text>{i18n.t('pages.settings.tabs.profile.sectionSubTitle')}</Text>
+        <Space my={'m'} />
 
         <InputField
           withLabel

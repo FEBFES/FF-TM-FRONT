@@ -14,7 +14,7 @@ import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchUpdateCol } from '../../../KanbanPage/store/kanban.thunk';
 import { Tooltip } from '../../../../ui/Tooltip/Tooltip';
 import i18n from 'i18next';
-import { Title } from '../../../../ui/Typography';
+import { Text, Title } from '../../../../ui/Typography';
 
 export const ColumnCard: React.FC<ColumnCardProps> = ({
   column,
@@ -44,11 +44,8 @@ export const ColumnCard: React.FC<ColumnCardProps> = ({
       })}
     >
       <div className={styles.column__left}>
-        <p className={styles.subtitle}>#{column.id}</p>
-        <Title
-        //todo
-        // className={styles.title}
-        >
+        <Text>#{column.id}</Text>
+        <Title level={'h6'}>
           {isEditMode ? (
             <div>
               <InputField

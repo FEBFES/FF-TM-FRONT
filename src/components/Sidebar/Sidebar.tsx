@@ -18,7 +18,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
 import { setSidebarView } from '../../pages/Root/store/AppSlice';
-import { Text } from '../../ui/Typography/Text/Text';
+import { Space } from '../../ui/Space/Space';
+import { Title } from '../../ui/Typography';
 
 const links = [
   //TODO to - from string to const appRoutsPath
@@ -98,12 +99,9 @@ export const Sidebar: React.FC = (): JSX.Element => {
               to={link.to}
             >
               <FontAwesomeIcon icon={link.icon} />
+              <Space mx={'xs'} />
               {isFullView && (
-                <Text
-                // className={styles.link__text}
-                >
-                  {i18n.t(link.title) || ''}
-                </Text>
+                <Title level={'h6'}>{i18n.t(link.title) || ''}</Title>
               )}
             </NavLink>
           );

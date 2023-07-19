@@ -2,8 +2,7 @@ import React from 'react';
 import styles from './SettingsGeneralTab.module.css';
 import comStyle from '../SettingsPage/commonStyle.module.css';
 import { PlusIcon } from '../../assets/icons/UtilsIcons';
-import { Title } from '../../ui/Typography';
-import { Paragraph } from '../../ui/Typography/Paragraph/Paragraph';
+import { Title, Text } from '../../ui/Typography';
 
 interface GeneralTabProps {}
 
@@ -15,9 +14,7 @@ export const SettingsGeneralTab: React.FC<
       {/* todo i18next */}
       <Title className={comStyle.title}>Project</Title>
       {/* todo i18next */}
-      <Paragraph className={comStyle.text}>
-        Manage your project settings
-      </Paragraph>
+      <Text className={comStyle.text}>Manage your project settings</Text>
 
       <div className={comStyle.brLine} />
 

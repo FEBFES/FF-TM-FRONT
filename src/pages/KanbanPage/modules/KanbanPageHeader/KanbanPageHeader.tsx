@@ -34,8 +34,9 @@ export const KanbanPageHeader: React.FC<
     <header className={styles.header}>
       <div className={styles.header__left}>
         <Title
-        // todo
-        // className={styles.title}
+          level={'h4'}
+          // todo
+          // className={styles.title}
         >
           {projectName || ''}
         </Title>
