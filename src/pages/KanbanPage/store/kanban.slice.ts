@@ -29,6 +29,7 @@ interface IKanbanInitialState {
   isFavorite: boolean;
   members: IMember[];
   filters: { key: string; value: string }[];
+  curView: 'row' | 'col';
 }
 
 const initialState: IKanbanInitialState = {
@@ -43,6 +44,7 @@ const initialState: IKanbanInitialState = {
   isFavorite: false,
   members: [],
   filters: [],
+  curView: 'col',
 };
 
 const KanbanSlice = createSlice({
@@ -99,6 +101,9 @@ const KanbanSlice = createSlice({
         });
       }
     },
+    //
+    // Filters
+    //
     delFilters: (state, action: PayloadAction<string>) => {
       state.filters = state.filters.filter(
         (filter) => filter.key !== action.payload
@@ -106,6 +111,12 @@ const KanbanSlice = createSlice({
     },
     clearAllFilters: (state) => {
       state.filters = [];
+    },
+    //
+    // Change kanbanView
+    //
+    setCurView: (state, action) => {
+      state.curView = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -218,6 +229,7 @@ const KanbanSlice = createSlice({
 export const {
   setFilters,
   delFilters,
+  setCurView,
   clearKanbanSlice,
   delTaskFromCol,
   addTaskToCol,

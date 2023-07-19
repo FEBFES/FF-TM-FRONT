@@ -18,15 +18,7 @@ import {
 import { MembersSelect } from '../../components/MembersSelect/MembersSelect';
 import { Space } from '../../../../ui/Space/Space';
 
-interface TableViewControllerProps {
-  curView: 'row' | 'col';
-  setCurView: (str: 'row' | 'col') => void;
-}
-
-export const KanbanPageSubheader: React.FC<TableViewControllerProps> = ({
-  curView,
-  setCurView,
-}): JSX.Element => {
+export const KanbanPageSubheader: React.FC = () => {
   const dispatch = useAppDispatch();
   const filters = useTypedSelector((state) => state.projectKanban.filters);
   const haveFilters = filters.length >= 1;
@@ -37,7 +29,7 @@ export const KanbanPageSubheader: React.FC<TableViewControllerProps> = ({
   return (
     <div className={styles.subheader}>
       <div className={styles.subheader__left}>
-        <KanbanViewSwitcher curView={curView} setCurView={setCurView} />
+        <KanbanViewSwitcher />
         <Space mx={'l'} />
         <MembersSelect />
       </div>

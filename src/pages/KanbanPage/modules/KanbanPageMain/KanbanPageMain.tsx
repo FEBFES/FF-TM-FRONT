@@ -11,11 +11,9 @@ import { RowView } from '../../components/RowView/RowView';
 
 interface KanbanPageProps {
   setShowTaskModal: (bool: boolean) => void;
-  curView: 'row' | 'col';
 }
 
 export const KanbanPageMain: React.FC<KanbanPageProps> = ({
-  curView,
   setShowTaskModal,
 }): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -25,6 +23,7 @@ export const KanbanPageMain: React.FC<KanbanPageProps> = ({
     Number(localStorage.getItem('curProj'));
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
   const [curCol, setCurCol] = useState<IColumns | null>(null);
+  const curView = useTypedSelector((state) => state.projectKanban.curView);
 
   const addNewTaskHandler = (
     name: string,

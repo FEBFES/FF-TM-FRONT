@@ -10,7 +10,6 @@ import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
 export const KanbanPage: React.FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const [showTaskModal, setShowTaskModal] = useState<boolean>(false);
-  const [curView, setCurView] = useState<'col' | 'row'>('col');
   const curProjId =
     useTypedSelector((state) => state.projects.curProj)?.id ||
     localStorage.getItem('curProj');
@@ -26,6 +25,11 @@ export const KanbanPage: React.FC = (): JSX.Element => {
       );
       dispatch(fetchProjectInfo(+curProjId));
     }
+
+    // return () => {
+    //   //todo
+    //   // dispatch(clearKanbanSlice());
+    // };
   }, [curProjId, dispatch, filters]);
 
   return (
@@ -34,8 +38,8 @@ export const KanbanPage: React.FC = (): JSX.Element => {
         className={`${styles.KanbanPage} ${showTaskModal && styles.showModal}`}
       >
         <KanbanPageHeader />
-        <KanbanPageSubheader curView={curView} setCurView={setCurView} />
-        <KanbanPageMain curView={curView} setShowTaskModal={setShowTaskModal} />
+        <KanbanPageSubheader />
+        <KanbanPageMain setShowTaskModal={setShowTaskModal} />
       </div>
 
       {showTaskModal && <TaskWindow setShowWindow={setShowTaskModal} />}
