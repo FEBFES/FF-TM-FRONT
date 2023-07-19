@@ -10,7 +10,7 @@ interface KanbanViewSwitcherProps {}
 export const KanbanViewSwitcher: React.FC<
   KanbanViewSwitcherProps
 > = (): JSX.Element => {
-  const curView = useTypedSelector((state) => state.projectKanban.curView);
+  const curView = useTypedSelector((state) => state.curProj.curView);
   const dispatch = useAppDispatch();
 
   return (

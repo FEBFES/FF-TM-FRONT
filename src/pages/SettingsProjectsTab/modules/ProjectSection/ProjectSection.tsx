@@ -12,7 +12,7 @@ export const ProjectSection: React.FC<
   ProjectSectionProps
 > = (): JSX.Element => {
   const { projectName, projectDesc, projId } = useTypedSelector(
-    (state) => state.projectKanban
+    (state) => state.curProj
   );
   const dispatch = useAppDispatch();
   const [name, setName] = useState<string>(projectName || '');
@@ -22,6 +22,11 @@ export const ProjectSection: React.FC<
   useEffect(() => {
     if (projectName === name && projectDesc === desc) setIsEdit(false);
   }, [name, desc, projectDesc, projectName]);
+
+  useEffect(() => {
+    projectName && setName(projectName);
+    projectDesc && setDesc(projectDesc);
+  }, [projectName, projectDesc]);
 
   const clearInputs = () => {
     setDesc(projectDesc || '');

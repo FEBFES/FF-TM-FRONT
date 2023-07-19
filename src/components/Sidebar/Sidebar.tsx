@@ -58,9 +58,8 @@ export const Sidebar: React.FC = (): JSX.Element => {
   const { theme } = useTheme();
   const location = useLocation();
   const isFullView = useTypedSelector((state) => state.app.sidebarFullView);
-  const curProjId =
-    useTypedSelector((state) => state.projects.curProj)?.id ||
-    localStorage.getItem('curProj');
+  const curProjId = useTypedSelector((state) => state.curProj.projId);
+
   return (
     <div className={classNames(styles.sidebar)}>
       <div className={styles.sidebar__header}>

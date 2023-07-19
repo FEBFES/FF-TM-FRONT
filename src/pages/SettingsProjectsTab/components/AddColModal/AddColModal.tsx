@@ -14,7 +14,7 @@ export const AddColModal: React.FC<AddColModalProps> = ({
 }): JSX.Element => {
   const [colName, setColName] = useState<string>('');
   const [colDesc, setColDesc] = useState<string>('');
-  const projId = useTypedSelector((state) => state.projectKanban.projId);
+  const projId = useTypedSelector((state) => state.curProj.projId);
   const dispatch = useAppDispatch();
 
   const addNewColumn = () => {

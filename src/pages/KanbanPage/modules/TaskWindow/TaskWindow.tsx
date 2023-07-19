@@ -20,7 +20,7 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
   setShowWindow,
 }): JSX.Element | null => {
   const [curSubPage, setCurSubPage] = useState<'files'>('files');
-  const task = useTypedSelector((state) => state.projectKanban.taskWindowInfo);
+  const task = useTypedSelector((state) => state.curProj.taskWindowInfo);
   const [files, setFiles] = useState<IFile[] | []>([]);
 
   if (task === null) {

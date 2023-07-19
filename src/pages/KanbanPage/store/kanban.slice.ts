@@ -38,7 +38,9 @@ const initialState: IKanbanInitialState = {
   projectDesc: null,
   isLoading: false,
   errorMsg: null,
-  projId: null,
+  projId: localStorage.getItem('curProj')
+    ? Number(localStorage.getItem('curProj'))
+    : null,
   taskWindowInfo: null,
   ownerId: null,
   isFavorite: false,
@@ -53,6 +55,10 @@ const KanbanSlice = createSlice({
   reducers: {
     clearKanbanSlice: () => {
       return initialState;
+    },
+    setCurProjId: (state, action: PayloadAction<number>) => {
+      state.projId = action.payload;
+      localStorage.setItem('curProj', JSON.stringify(action.payload));
     },
     delTaskFromCol: (state, action) => {
       state.columns = state.columns.map((col: IColumns) => {
@@ -140,7 +146,6 @@ const KanbanSlice = createSlice({
     builder.addCase(fetchProjectDashboard.fulfilled, (state, action) => {
       state.isLoading = false;
       state.errorMsg = null;
-
       const { columns } = action.payload;
       state.columns = columns;
     });
@@ -234,5 +239,6 @@ export const {
   delTaskFromCol,
   addTaskToCol,
   clearAllFilters,
+  setCurProjId,
 } = KanbanSlice.actions;
 export default KanbanSlice.reducer;
