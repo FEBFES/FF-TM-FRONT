@@ -46,7 +46,12 @@ export const KanbanPageMain: React.FC<KanbanPageProps> = ({
   };
 
   const deleteTaskHandler = (colId: number, taskId: number) => {
-    curProjId && dispatch(fetchDelTask({ projId: curProjId, colId, taskId }));
+    curProjId &&
+      dispatch(fetchDelTask({ projId: curProjId, colId, taskId })).finally(
+        () => {
+          setShowTaskModal(false);
+        }
+      );
   };
 
   return (
