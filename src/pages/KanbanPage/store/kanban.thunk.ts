@@ -1,13 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../../api/http';
 import { AxiosError } from 'axios';
-import { v4 } from 'uuid';
 import { addTaskToCol } from './kanban.slice';
 import { IPriorityType } from '../components/PrioritySelect/PrioritySelect.type';
 import { ITypeSelectType } from '../components/TypeSelect/TypeSelect';
 import { IColumns } from '../components/Column/Column.type';
 import { ITask } from '../components/TaskCard/TaskCard.type';
-import { addToast } from '../../Root/store/AppSlice';
 
 // Get task info
 export const fetchGetTaskInfo = createAsyncThunk(
@@ -201,14 +199,6 @@ export const fetchAddNewTask = createAsyncThunk(
         return res.data;
       }
     } catch (err) {
-      dispatch(
-        addToast({
-          type: 'error',
-          message: err.message,
-          id: v4(),
-          delay: 3000,
-        })
-      );
       return rejectWithValue(err as AxiosError);
     }
   }

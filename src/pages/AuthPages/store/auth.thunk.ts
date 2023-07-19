@@ -1,9 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instanceWithoutToken } from '../../../api/http';
-import { v4 } from 'uuid';
 import { ILoginFormType, IRegisterFormDataType } from './auth.type';
 import { setUserId } from '../../../store/User/user.slice';
-import { addToast } from '../../Root/store/AppSlice';
 
 // Registration
 export const fetchRegistration = createAsyncThunk(
@@ -16,14 +14,6 @@ export const fetchRegistration = createAsyncThunk(
         return res.data.token;
       }
     } catch (err) {
-      dispatch(
-        addToast({
-          id: v4(),
-          type: 'warning',
-          message: err?.response?.data?.message || err.message,
-          delay: 3000,
-        })
-      );
       return rejectWithValue(err as Error);
     }
   }
@@ -44,14 +34,6 @@ export const fetchLogin = createAsyncThunk(
         return res.data;
       }
     } catch (err) {
-      dispatch(
-        addToast({
-          id: v4(),
-          type: 'warning',
-          message: err?.response?.data?.message || err.message,
-          delay: 3000,
-        })
-      );
       return rejectWithValue(err as Error);
     }
   }

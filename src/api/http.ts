@@ -3,8 +3,7 @@ import axios from 'axios';
 import { setIsAuth } from '../pages/AuthPages/store/auth.slice';
 import { store } from '../index';
 import { appRoutsPath } from '../routing/routs';
-import { v4 } from 'uuid';
-import { addToast } from '../pages/Root/store/AppSlice';
+import { toast } from 'react-toastify';
 
 export const instanceWithoutToken = axios.create({
   baseURL: serverString,
@@ -91,16 +90,9 @@ instance.interceptors.response.use(
           });
       });
     } else {
-      store.dispatch(
-        addToast({
-          type: 'error',
-          message: err.message,
-          id: v4(),
-          delay: 3000,
-        })
-      );
+      // todo
+      toast.warning(`${err.message}`);
     }
-
     return Promise.reject(err);
   }
 );
