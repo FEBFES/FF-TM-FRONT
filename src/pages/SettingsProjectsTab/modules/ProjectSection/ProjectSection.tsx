@@ -5,6 +5,8 @@ import { InputField } from '../../../../ui/InputField/InputField';
 import { Button } from '../../../../ui/Button/Button';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { fetchUpdateProject } from '../../../ProjectsPage/store/projects.thunk';
+import { Title } from '../../../../ui/Typography';
+import { Paragraph } from '../../../../ui/Typography/Paragraph/Paragraph';
 
 interface ProjectSectionProps {}
 
@@ -46,12 +48,18 @@ export const ProjectSection: React.FC<
     <div className={styles.project}>
       <div className={styles.project__header}>
         <div className={styles.header__left}>
-          <h2 className={styles.title}>
+          <Title
+          //todo
+          // className={styles.title}
+          >
             {i18n.t('pages.settings.tabs.section.project.title')}
-          </h2>
-          <p className={styles.subtitle}>
+          </Title>
+          <Paragraph
+          //todo
+          // className={styles.subtitle}
+          >
             {i18n.t('pages.settings.tabs.section.project.subtitle')}
-          </p>
+          </Paragraph>
         </div>
 
         {isEdit && (

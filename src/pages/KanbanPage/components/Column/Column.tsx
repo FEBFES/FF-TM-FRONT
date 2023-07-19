@@ -8,6 +8,7 @@ import { fetchChangeTask } from '../../store/kanban.thunk';
 import { ColumnProps } from './Column.props';
 import { TaskCard } from '../TaskCard/TaskCard';
 import { ITask } from '../TaskCard/TaskCard.type';
+import { Title } from '../../../../ui/Typography';
 
 export const Column: React.FC<ColumnProps> = ({
   col,
@@ -31,9 +32,12 @@ export const Column: React.FC<ColumnProps> = ({
   return (
     <div className={styles.colWrap} key={v4()}>
       <div className={styles.col__header}>
-        <h1 className={styles.col__title}>
+        <Title
+        //todo
+        // className={styles.col__title}
+        >
           {col.name || ''} {col.tasks?.length !== 0 ? col.tasks?.length : null}
-        </h1>
+        </Title>
         <FontAwesomeIcon
           className={styles.col__addTask_btn}
           icon={faPlus}

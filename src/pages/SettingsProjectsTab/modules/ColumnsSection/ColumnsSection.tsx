@@ -8,6 +8,7 @@ import { AddColModal } from '../../components/AddColModal/AddColModal';
 import { Confirm } from '../../../../ui/Confirm/Confirm';
 import { fetchDelCol } from '../../../KanbanPage/store/kanban.thunk';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
+import { Title, Text } from '../../../../ui/Typography';
 
 interface ColumnsSectionProps {}
 
@@ -31,12 +32,18 @@ export const ColumnsSection: React.FC<
       <div className={styles.columnContainer}>
         <div className={styles.columnContainer__header}>
           <div>
-            <h2 className={styles.title}>
+            <Title
+            // todo
+            // className={styles.title}
+            >
               {i18n.t('pages.settings.tabs.project.column.subtitle')}
-            </h2>
-            <p className={styles.subtitle}>
+            </Title>
+            <Text
+            //todo
+            // className={styles.subtitle}
+            >
               {i18n.t('pages.settings.tabs.project.column.text')}
-            </p>
+            </Text>
           </div>
 
           <div>

@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './SettingsMembersTab.module.css';
 import comStyle from '../../commonStyle.module.css';
+import { Title } from '../../ui/Typography';
+import { Paragraph } from '../../ui/Typography/Paragraph/Paragraph';
 
 interface MembersTabProps {}
 
@@ -10,9 +12,11 @@ export const SettingsMembersTab: React.FC<
   return (
     <div className={styles.membersTab}>
       {/* todo i18next */}
-      <h1 className={comStyle.title}>Members</h1>
+      <Title className={comStyle.title}>Members</Title>
       {/* todo i18next */}
-      <p className={comStyle.text}>Manage who was access to this project</p>
+      <Paragraph className={comStyle.text}>
+        Manage who was access to this project
+      </Paragraph>
     </div>
   );
 };

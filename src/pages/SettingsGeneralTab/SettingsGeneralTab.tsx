@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './SettingsGeneralTab.module.css';
 import comStyle from '../SettingsPage/commonStyle.module.css';
 import { PlusIcon } from '../../assets/icons/UtilsIcons';
+import { Title } from '../../ui/Typography';
+import { Paragraph } from '../../ui/Typography/Paragraph/Paragraph';
 
 interface GeneralTabProps {}
 
@@ -11,14 +13,16 @@ export const SettingsGeneralTab: React.FC<
   return (
     <div>
       {/* todo i18next */}
-      <h1 className={comStyle.title}>Project</h1>
+      <Title className={comStyle.title}>Project</Title>
       {/* todo i18next */}
-      <p className={comStyle.text}>Manage your project settings</p>
+      <Paragraph className={comStyle.text}>
+        Manage your project settings
+      </Paragraph>
 
       <div className={comStyle.brLine} />
 
       {/* todo i18next */}
-      <h2 className={comStyle.subtitle}>Logo</h2>
+      <Title className={comStyle.subtitle}>Logo</Title>
       <label className={styles.fileInput_label} htmlFor="inputFIle">
         <div className={styles.fileInput_label_text}>
           <PlusIcon />
@@ -28,11 +32,11 @@ export const SettingsGeneralTab: React.FC<
       {/*/!* todo i18next *!/*/}
       {/*<input id={'inputFIle'} className={styles.fileInput} type={'file'} />*/}
       {/*/!* todo i18next *!/*/}
-      {/*<p className={comStyle.text}>Pick a logo for your project</p>*/}
+      {/*<Paragraph className={comStyle.text}>Pick a logo for your project</Paragraph>*/}
 
       {/*<div className={comStyle.brLine} />*/}
       {/*/!* todo i18next *!/*/}
-      {/*<h2 className={comStyle.subtitle}>General</h2>*/}
+      {/*<Title className={comStyle.subtitle}>General</Title>*/}
 
       {/*<InputField placeholder={'...'} value={''} type="text" />*/}
       {/*/!* todo i18next *!/*/}
@@ -42,9 +46,9 @@ export const SettingsGeneralTab: React.FC<
 
       {/*<div className={comStyle.brLine} />*/}
       {/*/!* todo i18next *!/*/}
-      {/*<h2 className={comStyle.subtitle}>Delete project</h2>*/}
+      {/*<Title className={comStyle.subtitle}>Delete project</Title>*/}
       {/*/!* todo i18next *!/*/}
-      {/*<p className={comStyle.text}>if yout want delete blalblalblalba</p>*/}
+      {/*<Paragraph className={comStyle.text}>if yout want delete blalblalblalba</Paragraph>*/}
       {/*/!* todo i18next *!/*/}
       {/*<Button theme={'danger'} className={styles.delBtn}>*/}
       {/*  delete this project*/}

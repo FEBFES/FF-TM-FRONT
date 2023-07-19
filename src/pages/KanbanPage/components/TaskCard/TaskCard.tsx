@@ -14,6 +14,8 @@ import { Avatar } from '../../../../ui/Avatar/Avatar';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 import { ITask } from './TaskCard.type';
 import 'moment/locale/ru';
+import { Paragraph } from '../../../../ui/Typography/Paragraph/Paragraph';
+import { Text, Title } from '../../../../ui/Typography';
 
 interface TaskCardProps {
   task: ITask;
@@ -45,7 +47,12 @@ export const TaskCard: React.FC<TaskCardProps> = ({
       <div className={styles.header}>
         <div className={styles.header_left}>
           <PriorityLabel priority={task.priority} />
-          <h4 className={styles.task_id}>#{task.id || ''}</h4>
+          <Title
+          //todo
+          // className={styles.task_id}
+          >
+            #{task.id || ''}
+          </Title>
         </div>
 
         {task.assignee?.userPic && (
@@ -57,8 +64,9 @@ export const TaskCard: React.FC<TaskCardProps> = ({
       </div>
 
       <div className={styles.task__main}>
-        <h1
-          className={styles.task_title}
+        <Title
+          // todo
+          // className={styles.task_title}
           onClick={() => {
             setShowTaskModal(true);
             dispatch(
@@ -71,11 +79,14 @@ export const TaskCard: React.FC<TaskCardProps> = ({
           }}
         >
           {task.name || ''}
-        </h1>
-        <span className={styles.task_creationDate}>
+        </Title>
+        <Text
+        // todo
+        // className={styles.task_creationDate}
+        >
           {/*todo Сделать авто смену локали и связать с i18n мб черзе хук */}
           {moment(task.createDate).locale('ru').format('MMM DD')}
-        </span>
+        </Text>
       </div>
 
       <div className={styles.task__footer}>
@@ -90,9 +101,12 @@ export const TaskCard: React.FC<TaskCardProps> = ({
           {/*</div>*/}
           {task.filesCounter !== 0 && (
             <div className={styles.task_attachments}>
-              <span className={styles.task_attachments_counter}>
+              <Text
+              // todo
+              // className={styles.task_attachments_counter}
+              >
                 {task.filesCounter || ''}
-              </span>
+              </Text>
               <AttachmentsIcon />
             </div>
           )}
@@ -101,12 +115,12 @@ export const TaskCard: React.FC<TaskCardProps> = ({
             className={styles.task_attachments}
           >
             <DropDown show={showDD} setShow={setShowDD}>
-              <p
+              <Paragraph
                 className={styles.delBtn}
                 onClick={() => delTask(task.columnId, task.id)}
               >
                 {i18n.t('utils.buttons.delete')}
-              </p>
+              </Paragraph>
             </DropDown>
             <DotsIcon w={12} />
           </div>

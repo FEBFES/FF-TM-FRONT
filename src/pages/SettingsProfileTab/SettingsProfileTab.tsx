@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import styles from './SettingsProfileTab.module.css';
-import comStyle from '../SettingsPage/commonStyle.module.css';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
@@ -14,6 +13,8 @@ import {
 } from '../../store/User/user.thunk';
 import { Avatar } from '../../ui/Avatar/Avatar';
 import { getAvatarUrlOrHuman } from '../../utils/utils';
+import { Title } from '../../ui/Typography';
+import { Paragraph } from '../../ui/Typography/Paragraph/Paragraph';
 
 interface ProfileTabProps {}
 
@@ -99,9 +100,12 @@ export const SettingsProfileTab: React.FC<
 
   return (
     <div className={styles.profileTab}>
-      <h1 className={comStyle.title}>
+      <Title
+      // todo
+      // className={comStyle.title}
+      >
         {i18n.t('pages.settings.tabs.profile.title')}
-      </h1>
+      </Title>
 
       <div className={styles.userBackground} />
 
@@ -134,12 +138,18 @@ export const SettingsProfileTab: React.FC<
       </div>
 
       <div className={styles.inputsContainer}>
-        <h2 className={comStyle.subtitle}>
+        <Title
+        // todo
+        // className={comStyle.subtitle}
+        >
           {i18n.t('pages.settings.tabs.profile.sectionTitle')}
-        </h2>
-        <p className={comStyle.text}>
+        </Title>
+        <Paragraph
+        // todo
+        // className={comStyle.text}
+        >
           {i18n.t('pages.settings.tabs.profile.sectionSubTitle')}
-        </p>
+        </Paragraph>
 
         <InputField
           withLabel

@@ -10,6 +10,7 @@ import { fetchFavoriteToggle } from '../../../ProjectsPage/store/projects.thunk'
 import i18n from 'i18next';
 import { fetchGetProjectMembers } from '../../store/kanban.thunk';
 import { SearchInput } from '../../components/SearchInput/SearchInput';
+import { Text, Title } from '../../../../ui/Typography';
 
 interface KanbanPageHeaderProps {}
 
@@ -32,13 +33,19 @@ export const KanbanPageHeader: React.FC<
   return (
     <header className={styles.header}>
       <div className={styles.header__left}>
-        <h1 className={styles.title}>{projectName || ''}</h1>
+        <Title
+        // todo
+        // className={styles.title}
+        >
+          {projectName || ''}
+        </Title>
+        {/*//TODO CHANGE TO UI BREADCRUMBS*/}
         <div className={styles.breadcrumbs}>
-          <span onClick={() => navigate(appRoutsPath.ProjectPage.path)}>
+          <Text onClick={() => navigate(appRoutsPath.ProjectPage.path)}>
             {i18n.t('pages.kanban.header.breadcrumbs.1')}
-          </span>
-          <span>/</span>
-          <span>{projectName || ''}</span>
+          </Text>
+          <Text>/</Text>
+          <Text>{projectName || ''}</Text>
         </div>
       </div>
 

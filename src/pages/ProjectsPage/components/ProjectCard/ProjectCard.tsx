@@ -11,6 +11,8 @@ import { DropDown } from '../../../../ui/DropDown/DropDown';
 import { fetchDelProject } from '../../store/projects.thunk';
 import i18n from 'i18next';
 import { setCurProjId } from '../../../KanbanPage/store/kanban.slice';
+import { Paragraph } from '../../../../ui/Typography/Paragraph/Paragraph';
+import { Title } from '../../../../ui/Typography';
 
 interface ProjectCardProps {
   proj: IProject;
@@ -44,14 +46,27 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       </header>
 
       <main className={styles.main}>
-        <h3 className={styles.card__title}>{proj.name || ''}</h3>
-        <p className={styles.card__subtitle}>{proj.description || ''}</p>
+        <Title
+        //todo
+        // className={styles.card__title}
+        >
+          {proj.name || ''}
+        </Title>
+        <Paragraph
+        //todo
+        // className={styles.card__subtitle}
+        >
+          {proj.description || ''}
+        </Paragraph>
       </main>
       <footer className={styles.footer}>
-        <p className={styles.projectCard__date}>
+        <Paragraph
+        //todo
+        // className={styles.projectCard__date}
+        >
           {i18n.t('pages.kanban.main.card.create.date')}:{' '}
           {new Date(proj.createDate).toDateString() || ''}
-        </p>
+        </Paragraph>
         {/*<Button*/}
         {/*    theme={'danger'}*/}
         {/*    onClick={(e) => {*/}

@@ -17,6 +17,7 @@ import { IMember } from '../../store/kanban.type';
 import { MemberCard } from '../MemberCard/MemberCard';
 import { IColumns } from '../Column/Column.type';
 import { AddAssigneeModal } from '../AddAssigneeModal/AddAssigneeModal';
+import { Text } from '../../../../ui/Typography/Text/Text';
 
 interface AddTaskModalProps {
   show: boolean;
@@ -58,9 +59,10 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
       <div className={styles.container}>
         <header className={styles.header}>
           <div className={styles.header__left}>
-            <span>
+            <Text>
+              {/*//todo*/}
               {i18n.t('utils.any.status')}: {curCol?.name}
-            </span>
+            </Text>
           </div>
 
           <div className={styles.header__right}>
@@ -121,9 +123,12 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
 
             <div className={styles.additionally__right}>
               <div className={styles.assignee__container}>
-                <span className={styles.assignee__label}>
+                <Text
+                //todo
+                // className={styles.assignee__label}
+                >
                   {i18n.t('utils.any.assignee')}:
-                </span>
+                </Text>
                 {curAssignee === null ? (
                   <AddAssigneeModal
                     setShowAssignee={setShowAssignee}
@@ -144,9 +149,12 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
 
         <footer className={styles.footer}>
           <div className={styles.checkbox}>
-            <span className={styles.checkbox_label}>
+            <Text
+            //todo
+            // className={styles.checkbox_label}
+            >
               {i18n.t('pages.kanban.components.modal.add.createMultiple')}:
-            </span>
+            </Text>
             <Switcher
               onClick={() => setIsMultiple((prevState) => !prevState)}
               isActive={isMultiple}
