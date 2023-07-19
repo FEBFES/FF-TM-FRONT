@@ -220,7 +220,7 @@ const KanbanSlice = createSlice({
     });
     // Add new member to project
     builder.addCase(fetchAddMemberToProject.fulfilled, (state, action) => {
-      state.members.push(action.payload);
+      state.members.push(action.payload[0]);
     });
     // Delete member from project
     builder.addCase(fetchDeleteMemberFromProject.fulfilled, (state, action) => {
