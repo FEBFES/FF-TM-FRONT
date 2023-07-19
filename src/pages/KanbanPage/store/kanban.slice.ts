@@ -130,12 +130,14 @@ const KanbanSlice = createSlice({
     // Get Project info
     //
     builder.addCase(fetchProjectInfo.fulfilled, (state, action) => {
-      const { name, description, id, isFavourite, ownerId } = action.payload;
+      const { name, description, id, isFavourite, ownerId, members } =
+        action.payload;
       state.projectName = name;
       state.projectDesc = description;
       state.projId = id;
       state.ownerId = ownerId;
       state.isFavorite = isFavourite;
+      state.members = members;
     });
     //
     // Get project dashboard (columns)
