@@ -6,6 +6,7 @@ import { Modal } from '../../../../ui/Modal/Modal';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { Button } from '../../../../ui/Button/Button';
 import i18n from 'i18next';
+import { Title } from '../../../../ui/Typography';
 
 interface AddNewProjModalProps {
   show: boolean;
@@ -24,9 +25,12 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
     <Modal show={show} setShow={setShow}>
       <div className={styles.container}>
         <div className={styles.cont__header}>
-          <h1 className={styles.cont__headerTitle}>
+          <Title
+          // todo
+          //   className={styles.cont__headerTitle}
+          >
             {i18n.t('pages.projects.header.addBtn')}
-          </h1>
+          </Title>
           <Button btnType={'close'} onClick={() => setShow(false)} />
         </div>
 

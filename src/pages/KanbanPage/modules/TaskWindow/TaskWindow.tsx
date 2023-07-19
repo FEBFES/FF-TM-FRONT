@@ -11,6 +11,8 @@ import { Avatar } from '../../../../ui/Avatar/Avatar';
 import { IFile } from '../../components/TaskCard/TaskCard.type';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 import { Tooltip } from '../../../../ui/Tooltip/Tooltip';
+import { Title } from '../../../../ui/Typography';
+import { Space } from '../../../../ui/Space/Space';
 
 interface TaskWindowProps {
   setShowWindow: (bool: boolean) => void;
@@ -30,7 +32,7 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
   return (
     <div className={styles.taskWindow}>
       <header className={styles.header}>
-        <h2 className={styles.taskWindow_id}>#{task.id}</h2>
+        <Title level={'h4'}>#{task.id}</Title>
         <div className={styles.header__right}>
           {/*<FullIcon />*/}
           <div
@@ -43,14 +45,13 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
       </header>
 
       <div className={styles.subheader}>
-        <h1 className={styles.subheader__title}>{task.name || ''}</h1>
+        <Title level={'h3'}>{task.name || ''}</Title>
       </div>
 
       <div className={styles.users}>
         <div className={styles.user__block}>
-          <span className={styles.user__title}>
-            {i18n.t('utils.any.owner')}:
-          </span>
+          <Title level={'h6'}>{i18n.t('utils.any.owner')}:</Title>
+          <Space mx={'xs'} />
           <Tooltip title={task.owner?.username || ''}>
             <Avatar
               bordered
@@ -60,9 +61,8 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
           </Tooltip>
         </div>
         <div className={styles.user__block}>
-          <span className={styles.user__title}>
-            {i18n.t('utils.any.assignee')}:
-          </span>
+          <Title level={'h6'}>{i18n.t('utils.any.assignee')}:</Title>
+          <Space mx={'xs'} />
           <Tooltip title={task?.assignee?.username || ''}>
             <Avatar
               size={'m'}
@@ -76,36 +76,34 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
 
       <div className={styles.priority}>
         <div className={styles.priority__container}>
-          <span className={styles.user__title}>
-            {i18n.t('utils.any.priority')}:
-          </span>
+          <Title level={'h6'}>{i18n.t('utils.any.priority')}:</Title>
+          <Space mx={'xs'} />
           <PriorityLabel priority={task.priority} />
         </div>
 
         <div className={styles.priority__container}>
-          <span className={styles.user__title}>
-            {i18n.t('utils.any.type')}:
-          </span>
+          <Title level={'h6'}>{i18n.t('utils.any.type')}:</Title>
+          <Space mx={'xs'} />
           <TaskLabel type={task.type} />
         </div>
       </div>
 
       <div className={styles.date__container}>
-        <h3 className={styles.user__title}>
-          {i18n.t('pages.kanban.taskWindow.main.info.creationDate')}:{' '}
+        <Title level={'h6'}>
+          {i18n.t('pages.kanban.taskWindow.main.info.creationDate')}:
+          <Space mx={'2xs'} />
           {task.createDate ? moment(task.createDate).format('DD.MM.YYYY') : '-'}
-        </h3>
+        </Title>
 
-        <h3 className={styles.user__title}>
-          {i18n.t('pages.kanban.taskWindow.main.info.updateDate')}:{' '}
+        <Title level={'h6'}>
+          {i18n.t('pages.kanban.taskWindow.main.info.updateDate')}:
+          <Space mx={'2xs'} />
           {task.updateDate ? moment(task.updateDate).format('DD.MM.YYYY') : '-'}
-        </h3>
+        </Title>
       </div>
 
       <div className={styles.description}>
-        <h3 className={styles.user__title}>
-          {i18n.t('utils.any.description')}:
-        </h3>
+        <Title level={'h6'}>{i18n.t('utils.any.description')}</Title>
         <textarea
           className={`${styles.description__text} scrollbar`}
           value={task.description || ''}

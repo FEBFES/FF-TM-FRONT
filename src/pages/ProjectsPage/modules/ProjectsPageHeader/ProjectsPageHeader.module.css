@@ -4,10 +4,3 @@
   justify-content: space-between;
   align-items: center;
 }
-
-.page__title {
-  color: var(--font-defautl);
-  margin: 0;
-  font-weight: 300;
-  font-size: 22px;
-}
