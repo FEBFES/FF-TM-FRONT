@@ -30,7 +30,7 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
   return (
     <div className={styles.taskWindow}>
       <header className={styles.header}>
-        <h2 className={styles.taskWindow_id}>{task.id}</h2>
+        <h2 className={styles.taskWindow_id}>#{task.id}</h2>
         <div className={styles.header__right}>
           {/*<FullIcon />*/}
           <div
@@ -51,11 +51,13 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
           <span className={styles.user__title}>
             {i18n.t('utils.any.owner')}:
           </span>
-          <Avatar
-            bordered
-            size={'m'}
-            src={getAvatarUrlOrHuman(task.owner?.userPic)}
-          />
+          <Tooltip title={task.owner?.username || ''}>
+            <Avatar
+              bordered
+              size={'m'}
+              src={getAvatarUrlOrHuman(task.owner?.userPic)}
+            />
+          </Tooltip>
         </div>
         <div className={styles.user__block}>
           <span className={styles.user__title}>

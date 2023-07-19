@@ -24,9 +24,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
 
   return (
     <div
-      className={`${
-        children?.props?.className ? children?.props?.className : ''
-      }`}
+      className={styles.container}
       onMouseEnter={() => {
         hoverHandler(true);
       }}
@@ -35,7 +33,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
       }}
       {...props}
     >
-      {isHover && (
+      {isHover && title && (
         <div
           className={classNames(styles.tooltip, {
             [styles.tooltipLeft]: placement === 'left',
@@ -47,7 +45,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
           {title}
         </div>
       )}
-      {children}
+      <div className={styles.content}>{children}</div>
     </div>
   );
 };

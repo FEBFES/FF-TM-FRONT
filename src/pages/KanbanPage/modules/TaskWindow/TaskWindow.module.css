@@ -12,12 +12,12 @@
 }
 
 .header {
-  padding: 32px 18px 0;
+  padding: 0 18px 0;
   width: 100%;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
-  height: 8%;
+  height: 100px;
 }
 
 .header__right {
@@ -39,12 +39,10 @@
 }
 
 .subheader {
-  height: 15%;
-  margin-top: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 18px 12px;
+  padding: 0 18px 30px;
   border-bottom: 1px solid var(--bg-border);
 }
 

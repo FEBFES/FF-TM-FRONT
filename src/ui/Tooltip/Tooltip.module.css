@@ -36,3 +36,7 @@
   transform: translateY(-50%);
   right: 120%;
 }
+
+.content {
+  position: relative;
+}
