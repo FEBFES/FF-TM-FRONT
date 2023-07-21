@@ -1,6 +1,7 @@
 @import "normalize.css";
 @import "theme.css";
 @import "variables.css";
+@import "toastify.css";
 
 * {
   padding: 0;
