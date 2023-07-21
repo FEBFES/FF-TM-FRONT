@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import styles from './Sidebar.module.css';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
@@ -20,6 +20,7 @@ import classNames from 'classnames';
 import { setSidebarView } from '../../pages/Root/store/AppSlice';
 import { Space } from '../../ui/Space/Space';
 import { Title } from '../../ui/Typography';
+import { isMobile } from 'react-device-detect';
 
 const links = [
   //TODO to - from string to const appRoutsPath
@@ -62,22 +63,31 @@ export const Sidebar: React.FC = (): JSX.Element => {
   const isFullView = useTypedSelector((state) => state.app.sidebarFullView);
   const curProjId = useTypedSelector((state) => state.curProj.projId);
 
+  useLayoutEffect(() => {
+    document.documentElement.style.setProperty(
+      '--sideBarWidth',
+      !isMobile ? '170px' : '60px'
+    );
+  }, []);
+
   return (
     <div className={classNames(styles.sidebar)}>
       <div className={styles.sidebar__header}>
         {theme === 'dark' ? <LogoIconDark /> : <LogoIconLight />}
       </div>
 
-      <div
-        onClick={() => {
-          dispatch(setSidebarView(!isFullView));
-        }}
-        className={classNames(styles.sidebar__toggle, {
-          [styles.sidebar__toggle_full]: isFullView,
-        })}
-      >
-        <FontAwesomeIcon size={'xs'} icon={faChevronRight} />
-      </div>
+      {!isMobile && (
+        <div
+          onClick={() => {
+            dispatch(setSidebarView(!isFullView));
+          }}
+          className={classNames(styles.sidebar__toggle, {
+            [styles.sidebar__toggle_full]: isFullView,
+          })}
+        >
+          <FontAwesomeIcon size={'xs'} icon={faChevronRight} />
+        </div>
+      )}
 
       <ul className={styles.sidebar__main}>
         {links.map((link, i) => {
