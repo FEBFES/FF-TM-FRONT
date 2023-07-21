@@ -1,8 +1,7 @@
 import React from 'react';
 import styles from './SettingsGeneralTab.module.css';
-import comStyle from '../SettingsPage/commonStyle.module.css';
-import { PlusIcon } from '../../assets/icons/UtilsIcons';
-import { Title, Text } from '../../ui/Typography';
+import { PlusIcon } from '../../../../assets/icons/UtilsIcons';
+import { Title, Text } from '../../../../ui/Typography';
 
 interface GeneralTabProps {}
 
@@ -12,14 +11,14 @@ export const SettingsGeneralTab: React.FC<
   return (
     <div>
       {/* todo i18next */}
-      <Title className={comStyle.title}>Project</Title>
+      <Title>Project</Title>
       {/* todo i18next */}
-      <Text className={comStyle.text}>Manage your project settings</Text>
+      <Text>Manage your project settings</Text>
 
-      <div className={comStyle.brLine} />
+      <div className={styles.brLine} />
 
       {/* todo i18next */}
-      <Title className={comStyle.subtitle}>Logo</Title>
+      <Title>Logo</Title>
       <label className={styles.fileInput_label} htmlFor="inputFIle">
         <div className={styles.fileInput_label_text}>
           <PlusIcon />

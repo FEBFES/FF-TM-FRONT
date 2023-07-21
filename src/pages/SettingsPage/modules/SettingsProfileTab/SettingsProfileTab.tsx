@@ -2,19 +2,19 @@ import React, { useEffect, useState } from 'react';
 import styles from './SettingsProfileTab.module.css';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
-import { InputField } from '../../ui/InputField/InputField';
-import { Button } from '../../ui/Button/Button';
+import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
+import { InputField } from '../../../../ui/InputField/InputField';
+import { Button } from '../../../../ui/Button/Button';
 import i18n from 'i18next';
 import {
   fetchChangeUserInfo,
   fetchDeleteUserAvatar,
   fetchUploadNewUserAvatar,
-} from '../../store/User/user.thunk';
-import { Avatar } from '../../ui/Avatar/Avatar';
-import { getAvatarUrlOrHuman } from '../../utils/utils';
-import { Title, Text } from '../../ui/Typography';
-import { Space } from '../../ui/Space/Space';
+} from '../../../../store/User/user.thunk';
+import { Avatar } from '../../../../ui/Avatar/Avatar';
+import { getAvatarUrlOrHuman } from '../../../../utils/utils';
+import { Title, Text } from '../../../../ui/Typography';
+import { Space } from '../../../../ui/Space/Space';
 
 interface ProfileTabProps {}
 

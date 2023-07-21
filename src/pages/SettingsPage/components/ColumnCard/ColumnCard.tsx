@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { ColumnCardProps } from './ColumnCard.props';
 import styles from './ColumnCard.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -15,6 +14,12 @@ import { fetchUpdateCol } from '../../../KanbanPage/store/kanban.thunk';
 import { Tooltip } from '../../../../ui/Tooltip/Tooltip';
 import i18n from 'i18next';
 import { Text, Title } from '../../../../ui/Typography';
+import { IColumns } from '../../../KanbanPage/components/Column/Column.type';
+
+export interface ColumnCardProps {
+  column: IColumns;
+  onDelete: (projId: number, colId: number) => void;
+}
 
 export const ColumnCard: React.FC<ColumnCardProps> = ({
   column,

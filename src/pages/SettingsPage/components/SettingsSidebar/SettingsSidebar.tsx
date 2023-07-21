@@ -8,6 +8,36 @@ import { Space } from '../../../../ui/Space/Space';
 
 interface SettingsSidebarProps {}
 
+const sidebarLinks = [
+  {
+    title: 'pages.settings.sidebar.link.title',
+    needCurProjInfo: false,
+    children: [
+      {
+        subtitle: 'pages.settings.sidebar.link.profile',
+        to: '/SettingsPage/',
+        needCurProjInfo: false,
+      },
+    ],
+  },
+  {
+    title: 'pages.settings.tabs.project.title',
+    needCurProjInfo: false,
+    children: [
+      {
+        subtitle: 'pages.settings.sidebar.link.project',
+        to: '/SettingsPage/project',
+        needCurProjInfo: true,
+      },
+      {
+        subtitle: 'pages.settings.sidebar.link.members',
+        to: '/SettingsPage/members',
+        needCurProjInfo: true,
+      },
+    ],
+  },
+];
+
 export const SettingsSidebar: React.FC<
   SettingsSidebarProps
 > = (): JSX.Element => {
@@ -17,62 +47,33 @@ export const SettingsSidebar: React.FC<
     <nav className={styles.sidebar}>
       <Title level={'h2'}>{i18n.t('pages.settings.sidebar.title')}</Title>
       <Space my={'xl'} />
-      {/*<Title */}
-      {/*    //todo*/}
-      {/*    // className={styles.sidebar__subtitle}*/}
-      {/*>Workspace</Title>*/}
-      {/*<li className={styles.sidebar__link}>*/}
-      {/*  <NavLink*/}
-      {/*    className={({ isActive }) =>*/}
-      {/*      isActive*/}
-      {/*        ? `${styles.sidebar__link_active}`*/}
-      {/*        : `${styles.sidebar__link_item}`*/}
-      {/*    }*/}
-      {/*    to={'/SettingsPage/'}*/}
-      {/*  >*/}
-      {/*    General*/}
-      {/*  </NavLink>*/}
-      {/*</li>*/}
-      {/*<li className={styles.sidebar__link}>*/}
-      {/*  <NavLink*/}
-      {/*    className={({ isActive }) =>*/}
-      {/*      isActive*/}
-      {/*        ? `${styles.sidebar__link_active}`*/}
-      {/*        : `${styles.sidebar__link_item}`*/}
-      {/*    }*/}
-      {/*    to={'/SettingsPage/members'}*/}
-      {/*  >*/}
-      {/*    Members*/}
-      {/*  </NavLink>*/}
-      {/*</li>*/}
 
-      <Title level={'h4'}>{i18n.t('pages.settings.sidebar.link.title')}</Title>
-      <li className={styles.sidebar__link}>
-        <NavLink
-          className={({ isActive }) =>
-            isActive
-              ? `${styles.sidebar__link_active}`
-              : `${styles.sidebar__link_item}`
-          }
-          to={'/SettingsPage/'}
-        >
-          {i18n.t('pages.settings.sidebar.link.profile')}
-        </NavLink>
-      </li>
-      {curProj && (
-        <li className={styles.sidebar__link}>
-          <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? `${styles.sidebar__link_active}`
-                : `${styles.sidebar__link_item}`
-            }
-            to={'/SettingsPage/project'}
-          >
-            {i18n.t('pages.settings.sidebar.link.project')}
-          </NavLink>
-        </li>
-      )}
+      {sidebarLinks.map((link, i) => {
+        if (link.needCurProjInfo && !curProj) return null;
+        return (
+          <div key={i} className={styles.linkCont}>
+            <Title level={'h4'}>{i18n.t(link.title)}</Title>
+            <div className={styles.sublinkCont}>
+              {link.children.map((subLink, index) => {
+                if (link.needCurProjInfo && !curProj) return null;
+                return (
+                  <NavLink
+                    key={index}
+                    className={({ isActive }) =>
+                      isActive
+                        ? `${styles.sidebar__link_active}`
+                        : `${styles.sidebar__link_item}`
+                    }
+                    to={subLink.to}
+                  >
+                    {i18n.t(subLink.subtitle)}
+                  </NavLink>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })}
     </nav>
   );
 };
