@@ -8,10 +8,12 @@ import { NotAuthAppRoutes } from '../modules/NotAuthAppRoutes/NotAuthAppRoutes';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useOffline } from '../../../hooks/useOffline';
 
 export const App = () => {
   const isAuth = useTypedSelector((state) => state.auth.isAuth);
 
+  useOffline();
   useTheme();
   useLocales();
 
