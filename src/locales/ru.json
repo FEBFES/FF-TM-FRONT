@@ -24,6 +24,8 @@
   "utils.any.priority": "Приоритет",
   "utils.any.type": "Тип",
 
+  "notification.toast.network.error": "Ошибка соединения...",
+
   "ui.components.priority.default": "Обычный",
   "ui.components.priority.low": "Низкий",
   "ui.components.priority.medium": "Средний",
