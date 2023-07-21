@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { isMobile } from 'react-device-detect';
 
 type theme = 'dark' | 'light';
 
@@ -11,7 +12,7 @@ const initialState: IAppSlice = {
   theme: (localStorage.getItem('theme') as theme)
     ? (localStorage.getItem('theme') as theme)
     : 'dark',
-  sidebarFullView: true,
+  sidebarFullView: isMobile ? false : true,
 };
 
 export const AppSlice = createSlice({
