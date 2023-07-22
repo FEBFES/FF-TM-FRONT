@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import styles from './AddColModal.module.css';
-import { AddColModalProps } from './AddColModal.props';
 import { Modal } from '../../../../ui/Modal/Modal';
 import { Button } from '../../../../ui/Button/Button';
 import { InputField } from '../../../../ui/InputField/InputField';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { fetchAddNewCol } from '../../../KanbanPage/store/kanban.thunk';
 import i18n from 'i18next';
+
+export interface AddColModalProps {
+  show: boolean;
+  setShow: (bool: boolean) => void;
+}
 
 export const AddColModal: React.FC<AddColModalProps> = ({
   show,

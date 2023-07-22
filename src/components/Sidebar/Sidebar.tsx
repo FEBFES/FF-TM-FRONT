@@ -27,7 +27,7 @@ const links = [
   {
     title: 'routes.sidebar.projects',
     icon: faHouse,
-    to: '/',
+    to: '/ProjectsPage',
     private: false,
   },
   {
@@ -101,8 +101,8 @@ export const Sidebar: React.FC = (): JSX.Element => {
             <NavLink
               key={i}
               aria-label={link.title}
-              className={({ isActive }) =>
-                isActive
+              className={() =>
+                location.pathname.includes(link.to)
                   ? `${styles.linkActive} ${styles.link}`
                   : `${styles.link}`
               }
