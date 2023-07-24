@@ -1,4 +1,7 @@
 {
+
+  "app.title": "FF-TM",
+
   "utils.buttons.add": "Добавить",
   "utils.buttons.create": "Создать",
   "utils.buttons.back": "Назад",
@@ -71,12 +74,16 @@
   "pages.settings.sidebar.title": "Настройки",
   "pages.settings.sidebar.link.title": "Акаунт",
   "pages.settings.sidebar.link.profile": "Профиль",
+  "pages.settings.sidebar.link.general": "Общее",
   "pages.settings.sidebar.link.project": "Проект",
   "pages.settings.sidebar.link.members": "Участиники",
 
   "pages.settings.tabs.profile.title": "Профиль",
   "pages.settings.tabs.profile.sectionTitle": "Информация о пользователе",
   "pages.settings.tabs.profile.sectionSubTitle": "Управляйте своим профилем F/F",
+
+  "pages.settings.tabs.general.sidebar.link": "Приложение",
+  "pages.settings.tabs.general.subtitle": "Редактируйте настройки приложения",
 
   "pages.settings.tabs.project.title": "Проект",
   "pages.settings.tabs.project.column.subtitle": "Колонки",
