@@ -6,11 +6,13 @@ import { v4 } from 'uuid';
 import { useNavigate } from 'react-router-dom';
 import { DotsIcon, FavoriteIcon } from '../../../../assets/icons/UtilsIcons';
 import { useAppDispatch } from '../../../../hooks/redux';
-import { setCurProj } from '../../store/projects.slice';
 import { fetchFavoriteToggle } from '../../store/projects.thunk';
 import { DropDown } from '../../../../ui/DropDown/DropDown';
 import { fetchDelProject } from '../../store/projects.thunk';
 import i18n from 'i18next';
+import { setCurProjId } from '../../../KanbanPage/store/kanban.slice';
+import { Text, Title } from '../../../../ui/Typography';
+import { Space } from '../../../../ui/Space/Space';
 
 interface ProjectCardProps {
   proj: IProject;
@@ -24,9 +26,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   const dispatch = useAppDispatch();
 
   const navigateToKanban = () => {
+    dispatch(setCurProjId(proj.id));
     navigate(appRoutsPath.KanbanPage.to);
-    dispatch(setCurProj(proj));
-    localStorage.setItem('curProj', JSON.stringify(proj.id));
   };
 
   return (
@@ -45,14 +46,16 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       </header>
 
       <main className={styles.main}>
-        <h3 className={styles.card__title}>{proj.name || ''}</h3>
-        <p className={styles.card__subtitle}>{proj.description || ''}</p>
+        <Title level={'h5'}>{proj.name || ''}</Title>
+        <Title level={'h6'}>{proj.description || ''}</Title>
       </main>
+
+      <Space my={'s'} />
       <footer className={styles.footer}>
-        <p className={styles.projectCard__date}>
+        <Text>
           {i18n.t('pages.kanban.main.card.create.date')}:{' '}
           {new Date(proj.createDate).toDateString() || ''}
-        </p>
+        </Text>
         {/*<Button*/}
         {/*    theme={'danger'}*/}
         {/*    onClick={(e) => {*/}

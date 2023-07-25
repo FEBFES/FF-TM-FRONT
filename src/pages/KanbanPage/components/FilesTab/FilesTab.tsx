@@ -15,7 +15,7 @@ export const FilesTab: React.FC<FilesTabProps> = ({
   files,
   setFiles,
 }): JSX.Element => {
-  const task = useTypedSelector((state) => state.projectKanban.taskWindowInfo);
+  const task = useTypedSelector((state) => state.curProj.taskWindowInfo);
 
   useEffect(() => {
     if (!task) {
@@ -61,7 +61,7 @@ export const FilesTab: React.FC<FilesTabProps> = ({
         />
       </div>
 
-      <ul className={styles.fileCont}>
+      <ul className={`${styles.fileCont} scrollbar`}>
         {files.map((file: IFile) => {
           return (
             <FileCard

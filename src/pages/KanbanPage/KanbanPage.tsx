@@ -4,29 +4,19 @@ import { KanbanPageHeader } from './modules/KanbanPageHeader/KanbanPageHeader';
 import { KanbanPageMain } from './modules/KanbanPageMain/KanbanPageMain';
 import { KanbanPageSubheader } from './modules/KanbanPageSubheader/KanbanPageSubheader';
 import { TaskWindow } from './modules/TaskWindow/TaskWindow';
-import { fetchProjectDashboard, fetchProjectInfo } from './store/kanban.thunk';
-import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
+import { useTypedSelector } from '../../hooks/redux';
+import { useNavigate } from 'react-router-dom';
 
 export const KanbanPage: React.FC = (): JSX.Element => {
-  const dispatch = useAppDispatch();
   const [showTaskModal, setShowTaskModal] = useState<boolean>(false);
-  const [curView, setCurView] = useState<'col' | 'row'>('col');
-  const curProjId =
-    useTypedSelector((state) => state.projects.curProj)?.id ||
-    Number(localStorage.getItem('curProj'));
-  const filters = useTypedSelector((state) => state.projectKanban.filters);
+  const curProjId = useTypedSelector((state) => state.curProj.projId);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (curProjId) {
-      dispatch(
-        fetchProjectDashboard({
-          projId: curProjId,
-          params: filters.length !== 0 ? filters : null,
-        })
-      );
-      dispatch(fetchProjectInfo(curProjId));
+    if (!curProjId) {
+      navigate('/');
     }
-  }, [curProjId, dispatch, filters]);
+  }, [curProjId, navigate]);
 
   return (
     <div className={styles.wrap}>
@@ -34,8 +24,8 @@ export const KanbanPage: React.FC = (): JSX.Element => {
         className={`${styles.KanbanPage} ${showTaskModal && styles.showModal}`}
       >
         <KanbanPageHeader />
-        <KanbanPageSubheader curView={curView} setCurView={setCurView} />
-        <KanbanPageMain curView={curView} setShowTaskModal={setShowTaskModal} />
+        <KanbanPageSubheader />
+        <KanbanPageMain setShowTaskModal={setShowTaskModal} />
       </div>
 
       {showTaskModal && <TaskWindow setShowWindow={setShowTaskModal} />}

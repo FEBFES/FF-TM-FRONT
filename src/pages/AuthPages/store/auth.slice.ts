@@ -6,7 +6,8 @@ interface IAuthSliceInitialState {
 }
 
 const initialState: IAuthSliceInitialState = {
-  isAuth: !!localStorage.getItem('accessToken'),
+  isAuth: true,
+  // !!localStorage.getItem('accessToken')
 };
 
 const AuthSlice = createSlice({
@@ -18,8 +19,8 @@ const AuthSlice = createSlice({
     },
     setIsAuth: (state, action: PayloadAction<boolean>) => {
       if (!action.payload) {
-        localStorage.removeItem('accessToken');
-        localStorage.removeItem('refreshToken');
+        localStorage.clear();
+        window.location.pathname = '/';
       }
       state.isAuth = action.payload;
     },

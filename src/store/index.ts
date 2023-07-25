@@ -9,7 +9,7 @@ import AppSlice from '../pages/Root/store/AppSlice';
 const rootReducer = combineReducers({
   app: AppSlice,
   projects: ProjectsSlice,
-  projectKanban: KanbanSlice,
+  curProj: KanbanSlice,
   auth: AuthSlice,
   user: UserSlice,
 });

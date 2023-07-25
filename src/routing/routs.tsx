@@ -21,8 +21,8 @@ export const appRoutsPath = {
   ProjectPage: {
     //todo i18next
     title: 'Project Page',
-    path: '/',
-    to: '/',
+    path: '/ProjectsPage/',
+    to: '/ProjectsPage/',
   },
   KanbanPage: {
     //todo i18next

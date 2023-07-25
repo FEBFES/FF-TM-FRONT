@@ -13,9 +13,6 @@
   background: var(--bg-0);
   border-right: 1px solid var(--bg-border);
 }
-.sidebar_full {
-  width: var(--sideBarWidthFull) !important;
-}
 
 .sidebar__toggle {
   cursor: pointer;

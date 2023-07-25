@@ -6,7 +6,10 @@ import {
   PriorityLow,
   PriorityMedium,
 } from '../../assets/icons/TaskIcons';
-import { IPriorityLabelProps } from './PriorityLabel.props';
+
+interface IPriorityLabelProps {
+  priority: null | 'LOW' | 'MEDIUM' | 'HIGH' | string;
+}
 
 export const PriorityLabel: React.FC<IPriorityLabelProps> = ({ priority }) => {
   return (

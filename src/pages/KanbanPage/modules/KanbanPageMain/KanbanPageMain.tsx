@@ -11,20 +11,17 @@ import { RowView } from '../../components/RowView/RowView';
 
 interface KanbanPageProps {
   setShowTaskModal: (bool: boolean) => void;
-  curView: 'row' | 'col';
 }
 
 export const KanbanPageMain: React.FC<KanbanPageProps> = ({
-  curView,
   setShowTaskModal,
 }): JSX.Element => {
   const dispatch = useAppDispatch();
-  const columns = useTypedSelector((state) => state.projectKanban.columns);
-  const curProjId =
-    useTypedSelector((state) => state.projects.curProj)?.id ||
-    Number(localStorage.getItem('curProj'));
+  const columns = useTypedSelector((state) => state.curProj.columns);
+  const curProjId = useTypedSelector((state) => state.curProj.projId);
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
   const [curCol, setCurCol] = useState<IColumns | null>(null);
+  const curView = useTypedSelector((state) => state.curProj.curView);
 
   const addNewTaskHandler = (
     name: string,
@@ -49,7 +46,12 @@ export const KanbanPageMain: React.FC<KanbanPageProps> = ({
   };
 
   const deleteTaskHandler = (colId: number, taskId: number) => {
-    curProjId && dispatch(fetchDelTask({ projId: curProjId, colId, taskId }));
+    curProjId &&
+      dispatch(fetchDelTask({ projId: curProjId, colId, taskId })).finally(
+        () => {
+          setShowTaskModal(false);
+        }
+      );
   };
 
   return (

@@ -1,14 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../../api/http';
 import { AxiosError } from 'axios';
-import { v4 } from 'uuid';
 import { addTaskToCol } from './kanban.slice';
 import { IPriorityType } from '../components/PrioritySelect/PrioritySelect.type';
 import { ITypeSelectType } from '../components/TypeSelect/TypeSelect';
-import { setCurDashboard } from '../../ProjectsPage/store/projects.slice';
 import { IColumns } from '../components/Column/Column.type';
 import { ITask } from '../components/TaskCard/TaskCard.type';
-import { addToast } from '../../Root/store/AppSlice';
 
 // Get task info
 export const fetchGetTaskInfo = createAsyncThunk(
@@ -124,7 +121,9 @@ export const fetchDeleteMemberFromProject = createAsyncThunk(
   }
 );
 
-const checkParams = async (params: { key: string; value: string }[] | null) => {
+const checkParams = async (
+  params: { key: string; value: string }[] | null | undefined
+) => {
   let paramsUrl = '';
   if (params) {
     paramsUrl += '?';
@@ -144,7 +143,7 @@ export const fetchProjectDashboard = createAsyncThunk(
     {
       projId,
       params,
-    }: { projId: number; params: { key: string; value: string }[] | null },
+    }: { projId: number; params?: { key: string; value: string }[] | null },
     { rejectWithValue, dispatch }
   ) => {
     try {
@@ -153,7 +152,6 @@ export const fetchProjectDashboard = createAsyncThunk(
         `projects/${projId}/dashboard${paramsUlr ? `${paramsUlr}` : ''}`
       );
       if (res.status === 200) {
-        dispatch(setCurDashboard(res.data.columns));
         return res.data;
       }
     } catch (err) {
@@ -201,14 +199,6 @@ export const fetchAddNewTask = createAsyncThunk(
         return res.data;
       }
     } catch (err) {
-      dispatch(
-        addToast({
-          type: 'error',
-          message: err.message,
-          id: v4(),
-          delay: 3000,
-        })
-      );
       return rejectWithValue(err as AxiosError);
     }
   }

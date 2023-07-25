@@ -29,6 +29,7 @@ interface IKanbanInitialState {
   isFavorite: boolean;
   members: IMember[];
   filters: { key: string; value: string }[];
+  curView: 'row' | 'col';
 }
 
 const initialState: IKanbanInitialState = {
@@ -37,12 +38,15 @@ const initialState: IKanbanInitialState = {
   projectDesc: null,
   isLoading: false,
   errorMsg: null,
-  projId: null,
+  projId: localStorage.getItem('curProj')
+    ? Number(localStorage.getItem('curProj'))
+    : null,
   taskWindowInfo: null,
   ownerId: null,
   isFavorite: false,
   members: [],
   filters: [],
+  curView: 'col',
 };
 
 const KanbanSlice = createSlice({
@@ -51,6 +55,10 @@ const KanbanSlice = createSlice({
   reducers: {
     clearKanbanSlice: () => {
       return initialState;
+    },
+    setCurProjId: (state, action: PayloadAction<number>) => {
+      state.projId = action.payload;
+      localStorage.setItem('curProj', JSON.stringify(action.payload));
     },
     delTaskFromCol: (state, action) => {
       state.columns = state.columns.map((col: IColumns) => {
@@ -99,6 +107,9 @@ const KanbanSlice = createSlice({
         });
       }
     },
+    //
+    // Filters
+    //
     delFilters: (state, action: PayloadAction<string>) => {
       state.filters = state.filters.filter(
         (filter) => filter.key !== action.payload
@@ -107,18 +118,26 @@ const KanbanSlice = createSlice({
     clearAllFilters: (state) => {
       state.filters = [];
     },
+    //
+    // Change kanbanView
+    //
+    setCurView: (state, action) => {
+      state.curView = action.payload;
+    },
   },
   extraReducers: (builder) => {
     //
     // Get Project info
     //
     builder.addCase(fetchProjectInfo.fulfilled, (state, action) => {
-      const { name, description, id, isFavourite, ownerId } = action.payload;
+      const { name, description, id, isFavourite, ownerId, members } =
+        action.payload;
       state.projectName = name;
       state.projectDesc = description;
       state.projId = id;
       state.ownerId = ownerId;
       state.isFavorite = isFavourite;
+      state.members = members;
     });
     //
     // Get project dashboard (columns)
@@ -129,7 +148,6 @@ const KanbanSlice = createSlice({
     builder.addCase(fetchProjectDashboard.fulfilled, (state, action) => {
       state.isLoading = false;
       state.errorMsg = null;
-
       const { columns } = action.payload;
       state.columns = columns;
     });
@@ -204,7 +222,7 @@ const KanbanSlice = createSlice({
     });
     // Add new member to project
     builder.addCase(fetchAddMemberToProject.fulfilled, (state, action) => {
-      state.members.push(action.payload);
+      state.members.push(action.payload[0]);
     });
     // Delete member from project
     builder.addCase(fetchDeleteMemberFromProject.fulfilled, (state, action) => {
@@ -218,9 +236,11 @@ const KanbanSlice = createSlice({
 export const {
   setFilters,
   delFilters,
+  setCurView,
   clearKanbanSlice,
   delTaskFromCol,
   addTaskToCol,
   clearAllFilters,
+  setCurProjId,
 } = KanbanSlice.actions;
 export default KanbanSlice.reducer;

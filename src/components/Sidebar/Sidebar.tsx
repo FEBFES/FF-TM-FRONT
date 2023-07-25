@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import styles from './Sidebar.module.css';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
@@ -18,13 +18,16 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
 import { setSidebarView } from '../../pages/Root/store/AppSlice';
+import { Space } from '../../ui/Space/Space';
+import { Title } from '../../ui/Typography';
+import { isMobile } from 'react-device-detect';
 
 const links = [
   //TODO to - from string to const appRoutsPath
   {
     title: 'routes.sidebar.projects',
     icon: faHouse,
-    to: '/',
+    to: '/ProjectsPage',
     private: false,
   },
   {
@@ -58,6 +61,14 @@ export const Sidebar: React.FC = (): JSX.Element => {
   const { theme } = useTheme();
   const location = useLocation();
   const isFullView = useTypedSelector((state) => state.app.sidebarFullView);
+  const curProjId = useTypedSelector((state) => state.curProj.projId);
+
+  useLayoutEffect(() => {
+    document.documentElement.style.setProperty(
+      '--sideBarWidth',
+      !isMobile ? '170px' : '60px'
+    );
+  }, []);
 
   return (
     <div className={classNames(styles.sidebar)}>
@@ -65,38 +76,42 @@ export const Sidebar: React.FC = (): JSX.Element => {
         {theme === 'dark' ? <LogoIconDark /> : <LogoIconLight />}
       </div>
 
-      <div
-        onClick={() => {
-          dispatch(setSidebarView(!isFullView));
-        }}
-        className={classNames(styles.sidebar__toggle, {
-          [styles.sidebar__toggle_full]: isFullView,
-        })}
-      >
-        <FontAwesomeIcon size={'xs'} icon={faChevronRight} />
-      </div>
+      {!isMobile && (
+        <div
+          onClick={() => {
+            dispatch(setSidebarView(!isFullView));
+          }}
+          className={classNames(styles.sidebar__toggle, {
+            [styles.sidebar__toggle_full]: isFullView,
+          })}
+        >
+          <FontAwesomeIcon size={'xs'} icon={faChevronRight} />
+        </div>
+      )}
 
       <ul className={styles.sidebar__main}>
         {links.map((link, i) => {
           if (link.private && location.pathname === '/') {
             return null;
           }
+          if (link.title === 'routes.sidebar.kanban' && !curProjId) {
+            return null;
+          }
           return (
             <NavLink
               key={i}
               aria-label={link.title}
-              className={({ isActive }) =>
-                isActive
+              className={() =>
+                location.pathname.includes(link.to)
                   ? `${styles.linkActive} ${styles.link}`
                   : `${styles.link}`
               }
               to={link.to}
             >
               <FontAwesomeIcon icon={link.icon} />
+              <Space mx={'xs'} />
               {isFullView && (
-                <span className={styles.link__text}>
-                  {i18n.t(link.title) || ''}
-                </span>
+                <Title level={'h6'}>{i18n.t(link.title) || ''}</Title>
               )}
             </NavLink>
           );

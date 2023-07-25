@@ -20,6 +20,7 @@ export interface ITask {
   projectId: number;
   filesCounter: number;
   createDate: string;
+  updateDate: string;
   priority: IPriorityType;
   type: string | null;
 }

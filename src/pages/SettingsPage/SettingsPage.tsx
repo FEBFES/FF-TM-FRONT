@@ -1,24 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './SettingsPage.module.css';
 import { Routes, Route } from 'react-router-dom';
 import { SettingsSidebar } from './components/SettingsSidebar/SettingsSidebar';
-import { SettingsProfileTab } from '../SettingsProfileTab/SettingsProfileTab';
-import { SettingsProjectsTab } from '../SettingsProjectsTab/SettingsProjectsTab';
-import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
-import { fetchGetUserInfo } from '../../store/User/user.thunk';
+import {
+  SettingsProfileTab,
+  SettingsProjectsTab,
+  SettingsMembersTab,
+  SettingsGeneralTab,
+} from './modules';
 
 interface SettingsPageProps {}
 
 export const SettingsPage: React.FC<SettingsPageProps> = (): JSX.Element => {
-  const userId = useTypedSelector((state) => state.user.userId);
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    if (!userId) {
-      dispatch(fetchGetUserInfo(userId));
-    }
-  }, [dispatch, userId]);
-
   return (
     <div className={styles.page}>
       <SettingsSidebar />
@@ -26,11 +19,16 @@ export const SettingsPage: React.FC<SettingsPageProps> = (): JSX.Element => {
       <div className={styles.page__cont}>
         <div className={styles.pageWrap}>
           <Routes>
-            <Route path={'/'} element={<SettingsProfileTab />} />
+            {/* todo
+              -Убрать из табов папки components и modules,
+              -Перенести *Section из модулей в общую компоненту settingsPage
+              -Перенести из таб > components  в setting
+              sPage > components 
+            */}
+            <Route path={'/'} element={<SettingsGeneralTab />} />
+            <Route path={'/profile'} element={<SettingsProfileTab />} />
             <Route path={'/project'} element={<SettingsProjectsTab />} />
-            {/*<Route path={'/'} element={<SettingsGeneralTab />} />*/}
-            {/*<Route path={'/members'} element={<SettingsMembersTab />} />*/}
-            {/*<Route path={'/profile'} element={<SettingsProfileTab />} />*/}
+            <Route path={'/members'} element={<SettingsMembersTab />} />
           </Routes>
         </div>
       </div>

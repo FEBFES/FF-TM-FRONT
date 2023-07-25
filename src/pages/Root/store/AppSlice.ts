@@ -1,20 +1,18 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IToast } from '../../../components/Toast/Toast.props';
+import { createSlice } from '@reduxjs/toolkit';
+import { isMobile } from 'react-device-detect';
 
 type theme = 'dark' | 'light';
 
 interface IAppSlice {
-  toasts: IToast[];
   theme: theme;
   sidebarFullView: boolean;
 }
 
 const initialState: IAppSlice = {
-  toasts: [],
   theme: (localStorage.getItem('theme') as theme)
     ? (localStorage.getItem('theme') as theme)
     : 'dark',
-  sidebarFullView: true,
+  sidebarFullView: isMobile ? false : true,
 };
 
 export const AppSlice = createSlice({
@@ -28,18 +26,11 @@ export const AppSlice = createSlice({
         action.payload ? '170px' : '60px'
       );
     },
-    addToast: (state, action: PayloadAction<IToast>) => {
-      state.toasts.push(action.payload);
-    },
-    delToast: (state: IAppSlice, action: PayloadAction<string>) => {
-      state.toasts = state.toasts.filter((el) => el.id !== action.payload);
-    },
     changeAppTheme: (state, action) => {
       state.theme = action.payload;
     },
   },
 });
 
-export const { addToast, delToast, setSidebarView, changeAppTheme } =
-  AppSlice.actions;
+export const { setSidebarView, changeAppTheme } = AppSlice.actions;
 export default AppSlice.reducer;

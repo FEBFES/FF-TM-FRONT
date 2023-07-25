@@ -13,12 +13,12 @@ import { IMember } from '../../store/kanban.type';
 interface MembersSelectProps {}
 
 export const MembersSelect: React.FC<MembersSelectProps> = (): JSX.Element => {
-  const members = useTypedSelector((state) => state.projectKanban.members);
+  const members = useTypedSelector((state) => state.curProj.members);
   const [users, setUsers] = useState<IMember[] | []>([]);
   const [showUsers, setShowUsers] = useState(false);
   const { ref } = useClickOutside(setShowUsers);
   const dispatch = useAppDispatch();
-  const projId = useTypedSelector((state) => state.projectKanban.projId);
+  const projId = useTypedSelector((state) => state.curProj.projId);
 
   useEffect(() => {
     instance.get('/users').then((res) => {

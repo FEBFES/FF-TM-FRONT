@@ -4,12 +4,13 @@ import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { useNavigate } from 'react-router-dom';
 import { appRoutsPath } from '../../../../routing/routs';
 import { FavoriteIcon } from '../../../../assets/icons/UtilsIcons';
-import { Switcher } from '../../../../ui/Switcher';
+import { Switcher } from '../../../../ui/Switcher/Switcher';
 import { useTheme } from '../../../../hooks/useTheme';
 import { fetchFavoriteToggle } from '../../../ProjectsPage/store/projects.thunk';
 import i18n from 'i18next';
 import { fetchGetProjectMembers } from '../../store/kanban.thunk';
 import { SearchInput } from '../../components/SearchInput/SearchInput';
+import { Text, Title } from '../../../../ui/Typography';
 
 interface KanbanPageHeaderProps {}
 
@@ -17,7 +18,7 @@ export const KanbanPageHeader: React.FC<
   KanbanPageHeaderProps
 > = (): JSX.Element => {
   const { projectName, projId, isFavorite, members } = useTypedSelector(
-    (state) => state.projectKanban
+    (state) => state.curProj
   );
   const theme = useTypedSelector((state) => state.app.theme);
   const dispatch = useAppDispatch();
@@ -32,13 +33,20 @@ export const KanbanPageHeader: React.FC<
   return (
     <header className={styles.header}>
       <div className={styles.header__left}>
-        <h1 className={styles.title}>{projectName || ''}</h1>
+        <Title
+          level={'h4'}
+          // todo
+          // className={styles.title}
+        >
+          {projectName || ''}
+        </Title>
+        {/*//TODO CHANGE TO UI BREADCRUMBS*/}
         <div className={styles.breadcrumbs}>
-          <span onClick={() => navigate(appRoutsPath.ProjectPage.path)}>
+          <Text onClick={() => navigate(appRoutsPath.ProjectPage.path)}>
             {i18n.t('pages.kanban.header.breadcrumbs.1')}
-          </span>
-          <span>/</span>
-          <span>{projectName || ''}</span>
+          </Text>
+          <Text>/</Text>
+          <Text>{projectName || ''}</Text>
         </div>
       </div>
 

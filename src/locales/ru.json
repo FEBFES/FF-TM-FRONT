@@ -1,4 +1,7 @@
 {
+
+  "app.title": "FF-TM",
+
   "utils.buttons.add": "Добавить",
   "utils.buttons.create": "Создать",
   "utils.buttons.back": "Назад",
@@ -10,7 +13,7 @@
   "utils.buttons.cancel": "Отменить",
   "utils.buttons.reset": "Сбросить",
 
-  "utils.any.owner": "Владелец",
+  "utils.any.owner": "Создатель",
   "utils.any.assignee": "Ответственный",
   "utils.any.status": "Статус",
   "utils.any.name": "Название",
@@ -23,6 +26,8 @@
   "utils.any.displayName": "Краткое имя",
   "utils.any.priority": "Приоритет",
   "utils.any.type": "Тип",
+
+  "notification.toast.network.error": "Ошибка соединения...",
 
   "ui.components.priority.default": "Обычный",
   "ui.components.priority.low": "Низкий",
@@ -53,7 +58,8 @@
   "pages.registration.login.label": "У вас уже есть учетная запись?",
   "pages.registration.login.action": "Войти",
 
-  "pages.kanban.taskWindow.main.info.creationDate": "Дата создания",
+  "pages.kanban.taskWindow.main.info.creationDate": "Создан",
+  "pages.kanban.taskWindow.main.info.updateDate": "Изменен",
   "pages.kanban.taskWindow.tabs.files.title": "Файлы",
   "pages.kanban.taskWindow.tabs.files.uploadText": "Загрузить новый файл",
   "pages.kanban.header.breadcrumbs.1": "Проекты",
@@ -68,11 +74,16 @@
   "pages.settings.sidebar.title": "Настройки",
   "pages.settings.sidebar.link.title": "Акаунт",
   "pages.settings.sidebar.link.profile": "Профиль",
+  "pages.settings.sidebar.link.general": "Общее",
   "pages.settings.sidebar.link.project": "Проект",
+  "pages.settings.sidebar.link.members": "Участиники",
 
   "pages.settings.tabs.profile.title": "Профиль",
   "pages.settings.tabs.profile.sectionTitle": "Информация о пользователе",
   "pages.settings.tabs.profile.sectionSubTitle": "Управляйте своим профилем F/F",
+
+  "pages.settings.tabs.general.sidebar.link": "Приложение",
+  "pages.settings.tabs.general.subtitle": "Редактируйте настройки приложения",
 
   "pages.settings.tabs.project.title": "Проект",
   "pages.settings.tabs.project.column.subtitle": "Колонки",
@@ -80,5 +91,8 @@
   "pages.settings.tabs.project.column.addNew": "Добавить новую колонку",
   "pages.settings.tabs.project.column.confirm.delete": "Вы хотите удалить колонку?",
   "pages.settings.tabs.section.project.title": "Проект",
-  "pages.settings.tabs.section.project.subtitle": "Редактируйте проект F/F"
+  "pages.settings.tabs.section.project.subtitle": "Редактируйте проект F/F",
+
+  "pages.settings.tabs.members.title": "Участники",
+  "pages.settings.tabs.members.subtitle": "Редактируйте доступ к вашему проекту"
 }

@@ -3,9 +3,7 @@ import styles from './TaskCard.module.css';
 import { delTaskFromCol } from '../../store/kanban.slice';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { AttachmentsIcon } from '../../../../assets/icons/TaskIcons';
-import human from '../../../../assets/img/human.png';
 import { fetchGetTaskInfo } from '../../store/kanban.thunk';
-import { TaskCardProps } from './TaskCard.props';
 import moment from 'moment';
 import { DotsIcon } from '../../../../assets/icons/UtilsIcons';
 import { DropDown } from '../../../../ui/DropDown/DropDown';
@@ -13,6 +11,17 @@ import { TaskLabel } from '../../../../ui/TaskLabel/TaskLabel';
 import { PriorityLabel } from '../../../../ui/PriorityLabel/PriorityLabel';
 import i18n from 'i18next';
 import { Avatar } from '../../../../ui/Avatar/Avatar';
+import { getAvatarUrlOrHuman } from '../../../../utils/utils';
+import { ITask } from './TaskCard.type';
+import 'moment/locale/ru';
+import { Text, Title } from '../../../../ui/Typography';
+import { Space } from '../../../../ui/Space/Space';
+
+interface TaskCardProps {
+  task: ITask;
+  delTask: any;
+  setShowTaskModal: (bool: boolean) => void;
+}
 
 export const TaskCard: React.FC<TaskCardProps> = ({
   task,
@@ -38,22 +47,29 @@ export const TaskCard: React.FC<TaskCardProps> = ({
       <div className={styles.header}>
         <div className={styles.header_left}>
           <PriorityLabel priority={task.priority} />
-          <h4 className={styles.task_id}>#{task.id || ''}</h4>
+          <Space mx={'2xs'} />
+          <Title
+            // color: #989898; todo
+            level={'h6'}
+          >
+            #{task.id || ''}
+          </Title>
         </div>
 
-        <Avatar
-          size={'s'}
-          src={
-            task.owner?.userPic
-              ? `http://febfes.com/api/v1${task.owner.userPic}`
-              : human
-          }
-        />
+        {task.assignee?.userPic && (
+          <Avatar
+            size={'s'}
+            src={getAvatarUrlOrHuman(task.assignee?.userPic)}
+          />
+        )}
       </div>
 
       <div className={styles.task__main}>
-        <h1
-          className={styles.task_title}
+        <Title
+          hover={'underline'}
+          cursor={'pointer'}
+          level={'h6'}
+          // color: var(--font-defautl); hover: underline
           onClick={() => {
             setShowTaskModal(true);
             dispatch(
@@ -66,10 +82,14 @@ export const TaskCard: React.FC<TaskCardProps> = ({
           }}
         >
           {task.name || ''}
-        </h1>
-        <span className={styles.task_creationDate}>
-          {moment(task.createDate).format('MMM DD')}
-        </span>
+        </Title>
+        <Text
+        // todo
+        // className={styles.task_creationDate}
+        >
+          {/*todo Сделать авто смену локали и связать с i18n мб черзе хук */}
+          {moment(task.createDate).locale('ru').format('MMM DD')}
+        </Text>
       </div>
 
       <div className={styles.task__footer}>
@@ -84,9 +104,12 @@ export const TaskCard: React.FC<TaskCardProps> = ({
           {/*</div>*/}
           {task.filesCounter !== 0 && (
             <div className={styles.task_attachments}>
-              <span className={styles.task_attachments_counter}>
+              <Text
+              // todo
+              // className={styles.task_attachments_counter}
+              >
                 {task.filesCounter || ''}
-              </span>
+              </Text>
               <AttachmentsIcon />
             </div>
           )}
@@ -95,12 +118,9 @@ export const TaskCard: React.FC<TaskCardProps> = ({
             className={styles.task_attachments}
           >
             <DropDown show={showDD} setShow={setShowDD}>
-              <p
-                className={styles.delBtn}
-                onClick={() => delTask(task.columnId, task.id)}
-              >
+              <Text onClick={() => delTask(task.columnId, task.id)}>
                 {i18n.t('utils.buttons.delete')}
-              </p>
+              </Text>
             </DropDown>
             <DotsIcon w={12} />
           </div>

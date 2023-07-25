@@ -12,12 +12,12 @@
 }
 
 .header {
-  padding: 32px 18px 0;
+  padding: 0 18px 0;
   width: 100%;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
-  height: 8%;
+  height: 100px;
 }
 
 .header__right {
@@ -39,19 +39,21 @@
 }
 
 .subheader {
-  height: 15%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 18px 12px;
+  padding: 0 18px 30px;
   border-bottom: 1px solid var(--bg-border);
 }
 
 .subheader__title {
   width: 80%;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 18px;
   color: var(--font-defautl);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -80,14 +82,6 @@
   align-items: center;
 }
 
-.user__title {
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 16px;
-  color: #575757;
-  margin-right: 10px;
-}
-
 .priority__container {
   display: flex;
   align-items: center;
@@ -95,7 +89,7 @@
 .priority {
   height: 5%;
   padding: 0 18px;
-  margin-top: 20px;
+  margin-top: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -103,8 +97,9 @@
 
 .description {
   padding: 0 18px;
-  margin-top: 20px;
-  min-height: 100px;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  height: 100px;
 }
 
 .description__text {
@@ -141,11 +136,17 @@
   color: #000000;
 }
 .date__container {
-  padding: 20px 20px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 18px;
+  padding-right: 18px;
+  margin-top: 20px;
 }
 .filesUploadContainer {
+  margin-top: 20px;
   width: 100%;
-  padding: 20px;
+  padding: 0 20px 0 20px;
 }
 
 .fileInput__container {
@@ -177,6 +178,10 @@
 }
 
 .fileCont {
+  padding-left: 6px;
+  padding-right: 6px;
+  height: 150px;
+  overflow-y: scroll;
   margin-top: 20px;
   display: flex;
   flex-direction: column;

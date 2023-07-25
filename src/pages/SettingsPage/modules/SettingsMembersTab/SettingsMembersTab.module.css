@@ -1,0 +1,21 @@
+.membersTab {
+}
+
+.membersCont {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.membersCont__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-0);
+  border-radius: 6px;
+  padding: 15px 20px;
+}
+
+.members_input {
+  max-width: 200px;
+}

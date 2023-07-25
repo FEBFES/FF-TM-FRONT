@@ -7,6 +7,7 @@ import { ITask } from '../TaskCard/TaskCard.type';
 import { v4 } from 'uuid';
 import { TaskRowCard } from '../TaskRowCard/TaskRowCard';
 import { Button } from '../../../../ui/Button/Button';
+import { Title } from '../../../../ui/Typography';
 
 interface RowProps {
   row: IColumns;
@@ -26,9 +27,9 @@ export const Row: React.FC<RowProps> = ({
   return (
     <div className={styles.row}>
       <div className={styles.row__header}>
-        <h1 className={styles.row__title}>
+        <Title level={'h6'} className={styles.row__title}>
           {row.name || ''} {row.tasks?.length !== 0 ? row.tasks?.length : null}
-        </h1>
+        </Title>
         <Button
           onClick={() => {
             setShowAddTaskModal(true);

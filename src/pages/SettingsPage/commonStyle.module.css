@@ -1,28 +1,4 @@
-.title {
-  margin-top: 10px;
-  margin-bottom: 60px;
-  font-weight: 600;
-  font-size: 32px;
-  color: #414141;
-}
-
-.subtitle {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 16px;
-  color: #575757;
-}
-
-.text {
-  margin-top: 10px;
-  margin-bottom: 30px;
-  font-weight: 400;
-  font-size: 14px;
-  color: #575757;
-}
-
+/*todo DELETE THIS FILE and CHANGE BR TO UI DIVIDER*/
 .brLine {
   margin-top: 50px;
   margin-bottom: 20px;
