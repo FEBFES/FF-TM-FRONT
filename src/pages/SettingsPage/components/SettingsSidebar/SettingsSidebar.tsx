@@ -10,12 +10,23 @@ interface SettingsSidebarProps {}
 
 const sidebarLinks = [
   {
+    title: 'pages.settings.tabs.general.sidebar.link',
+    needCurProjInfo: false,
+    children: [
+      {
+        subtitle: 'pages.settings.sidebar.link.general',
+        to: '/SettingsPage/',
+        needCurProjInfo: false
+      }
+    ]
+  },
+  {
     title: 'pages.settings.sidebar.link.title',
     needCurProjInfo: false,
     children: [
       {
         subtitle: 'pages.settings.sidebar.link.profile',
-        to: '/SettingsPage/',
+        to: '/SettingsPage/profile',
         needCurProjInfo: false,
       },
     ],

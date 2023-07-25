@@ -6,6 +6,7 @@ import {
   SettingsProfileTab,
   SettingsProjectsTab,
   SettingsMembersTab,
+  SettingsGeneralTab,
 } from './modules';
 
 interface SettingsPageProps {}
@@ -21,12 +22,13 @@ export const SettingsPage: React.FC<SettingsPageProps> = (): JSX.Element => {
             {/* todo
               -Убрать из табов папки components и modules,
               -Перенести *Section из модулей в общую компоненту settingsPage
-              -Перенести из таб > components  в settingsPage > components 
+              -Перенести из таб > components  в setting
+              sPage > components 
             */}
-            <Route path={'/'} element={<SettingsProfileTab />} />
+            <Route path={'/'} element={<SettingsGeneralTab />} />
+            <Route path={'/profile'} element={<SettingsProfileTab />} />
             <Route path={'/project'} element={<SettingsProjectsTab />} />
             <Route path={'/members'} element={<SettingsMembersTab />} />
-            {/*<Route path={'/'} element={<SettingsGeneralTab />} />*/}
           </Routes>
         </div>
       </div>
