@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './SettingsGeneralTab.module.css';
+// import styles from './SettingsGeneralTab.module.css';
 import { Title, Text } from '../../../../ui/Typography';
 import i18n from 'i18next';
 import { Switcher } from '../../../../ui/Switcher/Switcher';
@@ -14,13 +14,11 @@ export const SettingsGeneralTab: React.FC<
       <Title>{i18n.t('app.title')}</Title>
       <Text>{i18n.t('pages.settings.tabs.general.subtitle')}</Text>
 
-
       <div>
         <div>
           <Text>Theme:</Text>
-          <Switcher isActive={true} onClick={() => {}}/>
+          <Switcher isActive={true} onClick={() => {}} />
         </div>
-
       </div>
     </div>
   );
