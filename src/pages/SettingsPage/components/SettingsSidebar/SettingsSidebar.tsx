@@ -16,9 +16,9 @@ const sidebarLinks = [
       {
         subtitle: 'pages.settings.sidebar.link.general',
         to: '/SettingsPage/',
-        needCurProjInfo: false
-      }
-    ]
+        needCurProjInfo: false,
+      },
+    ],
   },
   {
     title: 'pages.settings.sidebar.link.title',

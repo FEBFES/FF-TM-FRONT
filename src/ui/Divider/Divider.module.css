@@ -1,0 +1,13 @@
+.divider {
+  background: var(--bg-border);
+}
+
+.divider_row {
+  width: 80%;
+  height: 2px;
+}
+
+.divider_col {
+  height: 80%;
+  width: 2px;
+}

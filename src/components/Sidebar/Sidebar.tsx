@@ -21,6 +21,7 @@ import { setSidebarView } from '../../pages/Root/store/AppSlice';
 import { Space } from '../../ui/Space/Space';
 import { Title } from '../../ui/Typography';
 import { isMobile } from 'react-device-detect';
+import { Divider } from '../../ui/Divider/Divider';
 
 const links = [
   //TODO to - from string to const appRoutsPath
@@ -117,7 +118,7 @@ export const Sidebar: React.FC = (): JSX.Element => {
           );
         })}
       </ul>
-
+      <Divider />
       <footer className={styles.sidebar__footer}>
         <NavLink
           onClick={() => {
