@@ -9,7 +9,10 @@ interface SpaceProps {
   my?: SizeProp;
 }
 
-export const Space: React.FC<SpaceProps> = ({ mx, my }): JSX.Element => {
+export const Space: React.FC<SpaceProps> = ({
+  mx = 's',
+  my = 's',
+}): JSX.Element => {
   return (
     <div
       className={classNames(styles.space, {

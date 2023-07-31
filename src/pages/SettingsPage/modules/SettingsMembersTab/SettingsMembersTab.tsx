@@ -22,6 +22,7 @@ export const SettingsMembersTab: React.FC<
       lastName: 'lastName',
       userPic: null,
       username: 'userName',
+      role: 'MEMBER',
     },
     {
       displayName: 'display',
@@ -31,6 +32,7 @@ export const SettingsMembersTab: React.FC<
       lastName: 'lastName',
       userPic: null,
       username: 'userName',
+      role: 'MEMBER',
     },
     {
       displayName: 'display',
@@ -40,6 +42,7 @@ export const SettingsMembersTab: React.FC<
       lastName: 'lastName',
       userPic: null,
       username: 'userName',
+      role: 'MEMBER',
     },
     {
       displayName: 'display',
@@ -49,6 +52,7 @@ export const SettingsMembersTab: React.FC<
       lastName: 'lastName',
       userPic: null,
       username: 'userName',
+      role: 'MEMBER',
     },
     {
       displayName: 'display',
@@ -58,6 +62,7 @@ export const SettingsMembersTab: React.FC<
       lastName: 'lastName',
       userPic: null,
       username: 'userName',
+      role: 'MEMBER',
     },
     {
       displayName: 'display',
@@ -67,6 +72,7 @@ export const SettingsMembersTab: React.FC<
       lastName: 'lastName',
       userPic: null,
       username: 'userName',
+      role: 'MEMBER',
     },
   ];
 
