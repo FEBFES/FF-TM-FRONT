@@ -1,0 +1,35 @@
+.flexContainer {
+  display: flex;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.col {
+  flex-direction: column;
+}
+
+.aiBetween {
+  align-items: center;
+}
+
+.aiAround {
+  align-items: center;
+}
+
+.aiCenter {
+  align-items: center;
+}
+
+.jcBetween {
+  justify-content: center;
+}
+
+.jcAround {
+  justify-content: center;
+}
+
+.jcCenter {
+  justify-content: center;
+}
