@@ -2,6 +2,8 @@
   display: flex;
 }
 
+/* flex direction */
+
 .row {
   flex-direction: row;
 }
@@ -9,6 +11,8 @@
 .col {
   flex-direction: column;
 }
+
+/* Align items */
 
 .aiBetween {
   align-items: center;
@@ -22,6 +26,16 @@
   align-items: center;
 }
 
+.aiStart {
+  align-items: start;
+}
+
+.aiEnd {
+  align-items: end;
+}
+
+/* justify content */
+
 .jcBetween {
   justify-content: center;
 }
@@ -32,4 +46,12 @@
 
 .jcCenter {
   justify-content: center;
+}
+
+.jcStart {
+  justify-content: start;
+}
+
+.jcEnd {
+  justify-content: end;
 }
