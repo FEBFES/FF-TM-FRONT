@@ -1,16 +1,14 @@
 import React, { useEffect } from 'react';
 import styles from './KanbanPageHeader.module.css';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
-import { useNavigate } from 'react-router-dom';
-import { appRoutsPath } from '../../../../routing/routs';
 import { FavoriteIcon } from '../../../../assets/icons/UtilsIcons';
 import { Switcher } from '../../../../ui/Switcher/Switcher';
 import { useTheme } from '../../../../hooks/useTheme';
 import { fetchFavoriteToggle } from '../../../ProjectsPage/store/projects.thunk';
-import i18n from 'i18next';
 import { fetchGetProjectMembers } from '../../store/kanban.thunk';
 import { SearchInput } from '../../components/SearchInput/SearchInput';
-import { Text, Title } from '../../../../ui/Typography';
+import { Breadcrumbs } from '../../../../ui/Breadcrumbs/Breadcrumbs';
+import { Title } from '../../../../ui/Typography';
 
 interface KanbanPageHeaderProps {}
 
@@ -22,7 +20,6 @@ export const KanbanPageHeader: React.FC<
   );
   const theme = useTypedSelector((state) => state.app.theme);
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
   const { changeTheme } = useTheme();
 
   useEffect(() => {
@@ -40,14 +37,8 @@ export const KanbanPageHeader: React.FC<
         >
           {projectName || ''}
         </Title>
-        {/*//TODO CHANGE TO UI BREADCRUMBS*/}
-        <div className={styles.breadcrumbs}>
-          <Text onClick={() => navigate(appRoutsPath.ProjectPage.path)}>
-            {i18n.t('pages.kanban.header.breadcrumbs.1')}
-          </Text>
-          <Text>/</Text>
-          <Text>{projectName || ''}</Text>
-        </div>
+
+        <Breadcrumbs />
       </div>
 
       <div className={styles.header__right}>

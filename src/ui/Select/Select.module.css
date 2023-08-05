@@ -1,0 +1,23 @@
+.select {
+  font-size: 12px !important;
+  color: var(--font-gray);
+  background: transparent;
+  border: 1px solid var(--bg-border);
+  border-radius: 6px;
+  text-transform: lowercase;
+  padding: 6px 10px;
+  outline: none;
+}
+.select:hover {
+  outline: 1px solid var(--bg-primary);
+}
+
+.select_disabled {
+  cursor: not-allowed;
+}
+
+.option {
+  font-size: 12px;
+  color: var(--font-gray);
+  padding: 4px 8px;
+}
