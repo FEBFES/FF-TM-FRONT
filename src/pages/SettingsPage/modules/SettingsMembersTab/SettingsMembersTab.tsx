@@ -88,7 +88,7 @@ export const SettingsMembersTab: React.FC<
           </Title>
           <Button>{i18n.t('utils.buttons.add')}</Button>
         </div>
-        {members.map((member: IMember, i) => {
+        {members.map((member: IMember, i: number) => {
           return <MemberCard member={member} key={i} />;
         })}
       </div>

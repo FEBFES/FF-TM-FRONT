@@ -9,6 +9,8 @@ import { fetchGetProjectMembers } from '../../store/kanban.thunk';
 import { SearchInput } from '../../components/SearchInput/SearchInput';
 import { Breadcrumbs } from '../../../../ui/Breadcrumbs/Breadcrumbs';
 import { Title } from '../../../../ui/Typography';
+import i18n from 'i18next';
+import { appRoutsPath } from '../../../../routing/routs';
 
 interface KanbanPageHeaderProps {}
 
@@ -30,15 +32,19 @@ export const KanbanPageHeader: React.FC<
   return (
     <header className={styles.header}>
       <div className={styles.header__left}>
-        <Title
-          level={'h4'}
-          // todo
-          // className={styles.title}
-        >
-          {projectName || ''}
-        </Title>
+        <Title level={'h4'}>{projectName || ''}</Title>
 
-        <Breadcrumbs />
+        <Breadcrumbs
+          items={[
+            {
+              href: appRoutsPath.ProjectPage.path,
+              title: i18n.t('pages.kanban.header.breadcrumbs.1'),
+            },
+            { title: projectName || '' },
+          ]}
+          //todo add separator to UI components
+          // separator
+        />
       </div>
 
       <div className={styles.header__right}>
