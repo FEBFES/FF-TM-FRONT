@@ -6,8 +6,7 @@ interface IAuthSliceInitialState {
 }
 
 const initialState: IAuthSliceInitialState = {
-  isAuth: true,
-  // !!localStorage.getItem('accessToken')
+  isAuth: !!localStorage.getItem('accessToken'),
 };
 
 const AuthSlice = createSlice({

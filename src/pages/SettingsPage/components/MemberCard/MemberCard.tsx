@@ -23,7 +23,7 @@ export const MemberCard: React.FC<MemberCardProps> = ({
 }): JSX.Element => {
   const dispatch = useAppDispatch();
   const projId = useTypedSelector((state) => state.curProj.projId);
-  const memberRoles: IMemberRole[] = ['MEMBER', 'MEMBER+', 'OWNER'];
+  const memberRoles: IMemberRole[] = ['MEMBER', 'MEMBER_PLUS', 'OWNER'];
 
   return (
     <div className={styles.memberCard}>
