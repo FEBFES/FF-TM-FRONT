@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './KanbanPageSubheader.module.css';
 import { FilterCard } from '../../components/FilterCard/FilterCard';
 import { PrioritySelect } from '../../components/PrioritySelect/PrioritySelect';
@@ -15,23 +15,34 @@ import {
   delFilters,
   setFilters,
 } from '../../store/kanban.slice';
-import { MembersSelect } from '../../components/MembersSelect/MembersSelect';
 import { Space } from '../../../../ui/Space/Space';
+import { AddMemberToProjModal } from '../../../../components/AddMemberToProjModal/AddMemberToProjModal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { AvatarGroup } from '../../../../ui/AvatarGroup/AvatarGroup';
 
 export const KanbanPageSubheader: React.FC = () => {
   const dispatch = useAppDispatch();
+  const [showAddMemberModal, setShowAddMemberModal] = useState<boolean>(false);
   const filters = useTypedSelector((state) => state.curProj.filters);
   const haveFilters = filters.length >= 1;
   const curType = filters.find((el) => el.key === 'taskType')?.value || 'NONE';
   const curPriority =
     filters.find((el) => el.key === 'taskPriority')?.value || 'DEFAULT';
+  const members = useTypedSelector((state) => state.curProj.members);
 
   return (
     <div className={styles.subheader}>
       <div className={styles.subheader__left}>
         <KanbanViewSwitcher />
         <Space mx={'l'} />
-        <MembersSelect />
+        <AvatarGroup placement={'top'} members={members} avatarSize={'s'} />
+        <div
+          onClick={() => setShowAddMemberModal(true)}
+          className={styles.icon}
+        >
+          <FontAwesomeIcon icon={faUserPlus} size={'sm'} />
+        </div>
       </div>
 
       <div className={styles.filters__cont}>
@@ -81,6 +92,13 @@ export const KanbanPageSubheader: React.FC = () => {
           </div>
         )}
       </div>
+
+      {showAddMemberModal && (
+        <AddMemberToProjModal
+          show={showAddMemberModal}
+          setShow={setShowAddMemberModal}
+        />
+      )}
     </div>
   );
 };
