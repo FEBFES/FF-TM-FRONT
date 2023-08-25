@@ -27,7 +27,7 @@ export const AddMemberToProjModal: React.FC<AddMemberToProjModalProps> = ({
   const [inputValue, setInputValue] = useState<string>('');
   const [selectedUsers, setSelectedUsers] = useState<IMember[]>([]);
 
-  //todo change all
+  //todo change this to redux (mb to -> redux rtq)
   useEffect(() => {
     instance.get('/users').then((res) => {
       if (res.status === 200) {
