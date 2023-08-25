@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './PrioritySelect.module.css';
-import { PrioritySelectProps } from './PrioritySelect.props';
+import { IPriorityType } from './PrioritySelect.type';
 import {
   PriorityDefault,
   PriorityHigh,
@@ -29,6 +29,12 @@ const priorityArr: IPriorityTypeItem[] = [
     value: <PriorityHigh />,
   },
 ];
+
+export interface PrioritySelectProps {
+  curPriority: IPriorityType;
+  setCurPriority: (type: IPriorityType) => void;
+  direction: 'bottom' | 'top';
+}
 
 export const PrioritySelect: React.FC<PrioritySelectProps> = ({
   curPriority = 'DEFAULT',
