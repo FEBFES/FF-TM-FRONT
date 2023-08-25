@@ -32,3 +32,18 @@
   padding: 0 14px;
   border: 1px dashed var(--font-gray);
 }
+
+.icon {
+  margin-left: 20px;
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 26px;
+  width: 26px;
+  border-radius: 100px;
+  border: 1px solid var(--bg-border);
+  background: var(--bg-0);
+  color: var(--font-gray);
+}
