@@ -49,9 +49,8 @@ export const KanbanPageHeader: React.FC<
 
       <div className={styles.header__right}>
         <Switcher isActive={theme === 'dark'} onClick={changeTheme} />
-
         <SearchInput />
-
+        {/* //TODO change line to UI component (DIVIDER) */}
         <div className={styles.line} />
         <div
           className={styles.favoriteBtn}
