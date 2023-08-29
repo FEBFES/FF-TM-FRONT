@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { appRouts } from '../../../../routing/routs';
 import { EmptyLayout } from '../../../../layouts/empty-layout/empty-layout';
-import { NotFoundPage } from '../../../404/NotFoundPage';
+import { NotFoundPage } from '../../../404/not-found-page';
 
 export const NotAuthAppRoutes: React.FC = () => {
   return (

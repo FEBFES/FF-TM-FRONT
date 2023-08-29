@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { fetchProjects } from '../../../ProjectsPage/store/projects.thunk';
-import { fetchGetUserInfo } from '../../../../store/User/user.thunk';
+import { fetchGetUserInfo } from '../../../../store/user/user.thunk';
 import { privateRoutes } from '../../../../routing/routs';
 import { EmptyLayout } from '../../../../layouts/empty-layout/empty-layout';
-import { NotFoundPage } from '../../../404/NotFoundPage';
+import { NotFoundPage } from '../../../404/not-found-page';
 import {
   fetchProjectDashboard,
   fetchProjectInfo,

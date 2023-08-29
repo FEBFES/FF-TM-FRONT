@@ -2,8 +2,8 @@ import React from 'react';
 import { MainLayout } from '../layouts/main-layout/main-layout';
 import { KanbanPage } from '../pages/KanbanPage/KanbanPage';
 import { EmptyLayout } from '../layouts/empty-layout/empty-layout';
-import { RegistrationPage } from '../pages/AuthPages/Registration/RegistrationPage';
-import { LoginPage } from '../pages/AuthPages/Login/LoginPage';
+import { RegistrationPage } from '../pages/auth-pages/registration/registration-page';
+import { LoginPage } from '../pages/auth-pages/login/login-page';
 import { SettingsPage } from '../pages/SettingsPage/SettingsPage';
 import { ProjectsPage } from '../pages/ProjectsPage/ProjectsPage';
 import { TimelinePage } from '../pages/TimelinePage/TimelinePage';
@@ -32,9 +32,9 @@ export const appRoutsPath = {
   },
   RegistrationPage: {
     //todo i18next
-    title: 'Registration page',
-    path: '/Registration',
-    to: '/Registration',
+    title: 'registration page',
+    path: '/registration',
+    to: '/registration',
   },
   TimelinePage: {
     //todo i18next
@@ -50,7 +50,7 @@ export const appRoutsPath = {
   },
   LoginPage: {
     //todo i18next
-    title: 'Login Page',
+    title: 'login Page',
     path: '/',
     to: '/',
   },

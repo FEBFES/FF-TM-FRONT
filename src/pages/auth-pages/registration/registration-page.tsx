@@ -1,6 +1,6 @@
 import React from 'react';
-import { RegistrationForm } from '../modules/RegistrationForm/RegistrationForm';
-import { SPage } from './RegistrationPage.styled';
+import { RegistrationForm } from '../modules/registration-form/registration-form';
+import { SPage } from './registration-page.styled';
 
 interface RegistrationPageProps {}
 

@@ -9,7 +9,7 @@ import {
   SPage,
   SPrevButton,
   SHomeButton,
-} from './NotFoundPage.styled';
+} from './not-found-page.styled';
 
 export const NotFoundPage = () => {
   const { t } = useTranslation();

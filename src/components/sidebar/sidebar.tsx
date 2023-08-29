@@ -4,7 +4,7 @@ import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
 import { useTheme } from '../../hooks/useTheme';
 import { LogoIconDark } from '../../assets/icons/LogoIconDark';
 import { LogoIconLight } from '../../assets/icons/LogoIconLight';
-import { setIsAuth } from '../../pages/AuthPages/store/auth.slice';
+import { setIsAuth } from '../../pages/auth-pages/store/auth.slice';
 import { appRoutsPath } from '../../routing/routs';
 import i18n from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
