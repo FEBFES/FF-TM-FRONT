@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
-import styles from './RegistrationForm.module.css';
 import { InputField } from '../../../../ui/InputField/InputField';
-import { Button } from '../../../../ui/Button/Button';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchRegistration } from '../../store/auth.thunk';
 import { IRegisterFormDataType } from '../../store/auth.type';
 import { Link, useNavigate } from 'react-router-dom';
 import { appRoutsPath } from '../../../../routing/routs';
 import { useTranslation } from 'react-i18next';
+import {
+  SButtonLingLogin,
+  SRegButton,
+  SRegistrationForm,
+} from './registration-form.styled';
+import { Title } from '../../../../ui/Typography';
 
 interface RegistrationFormProps {}
 
@@ -40,8 +44,8 @@ export const RegistrationForm: React.FC<
   };
 
   return (
-    <div className={styles.regform}>
-      <h1 className={styles.regform__title}>{t('pages.registration.title')}</h1>
+    <SRegistrationForm>
+      <Title level={'h6'}>{t('pages.registration.title')}</Title>
       <InputField
         placeholder={t('pages.registration.input.email.placeholder')}
         type={'text'}
@@ -60,20 +64,16 @@ export const RegistrationForm: React.FC<
         value={inputData.password}
         onChange={(e) => changeHandle(e.target.value, 'password')}
       />
-      <Button
-        className={styles.regform__btn}
-        variant={'submit'}
-        onClick={submitHandler}
-      >
+      <SRegButton variant={'submit'} onClick={submitHandler}>
         {t('pages.registration.button.submit')}
-      </Button>
+      </SRegButton>
 
-      <div className={styles.btnLinkLogin}>
+      <SButtonLingLogin>
         <span>{t('pages.registration.login.label')}</span>
         <Link to={appRoutsPath.LoginPage.to}>
           {t('pages.registration.login.action')}
         </Link>
-      </div>
-    </div>
+      </SButtonLingLogin>
+    </SRegistrationForm>
   );
 };

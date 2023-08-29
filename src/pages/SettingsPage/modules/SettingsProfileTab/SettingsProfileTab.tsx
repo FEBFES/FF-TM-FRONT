@@ -10,7 +10,7 @@ import {
   fetchChangeUserInfo,
   fetchDeleteUserAvatar,
   fetchUploadNewUserAvatar,
-} from '../../../../store/User/user.thunk';
+} from '../../../../store/user/user.thunk';
 import { Avatar } from '../../../../ui/Avatar/Avatar';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 import { Title, Text } from '../../../../ui/Typography';

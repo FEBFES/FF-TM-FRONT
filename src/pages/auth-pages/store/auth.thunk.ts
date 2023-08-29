@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instanceWithoutToken } from '../../../api/http';
 import { ILoginFormType, IRegisterFormDataType } from './auth.type';
-import { setUserId } from '../../../store/User/user.slice';
+import { setUserId } from '../../../store/user/user.slice';
 
-// Registration
+// registration
 export const fetchRegistration = createAsyncThunk(
   'projects/fetchRegistration',
   async (formData: IRegisterFormDataType, { rejectWithValue, dispatch }) => {
@@ -19,7 +19,7 @@ export const fetchRegistration = createAsyncThunk(
   }
 );
 
-// Login
+// login
 export const fetchLogin = createAsyncThunk(
   'projects/fetchLogin',
   async (formData: ILoginFormType, { rejectWithValue, dispatch }) => {
