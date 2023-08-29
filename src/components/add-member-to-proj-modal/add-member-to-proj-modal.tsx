@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styles from './AddMemberToProjModal.module.css';
+import styles from './add-member-to-proj-modal.module.css';
 import { Modal } from '../../ui/Modal/Modal';
 import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
 import { IMember } from '../../pages/KanbanPage/store/kanban.type';
