@@ -1,6 +1,8 @@
 import React from 'react';
-import './AuthLayout.module.css';
-import { AuthLayoutProps } from './AuthLayout.props';
+
+export interface AuthLayoutProps {
+  children: React.ReactNode;
+}
 
 export const AuthLayout: React.FC<AuthLayoutProps> = ({
   children,
