@@ -80,6 +80,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({
           hover={'underline'}
           cursor={'pointer'}
           level={'h6'}
+          className={'ellipsis_text'}
           // color: var(--font-defautl); hover: underline
           onClick={getTaskInfo}
         >
