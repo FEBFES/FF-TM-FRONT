@@ -1,6 +1,10 @@
 import React from 'react';
-import { FilterCardProps } from './FilterCard.props';
 import styles from './FilterCard.module.css';
+
+export interface FilterCardProps {
+  component: JSX.Element;
+  title: string;
+}
 
 export const FilterCard: React.FC<FilterCardProps> = ({
   component,

@@ -21,6 +21,7 @@ interface ProfileTabProps {}
 export const SettingsProfileTab: React.FC<
   ProfileTabProps
 > = (): JSX.Element => {
+  //TODO refactor all page
   const dispatch = useAppDispatch();
   const { firstName, lastName, displayName, email, id, userPic, username } =
     useTypedSelector((state) => state.user);

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './RowView.module.css';
+import { SRowContainer } from './RowView.styled';
 import { IColumns } from '../Column/Column.type';
 import { v4 } from 'uuid';
 import { Row } from '../Row/Row';
@@ -20,7 +20,7 @@ export const RowView: React.FC<RowViewProps> = ({
   setShowAddTaskModal,
 }): JSX.Element => {
   return (
-    <div className={styles.rowCont}>
+    <SRowContainer>
       {columns.map((row: IColumns) => {
         if (row.tasks.length === 0) {
           return null;
@@ -36,6 +36,6 @@ export const RowView: React.FC<RowViewProps> = ({
           />
         );
       })}
-    </div>
+    </SRowContainer>
   );
 };
