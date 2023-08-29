@@ -11,7 +11,10 @@ export const SPageWrap = styled.div`
   flex-direction: column;
 
   @media (max-width: 1280px) {
-    80%;
+    width: 80%;
+  }
+  @media (max-width: 980px) {
+    width: 100%;
   }
 `;
 

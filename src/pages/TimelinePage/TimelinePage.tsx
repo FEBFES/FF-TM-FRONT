@@ -1,5 +1,4 @@
 import React from 'react';
-import './TimelinePage.module.css';
 import { TimelinePageProps } from './TimelinePage.props';
 import { Title } from '../../ui/Typography';
 
