@@ -6,7 +6,7 @@ import { MemberCard } from '../../components/MemberCard/MemberCard';
 import { Button } from '../../../../ui/Button/Button';
 import { useTypedSelector } from '../../../../hooks/redux';
 import { SMemberCont, SMemberContHeader } from './SettingsMembersTab.styled';
-import { AddMemberToProjModal } from '../../../../components/AddMemberToProjModal/AddMemberToProjModal';
+import { AddMemberToProjModal } from '../../../../components/add-member-to-proj-modal/add-member-to-proj-modal';
 
 interface MembersTabProps {}
 
