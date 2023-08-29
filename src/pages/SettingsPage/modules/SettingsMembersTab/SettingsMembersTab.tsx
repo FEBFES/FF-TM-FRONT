@@ -6,13 +6,14 @@ import { MemberCard } from '../../components/MemberCard/MemberCard';
 import { Button } from '../../../../ui/Button/Button';
 import { useTypedSelector } from '../../../../hooks/redux';
 import { SMemberCont, SMemberContHeader } from './SettingsMembersTab.styled';
-
+        
 interface MembersTabProps {}
 
 export const SettingsMembersTab: React.FC<
   MembersTabProps
 > = (): JSX.Element => {
   const members = useTypedSelector((state) => state.curProj.members);
+  const [showAddMemberModal, setShowAddMemberModal] = useState<boolean>(false);
 
   return (
     <div>
