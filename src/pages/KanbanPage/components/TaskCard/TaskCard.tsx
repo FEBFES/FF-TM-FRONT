@@ -31,6 +31,17 @@ export const TaskCard: React.FC<TaskCardProps> = ({
   const [showDD, setShowDD] = useState<boolean>(false);
   const dispatch = useAppDispatch();
 
+  const getTaskInfo = () => {
+    setShowTaskModal(true);
+    dispatch(
+      fetchGetTaskInfo({
+        projId: task.projectId,
+        colId: task.columnId,
+        taskId: task.id,
+      })
+    );
+  };
+
   return (
     <div
       onDragStart={(e: any) => {
@@ -70,23 +81,11 @@ export const TaskCard: React.FC<TaskCardProps> = ({
           cursor={'pointer'}
           level={'h6'}
           // color: var(--font-defautl); hover: underline
-          onClick={() => {
-            setShowTaskModal(true);
-            dispatch(
-              fetchGetTaskInfo({
-                projId: task.projectId,
-                colId: task.columnId,
-                taskId: task.id,
-              })
-            );
-          }}
+          onClick={getTaskInfo}
         >
           {task.name || ''}
         </Title>
-        <Text
-        // todo
-        // className={styles.task_creationDate}
-        >
+        <Text>
           {/*todo Сделать авто смену локали и связать с i18n мб черзе хук */}
           {moment(task.createDate).locale('ru').format('MMM DD')}
         </Text>

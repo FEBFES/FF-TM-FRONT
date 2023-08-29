@@ -5,10 +5,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchChangeTask } from '../../store/kanban.thunk';
-import { ColumnProps } from './Column.props';
 import { TaskCard } from '../TaskCard/TaskCard';
 import { ITask } from '../TaskCard/TaskCard.type';
 import { Title } from '../../../../ui/Typography';
+import { IColumns } from './Column.type';
+
+export interface ColumnProps {
+  col: IColumns;
+  delTask: (colId: number, taskId: number) => void;
+  setShowAddTaskModal: (bool: boolean) => void;
+  setCurCol: (col: IColumns) => void;
+  setShowTaskModal: (bool: boolean) => void;
+}
 
 export const Column: React.FC<ColumnProps> = ({
   col,
