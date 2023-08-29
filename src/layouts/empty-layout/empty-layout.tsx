@@ -1,7 +1,11 @@
 import React from 'react';
-import styles from './EmptyLayout.module.css';
-import EmptyLayoutProps from './EmptyLayout.props';
 import { useTitle } from '../../hooks/useTitle';
+import { SEmptyLayout } from './empty-layout.styled';
+
+export default interface EmptyLayoutProps {
+  children: React.ReactNode;
+  pageTitle: string;
+}
 
 export const EmptyLayout: React.FC<EmptyLayoutProps> = ({
   children,
@@ -9,5 +13,5 @@ export const EmptyLayout: React.FC<EmptyLayoutProps> = ({
 }): JSX.Element => {
   useTitle(pageTitle);
 
-  return <div className={styles.emptyLayout}>{children}</div>;
+  return <SEmptyLayout>{children}</SEmptyLayout>;
 };

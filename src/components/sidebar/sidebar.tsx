@@ -1,6 +1,5 @@
 import React, { useLayoutEffect } from 'react';
-import styles from './Sidebar.module.css';
-import { NavLink, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
 import { useTheme } from '../../hooks/useTheme';
 import { LogoIconDark } from '../../assets/icons/LogoIconDark';
@@ -16,11 +15,18 @@ import {
   faDoorOpen,
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
-import classNames from 'classnames';
 import { setSidebarView } from '../../pages/Root/store/AppSlice';
 import { Space } from '../../ui/Space/Space';
 import { Title } from '../../ui/Typography';
 import { isMobile } from 'react-device-detect';
+import {
+  SSidebar,
+  SSidebarFooter,
+  SSidebarHeader,
+  SSidebarMain,
+  SLink,
+  SSidebarToggle,
+} from './sidebar.styled';
 
 const links = [
   //TODO to - from string to const appRoutsPath
@@ -71,25 +77,23 @@ export const Sidebar: React.FC = (): JSX.Element => {
   }, []);
 
   return (
-    <div className={classNames(styles.sidebar)}>
-      <div className={styles.sidebar__header}>
+    <SSidebar>
+      <SSidebarHeader>
         {theme === 'dark' ? <LogoIconDark /> : <LogoIconLight />}
-      </div>
+      </SSidebarHeader>
 
       {!isMobile && (
-        <div
+        <SSidebarToggle
           onClick={() => {
             dispatch(setSidebarView(!isFullView));
           }}
-          className={classNames(styles.sidebar__toggle, {
-            [styles.sidebar__toggle_full]: isFullView,
-          })}
+          isFull={isFullView}
         >
           <FontAwesomeIcon size={'xs'} icon={faChevronRight} />
-        </div>
+        </SSidebarToggle>
       )}
 
-      <ul className={styles.sidebar__main}>
+      <SSidebarMain>
         {links.map((link, i) => {
           if (link.private && location.pathname === '/') {
             return null;
@@ -98,14 +102,10 @@ export const Sidebar: React.FC = (): JSX.Element => {
             return null;
           }
           return (
-            <NavLink
+            <SLink
               key={i}
               aria-label={link.title}
-              className={() =>
-                location.pathname.includes(link.to)
-                  ? `${styles.linkActive} ${styles.link}`
-                  : `${styles.link}`
-              }
+              isActive={location.pathname.includes(link.to)}
               to={link.to}
             >
               <FontAwesomeIcon icon={link.icon} />
@@ -113,23 +113,22 @@ export const Sidebar: React.FC = (): JSX.Element => {
               {isFullView && (
                 <Title level={'h6'}>{i18n.t(link.title) || ''}</Title>
               )}
-            </NavLink>
+            </SLink>
           );
         })}
-      </ul>
-      <footer className={styles.sidebar__footer}>
-        <NavLink
+      </SSidebarMain>
+      <SSidebarFooter>
+        <SLink
           onClick={() => {
             dispatch(setIsAuth(false));
           }}
           aria-label={'Logout'}
-          className={styles.link}
           to={appRoutsPath.LoginPage.to}
           replace={true}
         >
           <FontAwesomeIcon icon={faDoorOpen} />
-        </NavLink>
-      </footer>
-    </div>
+        </SLink>
+      </SSidebarFooter>
+    </SSidebar>
   );
 };

@@ -1,14 +1,14 @@
 import React from 'react';
-import { MainLayout } from '../layouts/MainLayout/MainLayout';
+import { MainLayout } from '../layouts/main-layout/main-layout';
 import { KanbanPage } from '../pages/KanbanPage/KanbanPage';
-import { EmptyLayout } from '../layouts/EmptyLayout/EmptyLayout';
+import { EmptyLayout } from '../layouts/empty-layout/empty-layout';
 import { RegistrationPage } from '../pages/AuthPages/Registration/RegistrationPage';
 import { LoginPage } from '../pages/AuthPages/Login/LoginPage';
 import { SettingsPage } from '../pages/SettingsPage/SettingsPage';
 import { ProjectsPage } from '../pages/ProjectsPage/ProjectsPage';
 import { TimelinePage } from '../pages/TimelinePage/TimelinePage';
 import { MessagesPage } from '../pages/MessagesPage/MessagesPage';
-import { AuthLayout } from '../layouts/AuthLayout/AuthLayout';
+import { AuthLayout } from '../layouts/auth-layout/auth-layout';
 
 export type IAppRouts = {
   title: string;
