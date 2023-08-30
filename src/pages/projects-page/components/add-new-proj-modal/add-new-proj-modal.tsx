@@ -6,7 +6,12 @@ import { useAppDispatch } from '../../../../hooks/redux';
 import { Button } from '../../../../ui/Button/Button';
 import i18n from 'i18next';
 import { Title } from '../../../../ui/typography';
-import {SPageContainer, SPageContainerHeader, SPageContainerFooter, SProjectContainer} from './add-new-proj-modal.styled'
+import {
+  SPageContainer,
+  SPageContainerHeader,
+  SPageContainerFooter,
+  SProjectContainer,
+} from './add-new-proj-modal.styled';
 
 interface AddNewProjModalProps {
   show: boolean;
@@ -25,9 +30,7 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
     <Modal show={show} setShow={setShow}>
       <SPageContainer>
         <SPageContainerHeader>
-          <Title>
-            {i18n.t('pages.projects.header.addBtn')}
-          </Title>
+          <Title>{i18n.t('pages.projects.header.addBtn')}</Title>
           <Button btnType={'close'} onClick={() => setShow(false)} />
         </SPageContainerHeader>
 

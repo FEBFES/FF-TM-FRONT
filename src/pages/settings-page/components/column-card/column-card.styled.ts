@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { InputField } from '../../../../ui/input-field/Input-field';
 
-export const SColumn = styled.div<{isEdit: boolean}>`
+export const SColumn = styled.div<{ isEdit: boolean }>`
   padding: 10px;
   display: flex;
   align-items: center;
@@ -11,12 +11,13 @@ export const SColumn = styled.div<{isEdit: boolean}>`
   width: 100%;
   border-radius: 10px;
   height: 60px;
-  border: ${({isEdit}) => isEdit ? '1px solid var(--bg-primary)' : '1px solid var(--bg-border)'};
+  border: ${({ isEdit }) =>
+    isEdit ? '1px solid var(--bg-primary)' : '1px solid var(--bg-border)'};
 
   &:first-of-type {
     margin-top: 0;
   }
-`
+`;
 
 export const SButton = styled.div`
   margin-right: 6px;
@@ -29,7 +30,7 @@ export const SButton = styled.div`
   height: 25px;
   cursor: pointer;
   transition: 0.2s;
-`
+`;
 
 export const SInputField = styled(InputField)`
   font-size: 16px;
@@ -37,25 +38,25 @@ export const SInputField = styled(InputField)`
   border: none;
   padding: 0;
   background: transparent;
-`
+`;
 
 export const STrashButton = styled(SButton)`
   &:hover {
     background: #bb5050;
     transform: scale(1.05);
   }
-`
+`;
 
 export const SSaveButton = styled(SButton)`
   &:hover {
     background: #61bd65;
     transform: scale(1.05);
-  }  
-`
+  }
+`;
 
 export const SEditButton = styled(SButton)`
   &:hover {
     background: gray;
     transform: scale(1.05);
   }
-`
+`;

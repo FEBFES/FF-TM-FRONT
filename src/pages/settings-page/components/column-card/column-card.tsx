@@ -14,7 +14,13 @@ import i18n from 'i18next';
 import { Text, Title } from '../../../../ui/typography';
 import { IColumns } from '../../../KanbanPage/components/Column/Column.type';
 import { Flex } from '../../../../ui/flex/flex';
-import { SColumn, SInputField, STrashButton, SEditButton, SSaveButton } from './column-card.styled';
+import {
+  SColumn,
+  SInputField,
+  STrashButton,
+  SEditButton,
+  SSaveButton,
+} from './column-card.styled';
 
 export interface ColumnCardProps {
   column: IColumns;
@@ -42,9 +48,7 @@ export const ColumnCard: React.FC<ColumnCardProps> = ({
   };
 
   return (
-    <SColumn
-      isEdit={isEditMode}
-    >
+    <SColumn isEdit={isEditMode}>
       <Flex dir={'col'}>
         <Text>#{column.id}</Text>
         <Title level={'h6'}>
@@ -67,25 +71,19 @@ export const ColumnCard: React.FC<ColumnCardProps> = ({
       <Flex ai={'center'}>
         {isEditMode ? (
           <Tooltip title={i18n.t('utils.buttons.cancel')}>
-            <STrashButton
-              onClick={editModeToggle}
-            >
+            <STrashButton onClick={editModeToggle}>
               <FontAwesomeIcon size={'xs'} icon={faClose} />
             </STrashButton>
           </Tooltip>
         ) : (
           <Tooltip title={i18n.t('utils.buttons.edit')}>
-            <SEditButton
-              onClick={editModeToggle}
-            >
+            <SEditButton onClick={editModeToggle}>
               <FontAwesomeIcon size={'xs'} icon={faPen} />
             </SEditButton>
           </Tooltip>
         )}
         <Tooltip title={i18n.t('utils.buttons.delete')}>
-          <STrashButton
-            onClick={() => onDelete(column.projectId, column.id)}
-          >
+          <STrashButton onClick={() => onDelete(column.projectId, column.id)}>
             <FontAwesomeIcon size={'xs'} icon={faTrashCan} />
           </STrashButton>
         </Tooltip>
