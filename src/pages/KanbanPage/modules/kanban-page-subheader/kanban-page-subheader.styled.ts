@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const SSubHeader = styled.div`
   display: flex;
@@ -10,7 +10,7 @@ export const SSubHeader = styled.div`
   font-size: 14px;
   border-radius: 5px 5px 0 0;
   border-bottom: 1px solid var(--bg-border);
-`
+`;
 
 export const SClearFiltersButton = styled.div`
   font-size: 12px;
@@ -23,7 +23,7 @@ export const SClearFiltersButton = styled.div`
   border-radius: 4px;
   padding: 0 14px;
   border: 1px dashed var(--font-gray);
-`
+`;
 
 export const SIcon = styled.div`
   margin-left: 20px;
@@ -38,4 +38,4 @@ export const SIcon = styled.div`
   border: 1px solid var(--bg-border);
   background: var(--bg-0);
   color: var(--font-gray);
-`
+`;

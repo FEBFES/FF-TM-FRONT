@@ -5,7 +5,7 @@ import { KanbanPageSubheader } from './modules/kanban-page-subheader/kanban-page
 import { TaskWindow } from './modules/TaskWindow/TaskWindow';
 import { useTypedSelector } from '../../hooks/redux';
 import { useNavigate } from 'react-router-dom';
-import { SPageWrap, SKanbanPage } from './KanbanPage.styled';
+import { SPageWrap, SKanbanPage } from './kanban-page.styled';
 
 export const KanbanPage: React.FC = (): JSX.Element => {
   const [showTaskModal, setShowTaskModal] = useState<boolean>(false);

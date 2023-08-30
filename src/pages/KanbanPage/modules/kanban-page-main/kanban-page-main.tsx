@@ -7,7 +7,7 @@ import { ITypeSelectType } from '../../components/TypeSelect/TypeSelect';
 import { IColumns } from '../../components/column/column';
 import { ColumnView } from '../../components/column-view/column-view';
 import { RowView } from '../../components/row-view/row-view';
-import {SKanbanMain} from './kanban-page-main.styled';
+import { SKanbanMain } from './kanban-page-main.styled';
 
 interface KanbanPageProps {
   setShowTaskModal: (bool: boolean) => void;

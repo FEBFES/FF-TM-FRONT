@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const SContainer = styled.div`
   position: relative;
@@ -8,7 +8,7 @@ export const SContainer = styled.div`
   border: 1px solid var(--bg-border);
   border-radius: 6px;
   min-height: 26px;
-`
+`;
 
 export const SFilter = styled.div`
   cursor: pointer;
@@ -23,8 +23,8 @@ export const SFilter = styled.div`
   &:last-of-type {
     margin-right: 0;
   }
-`
+`;
 
 export const SComponentCont = styled.div`
   min-width: 30px;
-`
+`;

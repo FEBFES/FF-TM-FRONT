@@ -12,7 +12,7 @@ import i18n from 'i18next';
 import { appRoutsPath } from '../../../../routing/routs';
 import { Flex } from '../../../../ui/flex/flex';
 import { Divider } from '../../../../ui/divider/divider';
-import {SHeader, SFavoriteButton} from './kanban-page-header.styled';
+import { SHeader, SFavoriteButton } from './kanban-page-header.styled';
 
 interface KanbanPageHeaderProps {}
 
@@ -51,7 +51,7 @@ export const KanbanPageHeader: React.FC<
       <Flex ai={'center'} jc={'between'}>
         <Switcher isActive={theme === 'dark'} onClick={changeTheme} />
         <SearchInput />
-        <Divider direction='col'/>
+        <Divider direction="col" />
         <SFavoriteButton
           onClick={() =>
             dispatch(
