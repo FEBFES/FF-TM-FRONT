@@ -1,6 +1,6 @@
 import React from 'react';
 import { SRowContainer } from './row-view.styled';
-import { IColumns } from '../Column/Column.type';
+import { IColumns } from '../column/column';
 import { v4 } from 'uuid';
 import { Row } from '../row/row';
 

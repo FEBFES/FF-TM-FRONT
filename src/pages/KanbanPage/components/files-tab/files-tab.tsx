@@ -4,7 +4,7 @@ import i18n from 'i18next';
 import { IFile } from '../TaskCard/TaskCard.type';
 import { instance } from '../../../../api/http';
 import { useTypedSelector } from '../../../../hooks/redux';
-import { FileCard } from '../FileCard/FileCard';
+import { FileCard } from '../file-card/file-card';
 
 interface FilesTabProps {
   files: IFile[] | [];

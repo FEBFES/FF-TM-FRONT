@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styles from './PrioritySelect.module.css';
-import { IPriorityType } from './PrioritySelect.type';
 import {
   PriorityDefault,
   PriorityHigh,
@@ -8,7 +7,6 @@ import {
   PriorityMedium,
 } from '../../../../assets/icons/TaskIcons';
 import { useClickOutside } from '../../../../hooks/useClickOutside';
-import { IPriorityTypeItem } from './PrioritySelect.type';
 import classNames from 'classnames';
 
 const priorityArr: IPriorityTypeItem[] = [
@@ -29,6 +27,13 @@ const priorityArr: IPriorityTypeItem[] = [
     value: <PriorityHigh />,
   },
 ];
+
+export type IPriorityType = 'DEFAULT' | 'LOW' | 'MEDIUM' | 'HIGH';
+
+export interface IPriorityTypeItem {
+  title: IPriorityType;
+  value: JSX.Element;
+}
 
 export interface PrioritySelectProps {
   curPriority: IPriorityType;

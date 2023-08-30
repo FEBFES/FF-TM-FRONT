@@ -5,7 +5,7 @@ import { fetchAddNewTask, fetchDelTask } from '../../store/kanban.thunk';
 import styles from './KanbanPageMain.module.css';
 import { IPriorityType } from '../../components/PrioritySelect/PrioritySelect.type';
 import { ITypeSelectType } from '../../components/TypeSelect/TypeSelect';
-import { IColumns } from '../../components/Column/Column.type';
+import { IColumns } from '../../components/column/Column.type';
 import { ColumnView } from '../../components/column-view/column-view';
 import { RowView } from '../../components/row-view/row-view';
 

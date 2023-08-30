@@ -19,6 +19,7 @@
   margin-right: 5px;
 }
 
+/* TODO change to MARGINWRAPPER UI COMP */
 .componentCont {
   min-width: 30px;
 }
@@ -28,8 +29,4 @@
 }
 .filter__name {
   color: #989898;
-}
-.filter__value {
-  margin-left: 5px;
-  color: #575757;
 }

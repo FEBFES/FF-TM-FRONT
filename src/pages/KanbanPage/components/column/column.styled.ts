@@ -1,4 +1,7 @@
-.colWrap {
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+export const SColWrap = styled.div`
   margin-top: 14px;
   display: flex;
   flex-direction: column;
@@ -7,23 +10,25 @@
   min-width: 306px;
   max-width: 306px;
   border-right: 1px solid var(--bg-border);
-}
-.colWrap:last-of-type {
-  margin-right: 0;
-}
 
-.col__header {
+  &:last-of-type {
+    margin-right: 0;
+  }
+`;
+
+export const SColHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 288px;
   margin-bottom: 10px;
-}
-.col__header > svg {
-  cursor: pointer;
-}
 
-.col {
+  & > svg {
+    cursor: pointer;
+  }
+`;
+
+export const SColumn = styled.div`
   transition: 0.2s;
   height: 100%;
   border-radius: 10px 10px 0 0;
@@ -32,21 +37,12 @@
   align-items: center;
   width: 100%;
   overflow-y: auto;
-}
-.col::-webkit-scrollbar {
-  display: none;
-}
 
-.col__title {
-  margin: 0;
-  display: flex;
-  align-items: center;
-  font-size: 16px;
-  font-weight: 700;
-  text-transform: lowercase;
-  color: #989898;
-}
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
 
-.col__addTask_btn {
+export const SColAddBtnIcon = styled(FontAwesomeIcon)`
   color: #71737e;
-}
+`;

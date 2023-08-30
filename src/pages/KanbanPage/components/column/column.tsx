@@ -1,14 +1,20 @@
 import React from 'react';
-import styles from './Column.module.css';
 import { v4 } from 'uuid';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchChangeTask } from '../../store/kanban.thunk';
 import { TaskCard } from '../TaskCard/TaskCard';
 import { ITask } from '../TaskCard/TaskCard.type';
 import { Title } from '../../../../ui/typography';
-import { IColumns } from './Column.type';
+import { SColumn, SColHeader, SColWrap, SColAddBtnIcon } from './column.styled';
+
+export interface IColumns {
+  projectId: number;
+  id: number;
+  name: string;
+  columnOrder: number;
+  tasks: ITask[];
+}
 
 export interface ColumnProps {
   col: IColumns;
@@ -38,25 +44,23 @@ export const Column: React.FC<ColumnProps> = ({
   }
 
   return (
-    <div className={styles.colWrap} key={v4()}>
-      <div className={styles.col__header}>
+    <SColWrap key={v4()}>
+      <SColHeader>
         <Title level={'h6'}>
           {col.name || ''} {col.tasks?.length !== 0 ? col.tasks?.length : null}
         </Title>
-        <FontAwesomeIcon
-          className={styles.col__addTask_btn}
+        <SColAddBtnIcon
           icon={faPlus}
           onClick={() => {
             setShowAddTaskModal(true);
             setCurCol(col);
           }}
         />
-      </div>
+      </SColHeader>
 
-      <div
+      <SColumn
         onDrop={(e) => dropHandler(e)}
         onDragOver={dragOverHandler}
-        className={styles.col}
         id={`${col.id}`}
       >
         {col?.tasks?.map((task: ITask) => {
@@ -69,7 +73,7 @@ export const Column: React.FC<ColumnProps> = ({
             />
           );
         })}
-      </div>
-    </div>
+      </SColumn>
+    </SColWrap>
   );
 };

@@ -5,7 +5,7 @@ import { useTypedSelector } from '../../../../hooks/redux';
 import { TaskLabel } from '../../../../ui/task-label/task-label';
 import { PriorityLabel } from '../../../../ui/priority-label/priority-label';
 import i18n from 'i18next';
-import { FilesTab } from '../../components/FilesTab/FilesTab';
+import { FilesTab } from '../../components/files-tab/files-tab';
 import moment from 'moment';
 import { Avatar } from '../../../../ui/avatar/avatar';
 import { IFile } from '../../components/TaskCard/TaskCard.type';

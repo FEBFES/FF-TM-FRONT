@@ -1,9 +1,10 @@
 import React from 'react';
-import styles from './FileCard.module.css';
 import { IFile } from '../TaskCard/TaskCard.type';
 import { downloadFile } from '../../../../utils/download';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { Title } from '../../../../ui/typography';
+import { SFileCard, SDeleteButton } from './file-card.styled';
 
 interface FileCardProps {
   file: IFile;
@@ -15,17 +16,17 @@ export const FileCard: React.FC<FileCardProps> = ({
   deleteFile,
 }): JSX.Element => {
   return (
-    <div className={styles.fileCard}>
-      <span
+    <SFileCard>
+      <Title
+        level={'h6'}
         key={`${file.name}`}
         onClick={() => downloadFile(file.fileUrn, file.name)}
-        className={styles.title}
       >
         {file.name}
-      </span>
-      <div className={styles.deleteBtn} onClick={() => deleteFile(file.id)}>
+      </Title>
+      <SDeleteButton onClick={() => deleteFile(file.id)}>
         <FontAwesomeIcon size={'2xs'} icon={faTrash} />
-      </div>
-    </div>
+      </SDeleteButton>
+    </SFileCard>
   );
 };

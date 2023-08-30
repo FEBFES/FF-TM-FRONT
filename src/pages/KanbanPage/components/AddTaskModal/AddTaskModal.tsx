@@ -15,7 +15,7 @@ import { ITypeSelectType, TypeSelect } from '../TypeSelect/TypeSelect';
 import i18n from 'i18next';
 import { IMember } from '../../store/kanban.type';
 import { MemberCard } from '../MemberCard/MemberCard';
-import { IColumns } from '../Column/Column.type';
+import { IColumns } from '../column/Column.type';
 import { AddAssigneeModal } from '../AddAssigneeModal/AddAssigneeModal';
 import { Text } from '../../../../ui/typography/text/text';
 
