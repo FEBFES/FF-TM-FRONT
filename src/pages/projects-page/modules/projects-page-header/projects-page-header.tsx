@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AddNewProjModal } from '../../components/add-new-proj-modal/add-new-proj-modal';
 import { Button } from '../../../../ui/Button/Button';
 import i18n from 'i18next';
-import { Title } from '../../../../ui/Typography';
+import { Title } from '../../../../ui/typography';
 import { SPageHeader } from './projects-page-header.styled';
 
 export const ProjectsPageHeader: React.FC = (): JSX.Element => {

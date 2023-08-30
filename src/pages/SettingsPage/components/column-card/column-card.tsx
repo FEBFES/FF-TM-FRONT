@@ -7,7 +7,6 @@ import {
   faClose,
 } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
-import { InputField } from '../../../../ui/input-field/Input-field';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchUpdateCol } from '../../../KanbanPage/store/kanban.thunk';
 import { Tooltip } from '../../../../ui/tooltip/tooltip';
@@ -15,7 +14,7 @@ import i18n from 'i18next';
 import { Text, Title } from '../../../../ui/typography';
 import { IColumns } from '../../../KanbanPage/components/Column/Column.type';
 import { Flex } from '../../../../ui/flex/flex';
-import { SColumn } from './';
+import { SColumn, SInputField, STrashButton, SEditButton, SSaveButton } from './column-card.styled';
 
 export interface ColumnCardProps {
   column: IColumns;
@@ -43,22 +42,19 @@ export const ColumnCard: React.FC<ColumnCardProps> = ({
   };
 
   return (
-    <div
-      className={classNames(styles.column, {
-        [styles.column_edit]: isEditMode,
-      })}
+    <SColumn
+      isEdit={isEditMode}
     >
       <Flex dir={'col'}>
         <Text>#{column.id}</Text>
         <Title level={'h6'}>
           {isEditMode ? (
             <div>
-              <InputField
+              <SInputField
                 withLabel
                 value={colName}
                 //TODO удален, проверить и удалить комментарий и саму строчку
                 // containerStyle={styles.inputCont}
-                className={styles.input}
                 onChange={(e) => setColName(e.target.value)}
               />
             </div>
@@ -71,42 +67,38 @@ export const ColumnCard: React.FC<ColumnCardProps> = ({
       <Flex ai={'center'}>
         {isEditMode ? (
           <Tooltip title={i18n.t('utils.buttons.cancel')}>
-            <div
+            <STrashButton
               onClick={editModeToggle}
-              className={classNames(styles.btn, styles.trashBtn)}
             >
               <FontAwesomeIcon size={'xs'} icon={faClose} />
-            </div>
+            </STrashButton>
           </Tooltip>
         ) : (
           <Tooltip title={i18n.t('utils.buttons.edit')}>
-            <div
+            <SEditButton
               onClick={editModeToggle}
-              className={classNames(styles.btn, styles.editBtn)}
             >
               <FontAwesomeIcon size={'xs'} icon={faPen} />
-            </div>
+            </SEditButton>
           </Tooltip>
         )}
         <Tooltip title={i18n.t('utils.buttons.delete')}>
-          <div
-            className={classNames(styles.btn, styles.trashBtn)}
+          <STrashButton
             onClick={() => onDelete(column.projectId, column.id)}
           >
             <FontAwesomeIcon size={'xs'} icon={faTrashCan} />
-          </div>
+          </STrashButton>
         </Tooltip>
         {isEditMode && (
           <Tooltip title={i18n.t('utils.buttons.save')}>
-            <div
-              className={classNames(styles.btn, styles.saveBtn)}
+            <SSaveButton
               onClick={() => updateColumn(column.projectId, column.id)}
             >
               <FontAwesomeIcon size={'xs'} icon={faSave} />
-            </div>
+            </SSaveButton>
           </Tooltip>
         )}
       </Flex>
-    </div>
+    </SColumn>
   );
 };
