@@ -15,9 +15,9 @@ import {
   faDoorOpen,
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
-import { setSidebarView } from '../../pages/Root/store/AppSlice';
-import { Space } from '../../ui/Space/Space';
-import { Title } from '../../ui/Typography';
+import { setSidebarView } from '../../pages/root/store/app-slice';
+import { Space } from '../../ui/space/space';
+import { Title } from '../../ui/typography';
 import { isMobile } from 'react-device-detect';
 import {
   SSidebar,

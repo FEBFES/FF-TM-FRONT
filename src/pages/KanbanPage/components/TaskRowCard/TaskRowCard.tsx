@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import styles from './TaskRowCard.module.css';
 import { ITask } from '../TaskCard/TaskCard.type';
-import { PriorityLabel } from '../../../../ui/PriorityLabel/PriorityLabel';
-import { Avatar } from '../../../../ui/Avatar/Avatar';
-import { TaskLabel } from '../../../../ui/TaskLabel/TaskLabel';
+import { PriorityLabel } from '../../../../ui/priority-label/priority-label';
+import { Avatar } from '../../../../ui/avatar/avatar';
+import { TaskLabel } from '../../../../ui/task-label/task-label';
 import { fetchGetTaskInfo } from '../../store/kanban.thunk';
 import { useAppDispatch } from '../../../../hooks/redux';
-import { DropDown } from '../../../../ui/DropDown/DropDown';
+import { DropDown } from '../../../../ui/drop-down/drop-down';
 import i18n from 'i18next';
 import { DotsIcon } from '../../../../assets/icons/UtilsIcons';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';

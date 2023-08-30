@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { InputField } from '../../../../ui/InputField/InputField';
+import { InputField } from '../../../../ui/input-field/Input-field';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '../../../../ui/Button/Button';
+import { Button } from '../../../../ui/button/button';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchLogin } from '../../store/auth.thunk';
 import { appRoutsPath } from '../../../../routing/routs';
 import { useTranslation } from 'react-i18next';
 import { SLoginForm, SButtonSubmit } from './login-form.styled';
-import { Title } from '../../../../ui/Typography';
-import { Divider } from '../../../../ui/Divider/Divider';
+import { Title } from '../../../../ui/typography';
+import { Divider } from '../../../../ui/divider/divider';
 
 interface LoginFormProps {}
 

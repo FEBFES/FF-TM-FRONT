@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import styles from './add-member-to-proj-modal.module.css';
-import { Modal } from '../../ui/Modal/Modal';
+import { Modal } from '../../ui/modal/modal';
 import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
 import { IMember } from '../../pages/KanbanPage/store/kanban.type';
 import { MemberCard } from '../../pages/KanbanPage/components/MemberCard/MemberCard';
 import { instance } from '../../api/http';
 import { fetchAddMemberToProject } from '../../pages/KanbanPage/store/kanban.thunk';
-import { Title } from '../../ui/Typography';
+import { Title } from '../../ui/typography';
 import { CloseIcon } from '../../assets/icons/UtilsIcons';
-import { InputField } from '../../ui/InputField/InputField';
-import { Button } from '../../ui/Button/Button';
-import { AvatarGroup } from '../../ui/AvatarGroup/AvatarGroup';
+import { InputField } from '../../ui/input-field/Input-field';
+import { Button } from '../../ui/button/button';
+import { AvatarGroup } from '../../ui/avatar-group/avatar-group';
 
 interface AddMemberToProjModalProps {
   show: boolean;

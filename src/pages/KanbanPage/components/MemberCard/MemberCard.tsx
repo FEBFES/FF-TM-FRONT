@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './MemberCard.module.css';
-import { Avatar } from '../../../../ui/Avatar/Avatar';
+import { Avatar } from '../../../../ui/avatar/avatar';
 import { IMember } from '../../store/kanban.type';
 import classNames from 'classnames';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
