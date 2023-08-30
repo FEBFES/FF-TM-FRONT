@@ -1,25 +1,30 @@
 import React, { useState } from 'react';
-import styles from './KanbanPageSubheader.module.css';
-import { FilterCard } from '../../components/FilterCard/FilterCard';
-import { PrioritySelect } from '../../components/PrioritySelect/PrioritySelect';
+import { FilterCard } from '../../components/filter-card/filter-card.js';
+import { PrioritySelect } from '../../components/PrioritySelect/PrioritySelect.js';
 import {
   ITypeSelectType,
   TypeSelect,
-} from '../../components/TypeSelect/TypeSelect';
-import { IPriorityType } from '../../components/PrioritySelect/PrioritySelect.type';
+} from '../../components/TypeSelect/TypeSelect.js';
+import { IPriorityType } from '../../components/PrioritySelect/PrioritySelect.js';
 import i18n from 'i18next';
-import { KanbanViewSwitcher } from '../../components/KanbanViewSwitcher/KanbanViewSwitcher';
-import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
+import { KanbanViewSwitcher } from '../../components/kanban-view-switcher/kanban-view-switcher.js';
+import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux.js';
 import {
   clearAllFilters,
   delFilters,
   setFilters,
-} from '../../store/kanban.slice';
-import { Space } from '../../../../ui/space/space';
-import { AddMemberToProjModal } from '../../../../components/add-member-to-proj-modal/add-member-to-proj-modal';
+} from '../../store/kanban.slice.js';
+import { Space } from '../../../../ui/space/space.js';
+import { AddMemberToProjModal } from '../../../../components/add-member-to-proj-modal/add-member-to-proj-modal.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
-import { AvatarGroup } from '../../../../ui/avatar-group/avatar-group';
+import { AvatarGroup } from '../../../../ui/avatar-group/avatar-group.js';
+import { Flex } from '../../../../ui/flex/flex.js';
+import {
+  SSubHeader,
+  SClearFiltersButton,
+  SIcon,
+} from './kanban-page-subheader.styled.js';
 
 export const KanbanPageSubheader: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -32,20 +37,17 @@ export const KanbanPageSubheader: React.FC = () => {
   const members = useTypedSelector((state) => state.curProj.members);
 
   return (
-    <div className={styles.subheader}>
-      <div className={styles.subheader__left}>
+    <SSubHeader>
+      <Flex jc={'start'}>
         <KanbanViewSwitcher />
-        <Space mx={'l'} />
+        <Space direction="row" size={'l'} />
         <AvatarGroup placement={'top'} members={members} avatarSize={'s'} />
-        <div
-          onClick={() => setShowAddMemberModal(true)}
-          className={styles.icon}
-        >
+        <SIcon onClick={() => setShowAddMemberModal(true)}>
           <FontAwesomeIcon icon={faUserPlus} size={'sm'} />
-        </div>
-      </div>
+        </SIcon>
+      </Flex>
 
-      <div className={styles.filters__cont}>
+      <Flex ai={'center'}>
         <FilterCard
           title={i18n.t('utils.any.type')}
           component={
@@ -84,14 +86,11 @@ export const KanbanPageSubheader: React.FC = () => {
         />
 
         {haveFilters && (
-          <div
-            className={styles.clearFilters_btn}
-            onClick={() => dispatch(clearAllFilters())}
-          >
+          <SClearFiltersButton onClick={() => dispatch(clearAllFilters())}>
             {i18n.t('pages.kanban.subheader.clear.btn')}
-          </div>
+          </SClearFiltersButton>
         )}
-      </div>
+      </Flex>
 
       {showAddMemberModal && (
         <AddMemberToProjModal
@@ -99,6 +98,6 @@ export const KanbanPageSubheader: React.FC = () => {
           setShow={setShowAddMemberModal}
         />
       )}
-    </div>
+    </SSubHeader>
   );
 };

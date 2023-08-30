@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { KanbanPageHeader } from './modules/KanbanPageHeader/KanbanPageHeader';
-import { KanbanPageMain } from './modules/KanbanPageMain/KanbanPageMain';
-import { KanbanPageSubheader } from './modules/KanbanPageSubheader/KanbanPageSubheader';
+import { KanbanPageHeader } from './modules/kanban-page-header/kanban-page-header';
+import { KanbanPageMain } from './modules/kanban-page-main/kanban-page-main';
+import { KanbanPageSubheader } from './modules/kanban-page-subheader/kanban-page-subheader';
 import { TaskWindow } from './modules/TaskWindow/TaskWindow';
 import { useTypedSelector } from '../../hooks/redux';
 import { useNavigate } from 'react-router-dom';

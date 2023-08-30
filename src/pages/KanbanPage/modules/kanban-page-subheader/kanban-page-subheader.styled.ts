@@ -1,4 +1,6 @@
-.subheader {
+import styled from 'styled-components'
+
+export const SSubHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -8,21 +10,9 @@
   font-size: 14px;
   border-radius: 5px 5px 0 0;
   border-bottom: 1px solid var(--bg-border);
-}
+`
 
-/* //todo change to FLEX and PAddinWrapper ui Component */
-.filters__cont {
-  display: flex;
-  align-items: center;
-}
-
-/* //todo change to FLEX and PAddinWrapper ui Component */
-.subheader__left {
-  justify-content: flex-start;
-  display: flex;
-}
-
-.clearFilters_btn {
+export const SClearFiltersButton = styled.div`
   font-size: 12px;
   cursor: pointer;
   display: flex;
@@ -33,9 +23,9 @@
   border-radius: 4px;
   padding: 0 14px;
   border: 1px dashed var(--font-gray);
-}
+`
 
-.icon {
+export const SIcon = styled.div`
   margin-left: 20px;
   z-index: 10;
   cursor: pointer;
@@ -48,4 +38,4 @@
   border: 1px solid var(--bg-border);
   background: var(--bg-0);
   color: var(--font-gray);
-}
+`

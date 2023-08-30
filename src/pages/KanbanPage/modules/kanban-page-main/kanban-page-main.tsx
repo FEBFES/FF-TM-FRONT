@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { AddTaskModal } from '../../components/AddTaskModal/AddTaskModal';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { fetchAddNewTask, fetchDelTask } from '../../store/kanban.thunk';
-import styles from './KanbanPageMain.module.css';
-import { IPriorityType } from '../../components/PrioritySelect/PrioritySelect.type';
+import { IPriorityType } from '../../components/PrioritySelect/PrioritySelect';
 import { ITypeSelectType } from '../../components/TypeSelect/TypeSelect';
-import { IColumns } from '../../components/column/Column.type';
+import { IColumns } from '../../components/column/column';
 import { ColumnView } from '../../components/column-view/column-view';
 import { RowView } from '../../components/row-view/row-view';
+import {SKanbanMain} from './kanban-page-main.styled';
 
 interface KanbanPageProps {
   setShowTaskModal: (bool: boolean) => void;
@@ -55,7 +55,7 @@ export const KanbanPageMain: React.FC<KanbanPageProps> = ({
   };
 
   return (
-    <div className={styles.kanbanMain}>
+    <SKanbanMain>
       {curView === 'col' ? (
         <ColumnView
           columns={columns}
@@ -82,6 +82,6 @@ export const KanbanPageMain: React.FC<KanbanPageProps> = ({
           curCol={curCol}
         />
       )}
-    </div>
+    </SKanbanMain>
   );
 };

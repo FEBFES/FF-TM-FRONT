@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import styles from './KanbanPageHeader.module.css';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { FavoriteIcon } from '../../../../assets/icons/UtilsIcons';
 import { Switcher } from '../../../../ui/switcher/switcher';
@@ -11,6 +10,9 @@ import { Breadcrumbs } from '../../../../ui/breadcrumbs/breadcrumbs';
 import { Title } from '../../../../ui/typography';
 import i18n from 'i18next';
 import { appRoutsPath } from '../../../../routing/routs';
+import { Flex } from '../../../../ui/flex/flex';
+import { Divider } from '../../../../ui/divider/divider';
+import {SHeader, SFavoriteButton} from './kanban-page-header.styled';
 
 interface KanbanPageHeaderProps {}
 
@@ -30,8 +32,8 @@ export const KanbanPageHeader: React.FC<
   }, [projId, members, dispatch]);
 
   return (
-    <header className={styles.header}>
-      <div className={styles.header__left}>
+    <SHeader>
+      <Flex dir={'col'}>
         <Title level={'h4'}>{projectName || ''}</Title>
 
         <Breadcrumbs
@@ -45,15 +47,12 @@ export const KanbanPageHeader: React.FC<
           //todo add separator to UI components
           // separator
         />
-      </div>
-
-      <div className={styles.header__right}>
+      </Flex>
+      <Flex ai={'center'} jc={'between'}>
         <Switcher isActive={theme === 'dark'} onClick={changeTheme} />
         <SearchInput />
-        {/* //TODO change line to UI component (DIVIDER) */}
-        <div className={styles.line} />
-        <div
-          className={styles.favoriteBtn}
+        <Divider direction='col'/>
+        <SFavoriteButton
           onClick={() =>
             dispatch(
               fetchFavoriteToggle({ projId: projId, isFav: !isFavorite })
@@ -61,11 +60,11 @@ export const KanbanPageHeader: React.FC<
           }
         >
           <FavoriteIcon isFav={isFavorite} />
-        </div>
-        {/*<div className={styles.settingsBtn}>*/}
+        </SFavoriteButton>
+        {/*<Flex ai={'center'}>*/}
         {/*  <DotsIcon />*/}
-        {/*</div>*/}
-      </div>
-    </header>
+        {/*</Flex>*/}
+      </Flex>
+    </SHeader>
   );
 };
