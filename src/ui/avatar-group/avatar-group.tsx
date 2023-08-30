@@ -1,16 +1,20 @@
 import React from 'react';
 import { IMember } from '../../pages/KanbanPage/store/kanban.type';
-import styles from './AvatarGroup.module.css';
-import { Avatar } from '../Avatar/Avatar';
+import { Avatar, AvatarSizesType } from '../avatar/avatar';
 import { Tooltip } from '../tooltip/tooltip';
 import { PlacementType } from '../tooltip/tooltip';
 import { getAvatarUrlOrHuman } from '../../utils/utils';
+import {
+  SAvatarGroupContainer,
+  SAvatarCont,
+  SOtherMember,
+} from './avatar-group.styled';
 
 interface AvatarGroupProps {
   members: IMember[];
   maxCount?: number;
   placement?: PlacementType;
-  avatarSize: '2xs' | 'xs' | 's' | 'm' | 'l' | 'xl' | '2xl' | 'fit';
+  avatarSize: AvatarSizesType;
 }
 
 export const AvatarGroup: React.FC<AvatarGroupProps> = ({
@@ -22,8 +26,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
   const otherMember = members.length - (maxCount || 0);
 
   return (
-    <div
-      className={styles.avatarGroupCont}
+    <SAvatarGroupContainer
       style={{
         marginRight: `-${10 * (maxCount ? maxCount : members.length)}px`,
       }}
@@ -40,26 +43,25 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
               zIndex: `${i + 1}`,
             }}
           >
-            <div key={`${i}-${member.id}`} className={styles.avatarCont}>
+            <SAvatarCont key={`${i}-${member.id}`}>
               <Avatar
                 size={avatarSize}
                 src={getAvatarUrlOrHuman(member?.userPic)}
               />
-            </div>
+            </SAvatarCont>
           </Tooltip>
         );
       })}
       {maxCount !== undefined && (
-        <div
+        <SOtherMember
           style={{
             left: `${maxCount * 14}px`,
             zIndex: maxCount + 1,
           }}
-          className={styles.otherMember}
         >
           +{otherMember}
-        </div>
+        </SOtherMember>
       )}
-    </div>
+    </SAvatarGroupContainer>
   );
 };

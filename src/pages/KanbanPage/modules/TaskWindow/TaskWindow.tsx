@@ -7,12 +7,12 @@ import { PriorityLabel } from '../../../../ui/priority-label/priority-label';
 import i18n from 'i18next';
 import { FilesTab } from '../../components/FilesTab/FilesTab';
 import moment from 'moment';
-import { Avatar } from '../../../../ui/Avatar/Avatar';
+import { Avatar } from '../../../../ui/avatar/avatar';
 import { IFile } from '../../components/TaskCard/TaskCard.type';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 import { Tooltip } from '../../../../ui/tooltip/tooltip';
 import { Title } from '../../../../ui/typography';
-import { Space } from '../../../../ui/Space/Space';
+import { Space } from '../../../../ui/space/space';
 
 interface TaskWindowProps {
   setShowWindow: (bool: boolean) => void;

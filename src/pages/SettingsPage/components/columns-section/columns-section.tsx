@@ -8,7 +8,7 @@ import { Confirm } from '../../../../ui/confirm/confirm';
 import { fetchDelCol } from '../../../KanbanPage/store/kanban.thunk';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { Title, Text } from '../../../../ui/typography';
-import { Space } from '../../../../ui/Space/Space';
+import { Space } from '../../../../ui/space/space';
 import {
   SColumnContainer,
   SColumnContHeader,

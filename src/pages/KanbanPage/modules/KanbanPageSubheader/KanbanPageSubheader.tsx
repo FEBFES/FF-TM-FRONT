@@ -15,11 +15,11 @@ import {
   delFilters,
   setFilters,
 } from '../../store/kanban.slice';
-import { Space } from '../../../../ui/Space/Space';
+import { Space } from '../../../../ui/space/space';
 import { AddMemberToProjModal } from '../../../../components/add-member-to-proj-modal/add-member-to-proj-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
-import { AvatarGroup } from '../../../../ui/AvatarGroup/AvatarGroup';
+import { AvatarGroup } from '../../../../ui/avatar-group/avatar-group';
 
 export const KanbanPageSubheader: React.FC = () => {
   const dispatch = useAppDispatch();

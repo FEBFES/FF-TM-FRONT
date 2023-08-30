@@ -16,7 +16,7 @@ import {
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { setSidebarView } from '../../pages/root/store/app-slice';
-import { Space } from '../../ui/Space/Space';
+import { Space } from '../../ui/space/space';
 import { Title } from '../../ui/typography';
 import { isMobile } from 'react-device-detect';
 import {

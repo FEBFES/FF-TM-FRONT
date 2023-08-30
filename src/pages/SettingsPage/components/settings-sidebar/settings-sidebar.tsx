@@ -2,7 +2,7 @@ import React from 'react';
 import i18n from 'i18next';
 import { useTypedSelector } from '../../../../hooks/redux';
 import { Title } from '../../../../ui/typography';
-import { Space } from '../../../../ui/Space/Space';
+import { Space } from '../../../../ui/space/space';
 import { sidebarLinks } from './links';
 import {
   SSidebar,

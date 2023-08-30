@@ -3,8 +3,21 @@ import styles from './Button.module.css';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import { ButtonProps } from './Button.props';
 import { Loader } from '../loader/loader';
+import { ButtonHTMLAttributes, ReactNode } from 'react';
+
+export type IButtonVariant = 'submit' | 'danger' | 'primary' | 'secondary';
+//todo
+// export type IButtonType = 'primary' | 'default' | 'dashed' | 'text' | 'link' | 'close';
+export type IButtonType = 'primary' | 'close';
+
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children?: ReactNode;
+  className?: string;
+  load?: boolean;
+  variant?: IButtonVariant;
+  btnType?: IButtonType;
+}
 
 export const Button: React.FC<ButtonProps> = ({
   onClick,

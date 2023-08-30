@@ -10,10 +10,10 @@ import {
   fetchDeleteUserAvatar,
   fetchUploadNewUserAvatar,
 } from '../../../../store/user/user.thunk';
-import { Avatar } from '../../../../ui/Avatar/Avatar';
+import { Avatar } from '../../../../ui/avatar/avatar';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 import { Title, Text } from '../../../../ui/typography';
-import { Space } from '../../../../ui/Space/Space';
+import { Space } from '../../../../ui/space/space';
 import {
   SUserBackground,
   SButtonsContainer,

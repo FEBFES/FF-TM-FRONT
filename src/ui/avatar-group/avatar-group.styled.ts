@@ -1,22 +1,19 @@
-.avatarGroupCont {
+import styled from 'styled-components';
+
+export const SAvatarGroupContainer = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-}
+`;
 
-.avatarCont {
+export const SAvatarCont = styled.div`
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-}
+`;
 
-.addBtn {
-  position: absolute;
-  right: 0;
-}
-
-.otherMember {
+export const SOtherMember = styled.div`
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -31,4 +28,4 @@
   width: 24px;
   height: 24px;
   color: var(--font-defautl);
-}
+`;

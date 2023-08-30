@@ -1,6 +1,6 @@
 import React from 'react';
 import { IMember, IMemberRole } from '../../../KanbanPage/store/kanban.type';
-import { Avatar } from '../../../../ui/Avatar/Avatar';
+import { Avatar } from '../../../../ui/avatar/avatar';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 import { Title, Text } from '../../../../ui/typography';
 import { Tooltip } from '../../../../ui/tooltip/tooltip';
@@ -10,8 +10,8 @@ import { faTrashCan } from '@fortawesome/free-regular-svg-icons/faTrashCan';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { fetchDeleteMemberFromProject } from '../../../KanbanPage/store/kanban.thunk';
 import { Select } from '../../../../ui/select/select';
-import { Flex } from '../../../../ui/Flex/Flex';
-import { Space } from '../../../../ui/Space/Space';
+import { Flex } from '../../../../ui/flex/flex';
+import { Space } from '../../../../ui/space/space';
 import {
   SMemberCard,
   SMemberCardInfo,

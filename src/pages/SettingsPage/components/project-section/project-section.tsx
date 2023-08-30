@@ -5,7 +5,7 @@ import { Button } from '../../../../ui/Button/Button';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { fetchUpdateProject } from '../../../projects-page/store/projects.thunk';
 import { Text, Title } from '../../../../ui/typography';
-import { Space } from '../../../../ui/Space/Space';
+import { Space } from '../../../../ui/space/space';
 import {
   SProjectContainter,
   SHeaderLeftSection,

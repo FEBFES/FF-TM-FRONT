@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './TaskRowCard.module.css';
 import { ITask } from '../TaskCard/TaskCard.type';
 import { PriorityLabel } from '../../../../ui/priority-label/priority-label';
-import { Avatar } from '../../../../ui/Avatar/Avatar';
+import { Avatar } from '../../../../ui/avatar/avatar';
 import { TaskLabel } from '../../../../ui/task-label/task-label';
 import { fetchGetTaskInfo } from '../../store/kanban.thunk';
 import { useAppDispatch } from '../../../../hooks/redux';

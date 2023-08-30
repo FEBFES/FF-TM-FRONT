@@ -1,6 +1,5 @@
 import React, { HTMLAttributes, useState } from 'react';
-import styles from './Tooltip.module.css';
-import classNames from 'classnames';
+import { SRelativeContainer, STooltip } from './tooltip.styled';
 
 export type PlacementType = 'left' | 'top' | 'right' | 'bottom';
 
@@ -23,8 +22,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
   };
 
   return (
-    <div
-      className={styles.container}
+    <SRelativeContainer
       onMouseEnter={() => {
         hoverHandler(true);
       }}
@@ -33,19 +31,8 @@ export const Tooltip: React.FC<TooltipProps> = ({
       }}
       {...props}
     >
-      {isHover && title && (
-        <div
-          className={classNames(styles.tooltip, {
-            [styles.tooltipLeft]: placement === 'left',
-            [styles.tooltipRight]: placement === 'right',
-            [styles.tooltipTop]: placement === 'top',
-            [styles.tooltipBottom]: placement === 'bottom',
-          })}
-        >
-          {title}
-        </div>
-      )}
-      <div className={styles.content}>{children}</div>
-    </div>
+      {isHover && title && <STooltip placement={placement}>{title}</STooltip>}
+      <SRelativeContainer>{children}</SRelativeContainer>
+    </SRelativeContainer>
   );
 };

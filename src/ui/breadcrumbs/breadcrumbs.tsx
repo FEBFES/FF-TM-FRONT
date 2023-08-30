@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Text } from '../typography';
-import { Flex } from '../Flex/Flex';
-import { Space } from '../Space/Space';
+import { Flex } from '../flex/flex';
+import { Space } from '../space/space';
 
 export interface IBreadcrumbsItem {
   href?: string | undefined;
