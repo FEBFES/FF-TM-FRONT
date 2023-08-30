@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './Loader.module.css';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { SizeProp } from '@fortawesome/fontawesome-svg-core';
+import { SLoaderContainer } from './loader.styled';
 
 interface LoaderProps {
   size?: SizeProp;
@@ -10,8 +10,8 @@ interface LoaderProps {
 
 export const Loader: React.FC<LoaderProps> = ({ size }): JSX.Element => {
   return (
-    <div className={styles.loaderCont}>
+    <SLoaderContainer>
       <FontAwesomeIcon size={size} icon={faSpinner} />
-    </div>
+    </SLoaderContainer>
   );
 };

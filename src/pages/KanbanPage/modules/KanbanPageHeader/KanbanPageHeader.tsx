@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import styles from './KanbanPageHeader.module.css';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { FavoriteIcon } from '../../../../assets/icons/UtilsIcons';
-import { Switcher } from '../../../../ui/Switcher/Switcher';
+import { Switcher } from '../../../../ui/switcher/switcher';
 import { useTheme } from '../../../../hooks/useTheme';
 import { fetchFavoriteToggle } from '../../../projects-page/store/projects.thunk';
 import { fetchGetProjectMembers } from '../../store/kanban.thunk';

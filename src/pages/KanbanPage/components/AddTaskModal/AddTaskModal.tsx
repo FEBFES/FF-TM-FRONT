@@ -8,7 +8,7 @@ import {
   EyeIcons,
   FullIcon,
 } from '../../../../assets/icons/UtilsIcons';
-import { Switcher } from '../../../../ui/Switcher/Switcher';
+import { Switcher } from '../../../../ui/switcher/switcher';
 import { PrioritySelect } from '../PrioritySelect/PrioritySelect';
 import { IPriorityType } from '../PrioritySelect/PrioritySelect.type';
 import { ITypeSelectType, TypeSelect } from '../TypeSelect/TypeSelect';

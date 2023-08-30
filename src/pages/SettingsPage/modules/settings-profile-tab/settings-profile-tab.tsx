@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import styles from './SettingsProfileTab.module.css';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
@@ -15,6 +14,14 @@ import { Avatar } from '../../../../ui/Avatar/Avatar';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 import { Title, Text } from '../../../../ui/Typography';
 import { Space } from '../../../../ui/Space/Space';
+import {
+  SUserBackground,
+  SButtonsContainer,
+  SFileInput,
+  SUserAvatarContainer,
+  FileInputDelete,
+  FileInputLabel,
+} from './settings-profile-tab.styled';
 
 interface ProfileTabProps {}
 
@@ -100,41 +107,30 @@ export const SettingsProfileTab: React.FC<
   };
 
   return (
-    <div className={styles.profileTab}>
+    <>
       <Title level={'h3'}>{i18n.t('pages.settings.tabs.profile.title')}</Title>
       <Space my={'xl'} />
 
-      <div className={styles.userBackground} />
+      <SUserBackground />
 
-      <div className={styles.userAvatarCont}>
+      <SUserAvatarContainer>
         <Avatar
           size={'2xl'}
           src={getAvatarUrlOrHuman(userAvatar)}
           alt={i18n.t('utils.any.avatar')}
         />
         {userPic && (
-          <div
-            className={`${styles.fileInput__btn} ${styles.fileInput_delete}`}
-            onClick={deleteUserAvatar}
-          >
+          <FileInputDelete onClick={deleteUserAvatar}>
             <FontAwesomeIcon icon={faTrash} size={'2xs'} />
-          </div>
+          </FileInputDelete>
         )}
-        <label
-          className={`${styles.fileInput__btn} ${styles.fileInput_label}`}
-          htmlFor="inputFIle"
-        >
+        <FileInputLabel htmlFor="inputFIle">
           <FontAwesomeIcon icon={faPen} size={'2xs'} />
-        </label>
-        <input
-          id={'inputFIle'}
-          className={styles.fileInput}
-          onChange={uploadNewAvatar}
-          type={'file'}
-        />
-      </div>
+        </FileInputLabel>
+        <SFileInput id={'inputFIle'} onChange={uploadNewAvatar} type={'file'} />
+      </SUserAvatarContainer>
 
-      <div className={styles.inputsContainer}>
+      <>
         <Title level={'h4'}>
           {i18n.t('pages.settings.tabs.profile.sectionTitle')}
         </Title>
@@ -176,9 +172,9 @@ export const SettingsProfileTab: React.FC<
           placeholder={i18n.t('utils.any.displayName')}
           type={'text'}
         />
-      </div>
+      </>
 
-      <div className={styles.btnContainer}>
+      <SButtonsContainer>
         {!btnDisabled && (
           <Button variant={'danger'} onClick={resetInputsData}>
             {i18n.t('utils.buttons.reset')}
@@ -191,7 +187,7 @@ export const SettingsProfileTab: React.FC<
         >
           {i18n.t('utils.buttons.update')}
         </Button>
-      </div>
-    </div>
+      </SButtonsContainer>
+    </>
   );
 };

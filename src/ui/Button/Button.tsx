@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { ButtonProps } from './Button.props';
-import { Loader } from '../Loader/Loader';
+import { Loader } from '../loader/loader';
 
 export const Button: React.FC<ButtonProps> = ({
   onClick,

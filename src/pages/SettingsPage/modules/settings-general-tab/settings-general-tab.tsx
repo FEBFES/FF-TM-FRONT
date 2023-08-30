@@ -1,7 +1,7 @@
 import React from 'react';
 import { Title, Text } from '../../../../ui/Typography';
 import i18n from 'i18next';
-import { Switcher } from '../../../../ui/Switcher/Switcher';
+import { Switcher } from '../../../../ui/switcher/switcher';
 
 interface GeneralTabProps {}
 

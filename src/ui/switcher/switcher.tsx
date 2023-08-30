@@ -1,6 +1,5 @@
 import React from 'react';
-import styles from './Switcher.module.css';
-import classNames from 'classnames';
+import { SCheckboxInput, SCheckboxCircle } from './switcher.styled';
 
 interface SwitcherProps {
   onClick: () => void;
@@ -15,19 +14,14 @@ export const Switcher: React.FC<SwitcherProps> = ({
   ...props
 }): JSX.Element => {
   return (
-    <div
+    <SCheckboxInput
       onClick={onClick}
-      className={styles.checkbox_input}
       aria-checked={isActive}
       role={'checkbox'}
       aria-disabled={false}
       {...props}
     >
-      <div
-        className={classNames(className, styles.checkbox_circle, {
-          [styles.checkbox_circleActive]: isActive,
-        })}
-      />
-    </div>
+      <SCheckboxCircle className={className} isActive={isActive} />
+    </SCheckboxInput>
   );
 };

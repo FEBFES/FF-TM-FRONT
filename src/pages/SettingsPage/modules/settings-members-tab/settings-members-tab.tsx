@@ -5,7 +5,7 @@ import { IMember } from '../../../KanbanPage/store/kanban.type';
 import { MemberCard } from '../../components/MemberCard/MemberCard';
 import { Button } from '../../../../ui/Button/Button';
 import { useTypedSelector } from '../../../../hooks/redux';
-import { SMemberCont, SMemberContHeader } from './SettingsMembersTab.styled';
+import { SMemberCont, SMemberContHeader } from './settings-members-tab.styled';
 import { AddMemberToProjModal } from '../../../../components/add-member-to-proj-modal/add-member-to-proj-modal';
 
 interface MembersTabProps {}
