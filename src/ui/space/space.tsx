@@ -5,8 +5,8 @@ export type SizeProp = '2xs' | 'xs' | 's' | 'sm' | 'm' | 'l' | 'xl';
 export type DirectionType = 'col' | 'row';
 
 interface SpaceProps {
-  size: SizeProp;
-  direction: DirectionType;
+  size?: SizeProp;
+  direction?: DirectionType;
 }
 
 export const Space: React.FC<SpaceProps> = ({

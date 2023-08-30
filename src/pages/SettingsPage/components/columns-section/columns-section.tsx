@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import i18n from 'i18next';
 import { Button } from '../../../../ui/Button/Button';
 import { IColumns } from '../../../KanbanPage/components/Column/Column.type';
-import { ColumnCard } from '../ColumnCard/ColumnCard';
+import { ColumnCard } from '../column-card/column-card';
 import { AddColModal } from '../add-col-modal/add-col-modal';
 import { Confirm } from '../../../../ui/confirm/confirm';
 import { fetchDelCol } from '../../../KanbanPage/store/kanban.thunk';
@@ -43,7 +43,7 @@ export const ColumnsSection: React.FC<
             <Text>{i18n.t('pages.settings.tabs.project.column.text')}</Text>
           </div>
 
-          <Space my={'s'} />
+          <Space direction="col" size={'s'} />
 
           <Button variant={'primary'} onClick={() => setShowAddColModal(true)}>
             {i18n.t('pages.settings.tabs.project.column.addNew')}

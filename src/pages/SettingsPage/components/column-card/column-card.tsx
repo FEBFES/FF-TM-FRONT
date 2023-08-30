@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styles from './ColumnCard.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faTrashCan,
@@ -15,6 +14,8 @@ import { Tooltip } from '../../../../ui/tooltip/tooltip';
 import i18n from 'i18next';
 import { Text, Title } from '../../../../ui/typography';
 import { IColumns } from '../../../KanbanPage/components/Column/Column.type';
+import { Flex } from '../../../../ui/flex/flex';
+import { SColumn } from './';
 
 export interface ColumnCardProps {
   column: IColumns;
@@ -43,12 +44,11 @@ export const ColumnCard: React.FC<ColumnCardProps> = ({
 
   return (
     <div
-      // draggable
       className={classNames(styles.column, {
         [styles.column_edit]: isEditMode,
       })}
     >
-      <div className={styles.column__left}>
+      <Flex dir={'col'}>
         <Text>#{column.id}</Text>
         <Title level={'h6'}>
           {isEditMode ? (
@@ -66,9 +66,9 @@ export const ColumnCard: React.FC<ColumnCardProps> = ({
             <span>{column.name}</span>
           )}{' '}
         </Title>
-      </div>
+      </Flex>
 
-      <div className={styles.btnContainer}>
+      <Flex ai={'center'}>
         {isEditMode ? (
           <Tooltip title={i18n.t('utils.buttons.cancel')}>
             <div
@@ -106,7 +106,7 @@ export const ColumnCard: React.FC<ColumnCardProps> = ({
             </div>
           </Tooltip>
         )}
-      </div>
+      </Flex>
     </div>
   );
 };
