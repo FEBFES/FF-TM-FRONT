@@ -12,7 +12,7 @@ import {
 } from '../../../../store/user/user.thunk';
 import { Avatar } from '../../../../ui/Avatar/Avatar';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
-import { Title, Text } from '../../../../ui/Typography';
+import { Title, Text } from '../../../../ui/typography';
 import { Space } from '../../../../ui/Space/Space';
 import {
   SUserBackground,

@@ -11,7 +11,7 @@ import {
   SRegButton,
   SRegistrationForm,
 } from './registration-form.styled';
-import { Title } from '../../../../ui/Typography';
+import { Title } from '../../../../ui/typography';
 
 interface RegistrationFormProps {}
 

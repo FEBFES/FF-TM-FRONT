@@ -2,7 +2,7 @@ import React from 'react';
 import { Modal } from '../modal/modal';
 import { Button } from '../Button/Button';
 import i18n from 'i18next';
-import { Title } from '../Typography';
+import { Title } from '../typography';
 import { SButtonContainer, SConfirmContainer } from './confirm.styled';
 
 export interface ConfirmProps {

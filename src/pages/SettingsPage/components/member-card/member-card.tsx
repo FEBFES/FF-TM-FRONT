@@ -1,9 +1,8 @@
 import React from 'react';
-import styles from './MemberCard.module.css';
 import { IMember, IMemberRole } from '../../../KanbanPage/store/kanban.type';
 import { Avatar } from '../../../../ui/Avatar/Avatar';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
-import { Title, Text } from '../../../../ui/Typography';
+import { Title, Text } from '../../../../ui/typography';
 import { Tooltip } from '../../../../ui/Tooltip/Tooltip';
 import i18n from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,6 +12,12 @@ import { fetchDeleteMemberFromProject } from '../../../KanbanPage/store/kanban.t
 import { Select } from '../../../../ui/select/select';
 import { Flex } from '../../../../ui/Flex/Flex';
 import { Space } from '../../../../ui/Space/Space';
+import {
+  SMemberCard,
+  SMemberCardInfo,
+  SMemberCardLeft,
+  STrashButton,
+} from './member-card.styled';
 
 interface MemberCardProps {
   member: IMember;
@@ -26,14 +31,14 @@ export const MemberCard: React.FC<MemberCardProps> = ({
   const memberRoles: IMemberRole[] = ['MEMBER', 'MEMBER_PLUS', 'OWNER'];
 
   return (
-    <div className={styles.memberCard}>
-      <div className={styles.memberCard__left}>
+    <SMemberCard>
+      <SMemberCardLeft>
         <Avatar src={getAvatarUrlOrHuman(member.userPic)} />
-        <div className={styles.memberCard__info}>
+        <SMemberCardInfo>
           <Title level={'h6'}>{member.email}</Title>
           <Text>{member.username}</Text>
-        </div>
-      </div>
+        </SMemberCardInfo>
+      </SMemberCardLeft>
 
       <Flex>
         <Select
@@ -43,8 +48,7 @@ export const MemberCard: React.FC<MemberCardProps> = ({
         />
         <Space />
         <Tooltip title={i18n.t('utils.buttons.delete')}>
-          <div
-            className={styles.trashBtn}
+          <STrashButton
             onClick={() =>
               projId &&
               member.id &&
@@ -57,9 +61,9 @@ export const MemberCard: React.FC<MemberCardProps> = ({
             }
           >
             <FontAwesomeIcon size={'xs'} icon={faTrashCan} />
-          </div>
+          </STrashButton>
         </Tooltip>
       </Flex>
-    </div>
+    </SMemberCard>
   );
 };

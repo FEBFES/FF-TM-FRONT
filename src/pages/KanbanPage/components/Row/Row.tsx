@@ -7,7 +7,7 @@ import { ITask } from '../TaskCard/TaskCard.type';
 import { v4 } from 'uuid';
 import { TaskRowCard } from '../TaskRowCard/TaskRowCard';
 import { Button } from '../../../../ui/Button/Button';
-import { Title } from '../../../../ui/Typography';
+import { Title } from '../../../../ui/typography';
 
 interface RowProps {
   row: IColumns;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Title, Text } from '../../../../ui/Typography';
+import { Title, Text } from '../../../../ui/typography';
 import i18n from 'i18next';
 import { Switcher } from '../../../../ui/switcher/switcher';
 

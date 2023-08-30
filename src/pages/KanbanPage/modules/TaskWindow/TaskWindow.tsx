@@ -11,7 +11,7 @@ import { Avatar } from '../../../../ui/Avatar/Avatar';
 import { IFile } from '../../components/TaskCard/TaskCard.type';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 import { Tooltip } from '../../../../ui/Tooltip/Tooltip';
-import { Title } from '../../../../ui/Typography';
+import { Title } from '../../../../ui/typography';
 import { Space } from '../../../../ui/Space/Space';
 
 interface TaskWindowProps {

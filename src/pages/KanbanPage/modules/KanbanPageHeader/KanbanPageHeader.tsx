@@ -8,7 +8,7 @@ import { fetchFavoriteToggle } from '../../../projects-page/store/projects.thunk
 import { fetchGetProjectMembers } from '../../store/kanban.thunk';
 import { SearchInput } from '../../components/SearchInput/SearchInput';
 import { Breadcrumbs } from '../../../../ui/breadcrumbs/breadcrumbs';
-import { Title } from '../../../../ui/Typography';
+import { Title } from '../../../../ui/typography';
 import i18n from 'i18next';
 import { appRoutsPath } from '../../../../routing/routs';
 

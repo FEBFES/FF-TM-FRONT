@@ -13,7 +13,7 @@ import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchUpdateCol } from '../../../KanbanPage/store/kanban.thunk';
 import { Tooltip } from '../../../../ui/Tooltip/Tooltip';
 import i18n from 'i18next';
-import { Text, Title } from '../../../../ui/Typography';
+import { Text, Title } from '../../../../ui/typography';
 import { IColumns } from '../../../KanbanPage/components/Column/Column.type';
 
 export interface ColumnCardProps {

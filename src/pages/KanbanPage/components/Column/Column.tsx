@@ -7,7 +7,7 @@ import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchChangeTask } from '../../store/kanban.thunk';
 import { TaskCard } from '../TaskCard/TaskCard';
 import { ITask } from '../TaskCard/TaskCard.type';
-import { Title } from '../../../../ui/Typography';
+import { Title } from '../../../../ui/typography';
 import { IColumns } from './Column.type';
 
 export interface ColumnProps {

@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import styles from './ProjectSection.module.css';
 import i18n from 'i18next';
 import { InputField } from '../../../../ui/input-field/Input-field';
 import { Button } from '../../../../ui/Button/Button';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { fetchUpdateProject } from '../../../projects-page/store/projects.thunk';
-import { Text, Title } from '../../../../ui/Typography';
+import { Text, Title } from '../../../../ui/typography';
 import { Space } from '../../../../ui/Space/Space';
+import {
+  SProjectContainter,
+  SHeaderLeftSection,
+  SHeaderRightSection,
+  SProjectHeader,
+} from './project-section.styled';
 
 interface ProjectSectionProps {}
 
@@ -45,26 +50,26 @@ export const ProjectSection: React.FC<
   };
 
   return (
-    <div className={styles.project}>
-      <div className={styles.project__header}>
-        <div className={styles.header__left}>
+    <SProjectContainter>
+      <SProjectHeader>
+        <SHeaderLeftSection>
           <Title level={'h5'}>
             {i18n.t('pages.settings.tabs.section.project.title')}
           </Title>
           <Text>{i18n.t('pages.settings.tabs.section.project.subtitle')}</Text>
-        </div>
+        </SHeaderLeftSection>
 
         {isEdit && (
-          <div className={styles.header__right}>
+          <SHeaderRightSection>
             <Button onClick={() => clearInputs()} variant={'danger'}>
               {i18n.t('utils.buttons.cancel')}
             </Button>
             <Button onClick={() => updateProjInfoHandler()} variant={'submit'}>
               {i18n.t('utils.buttons.save')}
             </Button>
-          </div>
+          </SHeaderRightSection>
         )}
-      </div>
+      </SProjectHeader>
       <Space my={'xs'} />
 
       <div>
@@ -88,6 +93,6 @@ export const ProjectSection: React.FC<
           placeholder={i18n.t('utils.any.description')}
         />
       </div>
-    </div>
+    </SProjectContainter>
   );
 };

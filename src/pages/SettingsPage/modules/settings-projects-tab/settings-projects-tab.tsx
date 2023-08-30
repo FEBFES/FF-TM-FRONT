@@ -2,8 +2,8 @@ import React from 'react';
 import { useTypedSelector } from '../../../../hooks/redux';
 import i18n from 'i18next';
 import { ColumnsSection } from '../../components/ColumnsSection/ColumnsSection';
-import { ProjectSection } from '../../components/ProjectSection/ProjectSection';
-import { Title } from '../../../../ui/Typography';
+import { ProjectSection } from '../../components/project-section/project-section';
+import { Title } from '../../../../ui/typography';
 import { Space } from '../../../../ui/Space/Space';
 
 export const SettingsProjectsTab: React.FC = (): JSX.Element => {

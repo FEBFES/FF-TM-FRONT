@@ -17,7 +17,7 @@ import { IMember } from '../../store/kanban.type';
 import { MemberCard } from '../MemberCard/MemberCard';
 import { IColumns } from '../Column/Column.type';
 import { AddAssigneeModal } from '../AddAssigneeModal/AddAssigneeModal';
-import { Text } from '../../../../ui/Typography/text/text';
+import { Text } from '../../../../ui/typography/text/text';
 
 interface AddTaskModalProps {
   show: boolean;

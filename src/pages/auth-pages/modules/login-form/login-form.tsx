@@ -7,7 +7,7 @@ import { fetchLogin } from '../../store/auth.thunk';
 import { appRoutsPath } from '../../../../routing/routs';
 import { useTranslation } from 'react-i18next';
 import { SLoginForm, SButtonSubmit } from './login-form.styled';
-import { Title } from '../../../../ui/Typography';
+import { Title } from '../../../../ui/typography';
 import { Divider } from '../../../../ui/divider/divider';
 
 interface LoginFormProps {}

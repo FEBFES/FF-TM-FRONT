@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styles from './ColumnsSection.module.css';
 import i18n from 'i18next';
 import { Button } from '../../../../ui/Button/Button';
 import { IColumns } from '../../../KanbanPage/components/Column/Column.type';
@@ -8,8 +7,13 @@ import { AddColModal } from '../AddColModal/AddColModal';
 import { Confirm } from '../../../../ui/confirm/confirm';
 import { fetchDelCol } from '../../../KanbanPage/store/kanban.thunk';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
-import { Title, Text } from '../../../../ui/Typography';
+import { Title, Text } from '../../../../ui/typography';
 import { Space } from '../../../../ui/Space/Space';
+import {
+  SColumnContainer,
+  SColumnContHeader,
+  SColumnContFooter,
+} from './columns-section.styled';
 
 interface ColumnsSectionProps {}
 
@@ -30,25 +34,21 @@ export const ColumnsSection: React.FC<
   };
   return (
     <>
-      <div className={styles.columnContainer}>
-        <div className={styles.columnContainer__header}>
+      <SColumnContainer>
+        <SColumnContHeader>
           <div>
             <Title level={'h5'}>
               {i18n.t('pages.settings.tabs.project.column.subtitle')}
             </Title>
             <Text>{i18n.t('pages.settings.tabs.project.column.text')}</Text>
           </div>
+
           <Space my={'s'} />
 
-          <div>
-            <Button
-              variant={'primary'}
-              onClick={() => setShowAddColModal(true)}
-            >
-              {i18n.t('pages.settings.tabs.project.column.addNew')}
-            </Button>
-          </div>
-        </div>
+          <Button variant={'primary'} onClick={() => setShowAddColModal(true)}>
+            {i18n.t('pages.settings.tabs.project.column.addNew')}
+          </Button>
+        </SColumnContHeader>
 
         {columns?.map((column: IColumns) => {
           return (
@@ -59,12 +59,13 @@ export const ColumnsSection: React.FC<
             />
           );
         })}
-      </div>
+      </SColumnContainer>
+
       {isChanged && (
-        <div className={styles.columnContainer__footer}>
+        <SColumnContFooter>
           <Button variant={'danger'}>Cancel</Button>
           <Button variant={'submit'}>Save</Button>
-        </div>
+        </SColumnContFooter>
       )}
 
       <AddColModal show={showAddColModal} setShow={setShowAddColModal} />

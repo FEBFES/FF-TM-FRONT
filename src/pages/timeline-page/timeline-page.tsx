@@ -1,5 +1,5 @@
 import React from 'react';
-import { Title } from '../../ui/Typography';
+import { Title } from '../../ui/typography';
 
 interface TimelinePageProps {}
 

@@ -14,7 +14,7 @@ import { Avatar } from '../../../../ui/Avatar/Avatar';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 import { ITask } from './TaskCard.type';
 import 'moment/locale/ru';
-import { Text, Title } from '../../../../ui/Typography';
+import { Text, Title } from '../../../../ui/typography';
 import { Space } from '../../../../ui/Space/Space';
 
 interface TaskCardProps {

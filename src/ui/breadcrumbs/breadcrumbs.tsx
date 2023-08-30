@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Text } from '../Typography';
+import { Text } from '../typography';
 import { Flex } from '../Flex/Flex';
 import { Space } from '../Space/Space';
 

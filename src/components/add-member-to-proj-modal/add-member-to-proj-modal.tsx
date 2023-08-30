@@ -6,7 +6,7 @@ import { IMember } from '../../pages/KanbanPage/store/kanban.type';
 import { MemberCard } from '../../pages/KanbanPage/components/MemberCard/MemberCard';
 import { instance } from '../../api/http';
 import { fetchAddMemberToProject } from '../../pages/KanbanPage/store/kanban.thunk';
-import { Title } from '../../ui/Typography';
+import { Title } from '../../ui/typography';
 import { CloseIcon } from '../../assets/icons/UtilsIcons';
 import { InputField } from '../../ui/input-field/Input-field';
 import { Button } from '../../ui/Button/Button';

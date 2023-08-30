@@ -3,7 +3,7 @@ import { ArrowIcon } from '../../assets/icons/UtilsIcons';
 import { useNavigate } from 'react-router-dom';
 import { appRoutsPath } from '../../routing/routs';
 import { useTranslation } from 'react-i18next';
-import { Title, Text } from '../../ui/Typography';
+import { Title, Text } from '../../ui/typography';
 import {
   SButtonContainer,
   SPage,
