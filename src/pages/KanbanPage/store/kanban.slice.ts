@@ -12,7 +12,7 @@ import {
   fetchProjectInfo,
   fetchUpdateCol,
 } from './kanban.thunk';
-import { fetchFavoriteToggle } from '../../ProjectsPage/store/projects.thunk';
+import { fetchFavoriteToggle } from '../../projects-page/store/projects.thunk';
 import { IColumns } from '../components/Column/Column.type';
 import { ITask } from '../components/TaskCard/TaskCard.type';
 import { IMember } from './kanban.type';

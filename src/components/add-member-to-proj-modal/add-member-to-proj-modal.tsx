@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './add-member-to-proj-modal.module.css';
-import { Modal } from '../../ui/Modal/Modal';
+import { Modal } from '../../ui/modal/modal';
 import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
 import { IMember } from '../../pages/KanbanPage/store/kanban.type';
 import { MemberCard } from '../../pages/KanbanPage/components/MemberCard/MemberCard';
@@ -8,7 +8,7 @@ import { instance } from '../../api/http';
 import { fetchAddMemberToProject } from '../../pages/KanbanPage/store/kanban.thunk';
 import { Title } from '../../ui/Typography';
 import { CloseIcon } from '../../assets/icons/UtilsIcons';
-import { InputField } from '../../ui/InputField/InputField';
+import { InputField } from '../../ui/input-field/Input-field';
 import { Button } from '../../ui/Button/Button';
 import { AvatarGroup } from '../../ui/AvatarGroup/AvatarGroup';
 

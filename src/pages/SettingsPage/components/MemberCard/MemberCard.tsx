@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons/faTrashCan';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { fetchDeleteMemberFromProject } from '../../../KanbanPage/store/kanban.thunk';
-import { Select } from '../../../../ui/Select/Select';
+import { Select } from '../../../../ui/select/select';
 import { Flex } from '../../../../ui/Flex/Flex';
 import { Space } from '../../../../ui/Space/Space';
 

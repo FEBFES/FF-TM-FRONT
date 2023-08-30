@@ -6,7 +6,7 @@ import { Avatar } from '../../../../ui/Avatar/Avatar';
 import { TaskLabel } from '../../../../ui/TaskLabel/TaskLabel';
 import { fetchGetTaskInfo } from '../../store/kanban.thunk';
 import { useAppDispatch } from '../../../../hooks/redux';
-import { DropDown } from '../../../../ui/DropDown/DropDown';
+import { DropDown } from '../../../../ui/drop-down/drop-down';
 import i18n from 'i18next';
 import { DotsIcon } from '../../../../assets/icons/UtilsIcons';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';

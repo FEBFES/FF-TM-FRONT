@@ -8,7 +8,7 @@ import {
   faClose,
 } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
-import { InputField } from '../../../../ui/InputField/InputField';
+import { InputField } from '../../../../ui/input-field/Input-field';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchUpdateCol } from '../../../KanbanPage/store/kanban.thunk';
 import { Tooltip } from '../../../../ui/Tooltip/Tooltip';
@@ -56,8 +56,9 @@ export const ColumnCard: React.FC<ColumnCardProps> = ({
               <InputField
                 withLabel
                 value={colName}
+                //TODO удален, проверить и удалить комментарий и саму строчку
+                // containerStyle={styles.inputCont}
                 className={styles.input}
-                containerStyle={styles.inputCont}
                 onChange={(e) => setColName(e.target.value)}
               />
             </div>

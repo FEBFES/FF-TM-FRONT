@@ -5,9 +5,9 @@ import { EmptyLayout } from '../layouts/empty-layout/empty-layout';
 import { RegistrationPage } from '../pages/auth-pages/registration/registration-page';
 import { LoginPage } from '../pages/auth-pages/login/login-page';
 import { SettingsPage } from '../pages/SettingsPage/SettingsPage';
-import { ProjectsPage } from '../pages/ProjectsPage/ProjectsPage';
-import { TimelinePage } from '../pages/TimelinePage/TimelinePage';
-import { MessagesPage } from '../pages/MessagesPage/MessagesPage';
+import { ProjectsPage } from '../pages/projects-page/projects-page';
+import { TimelinePage } from '../pages/timeline-page/timeline-page';
+import { MessagesPage } from '../pages/messages-page/messages-page';
 import { AuthLayout } from '../layouts/auth-layout/auth-layout';
 
 export type IAppRouts = {

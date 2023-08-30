@@ -5,7 +5,7 @@ import { Button } from '../../../../ui/Button/Button';
 import { IColumns } from '../../../KanbanPage/components/Column/Column.type';
 import { ColumnCard } from '../ColumnCard/ColumnCard';
 import { AddColModal } from '../AddColModal/AddColModal';
-import { Confirm } from '../../../../ui/Confirm/Confirm';
+import { Confirm } from '../../../../ui/confirm/confirm';
 import { fetchDelCol } from '../../../KanbanPage/store/kanban.thunk';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { Title, Text } from '../../../../ui/Typography';

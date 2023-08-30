@@ -1,3 +1,3 @@
 export { Title } from './Title/Title';
-export { Text } from './Text/Text';
-export { Link } from './Link/Link';
+export { Text } from './text/text';
+export { Link } from './link/link';

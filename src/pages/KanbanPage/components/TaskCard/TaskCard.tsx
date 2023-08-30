@@ -6,7 +6,7 @@ import { AttachmentsIcon } from '../../../../assets/icons/TaskIcons';
 import { fetchGetTaskInfo } from '../../store/kanban.thunk';
 import moment from 'moment';
 import { DotsIcon } from '../../../../assets/icons/UtilsIcons';
-import { DropDown } from '../../../../ui/DropDown/DropDown';
+import { DropDown } from '../../../../ui/drop-down/drop-down';
 import { TaskLabel } from '../../../../ui/TaskLabel/TaskLabel';
 import { PriorityLabel } from '../../../../ui/PriorityLabel/PriorityLabel';
 import i18n from 'i18next';

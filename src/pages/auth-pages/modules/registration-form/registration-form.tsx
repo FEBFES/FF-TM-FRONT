@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { InputField } from '../../../../ui/InputField/InputField';
+import { InputField } from '../../../../ui/input-field/Input-field';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchRegistration } from '../../store/auth.thunk';
 import { IRegisterFormDataType } from '../../store/auth.type';

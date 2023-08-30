@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './AddTaskModal.module.css';
-import { Modal } from '../../../../ui/Modal/Modal';
-import { InputField } from '../../../../ui/InputField/InputField';
+import { Modal } from '../../../../ui/modal/modal';
+import { InputField } from '../../../../ui/input-field/Input-field';
 import { Button } from '../../../../ui/Button/Button';
 import {
   CloseIcon,
@@ -17,7 +17,7 @@ import { IMember } from '../../store/kanban.type';
 import { MemberCard } from '../MemberCard/MemberCard';
 import { IColumns } from '../Column/Column.type';
 import { AddAssigneeModal } from '../AddAssigneeModal/AddAssigneeModal';
-import { Text } from '../../../../ui/Typography/Text/Text';
+import { Text } from '../../../../ui/Typography/text/text';
 
 interface AddTaskModalProps {
   show: boolean;
