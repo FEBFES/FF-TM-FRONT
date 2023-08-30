@@ -1,14 +1,14 @@
 import React from 'react';
-import { MainLayout } from '../layouts/MainLayout/MainLayout';
-import { KanbanPage } from '../pages/KanbanPage/KanbanPage';
-import { EmptyLayout } from '../layouts/EmptyLayout/EmptyLayout';
-import { RegistrationPage } from '../pages/AuthPages/Registration/RegistrationPage';
-import { LoginPage } from '../pages/AuthPages/Login/LoginPage';
-import { SettingsPage } from '../pages/SettingsPage/SettingsPage';
-import { ProjectsPage } from '../pages/ProjectsPage/ProjectsPage';
-import { TimelinePage } from '../pages/TimelinePage/TimelinePage';
-import { MessagesPage } from '../pages/MessagesPage/MessagesPage';
-import { AuthLayout } from '../layouts/AuthLayout/AuthLayout';
+import { MainLayout } from '../layouts/main-layout/main-layout';
+import { KanbanPage } from '../pages/KanbanPage/kanban-page';
+import { EmptyLayout } from '../layouts/empty-layout/empty-layout';
+import { RegistrationPage } from '../pages/auth-pages/registration/registration-page';
+import { LoginPage } from '../pages/auth-pages/login/login-page';
+import { SettingsPage } from '../pages/settings-page/settings-page';
+import { ProjectsPage } from '../pages/projects-page/projects-page';
+import { TimelinePage } from '../pages/timeline-page/timeline-page';
+import { MessagesPage } from '../pages/messages-page/messages-page';
+import { AuthLayout } from '../layouts/auth-layout/auth-layout';
 
 export type IAppRouts = {
   title: string;
@@ -32,9 +32,9 @@ export const appRoutsPath = {
   },
   RegistrationPage: {
     //todo i18next
-    title: 'Registration page',
-    path: '/Registration',
-    to: '/Registration',
+    title: 'registration page',
+    path: '/registration',
+    to: '/registration',
   },
   TimelinePage: {
     //todo i18next
@@ -50,7 +50,7 @@ export const appRoutsPath = {
   },
   LoginPage: {
     //todo i18next
-    title: 'Login Page',
+    title: 'login Page',
     path: '/',
     to: '/',
   },

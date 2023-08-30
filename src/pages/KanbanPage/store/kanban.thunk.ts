@@ -4,7 +4,7 @@ import { AxiosError } from 'axios';
 import { addTaskToCol } from './kanban.slice';
 import { IPriorityType } from '../components/PrioritySelect/PrioritySelect.type';
 import { ITypeSelectType } from '../components/TypeSelect/TypeSelect';
-import { IColumns } from '../components/Column/Column.type';
+import { IColumns } from '../components/column/Column.type';
 import { ITask } from '../components/TaskCard/TaskCard.type';
 
 // Get task info

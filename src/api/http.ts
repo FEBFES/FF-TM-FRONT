@@ -1,6 +1,6 @@
 import { serverString } from '../config';
 import axios from 'axios';
-import { setIsAuth } from '../pages/AuthPages/store/auth.slice';
+import { setIsAuth } from '../pages/auth-pages/store/auth.slice';
 import { store } from '../index';
 import { appRoutsPath } from '../routing/routs';
 import { toast } from 'react-toastify';

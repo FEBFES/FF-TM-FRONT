@@ -20,6 +20,7 @@
   height: 100px;
 }
 
+/* //todo change to FLEX and PAddinWrapper ui Component */
 .header__right {
   display: flex;
   align-items: center;
@@ -77,11 +78,13 @@
   align-items: center;
 }
 
+/* //todo change to FLEX and PAddinWrapper ui Component */
 .user__block {
   display: flex;
   align-items: center;
 }
 
+/* //todo change to FLEX and PAddinWrapper ui Component */
 .priority__container {
   display: flex;
   align-items: center;

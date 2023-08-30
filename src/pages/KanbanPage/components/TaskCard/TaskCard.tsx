@@ -6,16 +6,16 @@ import { AttachmentsIcon } from '../../../../assets/icons/TaskIcons';
 import { fetchGetTaskInfo } from '../../store/kanban.thunk';
 import moment from 'moment';
 import { DotsIcon } from '../../../../assets/icons/UtilsIcons';
-import { DropDown } from '../../../../ui/DropDown/DropDown';
-import { TaskLabel } from '../../../../ui/TaskLabel/TaskLabel';
-import { PriorityLabel } from '../../../../ui/PriorityLabel/PriorityLabel';
+import { DropDown } from '../../../../ui/drop-down/drop-down';
+import { TaskLabel } from '../../../../ui/task-label/task-label';
+import { PriorityLabel } from '../../../../ui/priority-label/priority-label';
 import i18n from 'i18next';
-import { Avatar } from '../../../../ui/Avatar/Avatar';
+import { Avatar } from '../../../../ui/avatar/avatar';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 import { ITask } from './TaskCard.type';
 import 'moment/locale/ru';
-import { Text, Title } from '../../../../ui/Typography';
-import { Space } from '../../../../ui/Space/Space';
+import { Text, Title } from '../../../../ui/typography';
+import { Space } from '../../../../ui/space/space';
 
 interface TaskCardProps {
   task: ITask;
@@ -80,6 +80,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({
           hover={'underline'}
           cursor={'pointer'}
           level={'h6'}
+          className={'ellipsis_text'}
           // color: var(--font-defautl); hover: underline
           onClick={getTaskInfo}
         >

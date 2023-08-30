@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import styles from './AddTaskModal.module.css';
-import { Modal } from '../../../../ui/Modal/Modal';
-import { InputField } from '../../../../ui/InputField/InputField';
-import { Button } from '../../../../ui/Button/Button';
+import { Modal } from '../../../../ui/modal/modal';
+import { InputField } from '../../../../ui/input-field/Input-field';
+import { Button } from '../../../../ui/button/button';
 import {
   CloseIcon,
   EyeIcons,
   FullIcon,
 } from '../../../../assets/icons/UtilsIcons';
-import { Switcher } from '../../../../ui/Switcher/Switcher';
+import { Switcher } from '../../../../ui/switcher/switcher';
 import { PrioritySelect } from '../PrioritySelect/PrioritySelect';
 import { IPriorityType } from '../PrioritySelect/PrioritySelect.type';
 import { ITypeSelectType, TypeSelect } from '../TypeSelect/TypeSelect';
 import i18n from 'i18next';
 import { IMember } from '../../store/kanban.type';
 import { MemberCard } from '../MemberCard/MemberCard';
-import { IColumns } from '../Column/Column.type';
+import { IColumns } from '../column/Column.type';
 import { AddAssigneeModal } from '../AddAssigneeModal/AddAssigneeModal';
-import { Text } from '../../../../ui/Typography/Text/Text';
+import { Text } from '../../../../ui/typography/text/text';
 
 interface AddTaskModalProps {
   show: boolean;
