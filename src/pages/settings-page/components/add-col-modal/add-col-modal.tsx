@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Modal } from '../../../../ui/modal/modal';
-import { Button } from '../../../../ui/Button/Button';
+import { Button } from '../../../../ui/button/button';
 import { InputField } from '../../../../ui/input-field/Input-field';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { fetchAddNewCol } from '../../../KanbanPage/store/kanban.thunk';

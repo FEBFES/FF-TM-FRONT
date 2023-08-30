@@ -6,7 +6,6 @@ import {
   faSave,
   faClose,
 } from '@fortawesome/free-solid-svg-icons';
-import classNames from 'classnames';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchUpdateCol } from '../../../KanbanPage/store/kanban.thunk';
 import { Tooltip } from '../../../../ui/tooltip/tooltip';

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button } from '../../ui/Button/Button';
+import { Button } from '../../ui/button/button';
 
 /* //todo change to FLEX and PAddinWrapper ui Component */
 export const SPage = styled.div`

@@ -1,13 +1,13 @@
 import React from 'react';
-import styles from './Row.module.css';
 import { IColumns } from '../Column/Column.type';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { ITask } from '../TaskCard/TaskCard.type';
 import { v4 } from 'uuid';
 import { TaskRowCard } from '../TaskRowCard/TaskRowCard';
-import { Button } from '../../../../ui/Button/Button';
+import { Button } from '../../../../ui/button/button';
 import { Title } from '../../../../ui/typography';
+import { STaskAlert, SRowHeader, SRow } from './row.styled';
 
 interface RowProps {
   row: IColumns;
@@ -25,9 +25,9 @@ export const Row: React.FC<RowProps> = ({
   setCurCol,
 }): JSX.Element => {
   return (
-    <div className={styles.row}>
-      <div className={styles.row__header}>
-        <Title level={'h6'} className={styles.row__title}>
+    <SRow>
+      <SRowHeader>
+        <Title level={'h6'}>
           {row.name || ''} {row.tasks?.length !== 0 ? row.tasks?.length : null}
         </Title>
         <Button
@@ -39,13 +39,12 @@ export const Row: React.FC<RowProps> = ({
         >
           <FontAwesomeIcon icon={faPlus} />
         </Button>
-      </div>
+      </SRowHeader>
 
       <div
         // todo добавить ДД
         // onDrop={(e) => dropHandler(e)}
         // onDragOver={dragOverHandler}
-        className={styles.col}
         id={`${row.id}`}
       >
         {row?.tasks?.map((task: ITask) => {
@@ -60,11 +59,11 @@ export const Row: React.FC<RowProps> = ({
         })}
 
         {row?.tasks?.length === 0 && (
-          <div className={styles.tasksEmptyAlert}>
+          <STaskAlert>
             <p>Задачи в {row?.name || ''} отсутсвуют</p>
-          </div>
+          </STaskAlert>
         )}
       </div>
-    </div>
+    </SRow>
   );
 };

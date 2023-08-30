@@ -3,7 +3,7 @@ import { fetchAddProject } from '../../store/projects.thunk';
 import { InputField } from '../../../../ui/input-field/Input-field';
 import { Modal } from '../../../../ui/modal/modal';
 import { useAppDispatch } from '../../../../hooks/redux';
-import { Button } from '../../../../ui/Button/Button';
+import { Button } from '../../../../ui/button/button';
 import i18n from 'i18next';
 import { Title } from '../../../../ui/typography';
 import {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './AddTaskModal.module.css';
 import { Modal } from '../../../../ui/modal/modal';
 import { InputField } from '../../../../ui/input-field/Input-field';
-import { Button } from '../../../../ui/Button/Button';
+import { Button } from '../../../../ui/button/button';
 import {
   CloseIcon,
   EyeIcons,

@@ -6,8 +6,8 @@ import styles from './KanbanPageMain.module.css';
 import { IPriorityType } from '../../components/PrioritySelect/PrioritySelect.type';
 import { ITypeSelectType } from '../../components/TypeSelect/TypeSelect';
 import { IColumns } from '../../components/Column/Column.type';
-import { ColumnView } from '../../components/ColumnView/ColumnView';
-import { RowView } from '../../components/RowView/RowView';
+import { ColumnView } from '../../components/column-view/column-view';
+import { RowView } from '../../components/row-view/row-view';
 
 interface KanbanPageProps {
   setShowTaskModal: (bool: boolean) => void;

@@ -1,14 +1,12 @@
 import React from 'react';
-import styles from './Button.module.css';
-import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { Loader } from '../loader/loader';
 import { ButtonHTMLAttributes, ReactNode } from 'react';
+import { SButtonCloseType, SBasicButton } from './button.styled';
 
 export type IButtonVariant = 'submit' | 'danger' | 'primary' | 'secondary';
-//todo
-// export type IButtonType = 'primary' | 'default' | 'dashed' | 'text' | 'link' | 'close';
+// todo export type IButtonType = 'primary' | 'default' | 'dashed' | 'text' | 'link' | 'close';
 export type IButtonType = 'primary' | 'close';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -30,31 +28,20 @@ export const Button: React.FC<ButtonProps> = ({
 }): JSX.Element => {
   if (btnType === 'close') {
     return (
-      <button
+      <SButtonCloseType
         {...props}
-        className={styles.buttonClose}
         onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
           onClick ? onClick(e) : {}
         }
       >
         <FontAwesomeIcon icon={faXmark} size={'sm'} />
-      </button>
+      </SButtonCloseType>
     );
   }
 
   return (
-    <button
-      className={classNames(`${styles.btn} ${className}`, {
-        // [styles.btnDefault]: btnType === 'default',
-        // [styles.btnPrimary]: btnType === 'primary',
-        // [styles.btnDashed]: btnType === 'dashed',
-        // [styles.btnText]: btnType === 'text',
-        // [styles.btnLink]: btnType === 'link',
-        [styles.buttonSubmit]: variant === 'submit',
-        [styles.buttonDanger]: variant === 'danger',
-        [styles.buttonPrimary]: variant === 'primary',
-        [styles.buttonSecondary]: variant === 'secondary',
-      })}
+    <SBasicButton
+      variant={variant}
       onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
         if (onClick && !load) {
           onClick(e);
@@ -64,6 +51,6 @@ export const Button: React.FC<ButtonProps> = ({
     >
       {children}
       {load && <Loader />}
-    </button>
+    </SBasicButton>
   );
 };

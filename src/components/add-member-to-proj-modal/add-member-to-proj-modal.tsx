@@ -9,7 +9,7 @@ import { fetchAddMemberToProject } from '../../pages/KanbanPage/store/kanban.thu
 import { Title } from '../../ui/typography';
 import { CloseIcon } from '../../assets/icons/UtilsIcons';
 import { InputField } from '../../ui/input-field/Input-field';
-import { Button } from '../../ui/Button/Button';
+import { Button } from '../../ui/button/button';
 import { AvatarGroup } from '../../ui/avatar-group/avatar-group';
 
 interface AddMemberToProjModalProps {

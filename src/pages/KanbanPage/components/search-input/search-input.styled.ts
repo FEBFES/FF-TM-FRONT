@@ -1,4 +1,6 @@
-.inputCont {
+import styled from 'styled-components';
+
+export const SInputContainer = styled.div`
   margin-left: 40px;
   display: flex;
   align-items: center;
@@ -6,9 +8,9 @@
   height: 30px;
   max-height: 30px;
   background: var(--bg-0);
-}
+`;
 
-.inputIcon {
+export const SInputIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,15 +21,16 @@
   height: 100%;
   width: 30px;
   background: transparent;
-}
-.inputIcon:hover {
-  color: var(--bg-primary);
-}
-.inputIcon:active {
-  color: var(--font-defautl);
-}
 
-.input {
+  &:hover {
+    color: var(--bg-primary);
+  }
+  &:active {
+    color: var(--font-defautl);
+  }
+`;
+
+export const SInputField = styled.input`
   padding-left: 10px;
   border: 2px solid var(--bg-border);
   border-radius: 0;
@@ -37,16 +40,18 @@
   height: 100%;
   width: 270px;
   padding-right: 30px;
-}
-.input:hover {
-  border: 2px solid var(--bg-primary);
-}
-.input:active,
-.input:focus {
-  border: 2px solid var(--bg-primary);
-}
 
-.input_clear {
+  &:hover {
+    border: 2px solid var(--bg-primary);
+  }
+
+  &:active,
+  &:focus {
+    border: 2px solid var(--bg-primary);
+  }
+`;
+
+export const SInputClear = styled.div`
   cursor: pointer;
   background: transparent;
   color: var(--font-gray);
@@ -57,4 +62,4 @@
   justify-content: center;
   border: 2px solid var(--bg-border);
   border-radius: 0 6px 6px 0;
-}
+`;

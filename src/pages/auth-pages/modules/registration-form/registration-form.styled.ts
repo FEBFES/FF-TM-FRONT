@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button } from '../../../../ui/Button/Button';
+import { Button } from '../../../../ui/button/button';
 
 export const SRegistrationForm = styled.div`
   display: flex;

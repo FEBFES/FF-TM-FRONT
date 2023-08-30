@@ -1,11 +1,10 @@
 import React from 'react';
-import styles from './ColumnView.module.css';
+import { SRowContainer } from './row-view.styled';
 import { IColumns } from '../Column/Column.type';
-import { Column } from '../Column/Column';
 import { v4 } from 'uuid';
-import classNames from 'classnames';
+import { Row } from '../row/row';
 
-interface ColumnViewProps {
+interface RowViewProps {
   columns: IColumns[];
   deleteTaskHandler: any;
   setCurCol: any;
@@ -13,7 +12,7 @@ interface ColumnViewProps {
   setShowAddTaskModal: any;
 }
 
-export const ColumnView: React.FC<ColumnViewProps> = ({
+export const RowView: React.FC<RowViewProps> = ({
   columns,
   deleteTaskHandler,
   setCurCol,
@@ -21,12 +20,15 @@ export const ColumnView: React.FC<ColumnViewProps> = ({
   setShowAddTaskModal,
 }): JSX.Element => {
   return (
-    <div className={classNames('scrollbar', styles.colCont)}>
-      {columns.map((col: IColumns) => {
+    <SRowContainer>
+      {columns.map((row: IColumns) => {
+        if (row.tasks.length === 0) {
+          return null;
+        }
         return (
-          <Column
+          <Row
             key={v4()}
-            col={col}
+            row={row}
             delTask={deleteTaskHandler}
             setCurCol={setCurCol}
             setShowTaskModal={setShowTaskModal}
@@ -34,6 +36,6 @@ export const ColumnView: React.FC<ColumnViewProps> = ({
           />
         );
       })}
-    </div>
+    </SRowContainer>
   );
 };
