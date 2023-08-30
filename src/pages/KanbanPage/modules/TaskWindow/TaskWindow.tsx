@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import styles from './TaskWindow.module.css';
 import { CloseIcon } from '../../../../assets/icons/UtilsIcons';
 import { useTypedSelector } from '../../../../hooks/redux';
-import { TaskLabel } from '../../../../ui/TaskLabel/TaskLabel';
-import { PriorityLabel } from '../../../../ui/PriorityLabel/PriorityLabel';
+import { TaskLabel } from '../../../../ui/task-label/task-label';
+import { PriorityLabel } from '../../../../ui/priority-label/priority-label';
 import i18n from 'i18next';
 import { FilesTab } from '../../components/FilesTab/FilesTab';
 import moment from 'moment';
 import { Avatar } from '../../../../ui/Avatar/Avatar';
 import { IFile } from '../../components/TaskCard/TaskCard.type';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
-import { Tooltip } from '../../../../ui/Tooltip/Tooltip';
+import { Tooltip } from '../../../../ui/tooltip/tooltip';
 import { Title } from '../../../../ui/typography';
 import { Space } from '../../../../ui/Space/Space';
 

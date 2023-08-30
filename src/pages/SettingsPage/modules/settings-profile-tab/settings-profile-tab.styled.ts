@@ -7,6 +7,7 @@ export const SUserBackground = styled.div`
   background: var(--bg-0);
 `;
 
+/* //todo change to FLEX and PAddinWrapper ui Component */
 export const SButtonsContainer = styled.div`
   margin-top: 20px;
   display: flex;

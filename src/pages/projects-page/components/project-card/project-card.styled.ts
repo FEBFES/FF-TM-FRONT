@@ -19,17 +19,20 @@ export const SProjectCard = styled.div`
   }
 `;
 
+/* //todo change to FLEX and PAddinWrapper ui Component */
 export const SProjectHeader = styled.header`
   display: flex;
   justify-content: flex-end;
   align-items: center;
 `;
 
+/* //todo change to MarginWrapper ui Component */
 export const SProjectMain = styled.main`
   margin-top: -10px;
   margin-bottom: 0;
 `;
 
+/* //todo change to FLEX and PAddinWrapper ui Component */
 export const SProjectFooter = styled.footer`
   display: flex;
   align-items: center;

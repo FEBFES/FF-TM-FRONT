@@ -16,12 +16,14 @@ export const SSidebar = styled.nav`
   }
 `;
 
+/* //todo change to FLEX and PAddinWrapper ui Component */
 export const SSidebarLinkContainer = styled.div`
   margin-bottom: 25px;
   display: flex;
   flex-direction: column;
 `;
 
+/* //todo change to FLEX and PAddinWrapper ui Component */
 export const SSidebarLinkSubCont = styled.div`
   display: flex;
   flex-direction: column;

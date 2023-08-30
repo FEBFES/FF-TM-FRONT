@@ -11,7 +11,7 @@ import classNames from 'classnames';
 import { InputField } from '../../../../ui/input-field/Input-field';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchUpdateCol } from '../../../KanbanPage/store/kanban.thunk';
-import { Tooltip } from '../../../../ui/Tooltip/Tooltip';
+import { Tooltip } from '../../../../ui/tooltip/tooltip';
 import i18n from 'i18next';
 import { Text, Title } from '../../../../ui/typography';
 import { IColumns } from '../../../KanbanPage/components/Column/Column.type';

@@ -3,6 +3,7 @@
   padding-bottom: 40px;
 }
 
+/* //todo change to FLEX and PAddinWrapper ui Component */
 .row__header {
   display: flex;
   align-items: center;

@@ -2,8 +2,8 @@ import React from 'react';
 import { IMember } from '../../pages/KanbanPage/store/kanban.type';
 import styles from './AvatarGroup.module.css';
 import { Avatar } from '../Avatar/Avatar';
-import { Tooltip } from '../Tooltip/Tooltip';
-import { PlacementType } from '../Tooltip/Tooltip';
+import { Tooltip } from '../tooltip/tooltip';
+import { PlacementType } from '../tooltip/tooltip';
 import { getAvatarUrlOrHuman } from '../../utils/utils';
 
 interface AvatarGroupProps {

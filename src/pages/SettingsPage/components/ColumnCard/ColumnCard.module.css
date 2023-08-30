@@ -17,6 +17,7 @@
   border: 1px solid var(--bg-primary);
 }
 
+/* //todo change to FLEX and PAddinWrapper ui Component */
 .column__left {
   display: flex;
   flex-direction: column;
@@ -59,6 +60,7 @@
   background: transparent;
 }
 
+/* //todo change to FLEX and PAddinWrapper ui Component */
 .btnContainer {
   display: flex;
   align-items: center;

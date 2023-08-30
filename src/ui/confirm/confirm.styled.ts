@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+/* //todo change to FLEX and PAddinWrapper ui Component */
 export const SConfirmContainer = styled.div`
   padding: 40px 0px;
   display: flex;
@@ -8,6 +9,7 @@ export const SConfirmContainer = styled.div`
   align-items: center;
 `;
 
+/* //todo change to FLEX and PAddinWrapper ui Component */
 export const SButtonContainer = styled.div`
   display: flex;
   align-items: center;

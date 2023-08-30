@@ -1,11 +1,11 @@
 import styled, { RuleSet, css } from 'styled-components';
 import { TitleLevel } from './title';
 
-export type StyledVariants = {
-  [key in TitleLevel]?: RuleSet;
+export type StyledVariants<E extends string> = {
+  [key in E]?: RuleSet;
 };
 
-const sizes: StyledVariants = {
+const sizes: StyledVariants<TitleLevel> = {
   h1: css`
     font-weight: 600;
     font-size: 38px;

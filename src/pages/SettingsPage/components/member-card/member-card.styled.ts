@@ -1,4 +1,6 @@
-.memberCard {
+import styled from 'styled-components';
+
+export const SMemberCard = styled.div`
   margin-top: 15px;
   display: flex;
   flex-direction: row;
@@ -7,15 +9,22 @@
   padding: 16px 20px;
   border: 1px solid var(--bg-border);
   border-radius: 6px;
-}
+`;
 
-.memberCard__info {
+// todo change to FLEX and PAddinWrapper ui Component */
+export const SMemberCardInfo = styled.div`
   margin-left: 10px;
   display: flex;
   flex-direction: column;
-}
+`;
 
-.trashBtn {
+// todo change to FLEX UI COMP
+export const SMemberCardLeft = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const STrashButton = styled.div`
   border: 1px solid var(--bg-border);
   cursor: pointer;
   padding: 10px;
@@ -25,14 +34,10 @@
   background: var(--bg-0);
   border-radius: 6px;
   color: var(--bg-border);
-}
-.trashBtn:hover {
-  background: rgb(207, 69, 69);
-  color: white;
-  border: 1px solid transparent;
-}
 
-.memberCard__left {
-  display: flex;
-  align-items: center;
-}
+  &:hover {
+    background: rgb(207, 69, 69);
+    color: white;
+    border: 1px solid transparent;
+  }
+`;

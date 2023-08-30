@@ -3,7 +3,7 @@ import { IMember, IMemberRole } from '../../../KanbanPage/store/kanban.type';
 import { Avatar } from '../../../../ui/Avatar/Avatar';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 import { Title, Text } from '../../../../ui/typography';
-import { Tooltip } from '../../../../ui/Tooltip/Tooltip';
+import { Tooltip } from '../../../../ui/tooltip/tooltip';
 import i18n from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons/faTrashCan';

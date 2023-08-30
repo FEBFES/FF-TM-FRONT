@@ -10,11 +10,13 @@
   border-bottom: 1px solid var(--bg-border);
 }
 
+/* //todo change to FLEX and PAddinWrapper ui Component */
 .filters__cont {
   display: flex;
   align-items: center;
 }
 
+/* //todo change to FLEX and PAddinWrapper ui Component */
 .subheader__left {
   justify-content: flex-start;
   display: flex;

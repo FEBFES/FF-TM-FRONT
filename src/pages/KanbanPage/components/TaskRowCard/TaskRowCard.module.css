@@ -60,6 +60,7 @@
   color: var(--font-defautl);
 }
 
+/* //todo change to FLEX and PAddinWrapper ui Component */
 .card__right {
   display: flex;
   align-items: center;

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+/* //todo change to FLEX and PAddinWrapper ui Component */
 export const SMemberCont = styled.div`
   margin-top: 30px;
   display: flex;

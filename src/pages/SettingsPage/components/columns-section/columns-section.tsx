@@ -3,7 +3,7 @@ import i18n from 'i18next';
 import { Button } from '../../../../ui/Button/Button';
 import { IColumns } from '../../../KanbanPage/components/Column/Column.type';
 import { ColumnCard } from '../ColumnCard/ColumnCard';
-import { AddColModal } from '../AddColModal/AddColModal';
+import { AddColModal } from '../add-col-modal/add-col-modal';
 import { Confirm } from '../../../../ui/confirm/confirm';
 import { fetchDelCol } from '../../../KanbanPage/store/kanban.thunk';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';

@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
-import styles from './AddColModal.module.css';
 import { Modal } from '../../../../ui/modal/modal';
 import { Button } from '../../../../ui/Button/Button';
 import { InputField } from '../../../../ui/input-field/Input-field';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { fetchAddNewCol } from '../../../KanbanPage/store/kanban.thunk';
 import i18n from 'i18next';
+import {
+  SModalContainer,
+  SModalFooter,
+  SModalHeader,
+  SModalMain,
+} from './add-col-modal.styled';
+import { Title } from '../../../../ui/typography';
 
 export interface AddColModalProps {
   show: boolean;
@@ -37,16 +43,16 @@ export const AddColModal: React.FC<AddColModalProps> = ({
 
   return (
     <Modal show={show} setShow={setShow}>
-      <div className={styles.modal}>
-        <div className={styles.modal__header}>
-          <h1 className={styles.modal__title}>
+      <SModalContainer>
+        <SModalHeader>
+          <Title level={'h6'}>
             {i18n.t('pages.settings.tabs.project.column.addNew')}
-          </h1>
+          </Title>
 
           {/*<Button theme={'close'} onClick={() => setShow(false)} />*/}
-        </div>
+        </SModalHeader>
 
-        <div className={styles.modal__main}>
+        <SModalMain>
           <InputField
             withLabel
             value={colName}
@@ -61,9 +67,9 @@ export const AddColModal: React.FC<AddColModalProps> = ({
             placeholder={i18n.t('utils.any.description')}
             type={'text'}
           />
-        </div>
+        </SModalMain>
 
-        <div className={styles.modal__footer}>
+        <SModalFooter>
           <Button variant={'secondary'} onClick={() => setShow(false)}>
             {i18n.t('utils.buttons.back')}
           </Button>
@@ -74,8 +80,8 @@ export const AddColModal: React.FC<AddColModalProps> = ({
           >
             {i18n.t('utils.buttons.create')}
           </Button>
-        </div>
-      </div>
+        </SModalFooter>
+      </SModalContainer>
     </Modal>
   );
 };
