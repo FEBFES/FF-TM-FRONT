@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import styles from './TypeSelect.module.css';
 import { useClickOutside } from '../../../../hooks/useClickOutside';
-import classNames from 'classnames';
+import { STaskType, STypeContainer } from './type-select.styled';
+// import {STypeElement} from './type-select.styled';
 
 interface TypeSelectProps {
   curType: ITypeSelectType;
@@ -34,49 +34,33 @@ export const TypeSelect: React.FC<TypeSelectProps> = ({
   return (
     <div>
       {show ? (
-        <div
-          ref={ref}
-          className={classNames(styles.typeContainer, {
-            [styles.typeContainer_bot]: direction === 'bottom',
-            [styles.typeContainer_top]: direction === 'top',
-          })}
-        >
+        <STypeContainer ref={ref} direction={direction}>
           {typeArr.map((taskType, i) => {
             return (
-              <div
+              <STaskType
+                //Todo change to TypeElement or delete
+                // <STypeElement
                 key={i}
                 onClick={() => {
                   setCurType(taskType);
                   setShow(false);
                 }}
-                className={classNames(styles.typeElement, {
-                  [styles.taskType_f]: taskType === 'FEATURE',
-                  [styles.taskType_q]: taskType === 'QUESTION',
-                  [styles.taskType_b]: taskType === 'BUG',
-                  [styles.taskType_r]: taskType === 'RESEARCH',
-                })}
+                type={curType}
               >
                 {taskType}
-              </div>
+                {/* // </STypeElement> */}
+              </STaskType>
             );
           })}
-        </div>
+        </STypeContainer>
       ) : (
         <div onClick={() => setShow(true)}>
           {typeArr.map((taskType, i) => {
             if (taskType === curType) {
               return (
-                <div
-                  className={classNames(`${styles.taskType}`, {
-                    [styles.taskType_f]: curType === 'FEATURE',
-                    [styles.taskType_q]: curType === 'QUESTION',
-                    [styles.taskType_b]: curType === 'BUG',
-                    [styles.taskType_r]: curType === 'RESEARCH',
-                  })}
-                  key={i}
-                >
+                <STaskType type={curType} key={i}>
                   {taskType[0]}
-                </div>
+                </STaskType>
               );
             }
             return null;

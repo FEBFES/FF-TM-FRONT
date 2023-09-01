@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import styles from './TaskRowCard.module.css';
-import { ITask } from '../TaskCard/TaskCard.type';
+import { ITask } from '../task-card/task-card.type';
 import { PriorityLabel } from '../../../../ui/priority-label/priority-label';
 import { Avatar } from '../../../../ui/avatar/avatar';
 import { TaskLabel } from '../../../../ui/task-label/task-label';
@@ -10,6 +9,15 @@ import { DropDown } from '../../../../ui/drop-down/drop-down';
 import i18n from 'i18next';
 import { DotsIcon } from '../../../../assets/icons/UtilsIcons';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
+import { Flex } from '../../../../ui/flex/flex';
+import {
+  SCard,
+  STaskLabel,
+  SCardInfo,
+  STaskAttachments,
+  SDeleteButton,
+} from './task-row-card.styled';
+import { Text, Title } from '../../../../ui/typography';
 
 export interface TaskRowCardProps {
   task: ITask;
@@ -24,15 +32,16 @@ export const TaskRowCard: React.FC<TaskRowCardProps> = ({
 }): JSX.Element => {
   const [showDD, setShowDD] = useState<boolean>(false);
   const dispatch = useAppDispatch();
+
   return (
-    <div className={styles.card}>
-      <div className={styles.card__info}>
-        <div className={styles.card__info_header}>
+    <SCard>
+      <SCardInfo>
+        <Flex ai={'center'}>
           <PriorityLabel priority={task.priority} />
-          <span className={styles.card__id}>#{task.id}</span>
-        </div>
-        <h1
-          className={styles.card__title}
+          <Text>#{task.id}</Text>
+        </Flex>
+        <Title
+          level={'h5'}
           onClick={() => {
             setShowTaskModal(true);
             dispatch(
@@ -45,9 +54,9 @@ export const TaskRowCard: React.FC<TaskRowCardProps> = ({
           }}
         >
           {task.name}
-        </h1>
-        <p className={styles.card__desc}>{task.description}</p>
-      </div>
+        </Title>
+        <Text>{task.description}</Text>
+      </SCardInfo>
 
       {/*todo change to grid*/}
       {/*<div className={styles.card__date}>*/}
@@ -55,28 +64,24 @@ export const TaskRowCard: React.FC<TaskRowCardProps> = ({
       {/*    {moment(task.createDate).format('DD.MM.YYYY')}*/}
       {/*</div>*/}
 
-      <div className={styles.card__right}>
-        <div className={styles.card_task_label}>
+      <Flex ai={'center'}>
+        <STaskLabel>
           <TaskLabel type={task.type} />
-        </div>
+        </STaskLabel>
         <Avatar size={'m'} src={getAvatarUrlOrHuman(task.owner.userPic)} />
-        <div
+        <STaskAttachments
           onClick={() => {
             setShowDD(true);
           }}
-          className={styles.task_attachments}
         >
           <DropDown show={showDD} setShow={setShowDD}>
-            <p
-              className={styles.delBtn}
-              onClick={() => delTask(task.columnId, task.id)}
-            >
+            <SDeleteButton onClick={() => delTask(task.columnId, task.id)}>
               {i18n.t('utils.buttons.delete')}
-            </p>
+            </SDeleteButton>
           </DropDown>
           <DotsIcon w={12} />
-        </div>
-      </div>
-    </div>
+        </STaskAttachments>
+      </Flex>
+    </SCard>
   );
 };

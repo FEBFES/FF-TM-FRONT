@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { AddTaskModal } from '../../components/AddTaskModal/AddTaskModal';
+import { AddTaskModal } from '../../modules/AddTaskModal/AddTaskModal';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { fetchAddNewTask, fetchDelTask } from '../../store/kanban.thunk';
-import { IPriorityType } from '../../components/PrioritySelect/PrioritySelect';
-import { ITypeSelectType } from '../../components/TypeSelect/TypeSelect';
+import { IPriorityType } from '../../components/priority-select/priority-select';
+import { ITypeSelectType } from '../../components/type-select/type-select';
 import { IColumns } from '../../components/column/column';
 import { ColumnView } from '../../components/column-view/column-view';
 import { RowView } from '../../components/row-view/row-view';

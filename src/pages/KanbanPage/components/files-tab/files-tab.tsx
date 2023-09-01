@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import styles from '../../modules/TaskWindow/TaskWindow.module.css';
 import i18n from 'i18next';
-import { IFile } from '../TaskCard/TaskCard.type';
+import { IFile } from '../task-card/task-card.type';
 import { instance } from '../../../../api/http';
 import { useTypedSelector } from '../../../../hooks/redux';
 import { FileCard } from '../file-card/file-card';

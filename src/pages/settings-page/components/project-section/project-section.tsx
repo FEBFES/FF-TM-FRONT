@@ -70,7 +70,7 @@ export const ProjectSection: React.FC<
           </SHeaderRightSection>
         )}
       </SProjectHeader>
-      <Space my={'xs'} />
+      <Space direction={'col'} size={'xs'} />
 
       <div>
         <InputField

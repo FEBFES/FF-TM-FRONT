@@ -3,7 +3,7 @@ import styles from './add-member-to-proj-modal.module.css';
 import { Modal } from '../../ui/modal/modal';
 import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
 import { IMember } from '../../pages/KanbanPage/store/kanban.type';
-import { MemberCard } from '../../pages/KanbanPage/components/MemberCard/MemberCard';
+import { MemberCard } from '../../pages/KanbanPage/components/member-card/member-card';
 import { instance } from '../../api/http';
 import { fetchAddMemberToProject } from '../../pages/KanbanPage/store/kanban.thunk';
 import { Title } from '../../ui/typography';

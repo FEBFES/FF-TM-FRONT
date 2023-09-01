@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import i18n from 'i18next';
 import { Button } from '../../../../ui/button/button';
-import { IColumns } from '../../../KanbanPage/components/column/Column.type';
+import { IColumns } from '../../../KanbanPage/components/column/column';
 import { ColumnCard } from '../column-card/column-card';
 import { AddColModal } from '../add-col-modal/add-col-modal';
 import { Confirm } from '../../../../ui/confirm/confirm';

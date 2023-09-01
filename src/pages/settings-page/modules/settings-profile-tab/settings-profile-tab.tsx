@@ -109,7 +109,7 @@ export const SettingsProfileTab: React.FC<
   return (
     <>
       <Title level={'h3'}>{i18n.t('pages.settings.tabs.profile.title')}</Title>
-      <Space my={'xl'} />
+      <Space direction={'col'} size={'xl'} />
 
       <SUserBackground />
 
@@ -135,7 +135,7 @@ export const SettingsProfileTab: React.FC<
           {i18n.t('pages.settings.tabs.profile.sectionTitle')}
         </Title>
         <Text>{i18n.t('pages.settings.tabs.profile.sectionSubTitle')}</Text>
-        <Space my={'m'} />
+        <Space direction={'col'} size={'m'} />
 
         <InputField
           withLabel
