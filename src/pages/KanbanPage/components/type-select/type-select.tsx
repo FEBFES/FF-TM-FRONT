@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useClickOutside } from '../../../../hooks/useClickOutside';
-import { STaskType, STypeContainer, STypeElement } from './type-select.styled';
+import { STaskType, STypeContainer } from './type-select.styled';
+// import {STypeElement} from './type-select.styled';
 
 interface TypeSelectProps {
   curType: ITypeSelectType;
