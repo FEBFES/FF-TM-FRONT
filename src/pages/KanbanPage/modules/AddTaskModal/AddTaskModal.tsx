@@ -16,7 +16,7 @@ import {
 import {
   ITypeSelectType,
   TypeSelect,
-} from '../../components/TypeSelect/TypeSelect';
+} from '../../components/type-select/type-select';
 import i18n from 'i18next';
 import { IMember } from '../../store/kanban.type';
 import { MemberCard } from '../../components/member-card/member-card';

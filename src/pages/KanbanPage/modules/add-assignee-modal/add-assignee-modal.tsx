@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './AddAssigneeModal.module.css';
 import { MemberCard } from '../../components/member-card/member-card';
 import { useTypedSelector } from '../../../../hooks/redux';
 import { IMember } from '../../store/kanban.type';

@@ -4,7 +4,7 @@ import { PrioritySelect } from '../../components/priority-select/priority-select
 import {
   ITypeSelectType,
   TypeSelect,
-} from '../../components/TypeSelect/TypeSelect.js';
+} from '../../components/type-select/type-select.js';
 import { IPriorityType } from '../../components/priority-select/priority-select.js';
 import i18n from 'i18next';
 import { KanbanViewSwitcher } from '../../components/kanban-view-switcher/kanban-view-switcher.js';
