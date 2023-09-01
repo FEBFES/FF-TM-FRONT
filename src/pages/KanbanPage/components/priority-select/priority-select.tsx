@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styles from './PrioritySelect.module.css';
 import {
   PriorityDefault,
   PriorityHigh,
@@ -7,7 +6,11 @@ import {
   PriorityMedium,
 } from '../../../../assets/icons/TaskIcons';
 import { useClickOutside } from '../../../../hooks/useClickOutside';
-import classNames from 'classnames';
+import {
+  SPrioritySelect,
+  SPriorityElement,
+  SPriorityContainer,
+} from './priority-select.styled';
 
 const priorityArr: IPriorityTypeItem[] = [
   {
@@ -50,30 +53,23 @@ export const PrioritySelect: React.FC<PrioritySelectProps> = ({
   const { ref } = useClickOutside(setShow);
 
   return (
-    <div className={styles.prioritySelect}>
+    <SPrioritySelect>
       {show ? (
-        <div
-          ref={ref}
-          className={classNames(styles.priorityContainer, {
-            [styles.priorityContainer_bot]: direction === 'bottom',
-            [styles.priorityContainer_top]: direction === 'top',
-          })}
-        >
+        <SPriorityContainer ref={ref} direction={direction}>
           {priorityArr.map((priority, i) => {
             return (
-              <div
+              <SPriorityElement
                 key={i}
                 onClick={() => {
                   setCurPriority(priority.title);
                   setShow(false);
                 }}
-                className={styles.priorityElement}
               >
                 {priority.value}
-              </div>
+              </SPriorityElement>
             );
           })}
-        </div>
+        </SPriorityContainer>
       ) : (
         <div onClick={() => setShow(true)}>
           {priorityArr.map((el, i) => {
@@ -84,6 +80,6 @@ export const PrioritySelect: React.FC<PrioritySelectProps> = ({
           })}
         </div>
       )}
-    </div>
+    </SPrioritySelect>
   );
 };

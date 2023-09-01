@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { FilterCard } from '../../components/filter-card/filter-card.js';
-import { PrioritySelect } from '../../components/PrioritySelect/PrioritySelect.js';
+import { PrioritySelect } from '../../components/priority-select/priority-select.js';
 import {
   ITypeSelectType,
   TypeSelect,
 } from '../../components/TypeSelect/TypeSelect.js';
-import { IPriorityType } from '../../components/PrioritySelect/PrioritySelect.js';
+import { IPriorityType } from '../../components/priority-select/priority-select.js';
 import i18n from 'i18next';
 import { KanbanViewSwitcher } from '../../components/kanban-view-switcher/kanban-view-switcher.js';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux.js';

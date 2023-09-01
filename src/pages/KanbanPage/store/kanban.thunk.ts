@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../../api/http';
 import { AxiosError } from 'axios';
 import { addTaskToCol } from './kanban.slice';
-import { IPriorityType } from '../components/PrioritySelect/PrioritySelect.type';
+import { IPriorityType } from '../components/priority-select/PrioritySelect.type';
 import { ITypeSelectType } from '../components/TypeSelect/TypeSelect';
 import { IColumns } from '../components/column/Column.type';
 import { ITask } from '../components/TaskCard/TaskCard.type';

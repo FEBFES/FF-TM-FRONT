@@ -1,4 +1,4 @@
-import { IPriorityType } from '../PrioritySelect/PrioritySelect';
+import { IPriorityType } from '../priority-select/priority-select';
 
 export interface IOwnerType {
   displayName: string;

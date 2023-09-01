@@ -9,14 +9,19 @@ import {
   FullIcon,
 } from '../../../../assets/icons/UtilsIcons';
 import { Switcher } from '../../../../ui/switcher/switcher';
-import { PrioritySelect } from '../PrioritySelect/PrioritySelect';
-import { IPriorityType } from '../PrioritySelect/PrioritySelect.type';
-import { ITypeSelectType, TypeSelect } from '../TypeSelect/TypeSelect';
+import {
+  PrioritySelect,
+  IPriorityType,
+} from '../../components/priority-select/priority-select';
+import {
+  ITypeSelectType,
+  TypeSelect,
+} from '../../components/TypeSelect/TypeSelect';
 import i18n from 'i18next';
 import { IMember } from '../../store/kanban.type';
-import { MemberCard } from '../MemberCard/MemberCard';
-import { IColumns } from '../column/Column.type';
-import { AddAssigneeModal } from '../AddAssigneeModal/AddAssigneeModal';
+import { MemberCard } from '../../components/member-card/member-card';
+import { IColumns } from '../../components/column/column';
+import { AddAssigneeModal } from '../add-assignee-modal/add-assignee-modal';
 import { Text } from '../../../../ui/typography/text/text';
 
 interface AddTaskModalProps {
