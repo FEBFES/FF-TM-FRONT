@@ -51,7 +51,7 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
       <div className={styles.users}>
         <div className={styles.user__block}>
           <Title level={'h6'}>{i18n.t('utils.any.owner')}:</Title>
-          <Space mx={'xs'} />
+          <Space size={'xs'} />
           <Tooltip title={task.owner?.username || ''}>
             <Avatar
               bordered
@@ -62,7 +62,7 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
         </div>
         <div className={styles.user__block}>
           <Title level={'h6'}>{i18n.t('utils.any.assignee')}:</Title>
-          <Space mx={'xs'} />
+          <Space size={'xs'} />
           <Tooltip title={task?.assignee?.username || ''}>
             <Avatar
               size={'m'}
@@ -77,13 +77,13 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
       <div className={styles.priority}>
         <div className={styles.priority__container}>
           <Title level={'h6'}>{i18n.t('utils.any.priority')}:</Title>
-          <Space mx={'xs'} />
+          <Space size={'xs'} />
           <PriorityLabel priority={task.priority} />
         </div>
 
         <div className={styles.priority__container}>
           <Title level={'h6'}>{i18n.t('utils.any.type')}:</Title>
-          <Space mx={'xs'} />
+          <Space size={'xs'} />
           <TaskLabel type={task.type} />
         </div>
       </div>
@@ -91,13 +91,13 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
       <div className={styles.date__container}>
         <Title level={'h6'}>
           {i18n.t('pages.kanban.taskWindow.main.info.creationDate')}:
-          <Space mx={'2xs'} />
+          <Space size={'2xs'} />
           {task.createDate ? moment(task.createDate).format('DD.MM.YYYY') : '-'}
         </Title>
 
         <Title level={'h6'}>
           {i18n.t('pages.kanban.taskWindow.main.info.updateDate')}:
-          <Space mx={'2xs'} />
+          <Space size={'2xs'} />
           {task.updateDate ? moment(task.updateDate).format('DD.MM.YYYY') : '-'}
         </Title>
       </div>

@@ -1,5 +1,6 @@
 import React from 'react';
-import styles from '../../pages/KanbanPage/components/TaskCard/TaskCard.module.css';
+// todo add styled comp and delete this import
+// import styles from '../../pages/KanbanPage/components/TaskCard/TaskCard.module.css';
 import {
   PriorityDefault,
   PriorityHigh,
@@ -13,7 +14,9 @@ interface IPriorityLabelProps {
 
 export const PriorityLabel: React.FC<IPriorityLabelProps> = ({ priority }) => {
   return (
-    <div className={styles.task_priority}>
+    <div>
+      {/* todo delete this className */}
+      {/* // <div className={styles.task_priority}> */}
       {priority === null && <PriorityDefault />}
       {priority === 'LOW' && <PriorityLow />}
       {priority === 'MEDIUM' && <PriorityMedium />}

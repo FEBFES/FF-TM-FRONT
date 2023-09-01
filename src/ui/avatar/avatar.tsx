@@ -32,15 +32,6 @@ export const Avatar: React.FC<AvatarProps> = ({
       bordered={bordered}
       size={size}
       {...props}
-      //   [styles.avatar_2xs]: size === '2xs',
-      //   [styles.avatar_xs]: size === 'xs',
-      //   [styles.avatar_s]: size === 's',
-      //   [styles.avatar_m]: size === 'm',
-      //   [styles.avatar_l]: size === 'l',
-      //   [styles.avatar_xl]: size === 'xl',
-      //   [styles.avatar_2xl]: size === '2xl',
-      //   [styles.avatar_fit]: size === 'fit',
-      // })}
     />
   );
 };

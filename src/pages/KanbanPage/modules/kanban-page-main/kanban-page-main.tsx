@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AddTaskModal } from '../../components/AddTaskModal/AddTaskModal';
+import { AddTaskModal } from '../../modules/AddTaskModal/AddTaskModal';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { fetchAddNewTask, fetchDelTask } from '../../store/kanban.thunk';
 import { IPriorityType } from '../../components/priority-select/priority-select';

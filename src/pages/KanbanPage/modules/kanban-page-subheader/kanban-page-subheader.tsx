@@ -1,30 +1,28 @@
 import React, { useState } from 'react';
-import { FilterCard } from '../../components/filter-card/filter-card.js';
-import { PrioritySelect } from '../../components/priority-select/priority-select.js';
+import { FilterCard } from '../../components/filter-card/filter-card';
+import { PrioritySelect } from '../../components/priority-select/priority-select';
 import {
   ITypeSelectType,
   TypeSelect,
-} from '../../components/type-select/type-select.js';
-import { IPriorityType } from '../../components/priority-select/priority-select.js';
+} from '../../components/type-select/type-select';
+import { IPriorityType } from '../../components/priority-select/priority-select';
 import i18n from 'i18next';
-import { KanbanViewSwitcher } from '../../components/kanban-view-switcher/kanban-view-switcher.js';
-import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux.js';
+import { KanbanViewSwitcher } from '../../components/kanban-view-switcher/kanban-view-switcher';
+import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import {
   clearAllFilters,
   delFilters,
   setFilters,
-} from '../../store/kanban.slice.js';
-import { Space } from '../../../../ui/space/space.js';
-import { AddMemberToProjModal } from '../../../../components/add-member-to-proj-modal/add-member-to-proj-modal.js';
+} from '../../store/kanban.slice';
+import { AddMemberToProjModal } from '../../../../components/add-member-to-proj-modal/add-member-to-proj-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
-import { AvatarGroup } from '../../../../ui/avatar-group/avatar-group.js';
-import { Flex } from '../../../../ui/flex/flex.js';
+import { Flex, Space, AvatarGroup } from '../../../../ui';
 import {
   SSubHeader,
   SClearFiltersButton,
   SIcon,
-} from './kanban-page-subheader.styled.js';
+} from './kanban-page-subheader.styled';
 
 export const KanbanPageSubheader: React.FC = () => {
   const dispatch = useAppDispatch();

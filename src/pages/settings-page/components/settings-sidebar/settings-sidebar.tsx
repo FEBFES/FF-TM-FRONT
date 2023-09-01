@@ -21,7 +21,7 @@ export const SettingsSidebar: React.FC<
   return (
     <SSidebar>
       <Title level={'h2'}>{i18n.t('pages.settings.sidebar.title')}</Title>
-      <Space my={'xl'} />
+      <Space direction={'col'} size={'xl'} />
 
       {sidebarLinks.map((link, i) => {
         if (link.needCurProjInfo && !curProj) return null;

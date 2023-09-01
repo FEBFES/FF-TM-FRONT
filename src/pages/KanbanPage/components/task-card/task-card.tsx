@@ -16,7 +16,12 @@ import 'moment/locale/ru';
 import { Text, Title } from '../../../../ui/typography';
 import { Space } from '../../../../ui/space/space';
 import { Flex } from '../../../../ui/flex/flex';
-import {STaskAttachments, STaskFooter, STaskMain, STask} from './task-card.styled';
+import {
+  STaskAttachments,
+  STaskFooter,
+  STaskMain,
+  STask,
+} from './task-card.styled';
 
 interface TaskCardProps {
   task: ITask;
@@ -103,16 +108,11 @@ export const TaskCard: React.FC<TaskCardProps> = ({
           {/*</div>*/}
           {task.filesCounter !== 0 && (
             <STaskAttachments>
-              <Text
-              >
-                {task.filesCounter || ''}
-              </Text>
+              <Text>{task.filesCounter || ''}</Text>
               <AttachmentsIcon />
             </STaskAttachments>
           )}
-          <STaskAttachments
-            onClick={() => setShowDD(true)}
-          >
+          <STaskAttachments onClick={() => setShowDD(true)}>
             <DropDown show={showDD} setShow={setShowDD}>
               <Text onClick={() => delTask(task.columnId, task.id)}>
                 {i18n.t('utils.buttons.delete')}

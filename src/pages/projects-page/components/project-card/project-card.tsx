@@ -56,7 +56,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         <Title level={'h6'}>{proj.description || ''}</Title>
       </SProjectMain>
 
-      <Space my={'s'} />
+      <Space direction={'col'} size={'s'} />
       <SProjectFooter>
         <Text>
           {i18n.t('pages.kanban.main.card.create.date')}:{' '}

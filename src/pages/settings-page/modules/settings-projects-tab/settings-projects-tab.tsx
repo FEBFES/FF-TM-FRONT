@@ -14,7 +14,7 @@ export const SettingsProjectsTab: React.FC = (): JSX.Element => {
       <Title level={'h3'}>
         {i18n.t('pages.settings.tabs.project.title')} - {projectName || ''}
       </Title>
-      <Space my={'xl'} />
+      <Space direction={'col'} size={'xl'} />
 
       <ProjectSection />
       <ColumnsSection />
