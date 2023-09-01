@@ -8,7 +8,7 @@ import i18n from 'i18next';
 import { FilesTab } from '../../components/files-tab/files-tab';
 import moment from 'moment';
 import { Avatar } from '../../../../ui/avatar/avatar';
-import { IFile } from '../../components/TaskCard/TaskCard.type';
+import { IFile } from '../../components/task-card/task-card.type';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 import { Tooltip } from '../../../../ui/tooltip/tooltip';
 import { Title } from '../../../../ui/typography';

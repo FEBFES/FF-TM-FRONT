@@ -1,4 +1,6 @@
-.card {
+import styled from 'styled-components';
+
+export const SCard = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
@@ -8,87 +10,44 @@
   padding: 8px 16px;
   margin-bottom: 10px;
   background: var(--bg-0);
-}
-.card:last-of-type {
-  margin-bottom: 0;
-}
 
-.card__info {
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+`;
+
+export const SCardInfo = styled.div`
   width: 400px;
   display: flex;
   flex-direction: column;
-}
 
-.card__info_header {
-  display: flex;
-  align-items: center;
-}
-
-.card__date {
-  font-size: 12px;
-  color: var(--font-gray);
-}
-
-.card__id {
-  margin-left: 5px;
-  font-size: 12px;
-  color: var(--font-gray);
-}
-
-.card__title {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 14px;
-  color: var(--font-defautl);
-}
-.card__title:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-.card_task_label {
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
-.card__desc {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 12px;
-  color: var(--font-defautl);
-}
-
-/* //todo change to FLEX and PAddinWrapper ui Component */
-.card__right {
-  display: flex;
-  align-items: center;
-}
-
-.task_attachments {
-  margin-left: 10px;
-  cursor: pointer;
-  position: relative;
-}
-.delBtn {
-  cursor: pointer;
-  font-size: 12px;
-  color: var(--font-gray);
-}
-
-@media screen and (max-width: 980px) {
-  .card__info {
+  @media screen and (max-width: 980px) {
     width: 200px;
   }
-}
 
-@media screen and (max-width: 580px) {
-  .card__info {
+  @media screen and (max-width: 580px) {
     width: 100px;
   }
-  .card_task_label {
+`;
+
+export const STaskLabel = styled.div`
+  margin-left: 20px;
+  margin-right: 20px;
+
+  @media screen and (max-width: 580px) {
     margin-right: 10px;
     margin-left: 10px;
   }
-}
+`;
+
+export const STaskAttachments = styled.div`
+  margin-left: 10px;
+  cursor: pointer;
+  position: relative;
+`;
+
+export const SDeleteButton = styled.p`
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--font-gray);
+`;

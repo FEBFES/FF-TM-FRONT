@@ -1,5 +1,5 @@
 import React from 'react';
-import { IFile } from '../TaskCard/TaskCard.type';
+import { IFile } from '../task-card/task-card.type';
 import { downloadFile } from '../../../../utils/download';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';

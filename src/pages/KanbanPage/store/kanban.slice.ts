@@ -14,7 +14,7 @@ import {
 } from './kanban.thunk';
 import { fetchFavoriteToggle } from '../../projects-page/store/projects.thunk';
 import { IColumns } from '../components/column/Column.type';
-import { ITask } from '../components/TaskCard/TaskCard.type';
+import { ITask } from '../components/task-card/task-card.type';
 import { IMember } from './kanban.type';
 
 interface IKanbanInitialState {

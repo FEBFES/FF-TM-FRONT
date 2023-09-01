@@ -5,7 +5,7 @@ import { addTaskToCol } from './kanban.slice';
 import { IPriorityType } from '../components/priority-select/PrioritySelect.type';
 import { ITypeSelectType } from '../components/type-select/type-select';
 import { IColumns } from '../components/column/Column.type';
-import { ITask } from '../components/TaskCard/TaskCard.type';
+import { ITask } from '../components/task-card/task-card.type';
 
 // Get task info
 export const fetchGetTaskInfo = createAsyncThunk(

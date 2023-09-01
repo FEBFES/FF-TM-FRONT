@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ITask } from '../TaskCard/TaskCard.type';
+import { ITask } from '../task-card/task-card.type';
 import { PriorityLabel } from '../../../../ui/priority-label/priority-label';
 import { Avatar } from '../../../../ui/avatar/avatar';
 import { TaskLabel } from '../../../../ui/task-label/task-label';
@@ -57,12 +57,13 @@ export const TaskRowCard: React.FC<TaskRowCardProps> = ({
         </Title>
         <Text>{task.description}</Text>
       </SCardInfo>
+
       {/*todo change to grid*/}
       {/*<div className={styles.card__date}>*/}
       {/*    <FontAwesomeIcon icon={faCalendar}/>*/}
       {/*    {moment(task.createDate).format('DD.MM.YYYY')}*/}
       {/*</div>*/}
-      /* //todo change to FLEX and PAddinWrapper ui Component */
+
       <Flex ai={'center'}>
         <STaskLabel>
           <TaskLabel type={task.type} />

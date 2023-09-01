@@ -1,3 +1,4 @@
+import { ITaskLabelType } from '../../../../ui/task-label/task-label';
 import { IPriorityType } from '../priority-select/priority-select';
 
 export interface IOwnerType {
@@ -22,7 +23,7 @@ export interface ITask {
   createDate: string;
   updateDate: string;
   priority: IPriorityType;
-  type: string | null;
+  type: ITaskLabelType | null;
 }
 
 export interface IFile {
