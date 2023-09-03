@@ -1,6 +1,4 @@
 import React, { DetailedHTMLProps } from 'react';
-import styles from './Link.module.css';
-import classNames from 'classnames';
 
 interface LinkProps
   extends DetailedHTMLProps<
@@ -12,7 +10,7 @@ interface LinkProps
 
 export const Link: React.FC<LinkProps> = ({ children, ...props }) => {
   return (
-    <a {...props} className={classNames(styles.link, props.className)}>
+    <a {...props} className={props.className}>
       {children}
     </a>
   );

@@ -1,11 +1,11 @@
 import React from 'react';
-import styles from './AddAssigneeModal.module.css';
-import { MemberCard } from '../MemberCard/MemberCard';
+import { MemberCard } from '../../components/member-card/member-card';
 import { useTypedSelector } from '../../../../hooks/redux';
 import { IMember } from '../../store/kanban.type';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { useClickOutside } from '../../../../hooks/useClickOutside';
+import { SAssigneeModal, SIconCont } from './add-assignee-modal.styled';
 
 interface AddAssigneeModalProps {
   showAssignee: boolean;
@@ -22,7 +22,7 @@ export const AddAssigneeModal: React.FC<AddAssigneeModalProps> = ({
   const { ref } = useClickOutside(setShowAssignee);
 
   return showAssignee ? (
-    <div ref={ref} className={styles.assignee__modal}>
+    <SAssigneeModal ref={ref}>
       {[...members].map((member, i) => {
         return (
           <MemberCard
@@ -35,10 +35,10 @@ export const AddAssigneeModal: React.FC<AddAssigneeModalProps> = ({
           />
         );
       })}
-    </div>
+    </SAssigneeModal>
   ) : (
-    <div className={styles.icon__cont} onClick={() => setShowAssignee(true)}>
+    <SIconCont onClick={() => setShowAssignee(true)}>
       <FontAwesomeIcon icon={faUserPlus} />
-    </div>
+    </SIconCont>
   );
 };

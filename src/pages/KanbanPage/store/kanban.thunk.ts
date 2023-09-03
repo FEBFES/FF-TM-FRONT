@@ -2,10 +2,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../../api/http';
 import { AxiosError } from 'axios';
 import { addTaskToCol } from './kanban.slice';
-import { IPriorityType } from '../components/PrioritySelect/PrioritySelect.type';
-import { ITypeSelectType } from '../components/TypeSelect/TypeSelect';
-import { IColumns } from '../components/column/Column.type';
-import { ITask } from '../components/TaskCard/TaskCard.type';
+import { IPriorityType } from '../components/priority-select/priority-select';
+import { ITypeSelectType } from '../components/type-select/type-select';
+import { IColumns } from '../components/column/column';
+import { ITask } from '../components/task-card/task-card.type';
 
 // Get task info
 export const fetchGetTaskInfo = createAsyncThunk(

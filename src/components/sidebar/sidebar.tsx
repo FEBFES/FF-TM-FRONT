@@ -109,7 +109,7 @@ export const Sidebar: React.FC = (): JSX.Element => {
               to={link.to}
             >
               <FontAwesomeIcon icon={link.icon} />
-              <Space mx={'xs'} />
+              <Space size={'xs'} />
               {isFullView && (
                 <Title level={'h6'}>{i18n.t(link.title) || ''}</Title>
               )}

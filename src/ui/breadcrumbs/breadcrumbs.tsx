@@ -33,12 +33,12 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
             >
               {link.title}
             </Text>
-            <Space mx={'2xs'} />
+            <Space size={'2xs'} />
             {isNotLastItem && (
               <Text>
-                <Space mx={'2xs'} />
+                <Space size={'2xs'} />
                 {separator}
-                <Space mx={'xs'} />
+                <Space size={'xs'} />
               </Text>
             )}
           </Flex>

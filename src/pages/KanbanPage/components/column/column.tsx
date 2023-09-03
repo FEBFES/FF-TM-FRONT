@@ -3,8 +3,8 @@ import { v4 } from 'uuid';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchChangeTask } from '../../store/kanban.thunk';
-import { TaskCard } from '../TaskCard/TaskCard';
-import { ITask } from '../TaskCard/TaskCard.type';
+import { TaskCard } from '../task-card/task-card';
+import { ITask } from '../task-card/task-card.type';
 import { Title } from '../../../../ui/typography';
 import { SColumn, SColHeader, SColWrap, SColAddBtnIcon } from './column.styled';
 
