@@ -1,4 +1,4 @@
-# FF-TM-FRONT 
+# FF-TM-FRONT (./src/assets/img/human.png)
 ## FEBFES - TASK MANAGER - FRONTEND REPOS.
 
 ## Установка приложения и зависимостей
