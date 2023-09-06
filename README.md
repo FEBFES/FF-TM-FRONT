@@ -1,17 +1,21 @@
 # FF-TM-FRONT
+
 ## FEBFES - TASK MANAGER - FRONTEND REPOS.
 
 ## Установка приложения и зависимостей
+
 1. git clone https://github.com/FEBFES/FF-TM-FRONT.git
 2. npm i - установка зависимостей
 3. npm run start - запуск на порте 3000
 4. npm run build - сборка проекта
 
 Доп. команды:
+
 1. npm run clear - Приведение кода к общему виду (проходится по всему проекту)
 2. npm run test - Тестирование проекта (Снэпшоты)
 
 ## Архитектура папок и модулей приложения
+
 --src\
 ----api - Работа сервером\
 ----assets - Ресурсная папка\

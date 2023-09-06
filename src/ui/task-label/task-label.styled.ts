@@ -6,22 +6,22 @@ export type StyledVariants<E extends string> = {
 };
 
 const taskTypes: StyledVariants<ITaskLabelType> = {
-  QUESTION: css`
+  'QUESTION': css`
     background: var(--task-label-q-bg);
     border: 1px solid var(--task-label-q-border);
     color: var(--task-label-q-color);
   `,
-  RESEARCH: css`
+  'RESEARCH': css`
     background: var(--task-label-r-bg);
     border: 1px solid var(--task-label-r-border);
     color: var(--task-label-r-color);
   `,
-  BUG: css`
+  'BUG': css`
     background: var(--task-label-b-bg);
     border: 1px solid var(--task-label-b-border);
     color: var(--task-label-b-color);
   `,
-  FEATURE: css`
+  'FEATURE': css`
     background: var(--task-label-f-bg);
     border: 1px solid var(--task-label-f-border);
     color: var(--task-label-f-color);

@@ -35,19 +35,19 @@ export type StyledVariants<E extends string> = {
 };
 
 const taskTypes: StyledVariants<ITypeSelectType> = {
-  FEATURE: css`
+  'FEATURE': css`
     border: 1px solid #296529;
     color: #18e022 !important;
   `,
-  QUESTION: css`
+  'QUESTION': css`
     border: 1px solid #7a2b85;
     color: #d97ee5 !important;
   `,
-  BUG: css`
+  'BUG': css`
     border: 1px solid #cc4a4d;
     color: #fd9b9d !important;
   `,
-  RESEARCH: css`
+  'RESEARCH': css`
     border: 1px solid #88721f;
     color: #fac905 !important;
   `,

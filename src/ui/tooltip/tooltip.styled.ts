@@ -10,22 +10,22 @@ export type StyledVariants<E extends string> = {
 };
 
 const tooltipPlacements: StyledVariants<PlacementType> = {
-  left: css`
+  'left': css`
     top: 50%;
     transform: translateY(-50%);
     right: 120%;
   `,
-  top: css`
+  'top': css`
     bottom: 120%;
     left: 50%;
     transform: translateX(-50%);
   `,
-  right: css`
+  'right': css`
     top: 50%;
     transform: translateY(-50%);
     left: 120%;
   `,
-  bottom: css`
+  'bottom': css`
     top: 120%;
     left: 50%;
     transform: translateX(-50%);
