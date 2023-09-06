@@ -2,7 +2,7 @@ import React from 'react';
 import { TaskLabel } from '../task-label/task-label';
 import renderer from 'react-test-renderer';
 
-describe('<Button />', () => {
+describe('<TaskLabel />', () => {
   it('SNAPSHOTS: UI - TaskLabel (null) component - render', () => {
     const elem = renderer.create(<TaskLabel type={null} />).toJSON();
     expect(elem).toMatchSnapshot();

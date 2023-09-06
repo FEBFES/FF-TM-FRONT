@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Button /> SNAPSHOTS: UI - Flex (around) component - render 1`] = `
+exports[`<Flex /> SNAPSHOTS: UI - Flex (around) component - render 1`] = `
 <div
   ai="around"
   className="sc-bcPKhP ffArlj"
@@ -13,7 +13,7 @@ exports[`<Button /> SNAPSHOTS: UI - Flex (around) component - render 1`] = `
 </div>
 `;
 
-exports[`<Button /> SNAPSHOTS: UI - Flex (between) component - render 1`] = `
+exports[`<Flex /> SNAPSHOTS: UI - Flex (between) component - render 1`] = `
 <div
   ai="between"
   className="sc-bcPKhP bwWTUT"
@@ -26,7 +26,7 @@ exports[`<Button /> SNAPSHOTS: UI - Flex (between) component - render 1`] = `
 </div>
 `;
 
-exports[`<Button /> SNAPSHOTS: UI - Flex (center) component - render 1`] = `
+exports[`<Flex /> SNAPSHOTS: UI - Flex (center) component - render 1`] = `
 <div
   ai="center"
   className="sc-bcPKhP ksstrX"
@@ -39,7 +39,7 @@ exports[`<Button /> SNAPSHOTS: UI - Flex (center) component - render 1`] = `
 </div>
 `;
 
-exports[`<Button /> SNAPSHOTS: UI - Flex (default) component - render 1`] = `
+exports[`<Flex /> SNAPSHOTS: UI - Flex (default) component - render 1`] = `
 <div
   ai="center"
   className="sc-bcPKhP cGhUzG"
@@ -52,7 +52,7 @@ exports[`<Button /> SNAPSHOTS: UI - Flex (default) component - render 1`] = `
 </div>
 `;
 
-exports[`<Button /> SNAPSHOTS: UI - Flex (end) component - render 1`] = `
+exports[`<Flex /> SNAPSHOTS: UI - Flex (end) component - render 1`] = `
 <div
   ai="end"
   className="sc-bcPKhP ilOKvr"
@@ -65,7 +65,7 @@ exports[`<Button /> SNAPSHOTS: UI - Flex (end) component - render 1`] = `
 </div>
 `;
 
-exports[`<Button /> SNAPSHOTS: UI - Flex (start) component - render 1`] = `
+exports[`<Flex /> SNAPSHOTS: UI - Flex (start) component - render 1`] = `
 <div
   ai="start"
   className="sc-bcPKhP jmJEXb"

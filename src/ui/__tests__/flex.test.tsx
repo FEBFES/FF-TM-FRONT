@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex } from '../flex/flex';
 import renderer from 'react-test-renderer';
 
-describe('<Button />', () => {
+describe('<Flex />', () => {
   it('SNAPSHOTS: UI - Flex (default) component - render', () => {
     const elem = renderer
       .create(
