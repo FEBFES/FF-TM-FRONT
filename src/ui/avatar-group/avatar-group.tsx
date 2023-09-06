@@ -1,5 +1,5 @@
 import React from 'react';
-import { IMember } from '../../pages/KanbanPage/store/kanban.type';
+import { IMember } from '../../pages/kanban-page/store/kanban.type';
 import { Avatar, AvatarSizesType } from '../avatar/avatar';
 import { Tooltip } from '../tooltip/tooltip';
 import { PlacementType } from '../tooltip/tooltip';

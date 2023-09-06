@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PriorityLabel /> SNAPSHOTS: UI - PriorityLabel (HIGH) component - render 1`] = `
+<div>
+  <svg
+    fill="none"
+    height="12"
+    viewBox="0 0 15 12"
+    width="15"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect
+      fill="#EC655C"
+      height="3"
+      rx="1.5"
+      transform="rotate(90 3.73584 8)"
+      width="4"
+      x="3.73584"
+      y="8"
+    />
+    <rect
+      fill="#EC655C"
+      height="3"
+      rx="1.5"
+      transform="rotate(90 9.20728 4)"
+      width="8"
+      x="9.20728"
+      y="4"
+    />
+    <rect
+      fill="#EC655C"
+      height="3"
+      rx="1.5"
+      transform="rotate(90 14.679 0)"
+      width="12"
+      x="14.679"
+    />
+  </svg>
+</div>
+`;
+
+exports[`<PriorityLabel /> SNAPSHOTS: UI - PriorityLabel (LOW) component - render 1`] = `
+<div>
+  <svg
+    fill="none"
+    height="13"
+    viewBox="0 0 15 13"
+    width="15"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect
+      fill="#7FCF72"
+      height="3"
+      rx="1.5"
+      transform="rotate(90 3.73584 8.25436)"
+      width="4"
+      x="3.73584"
+      y="8.25436"
+    />
+    <rect
+      fill="#E8E8E8"
+      height="3"
+      rx="1.5"
+      transform="rotate(90 9.20728 4.25436)"
+      width="8"
+      x="9.20728"
+      y="4.25436"
+    />
+    <rect
+      fill="#E8E8E8"
+      height="3"
+      rx="1.5"
+      transform="rotate(90 14.679 0.254364)"
+      width="12"
+      x="14.679"
+      y="0.254364"
+    />
+  </svg>
+</div>
+`;
+
+exports[`<PriorityLabel /> SNAPSHOTS: UI - PriorityLabel (MEDIUM) component - render 1`] = `
+<div>
+  <svg
+    fill="none"
+    height="13"
+    viewBox="0 0 15 13"
+    width="15"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect
+      fill="#FFD15C"
+      height="3"
+      rx="1.5"
+      transform="rotate(90 3.73584 8.6272)"
+      width="4"
+      x="3.73584"
+      y="8.6272"
+    />
+    <rect
+      fill="#FFD15C"
+      height="3"
+      rx="1.5"
+      transform="rotate(90 9.20728 4.6272)"
+      width="8"
+      x="9.20728"
+      y="4.6272"
+    />
+    <rect
+      fill="#E8E8E8"
+      height="3"
+      rx="1.5"
+      transform="rotate(90 14.679 0.627197)"
+      width="12"
+      x="14.679"
+      y="0.627197"
+    />
+  </svg>
+</div>
+`;
+
+exports[`<PriorityLabel /> SNAPSHOTS: UI - PriorityLabel (null) component - render 1`] = `
+<div>
+  <svg
+    fill="none"
+    height="12"
+    viewBox="0 0 15 12"
+    width="15"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect
+      fill="#989898"
+      height="3"
+      rx="1.5"
+      transform="rotate(90 3.73585 8)"
+      width="4"
+      x="3.73585"
+      y="8"
+    />
+    <rect
+      fill="#989898"
+      height="3"
+      rx="1.5"
+      transform="rotate(90 9.20741 4)"
+      width="8"
+      x="9.20741"
+      y="4"
+    />
+    <rect
+      fill="#989898"
+      height="3"
+      rx="1.5"
+      transform="rotate(90 14.679 0)"
+      width="12"
+      x="14.679"
+    />
+  </svg>
+</div>
+`;
+
+exports[`<PriorityLabel /> SNAPSHOTS: UI - PriorityLabel (string) component - render 1`] = `<div />`;

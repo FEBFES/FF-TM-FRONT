@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { Modal } from '../../../../ui/modal/modal';
-import { Button } from '../../../../ui/button/button';
-import { InputField } from '../../../../ui/input-field/Input-field';
+import { Modal, Button, InputField, Title } from '../../../../ui';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
-import { fetchAddNewCol } from '../../../KanbanPage/store/kanban.thunk';
+import { fetchAddNewCol } from '../../../kanban-page/store/kanban.thunk';
 import i18n from 'i18next';
 import {
   SModalContainer,
@@ -11,7 +9,6 @@ import {
   SModalHeader,
   SModalMain,
 } from './add-col-modal.styled';
-import { Title } from '../../../../ui/typography';
 
 export interface AddColModalProps {
   show: boolean;

@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import { fetchAddProject } from '../../store/projects.thunk';
-import { InputField } from '../../../../ui/input-field/Input-field';
-import { Modal } from '../../../../ui/modal/modal';
+import { InputField, Modal, Button, Title } from '../../../../ui';
 import { useAppDispatch } from '../../../../hooks/redux';
-import { Button } from '../../../../ui/button/button';
 import i18n from 'i18next';
-import { Title } from '../../../../ui/typography';
 import {
   SPageContainer,
   SPageContainerHeader,

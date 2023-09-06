@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SNAPSHOTS: UI - Modal (show) component - render 1`] = `
+<div
+  className="sc-bcPKhP erxbYN"
+  onClick={[Function]}
+  show={true}
+>
+  <div
+    className="sc-grXZZQ iBHSSL"
+    onClick={[Function]}
+  >
+    <div>
+      modal
+    </div>
+  </div>
+</div>
+`;

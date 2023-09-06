@@ -7,12 +7,10 @@ import {
   faClose,
 } from '@fortawesome/free-solid-svg-icons';
 import { useAppDispatch } from '../../../../hooks/redux';
-import { fetchUpdateCol } from '../../../KanbanPage/store/kanban.thunk';
-import { Tooltip } from '../../../../ui/tooltip/tooltip';
+import { fetchUpdateCol } from '../../../kanban-page/store/kanban.thunk';
 import i18n from 'i18next';
-import { Text, Title } from '../../../../ui/typography';
-import { IColumns } from '../../../KanbanPage/components/column/column';
-import { Flex } from '../../../../ui/flex/flex';
+import { Text, Title, Flex, Tooltip } from '../../../../ui';
+import { IColumns } from '../../../kanban-page/components/column/column';
 import {
   SColumn,
   SInputField,

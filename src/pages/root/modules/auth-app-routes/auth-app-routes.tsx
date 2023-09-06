@@ -9,7 +9,7 @@ import { NotFoundPage } from '../../../404/not-found-page';
 import {
   fetchProjectDashboard,
   fetchProjectInfo,
-} from '../../../KanbanPage/store/kanban.thunk';
+} from '../../../kanban-page/store/kanban.thunk';
 
 export const AuthAppRoutes: React.FC = () => {
   const dispatch = useAppDispatch();
