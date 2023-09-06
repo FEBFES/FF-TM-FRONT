@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styles from './AddTaskModal.module.css';
 import {
   CloseIcon,
   EyeIcons,
@@ -19,6 +18,12 @@ import { IMember } from '../../store/kanban.type';
 import { MemberCard } from '../../components/member-card/member-card';
 import { IColumns } from '../../components/column/column';
 import { AddAssigneeModal } from '../add-assignee-modal/add-assignee-modal';
+import {
+  SContainer,
+  SHeader,
+  SHeaderRight,
+  SHeaderLeft,
+} from './add-task-modal.styled';
 
 interface AddTaskModalProps {
   show: boolean;
@@ -57,16 +62,16 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
 
   return (
     <Modal show={show} setShow={setShow}>
-      <div className={styles.container}>
-        <header className={styles.header}>
-          <div className={styles.header__left}>
+      <SContainer>
+        <SHeader>
+          <SHeaderLeft>
             <Text>
               {/*//todo*/}
               {i18n.t('utils.any.status')}: {curCol?.name}
             </Text>
-          </div>
+          </SHeaderLeft>
 
-          <div className={styles.header__right}>
+          <SHeaderRight>
             <div>
               <EyeIcons />
             </div>
@@ -83,8 +88,8 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
             >
               <CloseIcon />
             </div>
-          </div>
-        </header>
+          </SHeaderRight>
+        </SHeader>
 
         <main className={styles.main}>
           <InputField
@@ -181,7 +186,7 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
             {i18n.t('utils.buttons.create')}
           </Button>
         </footer>
-      </div>
+      </SContainer>
     </Modal>
   );
 };

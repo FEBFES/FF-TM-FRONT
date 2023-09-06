@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Modal, Button, InputField, Title } from '../../../../ui';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
-import { fetchAddNewCol } from '../../../KanbanPage/store/kanban.thunk';
+import { fetchAddNewCol } from '../../../kanban-page/store/kanban.thunk';
 import i18n from 'i18next';
 import {
   SModalContainer,

@@ -8,7 +8,7 @@ import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchFavoriteToggle } from '../../store/projects.thunk';
 import { fetchDelProject } from '../../store/projects.thunk';
 import i18n from 'i18next';
-import { setCurProjId } from '../../../KanbanPage/store/kanban.slice';
+import { setCurProjId } from '../../../kanban-page/store/kanban.slice';
 import { Text, Title, DropDown, Space } from '../../../../ui';
 import {
   SProjectCard,

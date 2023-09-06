@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import i18n from 'i18next';
-import { IColumns } from '../../../KanbanPage/components/column/column';
+import { IColumns } from '../../../kanban-page/components/column/column';
 import { ColumnCard } from '../column-card/column-card';
 import { AddColModal } from '../add-col-modal/add-col-modal';
-import { fetchDelCol } from '../../../KanbanPage/store/kanban.thunk';
+import { fetchDelCol } from '../../../kanban-page/store/kanban.thunk';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { Space, Button, Title, Text, Confirm } from '../../../../ui';
 import {

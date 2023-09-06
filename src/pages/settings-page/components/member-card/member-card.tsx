@@ -1,11 +1,11 @@
 import React from 'react';
-import { IMember, IMemberRole } from '../../../KanbanPage/store/kanban.type';
+import { IMember, IMemberRole } from '../../../kanban-page/store/kanban.type';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 import i18n from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons/faTrashCan';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
-import { fetchDeleteMemberFromProject } from '../../../KanbanPage/store/kanban.thunk';
+import { fetchDeleteMemberFromProject } from '../../../kanban-page/store/kanban.thunk';
 import {
   Space,
   Avatar,

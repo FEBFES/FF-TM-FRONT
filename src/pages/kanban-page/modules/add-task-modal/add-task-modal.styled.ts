@@ -1,3 +1,7 @@
+import styled from 'styled-components';
+
+export const S
+
 .container {
   border-radius: 8px;
   border: 1px solid var(--bg-border);

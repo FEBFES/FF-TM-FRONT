@@ -1,6 +1,6 @@
 import React from 'react';
 import { MainLayout } from '../layouts/main-layout/main-layout';
-import { KanbanPage } from '../pages/KanbanPage/kanban-page';
+import { KanbanPage } from '../pages/kanban-page/kanban-page';
 import { EmptyLayout } from '../layouts/empty-layout/empty-layout';
 import { RegistrationPage } from '../pages/auth-pages/registration/registration-page';
 import { LoginPage } from '../pages/auth-pages/login/login-page';
