@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Divider /> SNAPSHOTS: UI - Divider (col) component - render 1`] = `
+<div
+  className="sc-bcPKhP kLuxxo"
+  direction="col"
+/>
+`;
+
+exports[`<Divider /> SNAPSHOTS: UI - Divider (row) component - render 1`] = `
+<div
+  className="sc-bcPKhP jwnRNo"
+  direction="row"
+/>
+`;

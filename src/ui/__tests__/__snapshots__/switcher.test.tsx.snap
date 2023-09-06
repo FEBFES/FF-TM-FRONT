@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Switcher /> SNAPSHOTS: UI - Switcher (!isActive) component - render 1`] = `
+<div
+  aria-checked={false}
+  aria-disabled={false}
+  className="sc-bcPKhP eaxCMA"
+  onClick={[Function]}
+  role="checkbox"
+>
+  <div
+    className="sc-grXZZQ ezlKrY"
+    isActive={false}
+  />
+</div>
+`;
+
+exports[`<Switcher /> SNAPSHOTS: UI - Switcher (isActive) component - render 1`] = `
+<div
+  aria-checked={true}
+  aria-disabled={false}
+  className="sc-bcPKhP eaxCMA"
+  onClick={[Function]}
+  role="checkbox"
+>
+  <div
+    className="sc-grXZZQ kUAa-Dx"
+    isActive={true}
+  />
+</div>
+`;

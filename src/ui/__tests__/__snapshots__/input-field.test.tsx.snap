@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SNAPSHOTS: UI - InputField component - render 1`] = `
+<div
+  className="sc-bcPKhP kvwdkc"
+  onBlur={[Function]}
+  onClick={[Function]}
+>
+  <input
+    className="sc-grXZZQ dWqGUc"
+    id="input"
+    placeholder=""
+    value="asdas"
+  />
+  <label
+    className="sc-dkjKgF dwxDqy"
+    htmlFor="input"
+    isActive={true}
+  />
+</div>
+`;

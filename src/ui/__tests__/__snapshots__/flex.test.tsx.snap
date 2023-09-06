@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> SNAPSHOTS: UI - Flex (around) component - render 1`] = `
+<div
+  ai="around"
+  className="sc-bcPKhP ffArlj"
+  dir="row"
+  jc="around"
+>
+  <div>
+    test
+  </div>
+</div>
+`;
+
+exports[`<Button /> SNAPSHOTS: UI - Flex (between) component - render 1`] = `
+<div
+  ai="between"
+  className="sc-bcPKhP bwWTUT"
+  dir="row"
+  jc="between"
+>
+  <div>
+    test
+  </div>
+</div>
+`;
+
+exports[`<Button /> SNAPSHOTS: UI - Flex (center) component - render 1`] = `
+<div
+  ai="center"
+  className="sc-bcPKhP ksstrX"
+  dir="row"
+  jc="center"
+>
+  <div>
+    test
+  </div>
+</div>
+`;
+
+exports[`<Button /> SNAPSHOTS: UI - Flex (default) component - render 1`] = `
+<div
+  ai="center"
+  className="sc-bcPKhP cGhUzG"
+  dir="row"
+  jc="between"
+>
+  <div>
+    test
+  </div>
+</div>
+`;
+
+exports[`<Button /> SNAPSHOTS: UI - Flex (end) component - render 1`] = `
+<div
+  ai="end"
+  className="sc-bcPKhP ilOKvr"
+  dir="row"
+  jc="end"
+>
+  <div>
+    test
+  </div>
+</div>
+`;
+
+exports[`<Button /> SNAPSHOTS: UI - Flex (start) component - render 1`] = `
+<div
+  ai="start"
+  className="sc-bcPKhP jmJEXb"
+  dir="row"
+  jc="start"
+>
+  <div>
+    test
+  </div>
+</div>
+`;

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SNAPSHOTS: UI - Link component - render 1`] = `
+<a
+  src="http:www.test.com/asd"
+>
+  linka
+</a>
+`;

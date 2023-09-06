@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Space /> SNAPSHOTS: UI - Space (col xl) component - render 1`] = `
+<div>
+  <p>
+    123
+  </p>
+  <div
+    className="sc-bcPKhP cbBkoU"
+    direction="col"
+    size="xl"
+  />
+  <span>
+    asd
+  </span>
+</div>
+`;
+
+exports[`<Space /> SNAPSHOTS: UI - Space (row s) component - render 1`] = `
+<div>
+  <p>
+    123
+  </p>
+  <div
+    className="sc-bcPKhP kWIBqY"
+    direction="row"
+    size="s"
+  />
+  <span>
+    asd
+  </span>
+</div>
+`;
+
+exports[`SNAPSHOTS: UI - Space (col xl) component - render 1`] = `
+<div>
+  <p>
+    123
+  </p>
+  <div
+    className="sc-bcPKhP cbBkoU"
+    direction="col"
+    size="xl"
+  />
+  <span>
+    asd
+  </span>
+</div>
+`;
+
+exports[`SNAPSHOTS: UI - Space (row s) component - render 1`] = `
+<div>
+  <p>
+    123
+  </p>
+  <div
+    className="sc-bcPKhP kWIBqY"
+    direction="row"
+    size="s"
+  />
+  <span>
+    asd
+  </span>
+</div>
+`;
