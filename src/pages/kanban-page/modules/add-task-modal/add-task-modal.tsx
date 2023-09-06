@@ -4,7 +4,7 @@ import {
   EyeIcons,
   FullIcon,
 } from '../../../../assets/icons/UtilsIcons';
-import { Switcher, Modal, Button, InputField, Text } from '../../../../ui';
+import { Switcher, Modal, Button, Text } from '../../../../ui';
 import {
   PrioritySelect,
   IPriorityType,
@@ -21,8 +21,18 @@ import { AddAssigneeModal } from '../add-assignee-modal/add-assignee-modal';
 import {
   SContainer,
   SHeader,
+  STaskPriority,
+  STaskType,
   SHeaderRight,
   SHeaderLeft,
+  SCheckbox,
+  SAssigneeCcontainer,
+  SMainSection,
+  SInputField,
+  SAdditionally,
+  SAdditionallyRight,
+  SAdditionallyLeft,
+  SFooter,
 } from './add-task-modal.styled';
 
 interface AddTaskModalProps {
@@ -91,50 +101,43 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
           </SHeaderRight>
         </SHeader>
 
-        <main className={styles.main}>
-          <InputField
+        <SMainSection>
+          <SInputField
             type={'text'}
             value={name}
             placeholder={i18n.t('utils.any.name')}
-            className={styles.input}
             onChange={(e) => setName(e.target.value)}
           />
-          <InputField
+          <SInputField
             type={'text'}
             value={description}
             placeholder={i18n.t('utils.any.description')}
-            className={styles.input}
             onChange={(e) => setDescription(e.target.value)}
           />
 
-          <div className={styles.additionally}>
-            <div className={styles.additionally__left}>
-              <div className={styles.task_type}>
+          <SAdditionally>
+            <SAdditionallyLeft>
+              <STaskType>
                 {i18n.t('utils.any.type')}:
                 <TypeSelect
                   direction={'bottom'}
                   curType={curTaskType}
                   setCurType={setCurTaskType}
                 />
-              </div>
-              <div className={styles.task_priority}>
+              </STaskType>
+              <STaskPriority>
                 {i18n.t('utils.any.priority')}:
                 <PrioritySelect
                   direction={'bottom'}
                   curPriority={curPriority}
                   setCurPriority={setCurPriority}
                 />
-              </div>
-            </div>
+              </STaskPriority>
+            </SAdditionallyLeft>
 
-            <div className={styles.additionally__right}>
-              <div className={styles.assignee__container}>
-                <Text
-                //todo
-                // className={styles.assignee__label}
-                >
-                  {i18n.t('utils.any.assignee')}:
-                </Text>
+            <SAdditionallyRight>
+              <SAssigneeCcontainer>
+                <Text>{i18n.t('utils.any.assignee')}:</Text>
                 {curAssignee === null ? (
                   <AddAssigneeModal
                     setShowAssignee={setShowAssignee}
@@ -148,24 +151,21 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
                     onClick={() => setCurAssignee(null)}
                   />
                 )}
-              </div>
-            </div>
-          </div>
-        </main>
+              </SAssigneeCcontainer>
+            </SAdditionallyRight>
+          </SAdditionally>
+        </SMainSection>
 
-        <footer className={styles.footer}>
-          <div className={styles.checkbox}>
-            <Text
-            //todo
-            // className={styles.checkbox_label}
-            >
+        <SFooter>
+          <SCheckbox>
+            <Text>
               {i18n.t('pages.kanban.components.modal.add.createMultiple')}:
             </Text>
             <Switcher
               onClick={() => setIsMultiple((prevState) => !prevState)}
               isActive={isMultiple}
             />
-          </div>
+          </SCheckbox>
           <Button
             onClick={() => {
               onSubmit(
@@ -185,7 +185,7 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
           >
             {i18n.t('utils.buttons.create')}
           </Button>
-        </footer>
+        </SFooter>
       </SContainer>
     </Modal>
   );
