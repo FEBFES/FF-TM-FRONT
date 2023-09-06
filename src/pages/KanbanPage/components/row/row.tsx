@@ -5,8 +5,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { ITask } from '../task-card/task-card.type';
 import { v4 } from 'uuid';
 import { TaskRowCard } from '../task-row-card/task-row-card';
-import { Button } from '../../../../ui/button/button';
-import { Title } from '../../../../ui/typography';
+import { Button, Title } from '../../../../ui';
 import { STaskAlert, SRowHeader, SRow } from './row.styled';
 
 interface RowProps {

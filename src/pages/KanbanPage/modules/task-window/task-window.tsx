@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-import styles from './TaskWindow.module.css';
 import { CloseIcon } from '../../../../assets/icons/UtilsIcons';
 import { useTypedSelector } from '../../../../hooks/redux';
-import { TaskLabel } from '../../../../ui/task-label/task-label';
-import { PriorityLabel } from '../../../../ui/priority-label/priority-label';
 import i18n from 'i18next';
 import { FilesTab } from '../../components/files-tab/files-tab';
 import moment from 'moment';
-import { Avatar } from '../../../../ui/avatar/avatar';
 import { IFile } from '../../components/task-card/task-card.type';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
-import { Tooltip } from '../../../../ui/tooltip/tooltip';
-import { Title } from '../../../../ui/typography';
-import { Space } from '../../../../ui/space/space';
+import {
+  Title,
+  Space,
+  Tooltip,
+  Avatar,
+  PriorityLabel,
+  TaskLabel,
+} from '../../../../ui';
 
 interface TaskWindowProps {
   setShowWindow: (bool: boolean) => void;

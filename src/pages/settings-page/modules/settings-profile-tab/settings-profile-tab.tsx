@@ -2,18 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
-import { InputField } from '../../../../ui/input-field/Input-field';
-import { Button } from '../../../../ui/button/button';
 import i18n from 'i18next';
 import {
   fetchChangeUserInfo,
   fetchDeleteUserAvatar,
   fetchUploadNewUserAvatar,
 } from '../../../../store/user/user.thunk';
-import { Avatar } from '../../../../ui/avatar/avatar';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
-import { Title, Text } from '../../../../ui/typography';
-import { Space } from '../../../../ui/space/space';
+import { Title, Text, InputField, Space, Button, Avatar } from '../../../../ui';
 import {
   SUserBackground,
   SButtonsContainer,

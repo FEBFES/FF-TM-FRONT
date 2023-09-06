@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { ITask } from '../task-card/task-card.type';
-import { PriorityLabel } from '../../../../ui/priority-label/priority-label';
-import { Avatar } from '../../../../ui/avatar/avatar';
-import { TaskLabel } from '../../../../ui/task-label/task-label';
 import { fetchGetTaskInfo } from '../../store/kanban.thunk';
 import { useAppDispatch } from '../../../../hooks/redux';
-import { DropDown } from '../../../../ui/drop-down/drop-down';
 import i18n from 'i18next';
 import { DotsIcon } from '../../../../assets/icons/UtilsIcons';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
-import { Flex } from '../../../../ui/flex/flex';
+import {
+  Flex,
+  DropDown,
+  Avatar,
+  TaskLabel,
+  PriorityLabel,
+  Text,
+  Title,
+} from '../../../../ui';
 import {
   SCard,
   STaskLabel,
@@ -17,7 +21,6 @@ import {
   STaskAttachments,
   SDeleteButton,
 } from './task-row-card.styled';
-import { Text, Title } from '../../../../ui/typography';
 
 export interface TaskRowCardProps {
   task: ITask;

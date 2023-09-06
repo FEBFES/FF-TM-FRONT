@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import i18n from 'i18next';
-import { Button } from '../../../../ui/button/button';
 import { IColumns } from '../../../KanbanPage/components/column/column';
 import { ColumnCard } from '../column-card/column-card';
 import { AddColModal } from '../add-col-modal/add-col-modal';
-import { Confirm } from '../../../../ui/confirm/confirm';
 import { fetchDelCol } from '../../../KanbanPage/store/kanban.thunk';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
-import { Title, Text } from '../../../../ui/typography';
-import { Space } from '../../../../ui/space/space';
+import { Space, Button, Title, Text, Confirm } from '../../../../ui';
 import {
   SColumnContainer,
   SColumnContHeader,

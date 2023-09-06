@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import styles from './AddTaskModal.module.css';
-import { Modal } from '../../../../ui/modal/modal';
-import { InputField } from '../../../../ui/input-field/Input-field';
-import { Button } from '../../../../ui/button/button';
 import {
   CloseIcon,
   EyeIcons,
   FullIcon,
 } from '../../../../assets/icons/UtilsIcons';
-import { Switcher } from '../../../../ui/switcher/switcher';
+import { Switcher, Modal, Button, InputField, Text } from '../../../../ui';
 import {
   PrioritySelect,
   IPriorityType,
@@ -22,7 +19,6 @@ import { IMember } from '../../store/kanban.type';
 import { MemberCard } from '../../components/member-card/member-card';
 import { IColumns } from '../../components/column/column';
 import { AddAssigneeModal } from '../add-assignee-modal/add-assignee-modal';
-import { Text } from '../../../../ui/typography/text/text';
 
 interface AddTaskModalProps {
   show: boolean;
