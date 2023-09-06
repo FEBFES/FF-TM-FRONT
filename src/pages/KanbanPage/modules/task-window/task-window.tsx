@@ -13,7 +13,21 @@ import {
   Avatar,
   PriorityLabel,
   TaskLabel,
+  Flex,
 } from '../../../../ui';
+import {
+  STaskWindowHeader,
+  STaskWindow,
+  STaskWindowSubHeader,
+  SCloseIcon,
+  SUsersSection,
+  SPrioritySection,
+  SDescriptionSection,
+  SDescriptionText,
+  SDateContainer,
+  SWindowToggleItem,
+  SWindowToggle,
+} from './task-window.styled';
 
 interface TaskWindowProps {
   setShowWindow: (bool: boolean) => void;
@@ -31,26 +45,23 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
   }
 
   return (
-    <div className={styles.taskWindow}>
-      <header className={styles.header}>
+    <STaskWindow>
+      <STaskWindowHeader>
         <Title level={'h4'}>#{task.id}</Title>
-        <div className={styles.header__right}>
+        <Flex ai={'center'}>
           {/*<FullIcon />*/}
-          <div
-            className={styles.closeIcon}
-            onClick={() => setShowWindow(false)}
-          >
+          <SCloseIcon onClick={() => setShowWindow(false)}>
             <CloseIcon />
-          </div>
-        </div>
-      </header>
+          </SCloseIcon>
+        </Flex>
+      </STaskWindowHeader>
 
-      <div className={styles.subheader}>
+      <STaskWindowSubHeader>
         <Title level={'h3'}>{task.name || ''}</Title>
-      </div>
+      </STaskWindowSubHeader>
 
-      <div className={styles.users}>
-        <div className={styles.user__block}>
+      <SUsersSection>
+        <Flex ai={'center'}>
           <Title level={'h6'}>{i18n.t('utils.any.owner')}:</Title>
           <Space size={'xs'} />
           <Tooltip title={task.owner?.username || ''}>
@@ -60,8 +71,8 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
               src={getAvatarUrlOrHuman(task.owner?.userPic)}
             />
           </Tooltip>
-        </div>
-        <div className={styles.user__block}>
+        </Flex>
+        <Flex ai={'center'}>
           <Title level={'h6'}>{i18n.t('utils.any.assignee')}:</Title>
           <Space size={'xs'} />
           <Tooltip title={task?.assignee?.username || ''}>
@@ -72,24 +83,24 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
               alt={'human'}
             />
           </Tooltip>
-        </div>
-      </div>
+        </Flex>
+      </SUsersSection>
 
-      <div className={styles.priority}>
-        <div className={styles.priority__container}>
+      <SPrioritySection>
+        <Flex ai={'center'}>
           <Title level={'h6'}>{i18n.t('utils.any.priority')}:</Title>
           <Space size={'xs'} />
           <PriorityLabel priority={task.priority} />
-        </div>
+        </Flex>
 
-        <div className={styles.priority__container}>
+        <Flex ai={'center'}>
           <Title level={'h6'}>{i18n.t('utils.any.type')}:</Title>
           <Space size={'xs'} />
           <TaskLabel type={task.type} />
-        </div>
-      </div>
+        </Flex>
+      </SPrioritySection>
 
-      <div className={styles.date__container}>
+      <SDateContainer>
         <Title level={'h6'}>
           {i18n.t('pages.kanban.taskWindow.main.info.creationDate')}:
           <Space size={'2xs'} />
@@ -101,28 +112,25 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
           <Space size={'2xs'} />
           {task.updateDate ? moment(task.updateDate).format('DD.MM.YYYY') : '-'}
         </Title>
-      </div>
+      </SDateContainer>
 
-      <div className={styles.description}>
+      <SDescriptionSection>
         <Title level={'h6'}>{i18n.t('utils.any.description')}</Title>
-        <textarea
-          className={`${styles.description__text} scrollbar`}
+        <SDescriptionText
+          className={'scrollbar'}
           value={task.description || ''}
           onChange={() => {}}
         />
-      </div>
+      </SDescriptionSection>
 
-      <div className={styles.windowToggle}>
-        <div
-          onClick={() => setCurSubPage('files')}
-          className={`${styles.windowToggle__item}`}
-        >
+      <SWindowToggle>
+        <SWindowToggleItem onClick={() => setCurSubPage('files')}>
           {i18n.t('pages.kanban.taskWindow.tabs.files.title')}{' '}
           {files?.length || ''}
-        </div>
-      </div>
+        </SWindowToggleItem>
+      </SWindowToggle>
 
       {curSubPage === 'files' && <FilesTab files={files} setFiles={setFiles} />}
-    </div>
+    </STaskWindow>
   );
 };
