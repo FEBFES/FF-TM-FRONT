@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SNAPSHOTS: UI - Tooltip component - render 1`] = `
+<div
+  className="sc-bcPKhP dqyMgV"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <div
+    className="sc-bcPKhP dqyMgV"
+  >
+    <div>
+      asd
+    </div>
+  </div>
+</div>
+`;

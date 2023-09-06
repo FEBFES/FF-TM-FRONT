@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TaskLabel /> SNAPSHOTS: UI - TaskLabel (BUG) component - render 1`] = `
+<div
+  className="sc-bcPKhP bmaxfA"
+  type="BUG"
+>
+  bug
+</div>
+`;
+
+exports[`<TaskLabel /> SNAPSHOTS: UI - TaskLabel (FEATURE) component - render 1`] = `
+<div
+  className="sc-bcPKhP kTnWAc"
+  type="FEATURE"
+>
+  feature
+</div>
+`;
+
+exports[`<TaskLabel /> SNAPSHOTS: UI - TaskLabel (NONE) component - render 1`] = `null`;
+
+exports[`<TaskLabel /> SNAPSHOTS: UI - TaskLabel (QUESTION) component - render 1`] = `
+<div
+  className="sc-bcPKhP imiGFX"
+  type="QUESTION"
+>
+  question
+</div>
+`;
+
+exports[`<TaskLabel /> SNAPSHOTS: UI - TaskLabel (RESEARCH) component - render 1`] = `
+<div
+  className="sc-bcPKhP iCLXls"
+  type="RESEARCH"
+>
+  research
+</div>
+`;
+
+exports[`<TaskLabel /> SNAPSHOTS: UI - TaskLabel (null) component - render 1`] = `null`;

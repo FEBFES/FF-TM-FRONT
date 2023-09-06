@@ -1,17 +1,20 @@
 import React from 'react';
-import { IMember, IMemberRole } from '../../../KanbanPage/store/kanban.type';
-import { Avatar } from '../../../../ui/avatar/avatar';
+import { IMember, IMemberRole } from '../../../kanban-page/store/kanban.type';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
-import { Title, Text } from '../../../../ui/typography';
-import { Tooltip } from '../../../../ui/tooltip/tooltip';
 import i18n from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons/faTrashCan';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
-import { fetchDeleteMemberFromProject } from '../../../KanbanPage/store/kanban.thunk';
-import { Select } from '../../../../ui/select/select';
-import { Flex } from '../../../../ui/flex/flex';
-import { Space } from '../../../../ui/space/space';
+import { fetchDeleteMemberFromProject } from '../../../kanban-page/store/kanban.thunk';
+import {
+  Space,
+  Avatar,
+  Flex,
+  Select,
+  Tooltip,
+  Title,
+  Text,
+} from '../../../../ui';
 import {
   SMemberCard,
   SMemberCardInfo,

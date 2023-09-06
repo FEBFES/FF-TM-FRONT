@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Title /> SNAPSHOTS: UI - Title (h1) component - render 1`] = `
+<h1
+  className="sc-bcPKhP dbDnGD"
+  hover="underline"
+  size="h3"
+>
+  linka
+</h1>
+`;
+
+exports[`<Title /> SNAPSHOTS: UI - Title (h1) component - render 2`] = `
+<h1
+  className="sc-bcPKhP djHSJu"
+  cursor="pointer"
+  size="h3"
+>
+  linka
+</h1>
+`;
+
+exports[`<Title /> SNAPSHOTS: UI - Title (h1) component - render 3`] = `
+<h1
+  className="sc-bcPKhP gtkEuv"
+  size="h1"
+>
+  linka
+</h1>
+`;
+
+exports[`<Title /> SNAPSHOTS: UI - Title (h2) component - render 1`] = `
+<h1
+  className="sc-bcPKhP eJjWaU"
+  size="h2"
+>
+  linka
+</h1>
+`;
+
+exports[`<Title /> SNAPSHOTS: UI - Title (h3) component - render 1`] = `
+<h1
+  className="sc-bcPKhP cFEvjN"
+  size="h3"
+>
+  linka
+</h1>
+`;
+
+exports[`<Title /> SNAPSHOTS: UI - Title (h4) component - render 1`] = `
+<h1
+  className="sc-bcPKhP bwaqqp"
+  size="h4"
+>
+  linka
+</h1>
+`;
+
+exports[`<Title /> SNAPSHOTS: UI - Title (h5) component - render 1`] = `
+<h1
+  className="sc-bcPKhP fapzAs"
+  size="h5"
+>
+  linka
+</h1>
+`;
+
+exports[`<Title /> SNAPSHOTS: UI - Title (h6) component - render 1`] = `
+<h1
+  className="sc-bcPKhP imMJyy"
+  size="h6"
+>
+  linka
+</h1>
+`;

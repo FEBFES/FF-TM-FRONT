@@ -6,32 +6,32 @@ export type StyledVariants<E extends string> = {
 };
 
 const sizes: StyledVariants<TitleLevel> = {
-  h1: css`
+  'h1': css`
     font-weight: 600;
     font-size: 38px;
     color: var(--font-gray);
   `,
-  h2: css`
+  'h2': css`
     font-weight: 500;
     font-size: 30px;
     color: var(--font-gray);
   `,
-  h3: css`
+  'h3': css`
     font-weight: 500;
     font-size: 24px;
     color: var(--font-gray);
   `,
-  h4: css`
+  'h4': css`
     font-weight: 500;
     font-size: 20px;
     color: var(--font-gray);
   `,
-  h5: css`
+  'h5': css`
     font-weight: 500;
     font-size: 16px;
     color: var(--font-gray);
   `,
-  h6: css`
+  'h6': css`
     font-weight: 500;
     font-size: 14px;
     color: var(--font-gray);

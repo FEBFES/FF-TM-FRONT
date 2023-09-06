@@ -6,12 +6,10 @@ import { useNavigate } from 'react-router-dom';
 import { DotsIcon, FavoriteIcon } from '../../../../assets/icons/UtilsIcons';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchFavoriteToggle } from '../../store/projects.thunk';
-import { DropDown } from '../../../../ui/drop-down/drop-down';
 import { fetchDelProject } from '../../store/projects.thunk';
 import i18n from 'i18next';
-import { setCurProjId } from '../../../KanbanPage/store/kanban.slice';
-import { Text, Title } from '../../../../ui/typography';
-import { Space } from '../../../../ui/space/space';
+import { setCurProjId } from '../../../kanban-page/store/kanban.slice';
+import { Text, Title, DropDown, Space } from '../../../../ui';
 import {
   SProjectCard,
   SProjectFooter,

@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SNAPSHOTS: UI - AvatarGroup component - render 1`] = `
+<div
+  className="sc-hLclGa cnUtay"
+  style={
+    Object {
+      "marginRight": "-10px",
+    }
+  }
+>
+  <div
+    className="sc-grXZZQ hBExFD"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    style={
+      Object {
+        "right": "0px",
+        "zIndex": "1",
+      }
+    }
+  >
+    <div
+      className="sc-grXZZQ hBExFD"
+    >
+      <div
+        className="sc-eDnVMP iUtHUJ"
+      >
+        <img
+          bordered={true}
+          className="sc-bcPKhP djjAep"
+          size="s"
+          src="human.png"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

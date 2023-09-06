@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import i18n from 'i18next';
-import { InputField } from '../../../../ui/input-field/Input-field';
-import { Button } from '../../../../ui/button/button';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { fetchUpdateProject } from '../../../projects-page/store/projects.thunk';
-import { Text, Title } from '../../../../ui/typography';
-import { Space } from '../../../../ui/space/space';
+import { Space, InputField, Text, Title, Button } from '../../../../ui';
 import {
   SProjectContainter,
   SHeaderLeftSection,

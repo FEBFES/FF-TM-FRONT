@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SNAPSHOTS: UI - Confirm component - render 1`] = `
+<div
+  className="sc-bcPKhP erxbYN"
+  onClick={[Function]}
+  show={true}
+>
+  <div
+    className="sc-grXZZQ iBHSSL"
+    onClick={[Function]}
+  >
+    <div
+      className="sc-iBAaJG fQYHQA"
+    >
+      <h1
+        className="sc-jSwlEQ jinZDO"
+        size="h6"
+      >
+        ????
+      </h1>
+      <div
+        className="sc-ftLKQv jQqpnh"
+      >
+        <button
+          className="sc-eDnVMP kLJHxi"
+          onClick={[Function]}
+          variant="danger"
+        />
+        <button
+          className="sc-eDnVMP hSYRyU"
+          onClick={[Function]}
+          variant="primary"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

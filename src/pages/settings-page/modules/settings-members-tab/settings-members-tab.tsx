@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Title, Text } from '../../../../ui/typography';
+import { Title, Text, Button } from '../../../../ui';
 import i18n from 'i18next';
-import { IMember } from '../../../KanbanPage/store/kanban.type';
+import { IMember } from '../../../kanban-page/store/kanban.type';
 import { MemberCard } from '../../components/member-card/member-card';
-import { Button } from '../../../../ui/button/button';
 import { useTypedSelector } from '../../../../hooks/redux';
 import { SMemberCont, SMemberContHeader } from './settings-members-tab.styled';
 import { AddMemberToProjModal } from '../../../../components/add-member-to-proj-modal/add-member-to-proj-modal';

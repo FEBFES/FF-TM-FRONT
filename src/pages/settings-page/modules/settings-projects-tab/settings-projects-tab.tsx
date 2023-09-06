@@ -1,10 +1,8 @@
 import React from 'react';
 import { useTypedSelector } from '../../../../hooks/redux';
 import i18n from 'i18next';
-import { ColumnsSection } from '../../components/columns-section/columns-section';
-import { ProjectSection } from '../../components/project-section/project-section';
-import { Title } from '../../../../ui/typography';
-import { Space } from '../../../../ui/space/space';
+import { ColumnsSection, ProjectSection } from '../../components';
+import { Title, Space } from '../../../../ui';
 
 export const SettingsProjectsTab: React.FC = (): JSX.Element => {
   const projectName = useTypedSelector((state) => state.curProj.projectName);

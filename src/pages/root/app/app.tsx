@@ -2,8 +2,7 @@ import React from 'react';
 import { useTypedSelector } from '../../../hooks/redux';
 import { useTheme } from '../../../hooks/useTheme';
 import { useLocales } from '../../../hooks/useLocales';
-import { AuthAppRoutes } from '../modules/auth-app-routes/auth-app-routes';
-import { NotAuthAppRoutes } from '../modules/not-auth-app-routes/not-auth-app-routes';
+import { AuthAppRoutes, NotAuthAppRoutes } from '../modules';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
