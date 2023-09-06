@@ -8,15 +8,13 @@ import { Switcher, Modal, Button, Text } from '../../../../ui';
 import {
   PrioritySelect,
   IPriorityType,
-} from '../../components/priority-select/priority-select';
-import {
   ITypeSelectType,
   TypeSelect,
-} from '../../components/type-select/type-select';
+  MemberCard,
+  IColumns,
+} from '../../components';
 import i18n from 'i18next';
 import { IMember } from '../../store/kanban.type';
-import { MemberCard } from '../../components/member-card/member-card';
-import { IColumns } from '../../components/column/column';
 import { AddAssigneeModal } from '../add-assignee-modal/add-assignee-modal';
 import {
   SContainer,

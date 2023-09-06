@@ -1,6 +1,5 @@
 import React from 'react';
-import { IColumns } from '../column/column';
-import { Column } from '../column/column';
+import { Column, IColumns } from '../index';
 import { v4 } from 'uuid';
 import { SColumnContainer } from './column-view.styled';
 

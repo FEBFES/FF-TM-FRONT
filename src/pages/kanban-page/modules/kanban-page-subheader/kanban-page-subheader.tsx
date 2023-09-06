@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { FilterCard } from '../../components/filter-card/filter-card';
-import { PrioritySelect } from '../../components/priority-select/priority-select';
 import {
+  FilterCard,
+  PrioritySelect,
+  IPriorityType,
   ITypeSelectType,
   TypeSelect,
-} from '../../components/type-select/type-select';
-import { IPriorityType } from '../../components/priority-select/priority-select';
+  KanbanViewSwitcher,
+} from '../../components';
+
 import i18n from 'i18next';
-import { KanbanViewSwitcher } from '../../components/kanban-view-switcher/kanban-view-switcher';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import {
   clearAllFilters,

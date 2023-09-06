@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { CloseIcon } from '../../../../assets/icons/UtilsIcons';
 import { useTypedSelector } from '../../../../hooks/redux';
 import i18n from 'i18next';
-import { FilesTab } from '../../components/files-tab/files-tab';
+import { FilesTab, IFile } from '../../components';
 import moment from 'moment';
-import { IFile } from '../../components/task-card/task-card.type';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 import {
   Title,

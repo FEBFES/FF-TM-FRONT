@@ -1,8 +1,7 @@
 import React from 'react';
-import { IColumns } from '../column/column';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { ITask } from '../task-card/task-card.type';
+import { ITask, IColumns } from '../index';
 import { v4 } from 'uuid';
 import { TaskRowCard } from '../task-row-card/task-row-card';
 import { Button, Title } from '../../../../ui';

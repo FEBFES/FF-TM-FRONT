@@ -1,8 +1,7 @@
 import React from 'react';
 import { SRowContainer } from './row-view.styled';
-import { IColumns } from '../column/column';
+import { IColumns, Row } from '../index';
 import { v4 } from 'uuid';
-import { Row } from '../row/row';
 
 interface RowViewProps {
   columns: IColumns[];
