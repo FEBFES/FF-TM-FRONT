@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import styles from '../../modules/TaskWindow/TaskWindow.module.css';
+// import styles from '../../modules/TaskWindow/TaskWindow.module.css';
 import i18n from 'i18next';
 import { instance } from '../../../../api/http';
 import { useTypedSelector } from '../../../../hooks/redux';
@@ -45,22 +45,31 @@ export const FilesTab: React.FC<FilesTabProps> = ({
       setFiles(newArr);
     });
   };
-
+  // TODO ALL STYLES
   return (
-    <div className={styles.filesUploadContainer}>
-      <div className={styles.fileInput__container}>
-        <label className={styles.fileInput_label} htmlFor="inputFIle">
+    <div
+    // className={styles.filesUploadContainer}
+    >
+      <div
+      // className={styles.fileInput__container}
+      >
+        <label
+          // className={styles.fileInput_label}
+          htmlFor="inputFIle"
+        >
           {i18n.t('pages.kanban.taskWindow.tabs.files.uploadText')}
         </label>
         <input
           id={'inputFIle'}
-          className={styles.fileInput}
+          // className={styles.fileInput}
           onChange={uploadNewFile}
           type={'file'}
         />
       </div>
 
-      <ul className={`${styles.fileCont} scrollbar`}>
+      <ul
+      // className={`${styles.fileCont} scrollbar`}
+      >
         {files.map((file: IFile) => {
           return (
             <FileCard

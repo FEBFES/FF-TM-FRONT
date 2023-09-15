@@ -5,7 +5,10 @@ import i18n from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons/faTrashCan';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
-import { fetchDeleteMemberFromProject } from '../../../kanban-page/store/kanban.thunk';
+import {
+  fetchChangeMemberRole,
+  fetchDeleteMemberFromProject,
+} from '../../../kanban-page/store/kanban.thunk';
 import {
   Space,
   Avatar,
@@ -45,8 +48,19 @@ export const MemberCard: React.FC<MemberCardProps> = ({
 
       <Flex>
         <Select
-          // onlyView={true}
-          defaultValue={member.role}
+          onChange={(role: IMemberRole) => {
+            projId &&
+              member.id &&
+              dispatch(
+                fetchChangeMemberRole({
+                  roleName: role,
+                  projId: projId,
+                  userId: member.id,
+                })
+              );
+          }}
+          onlyView={false}
+          defaultValue={member.roleOnProject}
           optionsArr={memberRoles}
         />
         <Space />

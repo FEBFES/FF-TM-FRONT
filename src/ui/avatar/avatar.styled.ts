@@ -10,25 +10,25 @@ const sizes: StyledVariants<AvatarSizesType> = {
     width: 12px;
     height: 12px;
   `,
-  'xs': css`
+  xs: css`
     width: 16px;
     height: 16px;
   `,
-  's': css`
+  s: css`
     min-width: 24px;
     min-height: 24px;
     max-width: 24px;
     max-height: 24px;
   `,
-  'm': css`
+  m: css`
     width: 32px;
     height: 32px;
   `,
-  'l': css`
+  l: css`
     width: 48px;
     height: 48px;
   `,
-  'xl': css`
+  xl: css`
     width: 64px;
     height: 64px;
   `,
@@ -36,7 +36,7 @@ const sizes: StyledVariants<AvatarSizesType> = {
     width: 128px;
     height: 128px;
   `,
-  'fit': css`
+  fit: css`
     width: 100%;
     height: 100%;
   `,

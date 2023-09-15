@@ -28,7 +28,7 @@ export type StyledVariants<E extends string> = {
 };
 
 const buttonsVariants: StyledVariants<IButtonVariant> = {
-  'submit': css`
+  submit: css`
     background: #168d1b;
     color: #ffffff;
 
@@ -36,7 +36,7 @@ const buttonsVariants: StyledVariants<IButtonVariant> = {
       background-color: #20b427;
     }
   `,
-  'danger': css`
+  danger: css`
     background: #fc4143;
     color: white;
 
@@ -44,7 +44,7 @@ const buttonsVariants: StyledVariants<IButtonVariant> = {
       background-color: #ff585a;
     }
   `,
-  'primary': css`
+  primary: css`
     color: white;
     background: var(--bg-primary);
 
@@ -52,7 +52,7 @@ const buttonsVariants: StyledVariants<IButtonVariant> = {
       background-color: #1677ff;
     }
   `,
-  'secondary': css`
+  secondary: css`
     background: #606060;
     color: white;
 

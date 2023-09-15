@@ -5,15 +5,18 @@ interface SelectProps {
   defaultValue: string;
   optionsArr: string[];
   onlyView?: boolean;
+  onChange: Function;
 }
 
 export const Select: React.FC<SelectProps> = ({
   defaultValue,
   optionsArr,
   onlyView = false,
+  onChange,
 }): JSX.Element => {
   const changeHandler = (e: any) => {
     e.preventDefault();
+    onChange(e.target.value);
   };
 
   return (
@@ -21,7 +24,6 @@ export const Select: React.FC<SelectProps> = ({
       disabled={onlyView}
       onlyView={onlyView}
       defaultValue={defaultValue}
-      onClick={changeHandler}
       onChange={changeHandler}
     >
       {optionsArr.map((option: string, index: number) => {

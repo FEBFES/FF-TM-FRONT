@@ -29,6 +29,7 @@ export const SettingsMembersTab: React.FC<
             {i18n.t('utils.buttons.add')}
           </Button>
         </SMemberContHeader>
+
         {members.map((member: IMember, i: number) => {
           return <MemberCard member={member} key={i} />;
         })}
