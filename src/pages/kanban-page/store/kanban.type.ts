@@ -6,7 +6,7 @@ export interface IMember {
   lastName: string | null;
   userPic: string | null;
   username: string | null;
-  role: IMemberRole;
+  roleOnProject: IMemberRole;
 }
 
 export type IMemberRole = 'MEMBER' | 'MEMBER_PLUS' | 'OWNER';

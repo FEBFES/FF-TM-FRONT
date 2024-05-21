@@ -9,7 +9,7 @@ import {
   fetchUploadNewUserAvatar,
 } from '../../../../store/user/user.thunk';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
-import { Title, Text, InputField, Space, Button, Avatar } from '../../../../ui';
+import { Typography, Input, Space, Button, Avatar } from 'antd';
 import {
   SUserBackground,
   SButtonsContainer,
@@ -104,14 +104,13 @@ export const SettingsProfileTab: React.FC<
 
   return (
     <>
-      <Title level={'h3'}>{i18n.t('pages.settings.tabs.profile.title')}</Title>
-      <Space direction={'col'} size={'xl'} />
+      <Typography>{i18n.t('pages.settings.tabs.profile.title')}</Typography>
+      <Space />
 
       <SUserBackground />
 
       <SUserAvatarContainer>
         <Avatar
-          size={'2xl'}
           src={getAvatarUrlOrHuman(userAvatar)}
           alt={i18n.t('utils.any.avatar')}
         />
@@ -127,44 +126,41 @@ export const SettingsProfileTab: React.FC<
       </SUserAvatarContainer>
 
       <>
-        <Title level={'h4'}>
+        <Typography>
           {i18n.t('pages.settings.tabs.profile.sectionTitle')}
-        </Title>
-        <Text>{i18n.t('pages.settings.tabs.profile.sectionSubTitle')}</Text>
-        <Space direction={'col'} size={'m'} />
+        </Typography>
+        <Typography>
+          {i18n.t('pages.settings.tabs.profile.sectionSubTitle')}
+        </Typography>
+        <Space />
 
-        <InputField
-          withLabel
+        <Input
           value={inputEmail}
           onChange={(e) => setInputEmail(e.target.value)}
           placeholder={i18n.t('utils.any.email')}
           type={'text'}
         />
-        <InputField
-          withLabel
+        <Input
           value={inputUsername}
           onChange={(e) => setInputUsername(e.target.value)}
           placeholder={i18n.t('utils.any.username')}
           type={'text'}
         />
-        <InputField
-          withLabel
+        <Input
           value={inputFirstName}
           onChange={(e) => setInputFirstName(e.target.value)}
           placeholder={i18n.t('utils.any.firstname')}
           type={'text'}
         />
-        <InputField
-          withLabel
+        <Input
           value={inputLastName}
-          onChange={(e) => setInputLastName(e.target.value)}
+          onChange={(e: any) => setInputLastName(e.target.value)}
           placeholder={i18n.t('utils.any.lastname')}
           type={'text'}
         />
-        <InputField
-          withLabel
+        <Input
           value={inputDisplayName}
-          onChange={(e) => setInputUserDisplayName(e.target.value)}
+          onChange={(e: any) => setInputUserDisplayName(e.target.value)}
           placeholder={i18n.t('utils.any.displayName')}
           type={'text'}
         />
@@ -172,15 +168,11 @@ export const SettingsProfileTab: React.FC<
 
       <SButtonsContainer>
         {!btnDisabled && (
-          <Button variant={'danger'} onClick={resetInputsData}>
+          <Button onClick={resetInputsData}>
             {i18n.t('utils.buttons.reset')}
           </Button>
         )}
-        <Button
-          disabled={btnDisabled}
-          variant={'primary'}
-          onClick={changeUserInfo}
-        >
+        <Button disabled={btnDisabled} onClick={changeUserInfo}>
           {i18n.t('utils.buttons.update')}
         </Button>
       </SButtonsContainer>

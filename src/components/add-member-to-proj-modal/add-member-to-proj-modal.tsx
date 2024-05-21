@@ -5,7 +5,7 @@ import { IMember } from '../../pages/kanban-page/store/kanban.type';
 import { MemberCard } from '../../pages/kanban-page/components/member-card/member-card';
 import { instance } from '../../api/http';
 import { fetchAddMemberToProject } from '../../pages/kanban-page/store/kanban.thunk';
-import { Title, Modal, InputField, Button, AvatarGroup } from '../../ui';
+import { Typography, Modal, Input, Button } from 'antd';
 import { CloseIcon } from '../../assets/icons/UtilsIcons';
 
 interface AddMemberToProjModalProps {
@@ -49,10 +49,10 @@ export const AddMemberToProjModal: React.FC<AddMemberToProjModalProps> = ({
   };
 
   return (
-    <Modal show={show} setShow={setShow}>
+    <Modal open={show}>
       <div className={styles.modal}>
         <div className={styles.modal__header}>
-          <Title level={'h4'}>Добавить участника</Title>
+          <Typography>Добавить участника</Typography>
 
           <div onClick={() => setShow(false)}>
             <CloseIcon />
@@ -60,8 +60,7 @@ export const AddMemberToProjModal: React.FC<AddMemberToProjModalProps> = ({
         </div>
 
         <div className={styles.modal__search}>
-          <InputField
-            withLabel
+          <Input
             placeholder={'Введите логин или email'}
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
@@ -84,14 +83,14 @@ export const AddMemberToProjModal: React.FC<AddMemberToProjModalProps> = ({
 
         {selectedUsers.length !== 0 && (
           <div className={styles.modal__selectedUsers}>
-            <AvatarGroup members={selectedUsers} avatarSize={'m'} />
+            //todo
+            {/*<AvatarGroup members={selectedUsers} avatarSize={'m'} />*/}
           </div>
         )}
 
         <div className={styles.modal__footer}>
           <Button
             disabled={selectedUsers.length === 0}
-            variant={'secondary'}
             onClick={() => setSelectedUsers([])}
           >
             Отмена

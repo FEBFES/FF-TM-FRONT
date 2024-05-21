@@ -6,6 +6,7 @@ import { IPriorityType } from '../components/priority-select/priority-select';
 import { ITypeSelectType } from '../components/type-select/type-select';
 import { IColumns } from '../components/column/column';
 import { ITask } from '../components/task-card/task-card.type';
+import { IMemberRole } from './kanban.type';
 
 // Get task info
 export const fetchGetTaskInfo = createAsyncThunk(
@@ -71,6 +72,31 @@ export const fetchGetProjectMembers = createAsyncThunk(
   async ({ projId }: { projId: number }, { rejectWithValue }) => {
     try {
       const res = await instance.get(`projects/${projId}/members`);
+
+      if (res.status === 200) {
+        return res.data;
+      }
+    } catch (err) {
+      return rejectWithValue(err as AxiosError);
+    }
+  }
+);
+
+//Change member role
+export const fetchChangeMemberRole = createAsyncThunk(
+  'project/fetchChangeMemberRole',
+  async (
+    {
+      roleName,
+      projId,
+      userId,
+    }: { roleName: IMemberRole; projId: number; userId: number },
+    { rejectWithValue }
+  ) => {
+    try {
+      const res = await instance.post(
+        `roles/${roleName}/projects/${projId}/users/${userId}/`
+      );
 
       if (res.status === 200) {
         return res.data;

@@ -5,7 +5,7 @@ import { ColumnCard } from '../column-card/column-card';
 import { AddColModal } from '../add-col-modal/add-col-modal';
 import { fetchDelCol } from '../../../kanban-page/store/kanban.thunk';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
-import { Space, Button, Title, Text, Confirm } from '../../../../ui';
+import { Typography, Space, Button } from 'antd';
 import {
   SColumnContainer,
   SColumnContHeader,
@@ -34,15 +34,17 @@ export const ColumnsSection: React.FC<
       <SColumnContainer>
         <SColumnContHeader>
           <div>
-            <Title level={'h5'}>
+            <Typography>
               {i18n.t('pages.settings.tabs.project.column.subtitle')}
-            </Title>
-            <Text>{i18n.t('pages.settings.tabs.project.column.text')}</Text>
+            </Typography>
+            <Typography>
+              {i18n.t('pages.settings.tabs.project.column.text')}
+            </Typography>
           </div>
 
-          <Space direction="col" size={'s'} />
+          <Space />
 
-          <Button variant={'primary'} onClick={() => setShowAddColModal(true)}>
+          <Button onClick={() => setShowAddColModal(true)}>
             {i18n.t('pages.settings.tabs.project.column.addNew')}
           </Button>
         </SColumnContHeader>
@@ -57,21 +59,20 @@ export const ColumnsSection: React.FC<
           );
         })}
       </SColumnContainer>
-
       {isChanged && (
         <SColumnContFooter>
-          <Button variant={'danger'}>Cancel</Button>
-          <Button variant={'submit'}>Save</Button>
+          <Button>Cancel</Button>
+          <Button>Save</Button>
         </SColumnContFooter>
       )}
-
       <AddColModal show={showAddColModal} setShow={setShowAddColModal} />
-      <Confirm
-        show={showConfirmModal}
-        setShow={setShowConfirmModal}
-        title={i18n.t('pages.settings.tabs.project.column.confirm.delete')}
-        onConfirm={() => dispatch(fetchDelCol(curCol))}
-      />
+      //todo
+      {/*<Confirm*/}
+      {/*  show={showConfirmModal}*/}
+      {/*  setShow={setShowConfirmModal}*/}
+      {/*  title={i18n.t('pages.settings.tabs.project.column.confirm.delete')}*/}
+      {/*  onConfirm={() => dispatch(fetchDelCol(curCol))}*/}
+      {/*/>*/}
     </>
   );
 };

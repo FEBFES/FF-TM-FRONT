@@ -1,7 +1,7 @@
 import React from 'react';
 import i18n from 'i18next';
 import { useTypedSelector } from '../../../../hooks/redux';
-import { Title, Space } from '../../../../ui';
+import { Typography, Space } from 'antd';
 import { sidebarLinks } from './links';
 import {
   SSidebar,
@@ -19,14 +19,14 @@ export const SettingsSidebar: React.FC<
 
   return (
     <SSidebar>
-      <Title level={'h2'}>{i18n.t('pages.settings.sidebar.title')}</Title>
-      <Space direction={'col'} size={'xl'} />
+      <Typography>{i18n.t('pages.settings.sidebar.title')}</Typography>
+      <Space />
 
       {sidebarLinks.map((link, i) => {
         if (link.needCurProjInfo && !curProj) return null;
         return (
           <SSidebarLinkContainer key={i}>
-            <Title level={'h4'}>{i18n.t(link.title)}</Title>
+            <Typography>{i18n.t(link.title)}</Typography>
             <SSidebarLinkSubCont>
               {link.children.map((subLink, index) => {
                 if (link.needCurProjInfo && !curProj) return null;

@@ -18,7 +18,7 @@ import {
 import { AddMemberToProjModal } from '../../../../components/add-member-to-proj-modal/add-member-to-proj-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
-import { Flex, Space, AvatarGroup } from '../../../../ui';
+import { Space, Flex } from 'antd';
 import {
   SSubHeader,
   SClearFiltersButton,
@@ -37,16 +37,17 @@ export const KanbanPageSubheader: React.FC = () => {
 
   return (
     <SSubHeader>
-      <Flex jc={'start'}>
+      <Flex>
         <KanbanViewSwitcher />
-        <Space direction="row" size={'l'} />
-        <AvatarGroup placement={'top'} members={members} avatarSize={'s'} />
+        <Space />
+        //todo
+        {/*<AvatarGroup placement={'top'} members={members} avatarSize={'s'} />*/}
         <SIcon onClick={() => setShowAddMemberModal(true)}>
           <FontAwesomeIcon icon={faUserPlus} size={'sm'} />
         </SIcon>
       </Flex>
 
-      <Flex ai={'center'}>
+      <Flex>
         <FilterCard
           title={i18n.t('utils.any.type')}
           component={

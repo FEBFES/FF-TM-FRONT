@@ -4,7 +4,7 @@ import {
   EyeIcons,
   FullIcon,
 } from '../../../../assets/icons/UtilsIcons';
-import { Switcher, Modal, Button, Text } from '../../../../ui';
+import { Typography, Button, Input, Modal } from 'antd';
 import {
   PrioritySelect,
   IPriorityType,
@@ -69,14 +69,14 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
   };
 
   return (
-    <Modal show={show} setShow={setShow}>
+    <Modal open={show}>
       <SContainer>
         <SHeader>
           <SHeaderLeft>
-            <Text>
+            <Typography>
               {/*//todo*/}
               {i18n.t('utils.any.status')}: {curCol?.name}
-            </Text>
+            </Typography>
           </SHeaderLeft>
 
           <SHeaderRight>
@@ -100,13 +100,13 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
         </SHeader>
 
         <SMainSection>
-          <SInputField
+          <Input
             type={'text'}
             value={name}
             placeholder={i18n.t('utils.any.name')}
             onChange={(e) => setName(e.target.value)}
           />
-          <SInputField
+          <Input
             type={'text'}
             value={description}
             placeholder={i18n.t('utils.any.description')}
@@ -135,7 +135,7 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
 
             <SAdditionallyRight>
               <SAssigneeCcontainer>
-                <Text>{i18n.t('utils.any.assignee')}:</Text>
+                <Typography>{i18n.t('utils.any.assignee')}:</Typography>
                 {curAssignee === null ? (
                   <AddAssigneeModal
                     setShowAssignee={setShowAssignee}
@@ -156,13 +156,14 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
 
         <SFooter>
           <SCheckbox>
-            <Text>
+            <Typography>
               {i18n.t('pages.kanban.components.modal.add.createMultiple')}:
-            </Text>
-            <Switcher
-              onClick={() => setIsMultiple((prevState) => !prevState)}
-              isActive={isMultiple}
-            />
+            </Typography>
+            //todo
+            {/*<Switcher*/}
+            {/*  onClick={() => setIsMultiple((prevState) => !prevState)}*/}
+            {/*  isActive={isMultiple}*/}
+            {/*/>*/}
           </SCheckbox>
           <Button
             onClick={() => {
@@ -179,7 +180,6 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
                 setShow(false);
               }
             }}
-            variant={'primary'}
           >
             {i18n.t('utils.buttons.create')}
           </Button>

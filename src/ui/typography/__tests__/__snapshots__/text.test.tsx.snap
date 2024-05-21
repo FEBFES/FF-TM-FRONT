@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`SNAPSHOTS: UI - Text component - render 1`] = `
-<p
-  className="sc-bcPKhP dKWSvg"
->
-  linka
-</p>
-`;

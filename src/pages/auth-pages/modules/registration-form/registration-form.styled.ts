@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button } from '../../../../ui/button/button';
+import { Button } from 'antd';
 
 export const SRegistrationForm = styled.div`
   display: flex;

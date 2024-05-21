@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Button } from '../../../../ui/button/button';
 
 export const SLoginForm = styled.div`
   display: flex;
@@ -9,8 +8,4 @@ export const SLoginForm = styled.div`
   @media screen and (max-width: 580px) {
     width: 80%;
   }
-`;
-
-export const SButtonSubmit = styled(Button)`
-  margin: 20px 0 0 !important;
 `;

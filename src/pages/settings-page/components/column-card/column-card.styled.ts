@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { InputField } from '../../../../ui/input-field/Input-field';
+import { Input } from 'antd';
 
 export const SColumn = styled.div<{ isEdit: boolean }>`
   padding: 10px;
@@ -32,7 +32,7 @@ export const SButton = styled.div`
   transition: 0.2s;
 `;
 
-export const SInputField = styled(InputField)`
+export const SInputField = styled(Input)`
   font-size: 16px;
   color: var(--font-defautl);
   border: none;
