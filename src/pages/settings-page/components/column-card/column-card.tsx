@@ -9,11 +9,10 @@ import {
 import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchUpdateCol } from '../../../kanban-page/store/kanban.thunk';
 import i18n from 'i18next';
-import { Text, Title, Flex, Tooltip } from '../../../../ui';
+import { Typography, Input, Flex, Tooltip } from 'antd';
 import { IColumns } from '../../../kanban-page/components/column/column';
 import {
   SColumn,
-  SInputField,
   STrashButton,
   SEditButton,
   SSaveButton,
@@ -47,12 +46,11 @@ export const ColumnCard: React.FC<ColumnCardProps> = ({
   return (
     <SColumn isEdit={isEditMode}>
       <Flex dir={'col'}>
-        <Text>#{column.id}</Text>
-        <Title level={'h6'}>
+        <Typography>#{column.id}</Typography>
+        <Typography>
           {isEditMode ? (
             <div>
-              <SInputField
-                withLabel
+              <Input
                 value={colName}
                 //TODO удален, проверить и удалить комментарий и саму строчку
                 // containerStyle={styles.inputCont}
@@ -62,10 +60,10 @@ export const ColumnCard: React.FC<ColumnCardProps> = ({
           ) : (
             <span>{column.name}</span>
           )}{' '}
-        </Title>
+        </Typography>
       </Flex>
 
-      <Flex ai={'center'}>
+      <Flex>
         {isEditMode ? (
           <Tooltip title={i18n.t('utils.buttons.cancel')}>
             <STrashButton onClick={editModeToggle}>

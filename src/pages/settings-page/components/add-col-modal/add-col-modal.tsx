@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Button, InputField, Title } from '../../../../ui';
+import { Typography, Input, Modal, Button } from 'antd';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { fetchAddNewCol } from '../../../kanban-page/store/kanban.thunk';
 import i18n from 'i18next';
@@ -39,26 +39,24 @@ export const AddColModal: React.FC<AddColModalProps> = ({
   };
 
   return (
-    <Modal show={show} setShow={setShow}>
+    <Modal open={show}>
       <SModalContainer>
         <SModalHeader>
-          <Title level={'h6'}>
+          <Typography>
             {i18n.t('pages.settings.tabs.project.column.addNew')}
-          </Title>
+          </Typography>
 
           {/*<Button theme={'close'} onClick={() => setShow(false)} />*/}
         </SModalHeader>
 
         <SModalMain>
-          <InputField
-            withLabel
+          <Input
             value={colName}
             onChange={(e) => setColName(e.target.value)}
             placeholder={i18n.t('utils.any.name')}
             type={'text'}
           />
-          <InputField
-            withLabel
+          <Input
             value={colDesc}
             onChange={(e) => setColDesc(e.target.value)}
             placeholder={i18n.t('utils.any.description')}
@@ -67,14 +65,10 @@ export const AddColModal: React.FC<AddColModalProps> = ({
         </SModalMain>
 
         <SModalFooter>
-          <Button variant={'secondary'} onClick={() => setShow(false)}>
+          <Button onClick={() => setShow(false)}>
             {i18n.t('utils.buttons.back')}
           </Button>
-          <Button
-            disabled={colName === ''}
-            variant={'primary'}
-            onClick={addNewColumn}
-          >
+          <Button disabled={colName === ''} onClick={addNewColumn}>
             {i18n.t('utils.buttons.create')}
           </Button>
         </SModalFooter>

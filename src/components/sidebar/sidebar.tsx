@@ -16,7 +16,7 @@ import {
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { setSidebarView } from '../../pages/root/store/app-slice';
-import { Space, Title } from '../../ui';
+import { Space, Typography } from 'antd';
 import { isMobile } from 'react-device-detect';
 import {
   SSidebar,
@@ -108,9 +108,9 @@ export const Sidebar: React.FC = (): JSX.Element => {
               to={link.to}
             >
               <FontAwesomeIcon icon={link.icon} />
-              <Space size={'xs'} />
+              <Space />
               {isFullView && (
-                <Title level={'h6'}>{i18n.t(link.title) || ''}</Title>
+                <Typography>{i18n.t(link.title) || ''}</Typography>
               )}
             </SLink>
           );

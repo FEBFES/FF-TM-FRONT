@@ -5,7 +5,7 @@ import { useTheme } from '../../../../hooks/useTheme';
 import { fetchFavoriteToggle } from '../../../projects-page/store/projects.thunk';
 import { fetchGetProjectMembers } from '../../store/kanban.thunk';
 import { SearchInput } from '../../components/search-input/search-input';
-import { Breadcrumbs, Switcher, Flex, Title, Divider } from '../../../../ui';
+import { Typography, Flex, Breadcrumb, Divider } from 'antd';
 import i18n from 'i18next';
 import { appRoutsPath } from '../../../../routing/routs';
 import { SHeader, SFavoriteButton } from './kanban-page-header.styled';
@@ -30,9 +30,9 @@ export const KanbanPageHeader: React.FC<
   return (
     <SHeader>
       <Flex dir={'col'}>
-        <Title level={'h4'}>{projectName || ''}</Title>
+        <Typography>{projectName || ''}</Typography>
 
-        <Breadcrumbs
+        <Breadcrumb
           items={[
             {
               href: appRoutsPath.ProjectPage.path,
@@ -44,10 +44,11 @@ export const KanbanPageHeader: React.FC<
           // separator
         />
       </Flex>
-      <Flex ai={'center'} jc={'between'}>
-        <Switcher isActive={theme === 'dark'} onClick={changeTheme} />
+      <Flex>
+        //todo
+        {/*<Switcher isActive={theme === 'dark'} onClick={changeTheme} />*/}
         <SearchInput />
-        <Divider direction="col" />
+        <Divider />
         <SFavoriteButton
           onClick={() =>
             dispatch(

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from '../../../../ui/typography';
+import { Typography } from 'antd';
 import { SContainer, SFilter, SComponentCont } from './filter-card.styled';
 
 export interface FilterCardProps {
@@ -14,7 +14,7 @@ export const FilterCard: React.FC<FilterCardProps> = ({
   return (
     <SContainer>
       <SFilter>
-        <Text>{title}:</Text>
+        <Typography>{title}:</Typography>
       </SFilter>
       <SComponentCont>{component}</SComponentCont>
     </SContainer>

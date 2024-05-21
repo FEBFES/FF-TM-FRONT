@@ -3,13 +3,8 @@ import { ArrowIcon } from '../../assets/icons/UtilsIcons';
 import { useNavigate } from 'react-router-dom';
 import { appRoutsPath } from '../../routing/routs';
 import { useTranslation } from 'react-i18next';
-import { Title, Text } from '../../ui/typography';
-import {
-  SButtonContainer,
-  SPage,
-  SPrevButton,
-  SHomeButton,
-} from './not-found-page.styled';
+import { Typography, Button } from 'antd';
+import { SButtonContainer, SPage } from './not-found-page.styled';
 
 export const NotFoundPage = () => {
   const { t } = useTranslation();
@@ -17,21 +12,18 @@ export const NotFoundPage = () => {
 
   return (
     <SPage>
-      <Title level={'h5'}>{t('pages.notFoundPage.titleCode')}</Title>
-      <Text>{t('pages.notFoundPage.title')}</Text>
-      <Text>{t('pages.notFoundPage.subTitle')}</Text>
+      <Typography>{t('pages.notFoundPage.titleCode')}</Typography>
+      <Typography>{t('pages.notFoundPage.title')}</Typography>
+      <Typography>{t('pages.notFoundPage.subTitle')}</Typography>
 
       <SButtonContainer>
-        <SPrevButton onClick={() => navigate(-1)} variant={'secondary'}>
+        <Button onClick={() => navigate(-1)}>
           <ArrowIcon />
           {t('pages.notFoundPage.backButton')}
-        </SPrevButton>
-        <SHomeButton
-          onClick={() => navigate(appRoutsPath.ProjectPage.path)}
-          variant={'primary'}
-        >
+        </Button>
+        <Button onClick={() => navigate(appRoutsPath.ProjectPage.path)}>
           {t('pages.notFoundPage.homeButton')}
-        </SHomeButton>
+        </Button>
       </SButtonContainer>
     </SPage>
   );

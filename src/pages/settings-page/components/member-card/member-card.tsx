@@ -9,15 +9,7 @@ import {
   fetchChangeMemberRole,
   fetchDeleteMemberFromProject,
 } from '../../../kanban-page/store/kanban.thunk';
-import {
-  Space,
-  Avatar,
-  Flex,
-  Select,
-  Tooltip,
-  Title,
-  Text,
-} from '../../../../ui';
+import { Space, Avatar, Flex, Select, Tooltip, Typography } from 'antd';
 import {
   SMemberCard,
   SMemberCardInfo,
@@ -41,28 +33,28 @@ export const MemberCard: React.FC<MemberCardProps> = ({
       <SMemberCardLeft>
         <Avatar src={getAvatarUrlOrHuman(member.userPic)} />
         <SMemberCardInfo>
-          <Title level={'h6'}>{member.email}</Title>
-          <Text>{member.username}</Text>
+          <Typography>{member.email}</Typography>
+          <Typography>{member.username}</Typography>
         </SMemberCardInfo>
       </SMemberCardLeft>
 
       <Flex>
-        <Select
-          onChange={(role: IMemberRole) => {
-            projId &&
-              member.id &&
-              dispatch(
-                fetchChangeMemberRole({
-                  roleName: role,
-                  projId: projId,
-                  userId: member.id,
-                })
-              );
-          }}
-          onlyView={false}
-          defaultValue={member.roleOnProject}
-          optionsArr={memberRoles}
-        />
+        //todo
+        {/*<Select*/}
+        {/*  onChange={(role: IMemberRole) => {*/}
+        {/*    projId &&*/}
+        {/*      member.id &&*/}
+        {/*      dispatch(*/}
+        {/*        fetchChangeMemberRole({*/}
+        {/*          roleName: role,*/}
+        {/*          projId: projId,*/}
+        {/*          userId: member.id,*/}
+        {/*        })*/}
+        {/*      );*/}
+        {/*  }}*/}
+        {/*  defaultValue={member.roleOnProject}*/}
+        {/*  optionsArr={memberRoles}*/}
+        {/*/>*/}
         <Space />
         <Tooltip title={i18n.t('utils.buttons.delete')}>
           <STrashButton

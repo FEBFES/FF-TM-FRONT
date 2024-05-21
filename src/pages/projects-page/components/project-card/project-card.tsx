@@ -9,7 +9,7 @@ import { fetchFavoriteToggle } from '../../store/projects.thunk';
 import { fetchDelProject } from '../../store/projects.thunk';
 import i18n from 'i18next';
 import { setCurProjId } from '../../../kanban-page/store/kanban.slice';
-import { Text, Title, DropDown, Space } from '../../../../ui';
+import { Typography, Dropdown, Space } from 'antd';
 import {
   SProjectCard,
   SProjectFooter,
@@ -50,23 +50,27 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       </SProjectHeader>
 
       <SProjectMain>
-        <Title level={'h5'}>{proj.name || ''}</Title>
-        <Title level={'h6'}>{proj.description || ''}</Title>
+        <Typography>{proj.name || ''}</Typography>
+        <Typography>{proj.description || ''}</Typography>
       </SProjectMain>
 
-      <Space direction={'col'} size={'s'} />
+      <Space />
       <SProjectFooter>
-        <Text>
+        <Typography>
           {i18n.t('pages.kanban.main.card.create.date')}:{' '}
           {new Date(proj.createDate).toDateString() || ''}
-        </Text>
+        </Typography>
 
         <SDragDropContainer>
-          <DropDown show={showDropDown} setShow={setShowDropDown}>
-            <Text onClick={() => dispatch(fetchDelProject(proj.id))}>
+          <Dropdown
+            open={showDropDown}
+            //todo
+            // setShow={setShowDropDown}
+          >
+            <Typography onClick={() => dispatch(fetchDelProject(proj.id))}>
               {i18n.t('utils.buttons.delete')}
-            </Text>
-          </DropDown>
+            </Typography>
+          </Dropdown>
 
           <div
             onClick={(e) => {

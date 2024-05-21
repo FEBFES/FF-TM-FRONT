@@ -5,16 +5,7 @@ import { AttachmentsIcon } from '../../../../assets/icons/TaskIcons';
 import { fetchGetTaskInfo } from '../../store/kanban.thunk';
 import moment from 'moment';
 import { DotsIcon } from '../../../../assets/icons/UtilsIcons';
-import {
-  DropDown,
-  TaskLabel,
-  PriorityLabel,
-  Avatar,
-  Text,
-  Title,
-  Space,
-  Flex,
-} from '../../../../ui';
+import { Flex, Space, Typography, Avatar, Dropdown } from 'antd';
 import i18n from 'i18next';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 import { ITask } from './task-card.type';
@@ -63,64 +54,60 @@ export const TaskCard: React.FC<TaskCardProps> = ({
       draggable
       id={`${task.id}`}
     >
-      <Flex ai={'center'} jc={'between'}>
-        <Flex ai={'center'} jc={'start'}>
-          <PriorityLabel priority={task.priority} />
-          <Space size={'2xs'} />
-          <Title
-            // color: #989898; todo
-            level={'h6'}
+      <Flex>
+        <Flex>
+          //todo
+          {/*<PriorityLabel priority={task.priority} />*/}
+          <Space />
+          <Typography
+          // color: #989898; todo
           >
             #{task.id || ''}
-          </Title>
+          </Typography>
         </Flex>
 
         {task.assignee?.userPic && (
-          <Avatar
-            size={'s'}
-            src={getAvatarUrlOrHuman(task.assignee?.userPic)}
-          />
+          <Avatar src={getAvatarUrlOrHuman(task.assignee?.userPic)} />
         )}
       </Flex>
 
       <STaskMain>
-        <Title
-          hover={'underline'}
-          cursor={'pointer'}
-          level={'h6'}
-          className={'ellipsis_text'}
-          onClick={getTaskInfo}
-        >
+        <Typography className={'ellipsis_text'} onClick={getTaskInfo}>
           {task.name || ''}
-        </Title>
-        <Text>
+        </Typography>
+        <Typography>
           {/*todo Сделать авто смену локали и связать с i18n мб черзе хук */}
           {moment(task.createDate).locale('ru').format('MMM DD')}
-        </Text>
+        </Typography>
       </STaskMain>
 
       <STaskFooter>
-        <Flex ai={'center'}>
-          <TaskLabel type={task.type} />
+        <Flex>
+          //todo
+          {/*<TaskLabel type={task.type} />*/}
         </Flex>
 
-        <Flex ai={'center'}>
+        <Flex>
           {/*<div className={styles.task_attachments}>*/}
           {/*  <span className={styles.task_attachments_counter}>8</span>*/}
           {/*  <CommentsIcon />*/}
           {/*</div>*/}
           {task.filesCounter !== 0 && (
             <STaskAttachments>
-              <Text>{task.filesCounter || ''}</Text>
+              <Typography>{task.filesCounter || ''}</Typography>
               <AttachmentsIcon />
             </STaskAttachments>
           )}
           <STaskAttachments onClick={() => setShowDD(true)}>
-            <DropDown show={showDD} setShow={setShowDD}>
-              <Text onClick={() => delTask(task.columnId, task.id)}>
+            <Dropdown
+              open={showDD}
+              //todo
+              // setShow={setShowDD}
+            >
+              <Typography onClick={() => delTask(task.columnId, task.id)}>
                 {i18n.t('utils.buttons.delete')}
-              </Text>
-            </DropDown>
+              </Typography>
+            </Dropdown>
             <DotsIcon w={12} />
           </STaskAttachments>
         </Flex>

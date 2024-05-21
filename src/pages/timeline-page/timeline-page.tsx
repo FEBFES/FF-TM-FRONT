@@ -1,5 +1,5 @@
 import React from 'react';
-import { Title } from '../../ui/typography';
+import { Typography } from 'antd';
 
 interface TimelinePageProps {}
 
@@ -7,7 +7,7 @@ export const TimelinePage: React.FC<TimelinePageProps> = (): JSX.Element => {
   return (
     <div>
       {/* todo i18next */}
-      <Title>TimelinePage</Title>
+      <Typography>TimelinePage</Typography>
     </div>
   );
 };

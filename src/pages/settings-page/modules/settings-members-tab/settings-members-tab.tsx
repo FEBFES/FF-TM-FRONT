@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Title, Text, Button } from '../../../../ui';
+import { Typography, Button } from 'antd';
 import i18n from 'i18next';
 import { IMember } from '../../../kanban-page/store/kanban.type';
 import { MemberCard } from '../../components/member-card/member-card';
@@ -17,14 +17,14 @@ export const SettingsMembersTab: React.FC<
 
   return (
     <div>
-      <Title>{i18n.t('pages.settings.tabs.members.title')}</Title>
-      <Text>{i18n.t('pages.settings.tabs.members.subtitle')}</Text>
+      <Typography>{i18n.t('pages.settings.tabs.members.title')}</Typography>
+      <Typography>{i18n.t('pages.settings.tabs.members.subtitle')}</Typography>
 
       <SMemberCont>
         <SMemberContHeader>
-          <Title level={'h6'}>
+          <Typography>
             {i18n.t('pages.settings.sidebar.link.members')}: {members.length}
-          </Title>
+          </Typography>
           <Button onClick={() => setShowAddMemberModal(true)}>
             {i18n.t('utils.buttons.add')}
           </Button>

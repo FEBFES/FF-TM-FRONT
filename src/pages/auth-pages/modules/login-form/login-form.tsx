@@ -4,8 +4,8 @@ import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchLogin } from '../../store/auth.thunk';
 import { appRoutsPath } from '../../../../routing/routs';
 import { useTranslation } from 'react-i18next';
-import { SLoginForm, SButtonSubmit } from './login-form.styled';
-import { Divider, Title, Button, InputField } from '../../../../ui/';
+import { SLoginForm } from './login-form.styled';
+import { Typography, Divider, Button, Input } from 'antd';
 
 interface LoginFormProps {}
 
@@ -35,30 +35,29 @@ export const LoginForm: React.FC<LoginFormProps> = (): JSX.Element => {
 
   return (
     <SLoginForm>
-      <Title level={'h5'}>{t('pages.login.form.title')}</Title>
-      <InputField
+      <Typography>{t('pages.login.form.title')}</Typography>
+      <Input
         placeholder={t('pages.login.form.input.username.placeholder')}
         type={'text'}
         value={inputData.username}
         onChange={(e) => changeHandle(e.target.value, 'username')}
       />
-      <InputField
+      <Input
         placeholder={t('pages.login.form.input.password.placeholder')}
         type={'password'}
         value={inputData.password}
         onChange={(e) => changeHandle(e.target.value, 'password')}
       />
-      <SButtonSubmit onClick={submitHandler} variant={'primary'}>
+      <Button onClick={submitHandler}>
         {t('pages.login.form.button.submit')}
-      </SButtonSubmit>
+      </Button>
 
-      <Divider direction="col" />
+      <Divider />
 
       <Button
         onClick={() => {
           navigate(appRoutsPath.RegistrationPage.to);
         }}
-        variant={'submit'}
       >
         {t('pages.login.form.button.newAcc')}
       </Button>

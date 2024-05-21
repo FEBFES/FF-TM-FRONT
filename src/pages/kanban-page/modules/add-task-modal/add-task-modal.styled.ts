@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { InputField } from '../../../../ui';
+import { Input } from 'antd';
 
 export const SContainer = styled.div`
   border-radius: 8px;
@@ -47,7 +47,7 @@ export const SMainSection = styled.main`
   margin-top: 16px;
 `;
 
-export const SInputField = styled(InputField)`
+export const SInputField = styled(Input)`
   outline: none;
   font-weight: 600;
   font-size: 24px;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import i18n from 'i18next';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { fetchUpdateProject } from '../../../projects-page/store/projects.thunk';
-import { Space, InputField, Text, Title, Button } from '../../../../ui';
+import { Input, Typography, Button, Space } from 'antd';
 import {
   SProjectContainter,
   SHeaderLeftSection,
@@ -50,28 +50,29 @@ export const ProjectSection: React.FC<
     <SProjectContainter>
       <SProjectHeader>
         <SHeaderLeftSection>
-          <Title level={'h5'}>
+          <Typography>
             {i18n.t('pages.settings.tabs.section.project.title')}
-          </Title>
-          <Text>{i18n.t('pages.settings.tabs.section.project.subtitle')}</Text>
+          </Typography>
+          <Typography>
+            {i18n.t('pages.settings.tabs.section.project.subtitle')}
+          </Typography>
         </SHeaderLeftSection>
 
         {isEdit && (
           <SHeaderRightSection>
-            <Button onClick={() => clearInputs()} variant={'danger'}>
+            <Button onClick={() => clearInputs()}>
               {i18n.t('utils.buttons.cancel')}
             </Button>
-            <Button onClick={() => updateProjInfoHandler()} variant={'submit'}>
+            <Button onClick={() => updateProjInfoHandler()}>
               {i18n.t('utils.buttons.save')}
             </Button>
           </SHeaderRightSection>
         )}
       </SProjectHeader>
-      <Space direction={'col'} size={'xs'} />
+      <Space />
 
       <div>
-        <InputField
-          withLabel
+        <Input
           value={name}
           onChange={(e) => {
             setIsEdit(true);
@@ -80,8 +81,7 @@ export const ProjectSection: React.FC<
           placeholder={i18n.t('utils.any.name')}
         />
 
-        <InputField
-          withLabel
+        <Input
           value={desc}
           onChange={(e) => {
             setIsEdit(true);

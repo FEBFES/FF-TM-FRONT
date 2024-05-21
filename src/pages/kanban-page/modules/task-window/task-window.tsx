@@ -5,15 +5,7 @@ import i18n from 'i18next';
 import { FilesTab, IFile } from '../../components';
 import moment from 'moment';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
-import {
-  Title,
-  Space,
-  Tooltip,
-  Avatar,
-  PriorityLabel,
-  TaskLabel,
-  Flex,
-} from '../../../../ui';
+import { Typography, Flex, Tooltip, Space, Avatar } from 'antd';
 import {
   STaskWindowHeader,
   STaskWindow,
@@ -46,8 +38,8 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
   return (
     <STaskWindow>
       <STaskWindowHeader>
-        <Title level={'h4'}>#{task.id}</Title>
-        <Flex ai={'center'}>
+        <Typography>#{task.id}</Typography>
+        <Flex>
           {/*<FullIcon />*/}
           <SCloseIcon onClick={() => setShowWindow(false)}>
             <CloseIcon />
@@ -56,28 +48,22 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
       </STaskWindowHeader>
 
       <STaskWindowSubHeader>
-        <Title level={'h3'}>{task.name || ''}</Title>
+        <Typography>{task.name || ''}</Typography>
       </STaskWindowSubHeader>
 
       <SUsersSection>
-        <Flex ai={'center'}>
-          <Title level={'h6'}>{i18n.t('utils.any.owner')}:</Title>
-          <Space size={'xs'} />
+        <Flex>
+          <Typography>{i18n.t('utils.any.owner')}:</Typography>
+          <Space />
           <Tooltip title={task.owner?.username || ''}>
-            <Avatar
-              bordered
-              size={'m'}
-              src={getAvatarUrlOrHuman(task.owner?.userPic)}
-            />
+            <Avatar src={getAvatarUrlOrHuman(task.owner?.userPic)} />
           </Tooltip>
         </Flex>
-        <Flex ai={'center'}>
-          <Title level={'h6'}>{i18n.t('utils.any.assignee')}:</Title>
-          <Space size={'xs'} />
+        <Flex>
+          <Typography>{i18n.t('utils.any.assignee')}:</Typography>
+          <Space />
           <Tooltip title={task?.assignee?.username || ''}>
             <Avatar
-              size={'m'}
-              bordered
               src={getAvatarUrlOrHuman(task.assignee?.userPic)}
               alt={'human'}
             />
@@ -86,35 +72,37 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
       </SUsersSection>
 
       <SPrioritySection>
-        <Flex ai={'center'}>
-          <Title level={'h6'}>{i18n.t('utils.any.priority')}:</Title>
-          <Space size={'xs'} />
-          <PriorityLabel priority={task.priority} />
+        <Flex>
+          <Typography>{i18n.t('utils.any.priority')}:</Typography>
+          <Space />
+          //todo
+          {/*<PriorityLabel priority={task.priority} />*/}
         </Flex>
 
-        <Flex ai={'center'}>
-          <Title level={'h6'}>{i18n.t('utils.any.type')}:</Title>
-          <Space size={'xs'} />
-          <TaskLabel type={task.type} />
+        <Flex>
+          <Typography>{i18n.t('utils.any.type')}:</Typography>
+          <Space />
+          //todo
+          {/*<TaskLabel type={task.type} />*/}
         </Flex>
       </SPrioritySection>
 
       <SDateContainer>
-        <Title level={'h6'}>
+        <Typography>
           {i18n.t('pages.kanban.taskWindow.main.info.creationDate')}:
-          <Space size={'2xs'} />
+          <Space />
           {task.createDate ? moment(task.createDate).format('DD.MM.YYYY') : '-'}
-        </Title>
+        </Typography>
 
-        <Title level={'h6'}>
+        <Typography>
           {i18n.t('pages.kanban.taskWindow.main.info.updateDate')}:
-          <Space size={'2xs'} />
+          <Space />
           {task.updateDate ? moment(task.updateDate).format('DD.MM.YYYY') : '-'}
-        </Title>
+        </Typography>
       </SDateContainer>
 
       <SDescriptionSection>
-        <Title level={'h6'}>{i18n.t('utils.any.description')}</Title>
+        <Typography>{i18n.t('utils.any.description')}</Typography>
         <SDescriptionText
           className={'scrollbar'}
           value={task.description || ''}

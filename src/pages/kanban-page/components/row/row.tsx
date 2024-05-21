@@ -4,7 +4,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { ITask, IColumns } from '../index';
 import { v4 } from 'uuid';
 import { TaskRowCard } from '../task-row-card/task-row-card';
-import { Button, Title } from '../../../../ui';
+import { Button, Typography } from 'antd';
 import { STaskAlert, SRowHeader, SRow } from './row.styled';
 
 interface RowProps {
@@ -25,15 +25,14 @@ export const Row: React.FC<RowProps> = ({
   return (
     <SRow>
       <SRowHeader>
-        <Title level={'h6'}>
+        <Typography>
           {row.name || ''} {row.tasks?.length !== 0 ? row.tasks?.length : null}
-        </Title>
+        </Typography>
         <Button
           onClick={() => {
             setShowAddTaskModal(true);
             setCurCol(row);
           }}
-          variant={'primary'}
         >
           <FontAwesomeIcon icon={faPlus} />
         </Button>

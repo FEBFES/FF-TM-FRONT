@@ -1,5 +1,6 @@
 import React from 'react';
-import { Avatar } from '../../../../ui/avatar/avatar';
+import { Avatar } from 'antd';
+
 import { IMember } from '../../store/kanban.type';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 import { SAssigneeCard } from './member-card.styled';
@@ -17,7 +18,7 @@ export const MemberCard: React.FC<MemberCardProps> = ({
 }): JSX.Element => {
   return (
     <SAssigneeCard bordered={bordered} onClick={onClick}>
-      <Avatar size={'xs'} src={getAvatarUrlOrHuman(member.userPic)} />
+      <Avatar src={getAvatarUrlOrHuman(member.userPic)} />
       <p>{member.username}</p>
       <span>{member.email}</span>
     </SAssigneeCard>

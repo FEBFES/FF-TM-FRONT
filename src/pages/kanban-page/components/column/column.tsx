@@ -4,8 +4,8 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchChangeTask } from '../../store/kanban.thunk';
 import { TaskCard, ITask } from '../index';
-import { Title } from '../../../../ui/typography';
 import { SColumn, SColHeader, SColWrap, SColAddBtnIcon } from './column.styled';
+import { Typography } from 'antd';
 
 export interface IColumns {
   projectId: number;
@@ -45,9 +45,9 @@ export const Column: React.FC<ColumnProps> = ({
   return (
     <SColWrap key={v4()}>
       <SColHeader>
-        <Title level={'h6'}>
+        <Typography>
           {col.name || ''} {col.tasks?.length !== 0 ? col.tasks?.length : null}
-        </Title>
+        </Typography>
         <SColAddBtnIcon
           icon={faPlus}
           onClick={() => {

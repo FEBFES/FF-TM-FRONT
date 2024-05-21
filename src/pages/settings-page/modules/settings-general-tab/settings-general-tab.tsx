@@ -1,5 +1,5 @@
 import React from 'react';
-import { Title, Text, Switcher } from '../../../../ui';
+import { Typography } from 'antd';
 import i18n from 'i18next';
 
 interface GeneralTabProps {}
@@ -9,12 +9,13 @@ export const SettingsGeneralTab: React.FC<
 > = (): JSX.Element => {
   return (
     <div>
-      <Title>{i18n.t('app.title')}</Title>
-      <Text>{i18n.t('pages.settings.tabs.general.subtitle')}</Text>
+      <Typography>{i18n.t('app.title')}</Typography>
+      <Typography>{i18n.t('pages.settings.tabs.general.subtitle')}</Typography>
 
       <div>
-        <Text>Theme:</Text>
-        <Switcher isActive={true} onClick={() => {}} />
+        <Typography>Theme:</Typography>
+        //todo
+        {/*<Switcher isActive={true} onClick={() => {}} />*/}
       </div>
     </div>
   );

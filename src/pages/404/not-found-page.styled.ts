@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button } from '../../ui/button/button';
+import { Button } from 'antd';
 
 /* //todo change to FLEX and PAddinWrapper ui Component */
 export const SPage = styled.div`
@@ -13,16 +13,4 @@ export const SButtonContainer = styled.div`
   margin-top: 40px;
   display: flex;
   align-items: center;
-`;
-
-export const SPrevButton = styled(Button)`
-  & > svg {
-    margin-right: 10px;
-    transform: rotate(90deg);
-  }
-`;
-
-export const SHomeButton = styled(Button)`
-  background: var(--bg-0);
-  color: var(--font-default);
 `;

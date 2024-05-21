@@ -5,15 +5,7 @@ import { useAppDispatch } from '../../../../hooks/redux';
 import i18n from 'i18next';
 import { DotsIcon } from '../../../../assets/icons/UtilsIcons';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
-import {
-  Flex,
-  DropDown,
-  Avatar,
-  TaskLabel,
-  PriorityLabel,
-  Text,
-  Title,
-} from '../../../../ui';
+import { Typography, Flex, Dropdown, Avatar } from 'antd';
 import {
   SCard,
   STaskLabel,
@@ -39,12 +31,12 @@ export const TaskRowCard: React.FC<TaskRowCardProps> = ({
   return (
     <SCard>
       <SCardInfo>
-        <Flex ai={'center'}>
-          <PriorityLabel priority={task.priority} />
-          <Text>#{task.id}</Text>
+        <Flex>
+          //todo
+          {/*<PriorityLabel priority={task.priority} />*/}
+          <Typography>#{task.id}</Typography>
         </Flex>
-        <Title
-          level={'h5'}
+        <Typography
           onClick={() => {
             setShowTaskModal(true);
             dispatch(
@@ -57,8 +49,8 @@ export const TaskRowCard: React.FC<TaskRowCardProps> = ({
           }}
         >
           {task.name}
-        </Title>
-        <Text>{task.description}</Text>
+        </Typography>
+        <Typography>{task.description}</Typography>
       </SCardInfo>
 
       {/*todo change to grid*/}
@@ -67,21 +59,26 @@ export const TaskRowCard: React.FC<TaskRowCardProps> = ({
       {/*    {moment(task.createDate).format('DD.MM.YYYY')}*/}
       {/*</div>*/}
 
-      <Flex ai={'center'}>
+      <Flex>
         <STaskLabel>
-          <TaskLabel type={task.type} />
+          //todo
+          {/*<TaskLabel type={task.type} />*/}
         </STaskLabel>
-        <Avatar size={'m'} src={getAvatarUrlOrHuman(task.owner.userPic)} />
+        <Avatar src={getAvatarUrlOrHuman(task.owner.userPic)} />
         <STaskAttachments
           onClick={() => {
             setShowDD(true);
           }}
         >
-          <DropDown show={showDD} setShow={setShowDD}>
+          <Dropdown
+            open={showDD}
+            //todo
+            // setShow={setShowDD}
+          >
             <SDeleteButton onClick={() => delTask(task.columnId, task.id)}>
               {i18n.t('utils.buttons.delete')}
             </SDeleteButton>
-          </DropDown>
+          </Dropdown>
           <DotsIcon w={12} />
         </STaskAttachments>
       </Flex>
