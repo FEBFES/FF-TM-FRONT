@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { FavoriteIcon } from '../../../../assets/icons/UtilsIcons';
-import { useTheme } from '../../../../hooks/useTheme';
+import { useTheme } from '../../../../hooks/use-theme';
 import { fetchFavoriteToggle } from '../../../projects-page/store/projects.thunk';
 import { fetchGetProjectMembers } from '../../store/kanban.thunk';
 import { SearchInput } from '../../components/search-input/search-input';

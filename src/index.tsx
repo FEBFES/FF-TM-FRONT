@@ -6,9 +6,6 @@ import reportWebVitals from './reportWebVitals';
 import { setupStore } from './store';
 import { Provider } from 'react-redux';
 import { App } from './pages/root/app/app';
-import { ConfigProvider } from 'antd';
-import ruRU from 'antd/locale/ru_RU';
-import enUS from 'antd/locale/en_US';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -23,11 +20,9 @@ export const store = setupStore();
 
 root.render(
   <Router>
-    <ConfigProvider locale={ruRU}>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </ConfigProvider>
+    <Provider store={store}>
+      <App />
+    </Provider>
   </Router>
 );
 

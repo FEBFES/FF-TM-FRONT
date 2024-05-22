@@ -3,28 +3,43 @@ import { ArrowIcon } from '../../assets/icons/UtilsIcons';
 import { useNavigate } from 'react-router-dom';
 import { appRoutsPath } from '../../routing/routs';
 import { useTranslation } from 'react-i18next';
-import { Typography, Button } from 'antd';
-import { SButtonContainer, SPage } from './not-found-page.styled';
+import { Typography, Button, Space, Col, Row } from 'antd';
 
 export const NotFoundPage = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
   return (
-    <SPage>
-      <Typography>{t('pages.notFoundPage.titleCode')}</Typography>
-      <Typography>{t('pages.notFoundPage.title')}</Typography>
-      <Typography>{t('pages.notFoundPage.subTitle')}</Typography>
+    <Space direction='vertical'>
+      <Col>
+        <Row justify={'center'}>
+          <Typography.Title>{t('pages.notFoundPage.titleCode')}</Typography.Title>
+        </Row>
+        <Row justify={'center'}>
+          <Typography.Title level={4}>{t('pages.notFoundPage.title')}</Typography.Title>
+        </Row>
+        <Row justify={'center'}>        
+          <Typography.Title level={4}>{t('pages.notFoundPage.subTitle')}</Typography.Title>
+        </Row>
+      </Col>
 
-      <SButtonContainer>
-        <Button onClick={() => navigate(-1)}>
+      <Space direction='horizontal'>
+        <Button 
+          size='large'
+          onClick={() => navigate(-1)}
+        >
           <ArrowIcon />
           {t('pages.notFoundPage.backButton')}
         </Button>
-        <Button onClick={() => navigate(appRoutsPath.ProjectPage.path)}>
+
+        <Button
+          size='large'
+          type='primary'
+          onClick={() => navigate(appRoutsPath.ProjectPage.path)}
+        >
           {t('pages.notFoundPage.homeButton')}
         </Button>
-      </SButtonContainer>
-    </SPage>
+      </Space>
+    </Space>
   );
 };

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Sidebar } from '../../components/sidebar/sidebar';
-import { useTitle } from '../../hooks/useTitle';
-import { SPage, SMainLayout } from './main-layout.styled';
+import { useTitle } from '../../hooks/use-title';
 import { Layout } from 'antd';
 const { Header, Footer, Sider, Content } = Layout;
 

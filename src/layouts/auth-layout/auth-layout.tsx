@@ -7,7 +7,6 @@ export interface AuthLayoutProps {
 }
 
 const layoutStyle = {
-  borderRadius: 8,
   overflow: 'hidden',
   width: '100vw',
   height: '100vh',

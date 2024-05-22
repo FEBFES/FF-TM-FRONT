@@ -5,7 +5,7 @@ import {
   PriorityLow,
   PriorityMedium,
 } from '../../../../assets/icons/TaskIcons';
-import { useClickOutside } from '../../../../hooks/useClickOutside';
+import { useClickOutside } from '../../../../hooks/use-click-outside';
 import {
   SPrioritySelect,
   SPriorityElement,

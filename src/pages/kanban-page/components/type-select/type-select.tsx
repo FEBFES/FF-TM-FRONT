@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useClickOutside } from '../../../../hooks/useClickOutside';
+import { useClickOutside } from '../../../../hooks/use-click-outside';
 import { STaskType, STypeContainer } from './type-select.styled';
 // import {STypeElement} from './type-select.styled';
 

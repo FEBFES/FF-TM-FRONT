@@ -4,7 +4,7 @@ import { useTypedSelector } from '../../../../hooks/redux';
 import { IMember } from '../../store/kanban.type';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
-import { useClickOutside } from '../../../../hooks/useClickOutside';
+import { useClickOutside } from '../../../../hooks/use-click-outside';
 import { SAssigneeModal, SIconCont } from './add-assignee-modal.styled';
 
 interface AddAssigneeModalProps {

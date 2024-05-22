@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
-import { useTheme } from '../../hooks/useTheme';
+import { useTheme } from '../../hooks/use-theme';
 import { LogoIconDark } from '../../assets/icons/LogoIconDark';
 import { LogoIconLight } from '../../assets/icons/LogoIconLight';
 import { setIsAuth } from '../../pages/auth-pages/store/auth.slice';
@@ -38,30 +38,19 @@ const links: MenuItem[] = [
   {
     key: '/ProjectsPage',
     label: 'Проекты',
-    // icon: faHouse,
-    // to: '/ProjectsPage',
-    // private: false,
   },
   {
     key: '/KanbanPage',
     label: 'Доска',
-
-    // icon: faBorderAll,
-    // to: '/KanbanPage',
-    // private: false,
   },
-  // {
-  //   title:  i18n.t(''),
-  //   icon: TimeLineIcon,
-  //   to: '/Timeline',
-  //   private: true,
-  // },
-  // {
-  //   title: i18n.t(''),
-  //   icon: ChatIcon,
-  //   to: '/Messages',
-  //   private: true,
-  // },
+  {
+    key: '/Timeline',
+    label: 'Таймлайн'
+  },
+  {
+    key: '/Messages',
+    label: 'Сообщения',
+  },
   {
     key: '/SettingsPage',
     label: 'настройки',
@@ -83,25 +72,18 @@ export const Sidebar: React.FC = (): JSX.Element => {
   const isFullView = useTypedSelector((state) => state.app.sidebarFullView);
   const curProjId = useTypedSelector((state) => state.curProj.projId);
 
-  useLayoutEffect(() => {
-    document.documentElement.style.setProperty(
-      '--sideBarWidth',
-      !isMobile ? '170px' : '60px'
-    );
-  }, []);
-  console.log(i18next.t('routes.sidebar.settings'));
-
   const onMenuItemClick = (link: string): void => {
     navigate(link);
   };
 
   return (
-    <Sider width="25%" collapsible theme="light">
+    <Sider width="250px" collapsible theme="light">
       {theme === 'light' ? <LogoIconDark /> : <LogoIconLight />}
 
       <Menu
         mode="inline"
         items={links}
+        defaultSelectedKeys={[location.pathname]}
         onClick={(e) => {
           onMenuItemClick(e.key);
         }}
