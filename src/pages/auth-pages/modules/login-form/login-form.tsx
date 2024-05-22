@@ -4,8 +4,7 @@ import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchLogin } from '../../store/auth.thunk';
 import { appRoutsPath } from '../../../../routing/routs';
 import { useTranslation } from 'react-i18next';
-import { SLoginForm } from './login-form.styled';
-import { Typography, Divider, Button, Input } from 'antd';
+import { Typography, Divider, Button, Input, Flex, Col, Row, Space } from 'antd';
 
 interface LoginFormProps {}
 
@@ -34,33 +33,43 @@ export const LoginForm: React.FC<LoginFormProps> = (): JSX.Element => {
   };
 
   return (
-    <SLoginForm>
-      <Typography>{t('pages.login.form.title')}</Typography>
-      <Input
-        placeholder={t('pages.login.form.input.username.placeholder')}
-        type={'text'}
-        value={inputData.username}
-        onChange={(e) => changeHandle(e.target.value, 'username')}
-      />
-      <Input
-        placeholder={t('pages.login.form.input.password.placeholder')}
-        type={'password'}
-        value={inputData.password}
-        onChange={(e) => changeHandle(e.target.value, 'password')}
-      />
-      <Button onClick={submitHandler}>
-        {t('pages.login.form.button.submit')}
-      </Button>
+    <Flex vertical align='center' justify='center' style={{height: '100%'}}>
+        <Space size="middle" direction='vertical'>
+        <Typography.Title>{t('pages.login.form.title')}</Typography.Title>
+        <Input
+          placeholder={t('pages.login.form.input.username.placeholder')}
+          type={'text'}
+          size='large'
+          value={inputData.username}
+          onChange={(e) => changeHandle(e.target.value, 'username')}
+        />
+        <Input
+          placeholder={t('pages.login.form.input.password.placeholder')}
+          type={'password'}
+          size='large'
+          value={inputData.password}
+          onChange={(e) => changeHandle(e.target.value, 'password')}
+        />
+        <Button
+          type='primary'
+          block
+          onClick={submitHandler}
+        >
+          {t('pages.login.form.button.submit')}
+        </Button>
 
-      <Divider />
+        <Divider />
 
-      <Button
-        onClick={() => {
-          navigate(appRoutsPath.RegistrationPage.to);
-        }}
-      >
-        {t('pages.login.form.button.newAcc')}
-      </Button>
-    </SLoginForm>
+        <Button
+          block
+          type='default'
+          onClick={() => {
+            navigate(appRoutsPath.RegistrationPage.to);
+          }}
+        >
+          {t('pages.login.form.button.newAcc')}
+        </Button>
+        </Space>
+    </Flex>
   );
 };

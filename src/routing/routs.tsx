@@ -66,7 +66,7 @@ const privateRoutes: IAppRouts[] = [
   {
     title: appRoutsPath.ProjectPage.title,
     component: ProjectsPage,
-    layout: EmptyLayout,
+    layout: MainLayout,
     path: appRoutsPath.ProjectPage.path,
   },
   {

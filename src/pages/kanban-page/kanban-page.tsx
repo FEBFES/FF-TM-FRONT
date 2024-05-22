@@ -19,14 +19,12 @@ export const KanbanPage: React.FC = (): JSX.Element => {
   }, [curProjId, navigate]);
 
   return (
-    <SPageWrap>
-      <SKanbanPage full={showTaskModal}>
-        <KanbanPageHeader />
-        <KanbanPageSubheader />
-        <KanbanPageMain setShowTaskModal={setShowTaskModal} />
-      </SKanbanPage>
+    <div>
+      <KanbanPageHeader />
+      <KanbanPageSubheader />
+      <KanbanPageMain setShowTaskModal={setShowTaskModal} />
 
       {showTaskModal && <TaskWindow setShowWindow={setShowTaskModal} />}
-    </SPageWrap>
+    </div>
   );
 };

@@ -19,13 +19,8 @@ export const SPageWrap = styled.div`
 `;
 
 export const SPageCont = styled.div`
-  width: 100%;
   display: flex;
-  justify-content: flex-start;
-  background: var(--bg-100);
-  padding: 40px 20px 50px 0;
-
-  @media (max-width: 980px) {
-    width: 100%;
-  }
+  justify-content: center;
+  align-items: center;
+  margin: 40px 20px 50px 0;
 `;
