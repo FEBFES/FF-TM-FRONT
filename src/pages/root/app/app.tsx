@@ -5,7 +5,6 @@ import { useLocales } from '../../../hooks/useLocales';
 import { AuthAppRoutes, NotAuthAppRoutes } from '../modules';
 import 'react-toastify/dist/ReactToastify.css';
 import { useOffline } from '../../../hooks/useOffline';
-import { SAppContainer } from './app.styled';
 
 export const App = () => {
   // const isAuth = useTypedSelector((state) => state.auth.isAuth);

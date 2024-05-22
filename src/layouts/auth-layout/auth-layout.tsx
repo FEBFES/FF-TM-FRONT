@@ -13,12 +13,18 @@ const layoutStyle = {
   height: '100vh',
 };
 
+const contentStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+};
+
 export const AuthLayout: React.FC<AuthLayoutProps> = ({
   children,
 }): JSX.Element => {
-  return <Layout style={layoutStyle}>
-      <Content>
-       {children}
-      </Content>
-    </Layout>;
+  return (
+    <Layout style={layoutStyle}>
+      <Content style={contentStyle}>{children}</Content>
+    </Layout>
+  );
 };

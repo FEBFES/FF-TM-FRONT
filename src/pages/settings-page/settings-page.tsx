@@ -1,13 +1,12 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { SettingsSidebar } from './components/settings-sidebar/settings-sidebar';
 import {
   SettingsProfileTab,
   SettingsProjectsTab,
   SettingsMembersTab,
   SettingsGeneralTab,
 } from './modules';
-import { SPage, SPageCont, SPageWrap } from './settings-page.styled';
+import { SPageCont, SPageWrap } from './settings-page.styled';
 
 interface SettingsPageProps {}
 
