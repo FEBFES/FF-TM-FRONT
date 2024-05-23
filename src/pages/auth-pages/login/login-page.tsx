@@ -3,13 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../hooks/redux';
 import { fetchLogin } from '../store/auth.thunk';
 import { appRoutsPath } from '../../../routing/routs';
-import { useTranslation } from 'react-i18next';
 import { Typography, Divider, Button, Input, Space } from 'antd';
 
 interface LoginPageProps {}
 
 export const LoginPage: React.FC<LoginPageProps> = (): JSX.Element => {
-  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const [inputData, setInputData] = useState({
     username: '',
@@ -35,23 +33,23 @@ export const LoginPage: React.FC<LoginPageProps> = (): JSX.Element => {
   return (
     <div>
       <Space direction="vertical">
-        <Typography.Title>{t('pages.login.form.title')}</Typography.Title>
+        <Typography.Title>Вход</Typography.Title>
         <Input
-          placeholder={t('pages.login.form.input.username.placeholder')}
+          placeholder={'Логин'}
           type={'text'}
           size="large"
           value={inputData.username}
           onChange={(e) => changeHandle(e.target.value, 'username')}
         />
         <Input
-          placeholder={t('pages.login.form.input.password.placeholder')}
+          placeholder={'Пароль'}
           type={'password'}
           size="large"
           value={inputData.password}
           onChange={(e) => changeHandle(e.target.value, 'password')}
         />
         <Button type="primary" block onClick={submitHandler}>
-          {t('pages.login.form.button.submit')}
+          Войти
         </Button>
 
         <Divider />
@@ -63,7 +61,7 @@ export const LoginPage: React.FC<LoginPageProps> = (): JSX.Element => {
             navigate(appRoutsPath.RegistrationPage.to);
           }}
         >
-          {t('pages.login.form.button.newAcc')}
+          Создать новый аккаунт
         </Button>
       </Space>
     </div>

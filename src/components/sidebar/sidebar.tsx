@@ -15,7 +15,7 @@ import {
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { setSidebarView } from '../../pages/root/store/app-slice';
-import { Space, Typography, Menu, Layout } from 'antd';
+import { Space, Typography, Menu, Layout, Divider, Flex } from 'antd';
 import { isMobile } from 'react-device-detect';
 import {
   SSidebar,
@@ -27,7 +27,14 @@ import {
 } from './sidebar.styled';
 import type { GetProp, MenuProps } from 'antd';
 import i18next from 'i18next';
-import { SettingOutlined } from '@ant-design/icons';
+import {
+  BarChartOutlined,
+  CalendarOutlined,
+  FolderOpenOutlined,
+  MessageOutlined,
+  SettingOutlined,
+  UnorderedListOutlined,
+} from '@ant-design/icons';
 
 const { Sider } = Layout;
 
@@ -38,25 +45,28 @@ const links: MenuItem[] = [
   {
     key: '/ProjectsPage',
     label: 'Проекты',
+    icon: <FolderOpenOutlined />,
   },
   {
     key: '/KanbanPage',
     label: 'Доска',
+    icon: <UnorderedListOutlined />,
   },
   {
     key: '/Timeline',
-    label: 'Таймлайн'
+    label: 'Таймлайн',
+    icon: <BarChartOutlined />,
   },
   {
     key: '/Messages',
     label: 'Сообщения',
+    icon: <MessageOutlined />,
   },
   {
     key: '/SettingsPage',
     label: 'настройки',
     icon: <SettingOutlined />,
     children: [
-      { key: '/SettingsPage/', label: 'Общее' },
       { key: '/SettingsPage/profile', label: 'Профиль' },
       { key: '/SettingsPage/project', label: 'Проект' },
       { key: '/SettingsPage/members', label: 'Участники' },
@@ -77,10 +87,15 @@ export const Sidebar: React.FC = (): JSX.Element => {
   };
 
   return (
-    <Sider width="250px" collapsible theme="light">
-      {theme === 'light' ? <LogoIconDark /> : <LogoIconLight />}
+    <Sider width="200px" collapsible theme="dark">
+      <Flex style={{ marginTop: '40px' }} justify={'center'} align={'center'}>
+        <LogoIconDark />
+      </Flex>
+
+      <Divider />
 
       <Menu
+        theme={'dark'}
         mode="inline"
         items={links}
         defaultSelectedKeys={[location.pathname]}

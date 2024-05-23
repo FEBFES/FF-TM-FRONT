@@ -1,45 +1,24 @@
 import React from 'react';
-import { ArrowIcon } from '../../assets/icons/UtilsIcons';
 import { useNavigate } from 'react-router-dom';
 import { appRoutsPath } from '../../routing/routs';
-import { useTranslation } from 'react-i18next';
-import { Typography, Button, Space, Col, Row } from 'antd';
+import { Button, Result } from 'antd';
 
 export const NotFoundPage = () => {
-  const { t } = useTranslation();
   const navigate = useNavigate();
 
   return (
-    <Space direction='vertical'>
-      <Col>
-        <Row justify={'center'}>
-          <Typography.Title>{t('pages.notFoundPage.titleCode')}</Typography.Title>
-        </Row>
-        <Row justify={'center'}>
-          <Typography.Title level={4}>{t('pages.notFoundPage.title')}</Typography.Title>
-        </Row>
-        <Row justify={'center'}>        
-          <Typography.Title level={4}>{t('pages.notFoundPage.subTitle')}</Typography.Title>
-        </Row>
-      </Col>
-
-      <Space direction='horizontal'>
-        <Button 
-          size='large'
-          onClick={() => navigate(-1)}
-        >
-          <ArrowIcon />
-          {t('pages.notFoundPage.backButton')}
-        </Button>
-
+    <Result
+      status="404"
+      title="404"
+      subTitle="Sorry, the page you visited does not exist."
+      extra={
         <Button
-          size='large'
-          type='primary'
+          type="primary"
           onClick={() => navigate(appRoutsPath.ProjectPage.path)}
         >
-          {t('pages.notFoundPage.homeButton')}
+          Вернуться домой
         </Button>
-      </Space>
-    </Space>
+      }
+    />
   );
 };

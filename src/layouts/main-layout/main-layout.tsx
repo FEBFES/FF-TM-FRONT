@@ -2,12 +2,8 @@ import React from 'react';
 import { Sidebar } from '../../components/sidebar/sidebar';
 import { useTitle } from '../../hooks/use-title';
 import { Layout } from 'antd';
-const { Header, Footer, Sider, Content } = Layout;
-
-const headerStyle: React.CSSProperties = {
-  height: 48,
-  paddingInline: 48,
-};
+import { Header } from '../../components/header/header';
+const { Content } = Layout;
 
 const layoutStyle = {
   overflow: 'hidden',
@@ -30,8 +26,8 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
     <Layout style={layoutStyle}>
       <Sidebar />
       <Layout>
-        <Header style={headerStyle}></Header>
-        <Content>{children}</Content>
+        <Header />
+        <Content style={{ overflowY: 'scroll' }}>{children}</Content>
       </Layout>
     </Layout>
 

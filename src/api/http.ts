@@ -3,7 +3,6 @@ import axios from 'axios';
 import { setIsAuth } from '../pages/auth-pages/store/auth.slice';
 import { store } from '../index';
 import { appRoutsPath } from '../routing/routs';
-import { toast } from 'react-toastify';
 
 export const instanceWithoutToken = axios.create({
   baseURL: serverString,
@@ -91,7 +90,7 @@ instance.interceptors.response.use(
       });
     } else {
       // todo
-      toast.warning(`${err.message}`);
+      // toast.warning(`${err.message}`);
     }
     return Promise.reject(err);
   }

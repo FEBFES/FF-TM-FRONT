@@ -3,24 +3,58 @@ import { IProject } from '../../store/projects.type';
 import { appRoutsPath } from '../../../../routing/routs';
 import { v4 } from 'uuid';
 import { useNavigate } from 'react-router-dom';
-import { DotsIcon, FavoriteIcon } from '../../../../assets/icons/UtilsIcons';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchFavoriteToggle } from '../../store/projects.thunk';
 import { fetchDelProject } from '../../store/projects.thunk';
-import i18n from 'i18next';
 import { setCurProjId } from '../../../kanban-page/store/kanban.slice';
-import { Typography, Dropdown, Space } from 'antd';
 import {
-  SProjectCard,
-  SProjectFooter,
-  SProjectMain,
-  SProjectHeader,
-  SDragDropContainer,
-} from './project-card.styled';
+  Typography,
+  Dropdown,
+  Space,
+  Card,
+  Button,
+  Divider,
+  Flex,
+  Avatar,
+  Col,
+  Row,
+} from 'antd';
+import {
+  DeleteOutlined,
+  EditOutlined,
+  MoreOutlined,
+  StarOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
+import { SFooter, SProjectCard } from './project-card.styled';
+import moment from 'moment';
 
 interface ProjectCardProps {
   proj: IProject;
 }
+
+const items = [
+  {
+    key: 'favorite',
+    label: (
+      <Typography
+      // onClick={() => dispatch(fetchFavoriteToggle({ projId: proj.id, isFav: !proj.isFavourite }))}
+      >
+        Избранное
+      </Typography>
+    ),
+  },
+  {
+    key: 'delete',
+    label: (
+      <Typography
+      // onClick={() => dispatch(fetchDelProject(proj.id))}
+      >
+        Удалить
+      </Typography>
+    ),
+  },
+];
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   proj,
@@ -31,57 +65,54 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
   const navigateToKanban = () => {
     dispatch(setCurProjId(proj.id));
-    navigate(appRoutsPath.KanbanPage.to);
+    // navigate(appRoutsPath.KanbanPage.to);
   };
 
   return (
-    <SProjectCard onClick={navigateToKanban} key={v4()}>
-      <SProjectHeader>
-        <div
-          onClick={(e) => {
-            e.stopPropagation();
-            dispatch(
-              fetchFavoriteToggle({ projId: proj.id, isFav: !proj.isFavourite })
-            );
-          }}
-        >
-          <FavoriteIcon isFav={proj.isFavourite} />
-        </div>
-      </SProjectHeader>
+    <SProjectCard
+      bordered
+      size={'small'}
+      hoverable
+      title={proj.name || ''}
+      onClick={navigateToKanban}
+      key={v4()}
+    >
+      <Row>
+        <Col span={21}>
+          <Typography.Paragraph ellipsis>
+            {proj.description || ''}
+          </Typography.Paragraph>
+          <Typography>
+            {moment(proj.createDate).format('DD.MM.YY: HH:MM')}
+          </Typography>
+        </Col>
 
-      <SProjectMain>
-        <Typography>{proj.name || ''}</Typography>
-        <Typography>{proj.description || ''}</Typography>
-      </SProjectMain>
-
-      <Space />
-      <SProjectFooter>
-        <Typography>
-          {i18n.t('pages.kanban.main.card.create.date')}:{' '}
-          {new Date(proj.createDate).toDateString() || ''}
-        </Typography>
-
-        <SDragDropContainer>
-          <Dropdown
-            open={showDropDown}
-            //todo
-            // setShow={setShowDropDown}
-          >
-            <Typography onClick={() => dispatch(fetchDelProject(proj.id))}>
-              {i18n.t('utils.buttons.delete')}
-            </Typography>
-          </Dropdown>
-
-          <div
-            onClick={(e) => {
-              e.stopPropagation();
-              setShowDropDown(true);
+        <Col span={3}>
+          <Avatar
+            style={{
+              backgroundColor: 'lightgrey',
             }}
-          >
-            <DotsIcon />
-          </div>
-        </SDragDropContainer>
-      </SProjectFooter>
+            icon={<UserOutlined />}
+          />
+        </Col>
+      </Row>
+
+      <SFooter justify={'center'} align={'center'}>
+        <Space>
+          <Button size={'small'} icon={<EditOutlined />} />
+          <Button
+            type={proj.isFavourite ? 'primary' : 'default'}
+            size={'small'}
+            icon={<StarOutlined />}
+          />
+          <Button
+            danger
+            type={'default'}
+            size={'small'}
+            icon={<DeleteOutlined />}
+          />
+        </Space>
+      </SFooter>
     </SProjectCard>
   );
 };

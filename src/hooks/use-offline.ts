@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
 import i18n from 'i18next';
 
 export const useOffline = () => {
@@ -25,10 +24,10 @@ export const useOffline = () => {
   }, []);
 
   useEffect(() => {
-    isOffline &&
-      toast.warning(i18n.t('notification.toast.network.error'), {
-        autoClose: false,
-        position: 'top-center',
-      });
+    // isOffline &&
+    // toast.warning(i18n.t('notification.toast.network.error'), {
+    //   autoClose: false,
+    //   position: 'top-center',
+    // });
   }, [isOffline]);
 };

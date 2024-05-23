@@ -5,13 +5,11 @@ import { fetchRegistration } from '../store/auth.thunk';
 import { IRegisterFormDataType } from '../store/auth.type';
 import { useNavigate } from 'react-router-dom';
 import { appRoutsPath } from '../../../routing/routs';
-import { useTranslation } from 'react-i18next';
 interface RegistrationPageProps {}
 
 export const RegistrationPage: React.FC<
   RegistrationPageProps
 > = (): JSX.Element => {
-  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -39,23 +37,23 @@ export const RegistrationPage: React.FC<
   return (
     <div>
       <Space direction="vertical">
-        <Typography.Title>{t('pages.registration.title')}</Typography.Title>
+        <Typography.Title>Регистрация</Typography.Title>
         <Input
-          placeholder={t('pages.registration.input.email.placeholder')}
+          placeholder={'Почта'}
           type={'email'}
           size="large"
           value={inputData.email}
           onChange={(e) => changeHandle(e.target.value, 'email')}
         />
         <Input
-          placeholder={t('pages.registration.input.username.placeholder')}
+          placeholder={'Логин'}
           type={'text'}
           size="large"
           value={inputData.username}
           onChange={(e) => changeHandle(e.target.value, 'username')}
         />
         <Input
-          placeholder={t('pages.registration.input.password.placeholder')}
+          placeholder={'Пароль'}
           type={'password'}
           size="large"
           value={inputData.password}
@@ -65,14 +63,14 @@ export const RegistrationPage: React.FC<
         <Divider />
 
         <Button block type="primary" onClick={submitHandler}>
-          {t('pages.registration.button.submit')}
+          Зарегистрироваться
         </Button>
 
         <Button type="link" href={appRoutsPath.LoginPage.to}>
           <Space>
-            <span>{t('pages.registration.login.label')}</span>
+            <span>У вас уже есть учетная запись?</span>
 
-            <span>{t('pages.registration.login.action')}</span>
+            <span>Войти</span>
           </Space>
         </Button>
       </Space>

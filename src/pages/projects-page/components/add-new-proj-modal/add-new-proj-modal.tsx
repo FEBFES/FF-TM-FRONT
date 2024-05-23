@@ -1,13 +1,23 @@
 import React, { useState } from 'react';
 import { fetchAddProject } from '../../store/projects.thunk';
-import { Modal, Input } from 'antd';
+import {Modal, Input, Space} from 'antd';
 import { useAppDispatch } from '../../../../hooks/redux';
 import i18n from 'i18next';
+import styled from "styled-components";
 
 interface AddNewProjModalProps {
   show: boolean;
   setShow: (bool: boolean) => void;
 }
+
+const ModalCont = styled.div`
+  margin-top: 40px;
+  margin-bottom: 20px;
+  display: flex;
+  height: 90px;
+  justify-content: space-between;
+  flex-direction: column;
+`
 
 export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
   show,
@@ -27,22 +37,27 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
 
   return (
     <Modal
-      okText={'create'}
       onOk={submitHandler}
       onCancel={() => setShow(false)}
-      title={i18n.t('pages.projects.header.addBtn')}
+      title={'Создать новый проект'}
       open={show}
+      okText={'Создать'}
+      cancelText={'Отменить'}
     >
-      <Input
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder={i18n.t('utils.any.name')}
-      />
-      <Input
-        value={desc}
-        onChange={(e) => setDesc(e.target.value)}
-        placeholder={i18n.t('utils.any.description')}
-      />
+        <ModalCont>
+          <Input
+              value={name}
+              size={'large'}
+              onChange={(e) => setName(e.target.value)}
+              placeholder={'Название'}
+          />
+          <Input
+              value={desc}
+              size={'large'}
+              onChange={(e) => setDesc(e.target.value)}
+              placeholder={'Описание'}
+          />
+        </ModalCont>
     </Modal>
   );
 };

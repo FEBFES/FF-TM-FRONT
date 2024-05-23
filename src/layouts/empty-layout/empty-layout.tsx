@@ -26,9 +26,9 @@ export const EmptyLayout: React.FC<EmptyLayoutProps> = ({
 }): JSX.Element => {
   useTitle(pageTitle);
 
-  return <Layout style={layoutStyle}>
-    <Content style={contentStyle}>
-      {children}
-    </Content>
-  </Layout>;
+  return (
+    <Layout style={layoutStyle}>
+      <Content style={contentStyle}>{children}</Content>
+    </Layout>
+  );
 };
