@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { FavoriteIcon } from '../../../../assets/icons/UtilsIcons';
-import { useTheme } from '../../../../hooks/use-theme';
 import { fetchFavoriteToggle } from '../../../projects-page/store/projects.thunk';
 import { fetchGetProjectMembers } from '../../store/kanban.thunk';
 import { SearchInput } from '../../components/search-input/search-input';
@@ -18,9 +17,7 @@ export const KanbanPageHeader: React.FC<
   const { projectName, projId, isFavorite, members } = useTypedSelector(
     (state) => state.curProj
   );
-  const theme = useTypedSelector((state) => state.app.theme);
   const dispatch = useAppDispatch();
-  const { changeTheme } = useTheme();
 
   useEffect(() => {
     if (projId && members.length === 0)
@@ -45,7 +42,7 @@ export const KanbanPageHeader: React.FC<
         />
       </Flex>
       <Flex>
-        //todo
+        {/*//todo*/}
         {/*<Switcher isActive={theme === 'dark'} onClick={changeTheme} />*/}
         <SearchInput />
         <Divider />

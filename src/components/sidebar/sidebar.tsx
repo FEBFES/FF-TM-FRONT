@@ -1,54 +1,28 @@
-import React, { useLayoutEffect } from 'react';
+import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
-import { useTheme } from '../../hooks/use-theme';
 import { LogoIconDark } from '../../assets/icons/LogoIconDark';
-import { LogoIconLight } from '../../assets/icons/LogoIconLight';
-import { setIsAuth } from '../../pages/auth-pages/store/auth.slice';
-import { appRoutsPath } from '../../routing/routs';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faHouse,
-  faCog,
-  faBorderAll,
-  faDoorOpen,
-  faChevronRight,
-} from '@fortawesome/free-solid-svg-icons';
-import { setSidebarView } from '../../pages/root/store/app-slice';
-import { Space, Typography, Menu, Layout, Divider, Flex } from 'antd';
-import { isMobile } from 'react-device-detect';
-import {
-  SSidebar,
-  SSidebarFooter,
-  SSidebarHeader,
-  SSidebarMain,
-  SLink,
-  SSidebarToggle,
-} from './sidebar.styled';
+import { Menu, Layout, Flex, Grid } from 'antd';
 import type { GetProp, MenuProps } from 'antd';
-import i18next from 'i18next';
 import {
   BarChartOutlined,
-  CalendarOutlined,
   FolderOpenOutlined,
   MessageOutlined,
   SettingOutlined,
   UnorderedListOutlined,
 } from '@ant-design/icons';
-
-const { Sider } = Layout;
+import { MenuCont } from './sidebar.styled';
 
 type MenuItem = GetProp<MenuProps, 'items'>[number];
 
 const links: MenuItem[] = [
   //TODO to - from string to const appRoutsPath
   {
-    key: '/ProjectsPage',
+    key: '/Projects',
     label: 'Проекты',
     icon: <FolderOpenOutlined />,
   },
   {
-    key: '/KanbanPage',
+    key: '/Kanban',
     label: 'Доска',
     icon: <UnorderedListOutlined />,
   },
@@ -63,46 +37,49 @@ const links: MenuItem[] = [
     icon: <MessageOutlined />,
   },
   {
-    key: '/SettingsPage',
+    key: '/Settings',
     label: 'настройки',
     icon: <SettingOutlined />,
     children: [
-      { key: '/SettingsPage/profile', label: 'Профиль' },
-      { key: '/SettingsPage/project', label: 'Проект' },
-      { key: '/SettingsPage/members', label: 'Участники' },
+      { key: '/Settings/Profile', label: 'Профиль' },
+      { key: '/Settings/Project', label: 'Проект' },
+      { key: '/Settings/Members', label: 'Участники' },
     ],
   },
 ];
 
 export const Sidebar: React.FC = (): JSX.Element => {
-  const dispatch = useAppDispatch();
-  const { theme } = useTheme();
   const location = useLocation();
   const navigate = useNavigate();
-  const isFullView = useTypedSelector((state) => state.app.sidebarFullView);
-  const curProjId = useTypedSelector((state) => state.curProj.projId);
+  const { useBreakpoint } = Grid;
 
   const onMenuItemClick = (link: string): void => {
     navigate(link);
   };
 
   return (
-    <Sider width="200px" collapsible theme="dark">
+    <Layout.Sider
+      theme={'dark'}
+      breakpoint="md"
+      width="200px"
+      collapsible={useBreakpoint().md}
+    >
       <Flex style={{ marginTop: '40px' }} justify={'center'} align={'center'}>
         <LogoIconDark />
       </Flex>
 
-      <Divider />
+      <MenuCont>
+        <Menu
+          theme={'dark'}
+          mode="inline"
+          items={links}
+          defaultSelectedKeys={[location.pathname]}
+          onClick={(e) => {
+            onMenuItemClick(e.key);
+          }}
+        />
+      </MenuCont>
 
-      <Menu
-        theme={'dark'}
-        mode="inline"
-        items={links}
-        defaultSelectedKeys={[location.pathname]}
-        onClick={(e) => {
-          onMenuItemClick(e.key);
-        }}
-      />
       {/* {links.map((link, i) => {
           if (link.private && location.pathname === '/') {
             return null;
@@ -137,6 +114,6 @@ export const Sidebar: React.FC = (): JSX.Element => {
       >
         <FontAwesomeIcon icon={faDoorOpen} />
       </SLink> */}
-    </Sider>
+    </Layout.Sider>
   );
 };

@@ -1,15 +1,12 @@
 import React from 'react';
-import { IMember, IMemberRole } from '../../../kanban-page/store/kanban.type';
+import { IMember } from '../../../kanban-page/store/kanban.type';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 import i18n from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons/faTrashCan';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
-import {
-  fetchChangeMemberRole,
-  fetchDeleteMemberFromProject,
-} from '../../../kanban-page/store/kanban.thunk';
-import { Space, Avatar, Flex, Select, Tooltip, Typography } from 'antd';
+import { fetchDeleteMemberFromProject } from '../../../kanban-page/store/kanban.thunk';
+import { Space, Avatar, Flex, Tooltip, Typography } from 'antd';
 import {
   SMemberCard,
   SMemberCardInfo,
@@ -26,7 +23,7 @@ export const MemberCard: React.FC<MemberCardProps> = ({
 }): JSX.Element => {
   const dispatch = useAppDispatch();
   const projId = useTypedSelector((state) => state.curProj.projId);
-  const memberRoles: IMemberRole[] = ['MEMBER', 'MEMBER_PLUS', 'OWNER'];
+  // const memberRoles: IMemberRole[] = ['MEMBER', 'MEMBER_PLUS', 'OWNER'];
 
   return (
     <SMemberCard>
@@ -39,7 +36,7 @@ export const MemberCard: React.FC<MemberCardProps> = ({
       </SMemberCardLeft>
 
       <Flex>
-        //todo
+        {/*//todo*/}
         {/*<Select*/}
         {/*  onChange={(role: IMemberRole) => {*/}
         {/*    projId &&*/}

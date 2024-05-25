@@ -10,7 +10,7 @@ export const NotFoundPage = () => {
     <Result
       status="404"
       title="404"
-      subTitle="Sorry, the page you visited does not exist."
+      subTitle="К сожалению, страница, которую вы посетили, не существует."
       extra={
         <Button
           type="primary"

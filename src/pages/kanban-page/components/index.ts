@@ -3,7 +3,6 @@ export * from './column-view/column-view';
 export * from './file-card/file-card';
 export * from './files-tab/files-tab';
 export * from './filter-card/filter-card';
-export * from './kanban-view-switcher/kanban-view-switcher';
 export * from './member-card/member-card';
 export * from './priority-select/priority-select';
 export * from './row/row';

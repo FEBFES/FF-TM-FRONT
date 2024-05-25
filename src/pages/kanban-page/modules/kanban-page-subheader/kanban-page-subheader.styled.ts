@@ -1,12 +1,13 @@
 import styled from 'styled-components';
+import { Layout } from 'antd';
 
-export const SSubHeader = styled.div`
+export const SSubHeader = styled(Layout.Header)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 18px;
-  height: 5%;
-  background: var(--bg-0);
+  padding: 4px 18px;
+  height: 40px;
+  background: #181515;
   font-size: 14px;
   border-radius: 5px 5px 0 0;
   border-bottom: 1px solid var(--bg-border);

@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { fetchAddProject } from '../../store/projects.thunk';
-import {Modal, Input, Space} from 'antd';
+import { Modal, Input } from 'antd';
 import { useAppDispatch } from '../../../../hooks/redux';
-import i18n from 'i18next';
-import styled from "styled-components";
+import styled from 'styled-components';
 
 interface AddNewProjModalProps {
   show: boolean;
@@ -17,7 +16,7 @@ const ModalCont = styled.div`
   height: 90px;
   justify-content: space-between;
   flex-direction: column;
-`
+`;
 
 export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
   show,
@@ -44,20 +43,20 @@ export const AddNewProjModal: React.FC<AddNewProjModalProps> = ({
       okText={'Создать'}
       cancelText={'Отменить'}
     >
-        <ModalCont>
-          <Input
-              value={name}
-              size={'large'}
-              onChange={(e) => setName(e.target.value)}
-              placeholder={'Название'}
-          />
-          <Input
-              value={desc}
-              size={'large'}
-              onChange={(e) => setDesc(e.target.value)}
-              placeholder={'Описание'}
-          />
-        </ModalCont>
+      <ModalCont>
+        <Input
+          value={name}
+          size={'large'}
+          onChange={(e) => setName(e.target.value)}
+          placeholder={'Название'}
+        />
+        <Input
+          value={desc}
+          size={'large'}
+          onChange={(e) => setDesc(e.target.value)}
+          placeholder={'Описание'}
+        />
+      </ModalCont>
     </Modal>
   );
 };

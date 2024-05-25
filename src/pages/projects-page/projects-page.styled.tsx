@@ -1,7 +1,8 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { Button } from 'antd';
 
 export const Container = styled.div`
-  padding: 0 40px;
+  padding: 0 40px 80px;
   width: 100%;
   overflow: scroll;
   margin-bottom: 80px;
@@ -11,18 +12,46 @@ export const SCardHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 40px;
   width: 100%;
-  background: white;
-  border: 1px solid whitesmoke;
-  padding: 10px 20px;
   border-radius: 12px;
-  margin-bottom: 30px;
-`
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column-reverse;
+  }
+`;
+
+export const SButton = styled(Button)`
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+`;
 
 export const SStatistic = styled.div`
-  display: flex;
-  width: 40%;
-  justify-content: space-between;
-  align-items: center;
-`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 30px;
+
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 1fr 1fr;
+  }
+`;
+
+export const SProjCont = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 14px;
+
+  @media screen and (max-width: 1440px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media screen and (max-width: 1000px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 1fr;
+  }
+`;

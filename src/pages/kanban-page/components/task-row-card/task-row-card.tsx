@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { ITask } from '../task-card/task-card.type';
 import { fetchGetTaskInfo } from '../../store/kanban.thunk';
 import { useAppDispatch } from '../../../../hooks/redux';
-import i18n from 'i18next';
 import { DotsIcon } from '../../../../assets/icons/UtilsIcons';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 import { Typography, Flex, Dropdown, Avatar } from 'antd';
@@ -32,7 +31,7 @@ export const TaskRowCard: React.FC<TaskRowCardProps> = ({
     <SCard>
       <SCardInfo>
         <Flex>
-          //todo
+          {/*//todo*/}
           {/*<PriorityLabel priority={task.priority} />*/}
           <Typography>#{task.id}</Typography>
         </Flex>
@@ -61,7 +60,7 @@ export const TaskRowCard: React.FC<TaskRowCardProps> = ({
 
       <Flex>
         <STaskLabel>
-          //todo
+          {/*//todo*/}
           {/*<TaskLabel type={task.type} />*/}
         </STaskLabel>
         <Avatar src={getAvatarUrlOrHuman(task.owner.userPic)} />
@@ -76,7 +75,7 @@ export const TaskRowCard: React.FC<TaskRowCardProps> = ({
             // setShow={setShowDD}
           >
             <SDeleteButton onClick={() => delTask(task.columnId, task.id)}>
-              {i18n.t('utils.buttons.delete')}
+              delete
             </SDeleteButton>
           </Dropdown>
           <DotsIcon w={12} />

@@ -1,7 +1,6 @@
 import React from 'react';
 import { MainLayout } from '../layouts/main-layout/main-layout';
 import { KanbanPage } from '../pages/kanban-page/kanban-page';
-import { EmptyLayout } from '../layouts/empty-layout/empty-layout';
 import { RegistrationPage } from '../pages/auth-pages/registration/registration-page';
 import { LoginPage } from '../pages/auth-pages/login/login-page';
 import { SettingsPage } from '../pages/settings-page/settings-page';
@@ -21,14 +20,14 @@ export const appRoutsPath = {
   ProjectPage: {
     //todo i18next
     title: 'Project Page',
-    path: '/ProjectsPage/',
-    to: '/ProjectsPage/',
+    path: '/Projects',
+    to: '/Projects',
   },
   KanbanPage: {
     //todo i18next
     title: 'Kanban Page',
-    path: '/KanbanPage/',
-    to: '/KanbanPage/',
+    path: '/Kanban',
+    to: '/Kanban',
   },
   RegistrationPage: {
     //todo i18next
@@ -57,8 +56,8 @@ export const appRoutsPath = {
   SettingsPage: {
     //todo i18next
     title: 'Settings',
-    path: '/SettingsPage/*',
-    to: 'SettingsPage',
+    path: '/Settings/*',
+    to: 'Settings',
   },
 };
 

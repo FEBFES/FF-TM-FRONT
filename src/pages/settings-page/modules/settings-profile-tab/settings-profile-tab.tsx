@@ -1,23 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import i18n from 'i18next';
-import {
-  fetchChangeUserInfo,
-  fetchDeleteUserAvatar,
-  fetchUploadNewUserAvatar,
-} from '../../../../store/user/user.thunk';
+import { fetchChangeUserInfo } from '../../../../store/user/user.thunk';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
-import { Typography, Input, Space, Button, Avatar } from 'antd';
+import { Typography, Input, Button, Avatar, Flex } from 'antd';
 import {
   SUserBackground,
   SButtonsContainer,
-  SFileInput,
   SUserAvatarContainer,
-  FileInputDelete,
-  FileInputLabel,
+  SInputCont,
 } from './settings-profile-tab.styled';
+import { UserOutlined } from '@ant-design/icons';
 
 interface ProfileTabProps {}
 
@@ -73,9 +66,9 @@ export const SettingsProfileTab: React.FC<
     setUserAvatar(userPic || '');
   };
 
-  const deleteUserAvatar = () => {
-    dispatch(fetchDeleteUserAvatar(id));
-  };
+  // const deleteUserAvatar = () => {
+  //   dispatch(fetchDeleteUserAvatar(id));
+  // };
 
   const changeUserInfo = () => {
     const data = {
@@ -88,94 +81,107 @@ export const SettingsProfileTab: React.FC<
     dispatch(fetchChangeUserInfo({ userId: id, data }));
   };
 
-  const uploadNewAvatar = async (e: any) => {
-    const photo = e.target.files[0];
-    const formData = new FormData();
-    formData.append('image', photo);
-    if (id)
-      dispatch(
-        fetchUploadNewUserAvatar({
-          userId: id,
-          userPic: userPic,
-          formData: formData,
-        })
-      );
-  };
+  // const uploadNewAvatar = async (e: any) => {
+  //   const photo = e.target.files[0];
+  //   const formData = new FormData();
+  //   formData.append('image', photo);
+  //   if (id)
+  //     dispatch(
+  //       fetchUploadNewUserAvatar({
+  //         userId: id,
+  //         userPic: userPic,
+  //         formData: formData,
+  //       })
+  //     );
+  // };
 
   return (
     <>
-      <Typography>{i18n.t('pages.settings.tabs.profile.title')}</Typography>
-      <Space />
+      <Typography.Title level={3}>Профиль</Typography.Title>
 
       <SUserBackground />
 
       <SUserAvatarContainer>
         <Avatar
+          size={120}
           src={getAvatarUrlOrHuman(userAvatar)}
           alt={i18n.t('utils.any.avatar')}
+          icon={<UserOutlined />}
         />
-        {userPic && (
-          <FileInputDelete onClick={deleteUserAvatar}>
-            <FontAwesomeIcon icon={faTrash} size={'2xs'} />
-          </FileInputDelete>
-        )}
-        <FileInputLabel htmlFor="inputFIle">
-          <FontAwesomeIcon icon={faPen} size={'2xs'} />
-        </FileInputLabel>
-        <SFileInput id={'inputFIle'} onChange={uploadNewAvatar} type={'file'} />
+        {/*{userPic && (*/}
+        {/*  <Button onClick={deleteUserAvatar}>*/}
+        {/*    <FontAwesomeIcon icon={faTrash} size={'2xs'} />*/}
+        {/*  </Button>*/}
+        {/*)}*/}
+        {/*<Button>*/}
+        {/*  <FontAwesomeIcon icon={faPen} size={'2xs'} />*/}
+        {/*</Button>*/}
+        {/*<SFileInput id={'inputFIle'} onChange={uploadNewAvatar} type={'file'} />*/}
       </SUserAvatarContainer>
 
-      <>
-        <Typography>
-          {i18n.t('pages.settings.tabs.profile.sectionTitle')}
-        </Typography>
-        <Typography>
-          {i18n.t('pages.settings.tabs.profile.sectionSubTitle')}
-        </Typography>
-        <Space />
+      <Flex>
+        <div>
+          <Flex vertical>
+            <Typography.Title level={3}>
+              Информация о пользователе
+            </Typography.Title>
+            <Typography.Text>Управляйте своим профилем F/F"</Typography.Text>
+          </Flex>
 
-        <Input
-          value={inputEmail}
-          onChange={(e) => setInputEmail(e.target.value)}
-          placeholder={i18n.t('utils.any.email')}
-          type={'text'}
-        />
-        <Input
-          value={inputUsername}
-          onChange={(e) => setInputUsername(e.target.value)}
-          placeholder={i18n.t('utils.any.username')}
-          type={'text'}
-        />
-        <Input
-          value={inputFirstName}
-          onChange={(e) => setInputFirstName(e.target.value)}
-          placeholder={i18n.t('utils.any.firstname')}
-          type={'text'}
-        />
-        <Input
-          value={inputLastName}
-          onChange={(e: any) => setInputLastName(e.target.value)}
-          placeholder={i18n.t('utils.any.lastname')}
-          type={'text'}
-        />
-        <Input
-          value={inputDisplayName}
-          onChange={(e: any) => setInputUserDisplayName(e.target.value)}
-          placeholder={i18n.t('utils.any.displayName')}
-          type={'text'}
-        />
-      </>
+          <SInputCont>
+            <Input
+              value={inputEmail}
+              onChange={(e) => setInputEmail(e.target.value)}
+              placeholder={'Почта'}
+              type={'text'}
+              size={'large'}
+            />
+            <Input
+              value={inputUsername}
+              onChange={(e) => setInputUsername(e.target.value)}
+              placeholder={'Логин'}
+              type={'text'}
+              size={'large'}
+            />
+            <Input
+              value={inputFirstName}
+              onChange={(e) => setInputFirstName(e.target.value)}
+              placeholder={'Имя'}
+              type={'text'}
+              size={'large'}
+            />
+            <Input
+              value={inputLastName}
+              onChange={(e: any) => setInputLastName(e.target.value)}
+              placeholder={'Фамилия'}
+              type={'text'}
+              size={'large'}
+            />
+            <Input
+              value={inputDisplayName}
+              onChange={(e: any) => setInputUserDisplayName(e.target.value)}
+              placeholder={'Краткое имя'}
+              type={'text'}
+              size={'large'}
+            />
 
-      <SButtonsContainer>
-        {!btnDisabled && (
-          <Button onClick={resetInputsData}>
-            {i18n.t('utils.buttons.reset')}
-          </Button>
-        )}
-        <Button disabled={btnDisabled} onClick={changeUserInfo}>
-          {i18n.t('utils.buttons.update')}
-        </Button>
-      </SButtonsContainer>
+            <SButtonsContainer>
+              {!btnDisabled && (
+                <Button onClick={resetInputsData}>Сбросить</Button>
+              )}
+              <Button disabled={btnDisabled} onClick={changeUserInfo}>
+                Обновить
+              </Button>
+            </SButtonsContainer>
+          </SInputCont>
+        </div>
+
+        <Flex vertical>
+          <Input />
+          <Input />
+          <Input />
+        </Flex>
+      </Flex>
     </>
   );
 };

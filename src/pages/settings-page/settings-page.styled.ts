@@ -1,12 +1,7 @@
 import styled from 'styled-components';
 
-export const SPage = styled.div`
-  display: flex;
-  min-height: 100vh;
-`;
-
 export const SPageWrap = styled.div`
-  width: 60%;
+  width: 70%;
   display: flex;
   flex-direction: column;
 
@@ -14,7 +9,7 @@ export const SPageWrap = styled.div`
     width: 80%;
   }
   @media (max-width: 980px) {
-    width: 100%;
+    width: 90%;
   }
 `;
 
@@ -22,5 +17,5 @@ export const SPageCont = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 40px 20px 50px 0;
+  margin: 40px 20px 50px 20px;
 `;

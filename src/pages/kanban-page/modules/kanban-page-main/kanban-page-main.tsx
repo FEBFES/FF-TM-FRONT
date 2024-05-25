@@ -58,7 +58,7 @@ export const KanbanPageMain: React.FC<KanbanPageProps> = ({
 
   return (
     <SKanbanMain>
-      {curView === 'col' ? (
+      {curView === 'kanban' ? (
         <ColumnView
           columns={columns}
           deleteTaskHandler={deleteTaskHandler}

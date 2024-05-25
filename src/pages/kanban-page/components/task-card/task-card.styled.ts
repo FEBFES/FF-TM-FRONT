@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import {Card} from 'antd'
+import { Card } from 'antd';
 
 export const STask = styled(Card)`
-  cursor: grab;
   display: flex;
   flex-direction: column;
   width: 288px;
+  margin-bottom: 10px;
 `;
 
 export const STaskMain = styled.main`
@@ -14,4 +14,3 @@ export const STaskMain = styled.main`
   align-items: center;
   width: 100%;
 `;
-

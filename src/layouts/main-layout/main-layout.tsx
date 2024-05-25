@@ -27,7 +27,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
       <Sidebar />
       <Layout>
         <Header />
-        <Content style={{ overflowY: 'scroll' }}>{children}</Content>
+        <Content>{children}</Content>
       </Layout>
     </Layout>
 

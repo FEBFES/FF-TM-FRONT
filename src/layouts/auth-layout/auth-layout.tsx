@@ -1,6 +1,6 @@
 import React from 'react';
-import { Col, Row, Layout } from 'antd';
-const { Header, Content, Footer } = Layout;
+import { Layout } from 'antd';
+const { Content } = Layout;
 
 export interface AuthLayoutProps {
   children: React.ReactNode;

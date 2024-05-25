@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import i18n from 'i18next';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { fetchUpdateProject } from '../../../projects-page/store/projects.thunk';
-import { Input, Typography, Button, Space } from 'antd';
+import { Input, Button, Space } from 'antd';
 import {
   SProjectContainter,
-  SHeaderLeftSection,
   SHeaderRightSection,
-  SProjectHeader,
 } from './project-section.styled';
 
 interface ProjectSectionProps {}
@@ -48,46 +45,35 @@ export const ProjectSection: React.FC<
 
   return (
     <SProjectContainter>
-      <SProjectHeader>
-        <SHeaderLeftSection>
-          <Typography>
-            {i18n.t('pages.settings.tabs.section.project.title')}
-          </Typography>
-          <Typography>
-            {i18n.t('pages.settings.tabs.section.project.subtitle')}
-          </Typography>
-        </SHeaderLeftSection>
-
+      <div>
         {isEdit && (
           <SHeaderRightSection>
-            <Button onClick={() => clearInputs()}>
-              {i18n.t('utils.buttons.cancel')}
-            </Button>
-            <Button onClick={() => updateProjInfoHandler()}>
-              {i18n.t('utils.buttons.save')}
-            </Button>
+            <Button onClick={() => clearInputs()}>Отменить</Button>
+            <Button onClick={() => updateProjInfoHandler()}>Сохранить</Button>
           </SHeaderRightSection>
         )}
-      </SProjectHeader>
+      </div>
       <Space />
 
       <div>
         <Input
           value={name}
+          size={'large'}
           onChange={(e) => {
             setIsEdit(true);
             setName(e.target.value);
           }}
-          placeholder={i18n.t('utils.any.name')}
+          placeholder={'Название'}
         />
 
         <Input
           value={desc}
+          size={'large'}
           onChange={(e) => {
             setIsEdit(true);
             setDesc(e.target.value);
           }}
-          placeholder={i18n.t('utils.any.description')}
+          placeholder={'Описание'}
         />
       </div>
     </SProjectContainter>

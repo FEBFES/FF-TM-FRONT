@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTitle } from '../../hooks/use-title';
-import { Col, Row, Layout } from 'antd';
-const { Header, Content, Footer } = Layout;
+import { Layout } from 'antd';
+const { Content } = Layout;
 
 export default interface EmptyLayoutProps {
   children: React.ReactNode;

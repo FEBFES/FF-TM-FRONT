@@ -1,18 +1,12 @@
 import styled from 'styled-components';
 import { Input } from 'antd';
 
-export const SColumn = styled.div<{ isEdit: boolean }>`
-  padding: 10px;
+export const SColumn = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: grab;
-  margin-top: 10px;
   width: 100%;
-  border-radius: 10px;
-  height: 60px;
-  border: ${({ isEdit }) =>
-    isEdit ? '1px solid var(--bg-primary)' : '1px solid var(--bg-border)'};
 
   &:first-of-type {
     margin-top: 0;

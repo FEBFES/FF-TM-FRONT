@@ -5,8 +5,7 @@ import { IMember } from '../../pages/kanban-page/store/kanban.type';
 import { MemberCard } from '../../pages/kanban-page/components/member-card/member-card';
 import { instance } from '../../api/http';
 import { fetchAddMemberToProject } from '../../pages/kanban-page/store/kanban.thunk';
-import { Typography, Modal, Input, Button } from 'antd';
-import { CloseIcon } from '../../assets/icons/UtilsIcons';
+import { Modal, Input } from 'antd';
 
 interface AddMemberToProjModalProps {
   show: boolean;
@@ -48,17 +47,25 @@ export const AddMemberToProjModal: React.FC<AddMemberToProjModalProps> = ({
     !isMemberInArr && setSelectedUsers([...selectedUsers, member]);
   };
 
+  const cancelHandler = () => {
+    setSelectedUsers([]);
+    setShow(false);
+  };
+
+  const submitHandler = () => {
+    addMemberToProj(selectedUsers);
+  };
+
   return (
-    <Modal open={show}>
+    <Modal
+      title={'Добавить участника'}
+      open={show}
+      onCancel={cancelHandler}
+      cancelText={'Отменить'}
+      onOk={submitHandler}
+      okText={'Добавить'}
+    >
       <div className={styles.modal}>
-        <div className={styles.modal__header}>
-          <Typography>Добавить участника</Typography>
-
-          <div onClick={() => setShow(false)}>
-            <CloseIcon />
-          </div>
-        </div>
-
         <div className={styles.modal__search}>
           <Input
             placeholder={'Введите логин или email'}
@@ -66,6 +73,7 @@ export const AddMemberToProjModal: React.FC<AddMemberToProjModalProps> = ({
             onChange={(e) => setInputValue(e.target.value)}
           />
         </div>
+
         <div className={`${styles.modal__users} scrollbar`}>
           {users.length ? (
             users.map((member: IMember) => {
@@ -83,25 +91,10 @@ export const AddMemberToProjModal: React.FC<AddMemberToProjModalProps> = ({
 
         {selectedUsers.length !== 0 && (
           <div className={styles.modal__selectedUsers}>
-            //todo
+            {/*//todo*/}
             {/*<AvatarGroup members={selectedUsers} avatarSize={'m'} />*/}
           </div>
         )}
-
-        <div className={styles.modal__footer}>
-          <Button
-            disabled={selectedUsers.length === 0}
-            onClick={() => setSelectedUsers([])}
-          >
-            Отмена
-          </Button>
-          <Button
-            disabled={selectedUsers.length === 0}
-            onClick={() => addMemberToProj(selectedUsers)}
-          >
-            Добавить
-          </Button>
-        </div>
       </div>
     </Modal>
   );

@@ -36,7 +36,7 @@ export const SColumn = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  overflow-y: auto;
+  overflow-y: scroll;
 
   &::-webkit-scrollbar {
     display: none;

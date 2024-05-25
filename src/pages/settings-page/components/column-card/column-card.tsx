@@ -1,22 +1,15 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faTrashCan,
-  faPen,
-  faSave,
-  faClose,
-} from '@fortawesome/free-solid-svg-icons';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchUpdateCol } from '../../../kanban-page/store/kanban.thunk';
-import i18n from 'i18next';
-import { Typography, Input, Flex, Tooltip } from 'antd';
+import { Typography, Flex, Card, Button, Space, Popconfirm } from 'antd';
 import { IColumns } from '../../../kanban-page/components/column/column';
+import { SColumn } from './column-card.styled';
 import {
-  SColumn,
-  STrashButton,
-  SEditButton,
-  SSaveButton,
-} from './column-card.styled';
+  CloseOutlined,
+  DeleteOutlined,
+  EditOutlined,
+  SaveOutlined,
+} from '@ant-design/icons';
 
 export interface ColumnCardProps {
   column: IColumns;
@@ -27,7 +20,7 @@ export const ColumnCard: React.FC<ColumnCardProps> = ({
   column,
   onDelete,
 }): JSX.Element => {
-  const [colName, setColName] = useState<string>(column.name || '');
+  const [colName] = useState<string>(column.name || '');
   const [isEditMode, setIsEditMode] = useState<boolean>(false);
   const dispatch = useAppDispatch();
 
@@ -44,54 +37,51 @@ export const ColumnCard: React.FC<ColumnCardProps> = ({
   };
 
   return (
-    <SColumn isEdit={isEditMode}>
-      <Flex dir={'col'}>
-        <Typography>#{column.id}</Typography>
-        <Typography>
-          {isEditMode ? (
-            <div>
-              <Input
-                value={colName}
-                //TODO удален, проверить и удалить комментарий и саму строчку
-                // containerStyle={styles.inputCont}
-                onChange={(e) => setColName(e.target.value)}
-              />
-            </div>
-          ) : (
-            <span>{column.name}</span>
-          )}{' '}
-        </Typography>
-      </Flex>
+    <Card>
+      <SColumn>
+        <Flex dir={'col'}>
+          <Typography.Paragraph editable={{ onChange: () => {} }}>
+            {column.name}
+          </Typography.Paragraph>
+        </Flex>
 
-      <Flex>
-        {isEditMode ? (
-          <Tooltip title={i18n.t('utils.buttons.cancel')}>
-            <STrashButton onClick={editModeToggle}>
-              <FontAwesomeIcon size={'xs'} icon={faClose} />
-            </STrashButton>
-          </Tooltip>
-        ) : (
-          <Tooltip title={i18n.t('utils.buttons.edit')}>
-            <SEditButton onClick={editModeToggle}>
-              <FontAwesomeIcon size={'xs'} icon={faPen} />
-            </SEditButton>
-          </Tooltip>
-        )}
-        <Tooltip title={i18n.t('utils.buttons.delete')}>
-          <STrashButton onClick={() => onDelete(column.projectId, column.id)}>
-            <FontAwesomeIcon size={'xs'} icon={faTrashCan} />
-          </STrashButton>
-        </Tooltip>
-        {isEditMode && (
-          <Tooltip title={i18n.t('utils.buttons.save')}>
-            <SSaveButton
+        <Space>
+          {isEditMode ? (
+            <Button onClick={editModeToggle}>
+              <CloseOutlined />
+            </Button>
+          ) : (
+            <Button onClick={editModeToggle}>
+              <EditOutlined />
+            </Button>
+          )}
+
+          {isEditMode && (
+            <Button
+              type={'primary'}
               onClick={() => updateColumn(column.projectId, column.id)}
             >
-              <FontAwesomeIcon size={'xs'} icon={faSave} />
-            </SSaveButton>
-          </Tooltip>
-        )}
-      </Flex>
-    </SColumn>
+              <SaveOutlined />
+            </Button>
+          )}
+
+          <Popconfirm
+            title="Удалить колонку ?"
+            onConfirm={() => onDelete(column.projectId, column.id)}
+            onCancel={() => {}}
+            okText="Да"
+            cancelText="Нет"
+          >
+            <Button
+              danger
+              type={'default'}
+              onClick={() => onDelete(column.projectId, column.id)}
+            >
+              <DeleteOutlined />
+            </Button>
+          </Popconfirm>
+        </Space>
+      </SColumn>
+    </Card>
   );
 };

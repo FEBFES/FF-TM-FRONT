@@ -1,20 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { delTaskFromCol } from '../../store/kanban.slice';
 import { useAppDispatch } from '../../../../hooks/redux';
-import { AttachmentsIcon } from '../../../../assets/icons/TaskIcons';
 import { fetchGetTaskInfo } from '../../store/kanban.thunk';
-import moment from 'moment';
-import { DotsIcon } from '../../../../assets/icons/UtilsIcons';
-import {Flex, Typography, Avatar, Dropdown, Badge, Tag} from 'antd';
-import i18n from 'i18next';
+import { Flex, Typography, Avatar, Badge, Tag, Space } from 'antd';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 import { ITask } from './task-card.type';
 import 'moment/locale/ru';
-import {
-  STaskMain,
-  STask,
-} from './task-card.styled';
-import {CommentOutlined, FileTextOutlined} from "@ant-design/icons";
+import { STask } from './task-card.styled';
+import { CommentOutlined, FileTextOutlined } from '@ant-design/icons';
+import { IPriorityType } from '../priority-select/priority-select';
 
 interface TaskCardProps {
   task: ITask;
@@ -27,7 +21,6 @@ export const TaskCard: React.FC<TaskCardProps> = ({
   delTask,
   setShowTaskModal,
 }): JSX.Element => {
-  const [showDD, setShowDD] = useState<boolean>(false);
   const dispatch = useAppDispatch();
 
   const getTaskInfo = () => {
@@ -41,70 +34,61 @@ export const TaskCard: React.FC<TaskCardProps> = ({
     );
   };
 
+  //todo to utils
+  const getColorByPriority = (priority: IPriorityType) => {
+    const colors = {
+      DEFAULT: '',
+      LOW: 'green',
+      MEDIUM: '',
+      HIGH: 'red',
+    };
+    return colors[priority];
+  };
+
   return (
-    <Badge.Ribbon style={{display: task.priority ? 'block' : 'none'}} text={task.priority}>
+    <Badge.Ribbon
+      color={getColorByPriority(task.priority)}
+      style={{ display: task.priority ? 'block' : 'none' }}
+      text={task.priority}
+    >
       <STask
-          hoverable
-          onDragStart={(e: any) => {
-            e.dataTransfer.setData('task', JSON.stringify(task));
-            setTimeout(() => {
-              e.target.style.display = 'none';
-              dispatch(delTaskFromCol(task));
-            }, 0);
-          }}
-          draggable
-          id={`${task.id}`}
+        onClick={() => getTaskInfo()}
+        hoverable
+        onDragStart={(e: any) => {
+          e.dataTransfer.setData('task', JSON.stringify(task));
+          setTimeout(() => {
+            e.target.style.display = 'none';
+            dispatch(delTaskFromCol(task));
+          }, 0);
+        }}
+        draggable
+        size={'small'}
+        id={`${task.id}`}
       >
-        <Flex>
-            <Typography>
-              #{task.id || ''}
-            </Typography>
+        <Space>
+          <Typography.Text>#{task.id}</Typography.Text>
+          {task.type && <Tag>{task.type}</Tag>}
+        </Space>
 
-          {task.assignee?.userPic && (
-              <Avatar src={getAvatarUrlOrHuman(task.assignee?.userPic)} />
-          )}
+        <Typography.Paragraph>{task.name || ''}</Typography.Paragraph>
+
+        <Flex justify={'space-between'} align={'center'}>
+          <Space>
+            <Space>
+              <CommentOutlined />
+              <Typography.Text>1</Typography.Text>
+            </Space>
+            <Space>
+              <FileTextOutlined />
+              <Typography.Text>2</Typography.Text>
+            </Space>
+          </Space>
+
+          <Avatar
+            size={'small'}
+            src={getAvatarUrlOrHuman(task.assignee?.userPic)}
+          />
         </Flex>
-
-        <STaskMain>
-          <Typography.Title level={5} ellipsis className={'ellipsis_text'} onClick={getTaskInfo}>
-            {task.name || ''}
-          </Typography.Title>
-          <Typography>
-            {moment(task.createDate).locale('ru').format('MMM DD')}
-          </Typography>
-        </STaskMain>
-
-        <>
-          <Flex>
-            <Tag>{task.type}</Tag>
-          </Flex>
-
-          <Flex>
-            {/*<div className={styles.task_attachments}>*/}
-            {/*  <span className={styles.task_attachments_counter}>8</span>*/}
-            {/*  <CommentsIcon />*/}
-            {/*</div>*/}
-            <CommentOutlined />
-            <FileTextOutlined />
-            {task.filesCounter !== 0 && (
-                <div>
-                  <Typography>{task.filesCounter || ''}</Typography>
-                  <AttachmentsIcon />
-                </div>
-            )}
-            <div onClick={() => setShowDD(true)}>
-              <Dropdown
-                  // open={showDD}
-                  // setShow={setShowDD}
-              >
-                <Typography onClick={() => delTask(task.columnId, task.id)}>
-                  {i18n.t('utils.buttons.delete')}
-                </Typography>
-              </Dropdown>
-              <DotsIcon w={12} />
-            </div>
-          </Flex>
-        </>
       </STask>
     </Badge.Ribbon>
   );

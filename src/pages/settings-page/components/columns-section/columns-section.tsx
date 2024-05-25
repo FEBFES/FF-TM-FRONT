@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import i18n from 'i18next';
 import { IColumns } from '../../../kanban-page/components/column/column';
 import { ColumnCard } from '../column-card/column-card';
 import { AddColModal } from '../add-col-modal/add-col-modal';
@@ -18,34 +17,26 @@ export const ColumnsSection: React.FC<
   ColumnsSectionProps
 > = (): JSX.Element => {
   const columns = useTypedSelector((state) => state.curProj.columns);
-
   const [isChanged] = useState<boolean>(false);
   const [showAddColModal, setShowAddColModal] = useState<boolean>(false);
-  const [showConfirmModal, setShowConfirmModal] = useState<boolean>(false);
-  const [curCol, setCurCol] = useState<any>(null);
   const dispatch = useAppDispatch();
 
   const deleteColumn = (projId: number, colId: number) => {
-    setCurCol({ projId, colId });
-    setShowConfirmModal(true);
+    dispatch(fetchDelCol({ projId, colId }));
   };
   return (
     <>
       <SColumnContainer>
         <SColumnContHeader>
           <div>
-            <Typography>
-              {i18n.t('pages.settings.tabs.project.column.subtitle')}
-            </Typography>
-            <Typography>
-              {i18n.t('pages.settings.tabs.project.column.text')}
-            </Typography>
+            <Typography.Title>Колонки</Typography.Title>
+            <Typography.Text>Редактируйте колонки проекта</Typography.Text>
           </div>
 
           <Space />
 
-          <Button onClick={() => setShowAddColModal(true)}>
-            {i18n.t('pages.settings.tabs.project.column.addNew')}
+          <Button onClick={() => setShowAddColModal(true)} type={'primary'}>
+            + Добавить новую колонку
           </Button>
         </SColumnContHeader>
 
@@ -66,13 +57,6 @@ export const ColumnsSection: React.FC<
         </SColumnContFooter>
       )}
       <AddColModal show={showAddColModal} setShow={setShowAddColModal} />
-      //todo
-      {/*<Confirm*/}
-      {/*  show={showConfirmModal}*/}
-      {/*  setShow={setShowConfirmModal}*/}
-      {/*  title={i18n.t('pages.settings.tabs.project.column.confirm.delete')}*/}
-      {/*  onConfirm={() => dispatch(fetchDelCol(curCol))}*/}
-      {/*/>*/}
     </>
   );
 };

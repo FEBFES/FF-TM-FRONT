@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import i18n from 'i18next';
 
 export const useOffline = () => {
   const [isOffline, setIsOffline] = useState(false);

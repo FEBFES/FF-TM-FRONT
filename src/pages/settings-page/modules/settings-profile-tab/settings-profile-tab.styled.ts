@@ -4,7 +4,7 @@ export const SUserBackground = styled.div`
   width: 100%;
   height: 180px;
   border-radius: 10px;
-  background: var(--bg-0);
+  background: #0a0a25;
 `;
 
 /* //todo change to FLEX and PAddinWrapper ui Component */
@@ -26,7 +26,7 @@ export const SUserAvatarContainer = styled.div`
   width: 120px;
   height: 120px;
   border-radius: 100px;
-  background: var(--bg-100);
+  background: lightgrey;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,4 +58,10 @@ export const FileInputLabel = styled.label`
 export const FileInputDelete = styled.div`
   ${SFileInputButtonStyle};
   left: 0;
+`;
+
+export const SInputCont = styled.div`
+  margin-top: 30px;
+  display: grid;
+  grid-gap: 10px;
 `;

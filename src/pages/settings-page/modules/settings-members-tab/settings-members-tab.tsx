@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { Typography, Button } from 'antd';
-import i18n from 'i18next';
-import { IMember } from '../../../kanban-page/store/kanban.type';
-import { MemberCard } from '../../components/member-card/member-card';
+import { Typography, Table, Button, Flex } from 'antd';
 import { useTypedSelector } from '../../../../hooks/redux';
-import { SMemberCont, SMemberContHeader } from './settings-members-tab.styled';
+import { SHeader } from './settings-members-tab.styled';
 import { AddMemberToProjModal } from '../../../../components/add-member-to-proj-modal/add-member-to-proj-modal';
+import { columns } from './columns';
 
 interface MembersTabProps {}
 
@@ -17,23 +15,21 @@ export const SettingsMembersTab: React.FC<
 
   return (
     <div>
-      <Typography>{i18n.t('pages.settings.tabs.members.title')}</Typography>
-      <Typography>{i18n.t('pages.settings.tabs.members.subtitle')}</Typography>
+      <SHeader>
+        <Flex vertical>
+          <Typography.Title level={4}>
+            Настройка участников проекта
+          </Typography.Title>
+          <Typography.Text>
+            Редактируйте доступ к вашему проекту
+          </Typography.Text>
+        </Flex>
 
-      <SMemberCont>
-        <SMemberContHeader>
-          <Typography>
-            {i18n.t('pages.settings.sidebar.link.members')}: {members.length}
-          </Typography>
-          <Button onClick={() => setShowAddMemberModal(true)}>
-            {i18n.t('utils.buttons.add')}
-          </Button>
-        </SMemberContHeader>
-
-        {members.map((member: IMember, i: number) => {
-          return <MemberCard member={member} key={i} />;
-        })}
-      </SMemberCont>
+        <Button type={'primary'} onClick={() => setShowAddMemberModal(true)}>
+          + Добавить участника
+        </Button>
+      </SHeader>
+      <Table columns={columns} dataSource={members} />
 
       <AddMemberToProjModal
         show={showAddMemberModal}

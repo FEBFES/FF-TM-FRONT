@@ -29,7 +29,7 @@ interface IKanbanInitialState {
   isFavorite: boolean;
   members: IMember[];
   filters: { key: string; value: string }[];
-  curView: 'row' | 'col';
+  curView: 'kanban' | 'list';
 }
 
 const initialState: IKanbanInitialState = {
@@ -46,7 +46,7 @@ const initialState: IKanbanInitialState = {
   isFavorite: false,
   members: [],
   filters: [],
-  curView: 'col',
+  curView: 'kanban',
 };
 
 const KanbanSlice = createSlice({

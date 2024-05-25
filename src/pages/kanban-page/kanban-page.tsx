@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { KanbanPageHeader } from './modules/kanban-page-header/kanban-page-header';
 import { KanbanPageMain } from './modules/kanban-page-main/kanban-page-main';
 import { KanbanPageSubheader } from './modules/kanban-page-subheader/kanban-page-subheader';
-import { TaskWindow } from './modules/task-window/task-window';
 import { useTypedSelector } from '../../hooks/redux';
 import { useNavigate } from 'react-router-dom';
+import { TaskDrawer } from './modules/drawer/drawer';
 
 export const KanbanPage: React.FC = (): JSX.Element => {
   const [showTaskModal, setShowTaskModal] = useState<boolean>(false);
@@ -19,11 +18,16 @@ export const KanbanPage: React.FC = (): JSX.Element => {
 
   return (
     <div>
-      {/*<KanbanPageHeader />*/}
       <KanbanPageSubheader />
       <KanbanPageMain setShowTaskModal={setShowTaskModal} />
 
-      {showTaskModal && <TaskWindow setShowWindow={setShowTaskModal} />}
+      <TaskDrawer
+        showTaskModal={showTaskModal}
+        setShowTaskModal={setShowTaskModal}
+      />
+
+      {/*//todo*/}
+      {/*{showTaskModal && <TaskWindow setShowWindow={setShowTaskModal} />}*/}
     </div>
   );
 };

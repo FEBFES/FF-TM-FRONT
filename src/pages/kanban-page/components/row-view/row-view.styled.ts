@@ -10,7 +10,7 @@ export const SRowContainer = styled.div`
   height: 100%;
   overflow-y: scroll;
 
-  @media (max-widthl 580px) {
+  @media (max-width: 580px) {
     padding-left: 10px;
     padding-right: 10px;
   }

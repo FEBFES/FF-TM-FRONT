@@ -5,5 +5,6 @@ export const getAvatarUrlOrHuman = (url: string | null) => {
   if (!url) {
     return human;
   }
+
   return `${serverString}${url}`;
 };

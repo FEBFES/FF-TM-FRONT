@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { setupStore } from './store';
 import { Provider } from 'react-redux';
 import { App } from './pages/root/app/app';
+import { ConfigProvider, theme } from 'antd';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -19,11 +20,17 @@ export const store = setupStore();
 // }).observe({ type: 'largest-contentful-paint', buffered: true });
 
 root.render(
-  <Router>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </Router>
+  <ConfigProvider
+    theme={{
+      algorithm: [theme.compactAlgorithm, theme.darkAlgorithm],
+    }}
+  >
+    <Router>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </Router>
+  </ConfigProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

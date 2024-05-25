@@ -1,17 +1,12 @@
 import styled from 'styled-components';
 
-/* //todo change to FLEX and PAddinWrapper ui Component */
-export const SMemberCont = styled.div`
-  margin-top: 30px;
+export const SHeader = styled.div`
+  border-radius: 12px;
+  padding: 20px 40px;
+  background: white;
   display: flex;
-  flex-direction: column;
-`;
-
-export const SMemberContHeader = styled.div`
-  display: flex;
-  align-items: center;
   justify-content: space-between;
-  background: var(--bg-0);
-  border-radius: 6px;
-  padding: 15px 20px;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 30px;
 `;

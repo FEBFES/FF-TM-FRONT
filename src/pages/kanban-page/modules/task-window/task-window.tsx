@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { CloseIcon } from '../../../../assets/icons/UtilsIcons';
 import { useTypedSelector } from '../../../../hooks/redux';
 import i18n from 'i18next';
 import { FilesTab, IFile } from '../../components';
@@ -7,10 +6,7 @@ import moment from 'moment';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 import { Typography, Flex, Tooltip, Space, Avatar } from 'antd';
 import {
-  STaskWindowHeader,
   STaskWindow,
-  STaskWindowSubHeader,
-  SCloseIcon,
   SUsersSection,
   SPrioritySection,
   SDescriptionSection,
@@ -37,20 +33,6 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
 
   return (
     <STaskWindow>
-      <STaskWindowHeader>
-        <Typography>#{task.id}</Typography>
-        <Flex>
-          {/*<FullIcon />*/}
-          <SCloseIcon onClick={() => setShowWindow(false)}>
-            <CloseIcon />
-          </SCloseIcon>
-        </Flex>
-      </STaskWindowHeader>
-
-      <STaskWindowSubHeader>
-        <Typography>{task.name || ''}</Typography>
-      </STaskWindowSubHeader>
-
       <SUsersSection>
         <Flex>
           <Typography>{i18n.t('utils.any.owner')}:</Typography>
@@ -75,14 +57,14 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
         <Flex>
           <Typography>{i18n.t('utils.any.priority')}:</Typography>
           <Space />
-          //todo
+          {/*//todo*/}
           {/*<PriorityLabel priority={task.priority} />*/}
         </Flex>
 
         <Flex>
           <Typography>{i18n.t('utils.any.type')}:</Typography>
           <Space />
-          //todo
+          {/*//todo*/}
           {/*<TaskLabel type={task.type} />*/}
         </Flex>
       </SPrioritySection>
