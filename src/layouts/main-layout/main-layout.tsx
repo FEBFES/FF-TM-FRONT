@@ -6,9 +6,8 @@ import { Header } from '../../components/header/header';
 const { Content } = Layout;
 
 const layoutStyle = {
-  overflow: 'hidden',
+  // overflow: 'hidden',
   width: '100vw',
-  height: '100vh',
 };
 
 export interface MainLayoutProps {
@@ -25,9 +24,19 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
   return (
     <Layout style={layoutStyle}>
       <Sidebar />
-      <Layout>
+      <Layout
+        style={{
+          height: '100vh',
+        }}
+      >
         <Header />
-        <Content>{children}</Content>
+        <Content
+          style={{
+            overflowY: 'scroll',
+          }}
+        >
+          {children}
+        </Content>
       </Layout>
     </Layout>
 

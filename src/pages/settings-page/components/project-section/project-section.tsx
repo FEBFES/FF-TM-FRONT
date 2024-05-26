@@ -1,81 +1,62 @@
-import React, { useEffect, useState } from 'react';
-import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
+import React from 'react';
+import { useTypedSelector } from '../../../../hooks/redux';
 import { fetchUpdateProject } from '../../../projects-page/store/projects.thunk';
-import { Input, Button, Space } from 'antd';
-import {
-  SProjectContainter,
-  SHeaderRightSection,
-} from './project-section.styled';
+import { Input, Form, Flex, Skeleton } from 'antd';
+import { SProjectContainter, SHeader } from './project-section.styled';
+import { SectionTitle } from '../section-title/section-title';
+import { Spin } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
 
 interface ProjectSectionProps {}
 
 export const ProjectSection: React.FC<
   ProjectSectionProps
 > = (): JSX.Element => {
-  const { projectName, projectDesc, projId } = useTypedSelector(
-    (state) => state.curProj
-  );
-  const dispatch = useAppDispatch();
-  const [name, setName] = useState<string>(projectName || '');
-  const [desc, setDesc] = useState<string>(projectDesc || '');
-  const [isEdit, setIsEdit] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (projectName === name && projectDesc === desc) setIsEdit(false);
-  }, [name, desc, projectDesc, projectName]);
-
-  useEffect(() => {
-    projectName && setName(projectName);
-    projectDesc && setDesc(projectDesc);
-  }, [projectName, projectDesc]);
-
-  const clearInputs = () => {
-    setDesc(projectDesc || '');
-    setName(projectName || '');
-  };
+  const curProj = useTypedSelector((state) => state.curProj);
 
   const updateProjInfoHandler = () => {
-    if (projId) {
-      dispatch(fetchUpdateProject({ id: projId, name, desc })).catch((err) => {
-        clearInputs();
-      });
-      setIsEdit(false);
+    if (curProj.projId) {
+      // dispatch(fetchUpdateProject({ id: projId, name, desc }))
     }
   };
 
+  const onFinishHandler = (e: any) => {
+    console.log(e);
+  };
+
+  if (!curProj.projectName || !curProj.projectDesc) {
+    return (
+      <Flex justify={'center'} align={'center'}>
+        <Spin indicator={<LoadingOutlined style={{ fontSize: 24 }} spin />} />
+      </Flex>
+    );
+  }
+
   return (
     <SProjectContainter>
-      <div>
-        {isEdit && (
-          <SHeaderRightSection>
-            <Button onClick={() => clearInputs()}>Отменить</Button>
-            <Button onClick={() => updateProjInfoHandler()}>Сохранить</Button>
-          </SHeaderRightSection>
-        )}
-      </div>
-      <Space />
-
-      <div>
-        <Input
-          value={name}
-          size={'large'}
-          onChange={(e) => {
-            setIsEdit(true);
-            setName(e.target.value);
-          }}
-          placeholder={'Название'}
+      <SHeader>
+        <SectionTitle
+          title={`Проект: ${curProj.projectName || ''}`}
+          desc={'Настройка информации о проекте'}
         />
+      </SHeader>
 
-        <Input
-          value={desc}
-          size={'large'}
-          onChange={(e) => {
-            setIsEdit(true);
-            setDesc(e.target.value);
-          }}
-          placeholder={'Описание'}
-        />
-      </div>
+      <Form
+        layout={'vertical'}
+        onFinish={onFinishHandler}
+        initialValues={{
+          name: curProj.projectName || '',
+          description: curProj.projectDesc || '',
+        }}
+      >
+        <Form.Item label="Название" name="name">
+          <Input size={'large'} placeholder={'Название'} />
+        </Form.Item>
+
+        <Form.Item label="Описание" name="description">
+          <Input size={'large'} placeholder={'Описание'} />
+        </Form.Item>
+      </Form>
     </SProjectContainter>
   );
 };

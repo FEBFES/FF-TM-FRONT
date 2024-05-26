@@ -1,14 +1,7 @@
-import React, { useState } from 'react';
-import { Typography, Input, Modal, Button } from 'antd';
+import React from 'react';
+import { Button, Flex, Form, Input, Modal, Space } from 'antd';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 import { fetchAddNewCol } from '../../../kanban-page/store/kanban.thunk';
-import i18n from 'i18next';
-import {
-  SModalContainer,
-  SModalFooter,
-  SModalHeader,
-  SModalMain,
-} from './add-col-modal.styled';
 
 export interface AddColModalProps {
   show: boolean;
@@ -19,60 +12,69 @@ export const AddColModal: React.FC<AddColModalProps> = ({
   show,
   setShow,
 }): JSX.Element => {
-  const [colName, setColName] = useState<string>('');
-  const [colDesc, setColDesc] = useState<string>('');
+  const [form] = Form.useForm();
   const projId = useTypedSelector((state) => state.curProj.projId);
   const dispatch = useAppDispatch();
 
-  const addNewColumn = () => {
+  const cancelHandler = () => {
+    form.resetFields();
+    setShow(false);
+  };
+
+  const onFinishHandler = (e: any) => {
     dispatch(
       fetchAddNewCol({
-        name: colName,
-        description: colDesc,
+        name: e.name,
+        description: e.desc || '',
         projId: String(projId),
       })
-    ).finally(() => {
-      setShow(false);
-      setColDesc('');
-      setColName('');
-    });
+    );
+    cancelHandler();
   };
 
   return (
-    <Modal open={show}>
-      <SModalContainer>
-        <SModalHeader>
-          <Typography>
-            {i18n.t('pages.settings.tabs.project.column.addNew')}
-          </Typography>
+    <Modal
+      title={'Добавить новую колонку'}
+      open={show}
+      onCancel={() => setShow(false)}
+      footer={() => <></>}
+    >
+      <Form
+        style={{ padding: '30px 10px 0px' }}
+        onFinish={onFinishHandler}
+        form={form}
+        layout={'vertical'}
+      >
+        <Form.Item
+          rules={[
+            { required: true },
+            { min: 4, message: 'Минимальное кол-во символов - 4' },
+            { max: 20, message: 'Максимальное кол-во символов - 20' },
+          ]}
+          label="Название"
+          name="name"
+        >
+          <Input placeholder={'Название'} type={'text'} size={'large'} />
+        </Form.Item>
 
-          {/*<Button theme={'close'} onClick={() => setShow(false)} />*/}
-        </SModalHeader>
+        <Form.Item
+          rules={[{ min: 5, message: 'Минимальное кол-во символов - 5' }]}
+          label="Описание"
+          name="desc"
+        >
+          <Input placeholder={'Описание'} type={'text'} size={'large'} />
+        </Form.Item>
 
-        <SModalMain>
-          <Input
-            value={colName}
-            onChange={(e) => setColName(e.target.value)}
-            placeholder={i18n.t('utils.any.name')}
-            type={'text'}
-          />
-          <Input
-            value={colDesc}
-            onChange={(e) => setColDesc(e.target.value)}
-            placeholder={i18n.t('utils.any.description')}
-            type={'text'}
-          />
-        </SModalMain>
+        <Flex justify={'end'}>
+          <Space size={'middle'}>
+            <Button onClick={cancelHandler}>Отмена</Button>
 
-        <SModalFooter>
-          <Button onClick={() => setShow(false)}>
-            {i18n.t('utils.buttons.back')}
-          </Button>
-          <Button disabled={colName === ''} onClick={addNewColumn}>
-            {i18n.t('utils.buttons.create')}
-          </Button>
-        </SModalFooter>
-      </SModalContainer>
+            <Button type="primary" htmlType="submit">
+              Добавить
+            </Button>
+          </Space>
+        </Flex>
+      </Form>
     </Modal>
   );
 };

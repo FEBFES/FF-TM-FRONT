@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IUser } from './user.type';
 
-interface IAppSlice {
+export interface IUserState {
   displayName: string | null;
   email: string | null;
   firstName: string | null;
@@ -12,7 +12,7 @@ interface IAppSlice {
   userId: number | null;
 }
 
-const initialState: IAppSlice = {
+const initialState: IUserState = {
   displayName: null,
   email: null,
   firstName: null,

@@ -2,10 +2,9 @@ import styled from 'styled-components';
 import { Button } from 'antd';
 
 export const Container = styled.div`
-  padding: 0 40px 80px;
+  padding: 0 20px 40px;
   width: 100%;
   overflow: scroll;
-  margin-bottom: 80px;
 `;
 
 export const SCardHeader = styled.div`

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { LogoIconDark } from '../../assets/icons/LogoIconDark';
-import { Menu, Layout, Flex, Grid } from 'antd';
+import { Menu, Layout, Flex } from 'antd';
 import type { GetProp, MenuProps } from 'antd';
 import {
   BarChartOutlined,
@@ -11,6 +11,7 @@ import {
   UnorderedListOutlined,
 } from '@ant-design/icons';
 import { MenuCont } from './sidebar.styled';
+import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
 
 type MenuItem = GetProp<MenuProps, 'items'>[number];
 
@@ -30,28 +31,24 @@ const links: MenuItem[] = [
     key: '/Timeline',
     label: 'Таймлайн',
     icon: <BarChartOutlined />,
+    disabled: true,
   },
   {
     key: '/Messages',
     label: 'Сообщения',
     icon: <MessageOutlined />,
+    disabled: true,
   },
   {
     key: '/Settings',
     label: 'настройки',
     icon: <SettingOutlined />,
-    children: [
-      { key: '/Settings/Profile', label: 'Профиль' },
-      { key: '/Settings/Project', label: 'Проект' },
-      { key: '/Settings/Members', label: 'Участники' },
-    ],
   },
 ];
 
 export const Sidebar: React.FC = (): JSX.Element => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { useBreakpoint } = Grid;
 
   const onMenuItemClick = (link: string): void => {
     navigate(link);
@@ -59,10 +56,10 @@ export const Sidebar: React.FC = (): JSX.Element => {
 
   return (
     <Layout.Sider
-      theme={'dark'}
-      breakpoint="md"
+      theme={'light'}
+      breakpoint="lg"
       width="200px"
-      collapsible={useBreakpoint().md}
+      collapsible={useBreakpoint().lg}
     >
       <Flex style={{ marginTop: '40px' }} justify={'center'} align={'center'}>
         <LogoIconDark />
@@ -70,7 +67,8 @@ export const Sidebar: React.FC = (): JSX.Element => {
 
       <MenuCont>
         <Menu
-          theme={'dark'}
+          style={{ borderRight: 'none' }}
+          theme={'light'}
           mode="inline"
           items={links}
           defaultSelectedKeys={[location.pathname]}
@@ -79,41 +77,6 @@ export const Sidebar: React.FC = (): JSX.Element => {
           }}
         />
       </MenuCont>
-
-      {/* {links.map((link, i) => {
-          if (link.private && location.pathname === '/') {
-            return null;
-          }
-          if (link.title === 'routes.sidebar.kanban' && !curProjId) {
-            return null;
-          }
-          return (
-            <SLink
-              key={i}
-              aria-label={link.title}
-              isActive={location.pathname.includes(link.to)}
-              to={link.to}
-            >
-              <FontAwesomeIcon icon={link.icon} />
-              <Space />
-              {isFullView && (
-                <Typography>{i18n.t(link.title) || ''}</Typography>
-              )}
-            </SLink>
-          );
-        })} */}
-
-      {/* //todo */}
-      {/* <SLink
-        onClick={() => {
-          dispatch(setIsAuth(false));
-        }}
-        aria-label={'Logout'}
-        to={appRoutsPath.LoginPage.to}
-        replace={true}
-      >
-        <FontAwesomeIcon icon={faDoorOpen} />
-      </SLink> */}
     </Layout.Sider>
   );
 };

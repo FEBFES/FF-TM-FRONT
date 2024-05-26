@@ -4,12 +4,13 @@ import { ColumnCard } from '../column-card/column-card';
 import { AddColModal } from '../add-col-modal/add-col-modal';
 import { fetchDelCol } from '../../../kanban-page/store/kanban.thunk';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
-import { Typography, Space, Button } from 'antd';
+import { Space, Button } from 'antd';
 import {
   SColumnContainer,
   SColumnContHeader,
   SColumnContFooter,
 } from './columns-section.styled';
+import { SectionTitle } from '../section-title/section-title';
 
 interface ColumnsSectionProps {}
 
@@ -24,15 +25,15 @@ export const ColumnsSection: React.FC<
   const deleteColumn = (projId: number, colId: number) => {
     dispatch(fetchDelCol({ projId, colId }));
   };
+
   return (
     <>
       <SColumnContainer>
         <SColumnContHeader>
-          <div>
-            <Typography.Title>Колонки</Typography.Title>
-            <Typography.Text>Редактируйте колонки проекта</Typography.Text>
-          </div>
-
+          <SectionTitle
+            title={'Колонки проекта'}
+            desc={'Настройка и редактирования колонок'}
+          />
           <Space />
 
           <Button onClick={() => setShowAddColModal(true)} type={'primary'}>

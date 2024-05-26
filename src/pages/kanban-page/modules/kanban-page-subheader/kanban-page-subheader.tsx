@@ -17,6 +17,7 @@ import {
   BarsOutlined,
   FilterFilled,
 } from '@ant-design/icons';
+import useBreakpoint from 'antd/es/grid/hooks/useBreakpoint';
 
 export const KanbanPageSubheader: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -28,7 +29,6 @@ export const KanbanPageSubheader: React.FC = () => {
   //   filters.find((el) => el.key === 'taskPriority')?.value || 'DEFAULT';
   const members = useTypedSelector((state) => state.curProj.members);
   const curView = useTypedSelector((state) => state.curProj.curView);
-
   return (
     <SSubHeader>
       <Flex align={'center'}>
@@ -37,8 +37,16 @@ export const KanbanPageSubheader: React.FC = () => {
           defaultValue={curView}
           size={'small'}
           options={[
-            { label: 'List', value: 'list', icon: <BarsOutlined /> },
-            { label: 'Kanban', value: 'kanban', icon: <AppstoreOutlined /> },
+            {
+              label: useBreakpoint().xs ? '' : 'Список',
+              value: 'list',
+              icon: <BarsOutlined />,
+            },
+            {
+              label: useBreakpoint().xs ? '' : 'Доска',
+              value: 'kanban',
+              icon: <AppstoreOutlined />,
+            },
           ]}
         />
 

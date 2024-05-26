@@ -13,6 +13,11 @@ export const SColumnContHeader = styled.header`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 10px;
+
+  @media screen and (max-width: 576px) {
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
 `;
 
 //todo change to FLEX and PAddinWrapper ui Component */

@@ -1,12 +1,21 @@
 import styled from 'styled-components';
+import { Card } from 'antd';
+
+export const SMemberCard = styled(Card)`
+  border-radius: 0;
+`;
+
+export const SMemberContainer = styled.div`
+  margin-top: 20px;
+`;
 
 export const SHeader = styled.div`
-  border-radius: 12px;
-  padding: 20px 40px;
-  background: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  margin-bottom: 30px;
+  flex-direction: row;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `;

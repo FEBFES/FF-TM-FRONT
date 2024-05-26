@@ -3,12 +3,14 @@ import { delTaskFromCol } from '../../store/kanban.slice';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchGetTaskInfo } from '../../store/kanban.thunk';
 import { Flex, Typography, Avatar, Badge, Tag, Space } from 'antd';
-import { getAvatarUrlOrHuman } from '../../../../utils/utils';
+import {
+  getAvatarUrlOrHuman,
+  getColorByPriority,
+} from '../../../../utils/utils';
 import { ITask } from './task-card.type';
 import 'moment/locale/ru';
 import { STask } from './task-card.styled';
 import { CommentOutlined, FileTextOutlined } from '@ant-design/icons';
-import { IPriorityType } from '../priority-select/priority-select';
 
 interface TaskCardProps {
   task: ITask;
@@ -32,17 +34,6 @@ export const TaskCard: React.FC<TaskCardProps> = ({
         taskId: task.id,
       })
     );
-  };
-
-  //todo to utils
-  const getColorByPriority = (priority: IPriorityType) => {
-    const colors = {
-      DEFAULT: '',
-      LOW: 'green',
-      MEDIUM: '',
-      HIGH: 'red',
-    };
-    return colors[priority];
   };
 
   return (

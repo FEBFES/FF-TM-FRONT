@@ -1,21 +1,21 @@
 import styled from 'styled-components';
 
 export const SPageWrap = styled.div`
-  width: 70%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-
-  @media (max-width: 1280px) {
-    width: 80%;
-  }
-  @media (max-width: 980px) {
-    width: 90%;
-  }
 `;
 
-export const SPageCont = styled.div`
+export const SPageCont = styled.div<{ sizeXs?: boolean }>`
   display: flex;
+  flex-direction: ${({ sizeXs }) => (sizeXs ? 'column' : 'row')};
+  gap: 50px;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   margin: 40px 20px 50px 20px;
+  padding: 0 40px;
+
+  @media screen and (max-width: 480px) {
+    padding: 0 0;
+  }
 `;

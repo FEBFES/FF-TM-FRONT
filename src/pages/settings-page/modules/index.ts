@@ -1,3 +1,3 @@
-export * from './settings-members-tab/settings-members-tab';
-export * from './settings-profile-tab/settings-profile-tab';
-export * from './settings-projects-tab/settings-projects-tab';
+export * from './members-tab/members-tab';
+export * from './profile-tab/profile-tab';
+export * from './projects-tab/projects-tab';

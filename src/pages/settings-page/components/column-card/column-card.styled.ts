@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Input } from 'antd';
+import { Card } from 'antd';
 
 export const SColumn = styled.div`
   display: flex;
@@ -13,44 +13,6 @@ export const SColumn = styled.div`
   }
 `;
 
-export const SButton = styled.div`
-  margin-right: 6px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 25px;
-  border-radius: 5px;
-  background: var(--bg-border);
-  height: 25px;
-  cursor: pointer;
-  transition: 0.2s;
-`;
-
-export const SInputField = styled(Input)`
-  font-size: 16px;
-  color: var(--font-defautl);
-  border: none;
-  padding: 0;
-  background: transparent;
-`;
-
-export const STrashButton = styled(SButton)`
-  &:hover {
-    background: #bb5050;
-    transform: scale(1.05);
-  }
-`;
-
-export const SSaveButton = styled(SButton)`
-  &:hover {
-    background: #61bd65;
-    transform: scale(1.05);
-  }
-`;
-
-export const SEditButton = styled(SButton)`
-  &:hover {
-    background: gray;
-    transform: scale(1.05);
-  }
+export const SCard = styled(Card)`
+  margin-bottom: 12px;
 `;

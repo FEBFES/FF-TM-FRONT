@@ -2,16 +2,8 @@ import React, { useState } from 'react';
 import { useTypedSelector } from '../../../../hooks/redux';
 import i18n from 'i18next';
 import { FilesTab, IFile } from '../../components';
-import moment from 'moment';
-import { getAvatarUrlOrHuman } from '../../../../utils/utils';
-import { Typography, Flex, Tooltip, Space, Avatar } from 'antd';
 import {
   STaskWindow,
-  SUsersSection,
-  SPrioritySection,
-  SDescriptionSection,
-  SDescriptionText,
-  SDateContainer,
   SWindowToggleItem,
   SWindowToggle,
 } from './task-window.styled';
@@ -33,65 +25,6 @@ export const TaskWindow: React.FC<TaskWindowProps> = ({
 
   return (
     <STaskWindow>
-      <SUsersSection>
-        <Flex>
-          <Typography>{i18n.t('utils.any.owner')}:</Typography>
-          <Space />
-          <Tooltip title={task.owner?.username || ''}>
-            <Avatar src={getAvatarUrlOrHuman(task.owner?.userPic)} />
-          </Tooltip>
-        </Flex>
-        <Flex>
-          <Typography>{i18n.t('utils.any.assignee')}:</Typography>
-          <Space />
-          <Tooltip title={task?.assignee?.username || ''}>
-            <Avatar
-              src={getAvatarUrlOrHuman(task.assignee?.userPic)}
-              alt={'human'}
-            />
-          </Tooltip>
-        </Flex>
-      </SUsersSection>
-
-      <SPrioritySection>
-        <Flex>
-          <Typography>{i18n.t('utils.any.priority')}:</Typography>
-          <Space />
-          {/*//todo*/}
-          {/*<PriorityLabel priority={task.priority} />*/}
-        </Flex>
-
-        <Flex>
-          <Typography>{i18n.t('utils.any.type')}:</Typography>
-          <Space />
-          {/*//todo*/}
-          {/*<TaskLabel type={task.type} />*/}
-        </Flex>
-      </SPrioritySection>
-
-      <SDateContainer>
-        <Typography>
-          {i18n.t('pages.kanban.taskWindow.main.info.creationDate')}:
-          <Space />
-          {task.createDate ? moment(task.createDate).format('DD.MM.YYYY') : '-'}
-        </Typography>
-
-        <Typography>
-          {i18n.t('pages.kanban.taskWindow.main.info.updateDate')}:
-          <Space />
-          {task.updateDate ? moment(task.updateDate).format('DD.MM.YYYY') : '-'}
-        </Typography>
-      </SDateContainer>
-
-      <SDescriptionSection>
-        <Typography>{i18n.t('utils.any.description')}</Typography>
-        <SDescriptionText
-          className={'scrollbar'}
-          value={task.description || ''}
-          onChange={() => {}}
-        />
-      </SDescriptionSection>
-
       <SWindowToggle>
         <SWindowToggleItem onClick={() => setCurSubPage('files')}>
           {i18n.t('pages.kanban.taskWindow.tabs.files.title')}{' '}

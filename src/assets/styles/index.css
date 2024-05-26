@@ -1,4 +1,5 @@
 @import "normalize.css";
+@import "variables.css";
 
 * {
   padding: 0;

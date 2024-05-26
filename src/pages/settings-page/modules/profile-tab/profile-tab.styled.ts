@@ -1,10 +1,28 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-export const SUserBackground = styled.div`
+export const SProfileCont = styled.div`
   width: 100%;
-  height: 180px;
+`;
+
+export const InfoCont = styled.div`
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 60px;
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+export const SUserBackground = styled.div<{ bgColor: any }>`
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
   border-radius: 10px;
-  background: #0a0a25;
+  background: ${({ bgColor }) => bgColor};
+  margin-bottom: 20px;
 `;
 
 /* //todo change to FLEX and PAddinWrapper ui Component */
@@ -13,10 +31,6 @@ export const SButtonsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-`;
-
-export const SFileInput = styled.input`
-  display: none;
 `;
 
 export const SUserAvatarContainer = styled.div`
@@ -33,35 +47,7 @@ export const SUserAvatarContainer = styled.div`
   margin-bottom: -40px;
 `;
 
-export const SFileInputButtonStyle = css`
-  position: absolute;
-  bottom: 5px;
-  width: 25px;
-  height: 25px;
-  border-radius: 5px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--bg-border);
-
-  &:hover .fileInput__btn > * {
-    transform: scale(1.5);
-  }
-`;
-
-export const FileInputLabel = styled.label`
-  ${SFileInputButtonStyle};
-  right: 0;
-`;
-
-export const FileInputDelete = styled.div`
-  ${SFileInputButtonStyle};
-  left: 0;
-`;
-
 export const SInputCont = styled.div`
-  margin-top: 30px;
   display: grid;
   grid-gap: 10px;
 `;

@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 export const SRowContainer = styled.div`
-  padding-left: 60px;
-  padding-right: 60px;
-  background: var(--bg-100);
+  padding: 40px 60px;
   width: 100%;
   display: flex;
   flex-direction: column;

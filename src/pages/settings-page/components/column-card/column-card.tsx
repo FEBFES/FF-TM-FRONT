@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { fetchUpdateCol } from '../../../kanban-page/store/kanban.thunk';
-import { Typography, Flex, Card, Button, Space, Popconfirm } from 'antd';
+import { Typography, Flex, Button, Space, Popconfirm } from 'antd';
 import { IColumns } from '../../../kanban-page/components/column/column';
-import { SColumn } from './column-card.styled';
+import { SCard, SColumn } from './column-card.styled';
 import {
   CloseOutlined,
   DeleteOutlined,
@@ -37,7 +37,7 @@ export const ColumnCard: React.FC<ColumnCardProps> = ({
   };
 
   return (
-    <Card>
+    <SCard>
       <SColumn>
         <Flex dir={'col'}>
           <Typography.Paragraph editable={{ onChange: () => {} }}>
@@ -82,6 +82,6 @@ export const ColumnCard: React.FC<ColumnCardProps> = ({
           </Popconfirm>
         </Space>
       </SColumn>
-    </Card>
+    </SCard>
   );
 };

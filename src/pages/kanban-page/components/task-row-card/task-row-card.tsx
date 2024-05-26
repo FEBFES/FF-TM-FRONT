@@ -1,17 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ITask } from '../task-card/task-card.type';
 import { fetchGetTaskInfo } from '../../store/kanban.thunk';
 import { useAppDispatch } from '../../../../hooks/redux';
-import { DotsIcon } from '../../../../assets/icons/UtilsIcons';
-import { getAvatarUrlOrHuman } from '../../../../utils/utils';
-import { Typography, Flex, Dropdown, Avatar } from 'antd';
 import {
-  SCard,
-  STaskLabel,
-  SCardInfo,
-  STaskAttachments,
-  SDeleteButton,
-} from './task-row-card.styled';
+  getAvatarUrlOrHuman,
+  getColorByPriority,
+} from '../../../../utils/utils';
+import { Typography, Badge, Avatar, Card, Space, Flex } from 'antd';
+import moment from 'moment';
 
 export interface TaskRowCardProps {
   task: ITask;
@@ -24,63 +20,45 @@ export const TaskRowCard: React.FC<TaskRowCardProps> = ({
   delTask,
   setShowTaskModal,
 }): JSX.Element => {
-  const [showDD, setShowDD] = useState<boolean>(false);
   const dispatch = useAppDispatch();
 
+  const getInfoTask = () => {
+    setShowTaskModal(true);
+    dispatch(
+      fetchGetTaskInfo({
+        projId: task.projectId,
+        colId: task.columnId,
+        taskId: task.id,
+      })
+    );
+  };
+
   return (
-    <SCard>
-      <SCardInfo>
-        <Flex>
-          {/*//todo*/}
-          {/*<PriorityLabel priority={task.priority} />*/}
-          <Typography>#{task.id}</Typography>
+    <Badge.Ribbon
+      color={getColorByPriority(task.priority)}
+      style={{ display: task.priority ? 'block' : 'none' }}
+      text={task.priority}
+    >
+      <Card
+        onClick={getInfoTask}
+        size={'small'}
+        style={{ marginBottom: '8px' }}
+      >
+        <Flex align={'center'} justify={'space-between'}>
+          <Flex vertical>
+            <Typography>{task.name}</Typography>
+
+            <Space>
+              <Typography>#{task.id}</Typography>
+              <Typography>
+                от {moment(task.createDate).format('DD.MM.YYYY, HH:MM')}
+              </Typography>
+            </Space>
+          </Flex>
+
+          <Avatar src={getAvatarUrlOrHuman(task.owner.userPic)} />
         </Flex>
-        <Typography
-          onClick={() => {
-            setShowTaskModal(true);
-            dispatch(
-              fetchGetTaskInfo({
-                projId: task.projectId,
-                colId: task.columnId,
-                taskId: task.id,
-              })
-            );
-          }}
-        >
-          {task.name}
-        </Typography>
-        <Typography>{task.description}</Typography>
-      </SCardInfo>
-
-      {/*todo change to grid*/}
-      {/*<div className={styles.card__date}>*/}
-      {/*    <FontAwesomeIcon icon={faCalendar}/>*/}
-      {/*    {moment(task.createDate).format('DD.MM.YYYY')}*/}
-      {/*</div>*/}
-
-      <Flex>
-        <STaskLabel>
-          {/*//todo*/}
-          {/*<TaskLabel type={task.type} />*/}
-        </STaskLabel>
-        <Avatar src={getAvatarUrlOrHuman(task.owner.userPic)} />
-        <STaskAttachments
-          onClick={() => {
-            setShowDD(true);
-          }}
-        >
-          <Dropdown
-            open={showDD}
-            //todo
-            // setShow={setShowDD}
-          >
-            <SDeleteButton onClick={() => delTask(task.columnId, task.id)}>
-              delete
-            </SDeleteButton>
-          </Dropdown>
-          <DotsIcon w={12} />
-        </STaskAttachments>
-      </Flex>
-    </SCard>
+      </Card>
+    </Badge.Ribbon>
   );
 };
