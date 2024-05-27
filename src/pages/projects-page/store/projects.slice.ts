@@ -11,12 +11,14 @@ interface IProjectInitialState {
   projects: IProject[];
   isLoad: boolean;
   error: string | null;
+  haveFavoriteProjects: boolean;
 }
 
 const projectInitialState: IProjectInitialState = {
   projects: [],
   isLoad: false,
   error: null,
+  haveFavoriteProjects: false,
 };
 
 const ProjectsSlice = createSlice({
@@ -40,10 +42,16 @@ const ProjectsSlice = createSlice({
       state.isLoad = true;
       state.error = null;
     });
-    builder.addCase(fetchProjects.fulfilled, (state, action) => {
-      state.projects = action.payload;
-      state.isLoad = false;
-    });
+    builder.addCase(
+      fetchProjects.fulfilled,
+      (state, action: PayloadAction<IProject[]>) => {
+        state.projects = action.payload;
+        state.haveFavoriteProjects = action.payload.some(
+          (proj) => proj.isFavourite
+        );
+        state.isLoad = false;
+      }
+    );
     //
     // Add new project
     //
@@ -70,6 +78,9 @@ const ProjectsSlice = createSlice({
         }
         return el;
       });
+      state.haveFavoriteProjects = state.projects.some(
+        (proj) => proj.isFavourite
+      );
     });
 
     //todo - add pending

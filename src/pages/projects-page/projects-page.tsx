@@ -1,32 +1,29 @@
 import React, { useState } from 'react';
 import { useTypedSelector } from '../../hooks/redux';
-import { Card, Statistic } from 'antd';
+import { Card, Divider, Statistic } from 'antd';
 import { IProject } from './store/projects.type';
-import { AddNewProjModal, ProjectCard } from './components';
+import { ProjectCard } from './components/project-card/project-card';
 import { v4 } from 'uuid';
 import {
   Container,
   SButton,
   SCardHeader,
   SProjCont,
-  SStatistic,
 } from './projects-page.styled';
+import { AddNewProjModal } from './components/add-new-proj-modal/add-new-proj-modal';
+import { Statistics } from './components/statistics/statistics';
 
 export const ProjectsPage: React.FC = (): JSX.Element => {
   const [showModal, setShowModal] = useState<boolean>(false);
-  const projects = useTypedSelector((state) => state.projects.projects);
+  const { projects, haveFavoriteProjects } = useTypedSelector(
+    (state) => state.projects
+  );
 
   return (
     <Container>
       <Card style={{ marginBottom: '20px', marginTop: '40px' }}>
         <SCardHeader>
-          <SStatistic>
-            <Statistic title={'Проекты:'} value={projects?.length || '0'} />
-
-            <Statistic title={'Бэклог:'} value={'2421'} />
-            <Statistic title={'Дефекты:'} value={'124'} />
-            <Statistic title={'Задачи:'} value={'89'} />
-          </SStatistic>
+          <Statistics projectsLength={projects.length} />
 
           <SButton type={'primary'} onClick={() => setShowModal(true)}>
             + Новый проект
@@ -34,8 +31,22 @@ export const ProjectsPage: React.FC = (): JSX.Element => {
         </SCardHeader>
       </Card>
 
+      {haveFavoriteProjects && (
+        <>
+          <Divider orientation={'left'}>Избранное</Divider>
+          <SProjCont>
+            {projects?.map((proj: IProject) => {
+              if (!proj.isFavourite) return null;
+              return <ProjectCard key={v4()} proj={proj} />;
+            })}
+          </SProjCont>
+        </>
+      )}
+
+      <Divider orientation={'left'}>Проекты</Divider>
       <SProjCont>
         {projects?.map((proj: IProject) => {
+          if (proj.isFavourite) return null;
           return <ProjectCard key={v4()} proj={proj} />;
         })}
       </SProjCont>

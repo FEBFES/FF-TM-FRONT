@@ -34,14 +34,17 @@ export const MembersTab: React.FC<MembersTabProps> = (): JSX.Element => {
           return (
             <SMemberCard>
               <Flex justify={'space-between'} align={'center'}>
-                <Flex vertical>
-                  <Typography>{member.username}</Typography>
-                  <Typography>{member.email}</Typography>
-                </Flex>
+              <Flex align={'center'}>
+                  <Avatar src={getAvatarUrlOrHuman(member.userPic)} />
+
+                  <Flex vertical>
+                      <Typography>{member.username}</Typography>
+                      <Typography>{member.email}</Typography>
+                  </Flex>
+            </Flex>
 
                 <Space>
                   <Typography>{member.roleOnProject}</Typography>
-                  <Avatar src={getAvatarUrlOrHuman(member.userPic)} />
                 </Space>
               </Flex>
             </SMemberCard>

@@ -2,12 +2,10 @@ import React from 'react';
 import { ITask } from '../task-card/task-card.type';
 import { fetchGetTaskInfo } from '../../store/kanban.thunk';
 import { useAppDispatch } from '../../../../hooks/redux';
-import {
-  getAvatarUrlOrHuman,
-  getColorByPriority,
-} from '../../../../utils/utils';
-import { Typography, Badge, Avatar, Card, Space, Flex } from 'antd';
+import { getAvatarUrlOrHuman } from '../../../../utils/utils';
+import { Typography, Avatar, Card, Space, Flex } from 'antd';
 import moment from 'moment';
+import { Priority } from '../priority/priority';
 
 export interface TaskRowCardProps {
   task: ITask;
@@ -34,31 +32,26 @@ export const TaskRowCard: React.FC<TaskRowCardProps> = ({
   };
 
   return (
-    <Badge.Ribbon
-      color={getColorByPriority(task.priority)}
-      style={{ display: task.priority ? 'block' : 'none' }}
-      text={task.priority}
-    >
-      <Card
-        onClick={getInfoTask}
-        size={'small'}
-        style={{ marginBottom: '8px' }}
-      >
-        <Flex align={'center'} justify={'space-between'}>
-          <Flex vertical>
-            <Typography>{task.name}</Typography>
-
+    <Card onClick={getInfoTask} size={'small'} style={{ marginBottom: '8px' }}>
+      <Flex align={'center'} justify={'space-between'}>
+        <Flex vertical>
+          <Flex>
             <Space>
-              <Typography>#{task.id}</Typography>
-              <Typography>
-                от {moment(task.createDate).format('DD.MM.YYYY, HH:MM')}
-              </Typography>
+              <Priority priority={task.priority} />
+              <Typography>{task.name}</Typography>
             </Space>
           </Flex>
 
-          <Avatar src={getAvatarUrlOrHuman(task.owner.userPic)} />
+          <Space>
+            <Typography>#{task.id}</Typography>
+            <Typography>
+              от {moment(task.createDate).format('DD.MM.YYYY, HH:MM')}
+            </Typography>
+          </Space>
         </Flex>
-      </Card>
-    </Badge.Ribbon>
+
+        <Avatar src={getAvatarUrlOrHuman(task.owner.userPic)} />
+      </Flex>
+    </Card>
   );
 };

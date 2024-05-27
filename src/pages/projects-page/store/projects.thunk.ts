@@ -11,7 +11,7 @@ export const fetchFavoriteToggle = createAsyncThunk(
     try {
       const res = await instance.patch(`projects/${projId}`, [
         {
-          op: 'update',
+          op: 'UPDATE',
           key: 'isFavourite',
           value: isFav,
         },

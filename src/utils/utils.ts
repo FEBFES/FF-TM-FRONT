@@ -9,13 +9,3 @@ export const getAvatarUrlOrHuman = (url: string | null) => {
 
   return `${serverString}${url}`;
 };
-
-export const getColorByPriority = (priority: IPriorityType) => {
-  const colors = {
-    DEFAULT: '',
-    LOW: 'green',
-    MEDIUM: '',
-    HIGH: 'red',
-  };
-  return colors[priority];
-};

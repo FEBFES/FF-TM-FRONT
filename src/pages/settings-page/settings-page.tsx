@@ -25,14 +25,14 @@ export const SettingsPage: React.FC<SettingsPageProps> = (): JSX.Element => {
           defaultActiveKey="1"
           tabPosition={!useBreakpoint().md ? 'top' : 'left'}
           style={{
-            height: !useBreakpoint().md ? 40 : 150,
+            height: !useBreakpoint().md ? 40 : 110,
           }}
           onChange={(e) => navigate(e)}
           items={[
-            {
-              label: 'Общие',
-              key: '/Settings',
-            },
+            // {
+            //   label: 'Общие',
+            //   key: '/Settings',
+            // },
             {
               label: 'Профиль',
               key: '/Settings/Profile',
@@ -50,7 +50,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = (): JSX.Element => {
       </Card>
       <SPageWrap>
         <Routes>
-          <Route path={'/'} element={<GeneralTab />} />
+          {/*<Route path={'/'} element={<GeneralTab />} />*/}
           <Route path={'/Profile'} element={<ProfileTab />} />
           <Route path={'/Project'} element={<ProjectsTab />} />
           <Route path={'/Members'} element={<MembersTab />} />

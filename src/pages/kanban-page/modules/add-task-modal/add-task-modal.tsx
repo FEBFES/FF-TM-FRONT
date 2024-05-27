@@ -70,11 +70,11 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
             placeholder={'Название'}
             onChange={(e) => setName(e.target.value)}
           />
-          <Input
-            type={'text'}
+          <Input.TextArea
             size={'large'}
             value={description}
             placeholder={'Описание'}
+            autoSize={{ minRows: 3, maxRows: 5 }}
             onChange={(e) => setDescription(e.target.value)}
           />
 

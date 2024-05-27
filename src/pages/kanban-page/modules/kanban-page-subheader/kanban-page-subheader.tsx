@@ -31,39 +31,23 @@ export const KanbanPageSubheader: React.FC = () => {
   const curView = useTypedSelector((state) => state.curProj.curView);
   return (
     <SSubHeader>
-      <Flex align={'center'}>
-        <Segmented
-          onChange={(e) => dispatch(setCurView(e))}
-          defaultValue={curView}
-          size={'small'}
-          options={[
-            {
-              label: useBreakpoint().xs ? '' : 'Список',
-              value: 'list',
-              icon: <BarsOutlined />,
-            },
-            {
-              label: useBreakpoint().xs ? '' : 'Доска',
-              value: 'kanban',
-              icon: <AppstoreOutlined />,
-            },
-          ]}
-        />
-
-        <Avatar.Group shape="square">
-          {members.map((member) => {
-            return (
-              <Avatar
-                size={'small'}
-                src={getAvatarUrlOrHuman(member.userPic)}
-              />
-            );
-          })}
-          <SIcon onClick={() => setShowAddMemberModal(true)}>
-            <FontAwesomeIcon icon={faUserPlus} size={'sm'} />
-          </SIcon>
-        </Avatar.Group>
-      </Flex>
+      <Segmented
+        onChange={(e) => dispatch(setCurView(e))}
+        defaultValue={curView}
+        size={'small'}
+        options={[
+          {
+            label: useBreakpoint().xs ? '' : 'Список',
+            value: 'list',
+            icon: <BarsOutlined />,
+          },
+          {
+            label: useBreakpoint().xs ? '' : 'Доска',
+            value: 'kanban',
+            icon: <AppstoreOutlined />,
+          },
+        ]}
+      />
 
       <div>
         <Dropdown

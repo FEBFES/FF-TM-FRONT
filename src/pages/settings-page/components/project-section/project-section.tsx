@@ -24,13 +24,14 @@ export const ProjectSection: React.FC<
     console.log(e);
   };
 
-  if (!curProj.projectName || !curProj.projectDesc) {
-    return (
-      <Flex justify={'center'} align={'center'}>
-        <Spin indicator={<LoadingOutlined style={{ fontSize: 24 }} spin />} />
-      </Flex>
-    );
-  }
+  // todo
+  // if (!curProj.projectName || !curProj.projectDesc) {
+  //   return (
+  //     <Flex justify={'center'} align={'center'}>
+  //       <Spin indicator={<LoadingOutlined style={{ fontSize: 24 }} spin />} />
+  //     </Flex>
+  //   );
+  // }
 
   return (
     <SProjectContainter>

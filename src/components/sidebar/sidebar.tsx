@@ -40,7 +40,7 @@ const links: MenuItem[] = [
     disabled: true,
   },
   {
-    key: '/Settings',
+    key: '/Settings/Profile',
     label: 'настройки',
     icon: <SettingOutlined />,
   },
@@ -60,6 +60,7 @@ export const Sidebar: React.FC = (): JSX.Element => {
       breakpoint="lg"
       width="200px"
       collapsible={useBreakpoint().lg}
+      style={{ boxShadow: 'rgb(0 0 0 / 74%) 0px 2px 8px 0px' }}
     >
       <Flex style={{ marginTop: '40px' }} justify={'center'} align={'center'}>
         <LogoIconDark />

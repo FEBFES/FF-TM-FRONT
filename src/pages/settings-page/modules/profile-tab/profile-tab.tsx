@@ -18,7 +18,7 @@ export const ProfileTab: React.FC<ProfileTabProps> = (): JSX.Element => {
   const { token } = useToken();
   const userPicture = useTypedSelector((state) => state.user.userPic);
   const [userAvatar] = useState(userPicture || null);
-
+  console.log(userPicture);
   // const deleteUserAvatar = () => {
   //   dispatch(fetchDeleteUserAvatar(id));
   // };
@@ -47,7 +47,7 @@ export const ProfileTab: React.FC<ProfileTabProps> = (): JSX.Element => {
       <SUserBackground bgColor={token.colorBgContainer}>
         <Avatar
           size={80}
-          src={getAvatarUrlOrHuman(userAvatar)}
+          src={getAvatarUrlOrHuman(userPicture)}
           alt={i18n.t('utils.any.avatar')}
           icon={<UserOutlined />}
         />

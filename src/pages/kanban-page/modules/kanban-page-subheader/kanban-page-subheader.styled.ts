@@ -7,23 +7,10 @@ export const SSubHeader = styled(Layout.Header)`
   justify-content: space-between;
   padding: 4px 18px;
   height: 40px;
-  background: #181515;
+  background: #141414;
   font-size: 14px;
   border-radius: 5px 5px 0 0;
   border-bottom: 1px solid var(--bg-border);
-`;
-
-export const SClearFiltersButton = styled.div`
-  font-size: 12px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--font-gray);
-  height: 26px;
-  border-radius: 4px;
-  padding: 0 14px;
-  border: 1px dashed var(--font-gray);
 `;
 
 export const SIcon = styled.div`

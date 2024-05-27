@@ -64,7 +64,7 @@ export const Header = () => {
               </Button>
             </Badge>
 
-            <Divider type={'vertical'} />
+            <Divider style={{ marginLeft: '30px' }} type={'vertical'} />
 
             <SUserSection
               menu={{

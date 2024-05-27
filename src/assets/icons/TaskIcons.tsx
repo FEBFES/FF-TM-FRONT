@@ -2,7 +2,7 @@ export const PriorityDefault = () => {
   return (
     <svg
       width="15"
-      height="12"
+      height="8"
       viewBox="0 0 15 12"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +41,7 @@ export const PriorityLow = () => {
   return (
     <svg
       width="15"
-      height="13"
+      height="8"
       viewBox="0 0 15 13"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +81,7 @@ export const PriorityMedium = () => {
   return (
     <svg
       width="15"
-      height="13"
+      height="8"
       viewBox="0 0 15 13"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +121,7 @@ export const PriorityHigh = () => {
   return (
     <svg
       width="15"
-      height="12"
+      height="8"
       viewBox="0 0 15 12"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -4,7 +4,7 @@ import { Card } from 'antd';
 export const STask = styled(Card)`
   display: flex;
   flex-direction: column;
-  width: 288px;
+  width: 268px;
   margin-bottom: 10px;
 `;
 

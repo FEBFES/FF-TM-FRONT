@@ -14,10 +14,8 @@ import {
 import { useTypedSelector } from '../../../../hooks/redux';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 import moment from 'moment';
-import {
-  AppleOutlined,
-  CalculatorOutlined,
-} from '@ant-design/icons';
+import { AppleOutlined, CalculatorOutlined } from '@ant-design/icons';
+import { FilesTab } from '../../components';
 const { useBreakpoint } = Grid;
 
 interface ITaskDrawerProps {
@@ -120,6 +118,8 @@ export const TaskDrawer: React.FC<ITaskDrawerProps> = ({
             },
           ]}
         />
+
+        <FilesTab files={[]} setFiles={() => {}} />
       </Flex>
     </Drawer>
   );

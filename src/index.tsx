@@ -22,6 +22,17 @@ export const store = setupStore();
 root.render(
   <ConfigProvider
     theme={{
+      components: {
+        Layout: {
+          bodyBg: '#1a1a1a',
+        },
+        //   Menu: {
+        //     colorBgContainer: '#262626'
+        //   },
+        //   Card: {
+        //     colorBgContainer: '#262626'
+        //   }
+      },
       algorithm: [theme.compactAlgorithm, theme.darkAlgorithm],
     }}
   >

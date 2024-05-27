@@ -6,10 +6,11 @@ export const SColWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 306px;
-  min-width: 306px;
-  max-width: 306px;
-  border-right: 1px solid var(--bg-border);
+  width: 290px;
+  min-width: 290px;
+  max-width: 290px;
+  border-right: 1px solid #232323;
+  height: 100%;
 
   &:last-of-type {
     margin-right: 0;
@@ -20,7 +21,7 @@ export const SColHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 288px;
+  width: 268px;
   margin-bottom: 10px;
 
   & > svg {
