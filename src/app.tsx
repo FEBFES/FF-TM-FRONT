@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
+import { useAppDispatch, useTypedSelector } from './hooks/redux';
 import { fetchProjects } from '../../__data__/middleware/projects.thunk';
 import { fetchGetUserInfo } from './__data__/request/user.thunk';
-import { appRouts } from '../../routing/routs';
-import { EmptyLayout } from '../../layouts/empty/empty-layout';
-import { NotFoundPage } from '../not-fount-404/not-found-page';
+import { appRouts } from './routing/routs';
+import { EmptyLayout } from './layouts/empty/empty-layout';
+import { NotFoundPage } from './pages/not-fount-404/not-found-page';
 import {
   fetchProjectDashboard,
   fetchProjectInfo,
 } from '../../__data__/middleware/kanban.thunk';
-import { useOffline } from '../../hooks/use-offline';
-import { useTheme } from '../../hooks/use-theme';
-import { PrivateRoute } from '../../routing/privat-route';
+import { useOffline } from './hooks/use-offline';
+import { useTheme } from './hooks/use-theme';
+import { PrivateRoute } from './routing/privat-route';
 
 export const App = () => {
   const dispatch = useAppDispatch();

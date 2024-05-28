@@ -1,4 +1,4 @@
-import { instance } from '../api/http';
+import { instance } from '../api/instance';
 
 export const downloadFile = (link: string, name: string) => {
   instance.get(link).then((json: any) => {

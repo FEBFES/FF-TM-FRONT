@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IProject } from '../types/old/projects.type';
+import { IProject } from '../type/projects.type';
 
 interface IProjectInitialState {
   projectsList: IProject[];

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Input, Typography, Button, Space, Divider } from 'antd';
 import { useAppDispatch } from '../../../hooks/redux';
-import { fetchRegistration } from '../__data__/middleware/auth.thunk';
+import { fetchRegistration } from '../__data__/thunk/auth.thunk';
 import { IRegisterFormDataType } from '../__data__/type/auth.type';
 import { useNavigate } from 'react-router-dom';
 import { appRoutsPath } from '../../../routing/routs';

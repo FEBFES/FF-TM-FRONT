@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTypedSelector } from '../../hooks/redux';
 import { Card, Divider } from 'antd';
-import { IProject } from '../../__data__/types/old/projects.type';
+import { IProject } from './__data__/type/projects.type';
 import { ProjectCard } from './components/project-card/project-card';
 import { v4 } from 'uuid';
 import {

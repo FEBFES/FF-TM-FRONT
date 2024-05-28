@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Typography, Button, Input, Modal, Switch, Flex, Space } from 'antd';
 import { IPriorityType, ITypeSelectType, IColumns } from '../../components';
-import { IMember } from '../../../../__data__/types/old/kanban.type';
+import { IMember } from '../../__data__/type/kanban.type';
 
 interface AddTaskModalProps {
   show: boolean;

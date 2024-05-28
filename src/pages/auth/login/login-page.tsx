@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../hooks/redux';
-import { fetchLogin } from '../__data__/middleware/auth.thunk';
+import { fetchLogin } from '../__data__/thunk/auth.thunk';
 import { appRoutsPath } from '../../../routing/routs';
 import { Typography, Divider, Button, Input, Space } from 'antd';
 

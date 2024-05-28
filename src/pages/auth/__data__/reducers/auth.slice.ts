@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { fetchLogin } from '../middleware/old/auth.thunk';
+import { fetchLogin } from '../thunk/old/auth.thunk';
 
 interface IAuthSliceInitialState {
   isAuth: boolean;

@@ -9,7 +9,7 @@ import { ITask } from '../../pages/kanban-page/components/task-card/task-card.ty
 import { IMemberRole } from '../types/kanban.type';
 
 // Get task info
-export const fetchGetTaskInfo = createAsyncThunk(
+export const fetchGetTaskInfo = createAsyncThunk<{ str: string }>(
   'projects/fetchGetTaskInfo',
   async ({ projId, colId, taskId }: any, { rejectWithValue }) => {
     try {

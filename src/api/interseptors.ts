@@ -1,20 +1,9 @@
-import { serverString } from '../config';
 import axios from 'axios';
-import { setIsAuth } from '../__data__/reducers/auth.slice';
 import { store } from '../index';
+import { instance } from './instance';
+import { serverString } from '../config';
+import { setIsAuth } from '../';
 import { appRoutsPath } from '../routing/routs';
-
-export const instanceWithoutToken = axios.create({
-  baseURL: serverString,
-});
-
-export const instance = axios.create({
-  baseURL: serverString,
-  headers: {
-    'Access-Control-Allow-Origin': '*',
-    Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-  },
-});
 
 instance.interceptors.request.use((config) => {
   config.headers.Authorization =

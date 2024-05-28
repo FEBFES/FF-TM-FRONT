@@ -1,5 +1,5 @@
 import React from 'react';
-import { IMember } from '../../../../__data__/types/old/kanban.type';
+import { IMember } from '../../../kanban/__data__/type/kanban.type';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 import i18n from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

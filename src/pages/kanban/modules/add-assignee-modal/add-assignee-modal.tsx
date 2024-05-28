@@ -1,7 +1,7 @@
 import React from 'react';
 import { MemberCard } from '../../components/member-card/member-card';
 import { useTypedSelector } from '../../../../hooks/redux';
-import { IMember } from '../../../../__data__/types/old/kanban.type';
+import { IMember } from '../../__data__/type/kanban.type';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { useClickOutside } from '../../../../hooks/use-click-outside';

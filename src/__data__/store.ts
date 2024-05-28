@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
-import ProjectsSlice from './reducers/old/projects.slice';
+import ProjectsSlice from '../pages/projects/__data__/reducers/deprecated.projects.slice';
 import AuthSlice from './reducers/auth.slice';
 import KanbanSlice from './reducers/kanban.slice';
 import UserSlice from './reducers/old/user.slice';
-import AppSlice from './reducers/old/app-slice';
+import AppSlice from '../pages/app/__data__/reducers/app-slice';
 
 const rootReducer = combineReducers({
   app: AppSlice,

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './add-member-to-proj-modal.module.css';
 import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
-import { IMember } from '../../__data__/types/old/kanban.type';
+import { IMember } from '../../pages/kanban/__data__/type/kanban.type';
 import { MemberCard } from '../../pages/kanban/components/member-card/member-card';
 import { instance } from '../../api/http';
 import { fetchAddMemberToProject } from '../../__data__/middleware/kanban.thunk';

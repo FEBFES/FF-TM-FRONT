@@ -11,8 +11,8 @@ import {
   fetchProjectDashboard,
   fetchProjectInfo,
   fetchUpdateCol,
-} from '../middleware/kanban.thunk';
-import { fetchFavoriteToggle } from '../middleware/projects.thunk';
+} from '../thunk/kanban.thunk';
+import { fetchFavoriteToggle } from '../thunk/projects.thunk';
 import { IColumns } from '../../pages/kanban-page/components/column/column';
 import { ITask } from '../../pages/kanban-page/components/task-card/task-card.type';
 import { IMember } from '../types/kanban.type';

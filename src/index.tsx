@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import { setupStore } from './__data__/store';
 import { Provider } from 'react-redux';
-import { App } from './pages/app/app';
+import { App } from './app';
 import { ConfigProvider, theme } from 'antd';
 
 const root = ReactDOM.createRoot(

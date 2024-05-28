@@ -1,5 +1,5 @@
 import React from 'react';
-import { IProject } from '../../../../__data__/types/old/projects.type';
+import { IProject } from '../../__data__/type/projects.type';
 import { appRoutsPath } from '../../../../routing/routs';
 import { v4 } from 'uuid';
 import { useNavigate } from 'react-router-dom';

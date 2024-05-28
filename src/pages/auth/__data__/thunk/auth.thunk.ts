@@ -1,9 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instanceWithoutToken } from '../../../../api/http';
-import {
-  ILoginFormType,
-  IRegisterFormDataType,
-} from '../type/auth.type';
+import { ILoginFormType, IRegisterFormDataType } from '../type/auth.type';
 import { setUserId } from '../../reducers/old/user.slice';
 
 // registration
