@@ -1,0 +1,30 @@
+import { combineReducers } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
+import ProjectsSlice from './reducers/old/projects.slice';
+import AuthSlice from './reducers/auth.slice';
+import KanbanSlice from './reducers/kanban.slice';
+import UserSlice from './reducers/old/user.slice';
+import AppSlice from './reducers/old/app-slice';
+
+const rootReducer = combineReducers({
+  app: AppSlice,
+  projects: ProjectsSlice,
+  curProj: KanbanSlice,
+  auth: AuthSlice,
+  user: UserSlice,
+});
+
+export const setupStore = () => {
+  return configureStore({
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: false,
+        thunk: true,
+      }),
+  });
+};
+
+export type RootState = ReturnType<typeof rootReducer>;
+export type AppStore = ReturnType<typeof setupStore>;
+export type AppDispatch = AppStore['dispatch'];

@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './assets/styles/index.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
-import { setupStore } from './store';
+import { setupStore } from './__data__/store';
 import { Provider } from 'react-redux';
-import { App } from './pages/root/app/app';
+import { App } from './pages/app/app';
 import { ConfigProvider, theme } from 'antd';
 
 const root = ReactDOM.createRoot(
@@ -25,13 +25,8 @@ root.render(
       components: {
         Layout: {
           bodyBg: '#1a1a1a',
+          //colorBgContainer: '#262626'
         },
-        //   Menu: {
-        //     colorBgContainer: '#262626'
-        //   },
-        //   Card: {
-        //     colorBgContainer: '#262626'
-        //   }
       },
       algorithm: [theme.compactAlgorithm, theme.darkAlgorithm],
     }}

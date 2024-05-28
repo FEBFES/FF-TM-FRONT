@@ -16,7 +16,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { BellOutlined, UserOutlined } from '@ant-design/icons';
 import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
 import { getAvatarUrlOrHuman } from '../../utils/utils';
-import { setIsAuth } from '../../pages/auth-pages/store/auth.slice';
+import { setIsAuth } from '../../__data__/reducers/auth.slice';
 import { appRoutsPath } from '../../routing/routs';
 import { SUserSection } from './header.styled';
 

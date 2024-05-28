@@ -1,6 +1,5 @@
 import human from '../assets/img/human.png';
 import { serverString } from '../config';
-import { IPriorityType } from '../pages/kanban-page/components';
 
 export const getAvatarUrlOrHuman = (url: string | null) => {
   if (!url) {
