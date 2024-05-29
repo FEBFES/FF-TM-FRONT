@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useAppDispatch } from '../../../../hooks/redux';
-import { fetchUpdateCol } from '../../../../__data__/middleware/kanban.thunk';
 import { Typography, Flex, Button, Space, Popconfirm } from 'antd';
 import { IColumns } from '../../../kanban/components/column/column';
 import { SCard, SColumn } from './column-card.styled';
@@ -25,11 +24,11 @@ export const ColumnCard: React.FC<ColumnCardProps> = ({
   const dispatch = useAppDispatch();
 
   const updateColumn = (projId: number, colId: number) => {
-    dispatch(
-      fetchUpdateCol({ projId: projId, colId: colId, newName: colName })
-    ).finally(() => {
-      setIsEditMode(false);
-    });
+    // dispatch(
+    //   fetchUpdateCol({ projId: projId, colId: colId, newName: colName })
+    // ).finally(() => {
+    //   setIsEditMode(false);
+    // });
   };
 
   const editModeToggle = () => {

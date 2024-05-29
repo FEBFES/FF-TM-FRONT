@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button, Flex, Form, Input, Modal, Space } from 'antd';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
-import { fetchAddNewCol } from '../../../../__data__/middleware/kanban.thunk';
 
 export interface AddColModalProps {
   show: boolean;
@@ -13,7 +12,7 @@ export const AddColModal: React.FC<AddColModalProps> = ({
   setShow,
 }): JSX.Element => {
   const [form] = Form.useForm();
-  const projId = useTypedSelector((state) => state.curProj.projId);
+  // const projId = useTypedSelector((state) => state.curProj.projId);
   const dispatch = useAppDispatch();
 
   const cancelHandler = () => {
@@ -22,14 +21,14 @@ export const AddColModal: React.FC<AddColModalProps> = ({
   };
 
   const onFinishHandler = (e: any) => {
-    dispatch(
-      fetchAddNewCol({
-        name: e.name,
-        description: e.desc || '',
-        projId: String(projId),
-      })
-    );
-    cancelHandler();
+    // dispatch(
+    //   fetchAddNewCol({
+    //     name: e.name,
+    //     description: e.desc || '',
+    //     projId: String(projId),
+    //   })
+    // );
+    // cancelHandler();
   };
 
   return (

@@ -7,14 +7,14 @@ import { TaskDrawer } from './modules/drawer/drawer';
 
 export const KanbanPage: React.FC = (): JSX.Element => {
   const [showTaskModal, setShowTaskModal] = useState<boolean>(false);
-  const curProjId = useTypedSelector((state) => state.curProj.projId);
+  // const curProjId = useTypedSelector((state) => state.curProj.projId);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!curProjId) {
-      navigate('/');
-    }
-  }, [curProjId, navigate]);
+  // useEffect(() => {
+  //   if (!curProjId) {
+  //     navigate('/');
+  //   }
+  // }, [curProjId, navigate]);
 
   return (
     <div>

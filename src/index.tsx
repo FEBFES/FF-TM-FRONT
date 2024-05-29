@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { setupStore } from './__data__/store';
 import { Provider } from 'react-redux';
 import { App } from './app';
-import { ConfigProvider, theme } from 'antd';
+import { ConfigProvider, theme, App as ApplicationWrap } from 'antd';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -33,7 +33,9 @@ root.render(
   >
     <Router>
       <Provider store={store}>
-        <App />
+        <ApplicationWrap>
+          <App />
+        </ApplicationWrap>
       </Provider>
     </Router>
   </ConfigProvider>

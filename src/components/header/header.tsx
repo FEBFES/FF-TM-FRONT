@@ -16,12 +16,12 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { BellOutlined, UserOutlined } from '@ant-design/icons';
 import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
 import { getAvatarUrlOrHuman } from '../../utils/utils';
-import { setIsAuth } from '../../__data__/reducers/auth.slice';
+// import { setIsAuth } from '../../__data__/reducers/auth.slice';
 import { appRoutsPath } from '../../routing/routs';
 import { SUserSection } from './header.styled';
 
 export const Header = () => {
-  const user = useTypedSelector((state) => state.user);
+  // const user = useTypedSelector((state) => state.user);
   const location = useLocation();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -38,7 +38,7 @@ export const Header = () => {
   };
 
   const logoutHandler = () => {
-    dispatch(setIsAuth(false));
+    // dispatch(setIsAuth(false));
     navigate(appRoutsPath.LoginPage.to);
   };
 
@@ -101,13 +101,13 @@ export const Header = () => {
               trigger={['click']}
             >
               <Space>
-                <Avatar
+                {/* <Avatar
                   src={getAvatarUrlOrHuman(user.userPic)}
                   icon={<UserOutlined />}
                 />
                 {!useBreakpoint().xs && (
                   <Typography>{user.username || user.displayName}</Typography>
-                )}
+                )} */}
               </Space>
             </SUserSection>
           </Space>

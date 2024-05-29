@@ -16,7 +16,7 @@ interface ProfileTabProps {}
 export const ProfileTab: React.FC<ProfileTabProps> = (): JSX.Element => {
   //TODO refactor all page
   const { token } = useToken();
-  const userPicture = useTypedSelector((state) => state.user.userPic);
+  // const userPicture = useTypedSelector((state) => state.user.userPic);
   // const [userAvatar] = useState(userPicture || null);
 
   // console.log(userPicture);
@@ -47,12 +47,14 @@ export const ProfileTab: React.FC<ProfileTabProps> = (): JSX.Element => {
       />
 
       <SUserBackground bgColor={token.colorBgContainer}>
-        <Avatar
+        {/* //todo  */}
+
+        {/* <Avatar
           size={80}
           src={getAvatarUrlOrHuman(userPicture)}
           alt={i18n.t('utils.any.avatar')}
           icon={<UserOutlined />}
-        />
+        /> */}
       </SUserBackground>
 
       <InfoCont>

@@ -29,38 +29,38 @@ export const TaskDrawer: React.FC<ITaskDrawerProps> = ({
 }) => {
   const [isLoading] = useState<boolean>(false);
   const screens = useBreakpoint();
-  const task = useTypedSelector((state) => state.curProj.taskWindowInfo);
+  // const task = useTypedSelector((state) => state.curProj.taskWindowInfo);
 
   return (
     <Drawer
       width={screens.xs ? '100%' : 378}
       closable
       destroyOnClose
-      title={task?.id || ''}
+      // title={task?.id || ''}
       placement="right"
       open={showTaskModal}
       loading={isLoading}
       onClose={() => setShowTaskModal(false)}
     >
       <Flex vertical>
-        <Typography.Title level={5}>{task?.name || ''}</Typography.Title>
+        {/* <Typography.Title level={5}>{task?.name || ''}</Typography.Title> */}
 
         <Flex>
           <Space>
             <Typography>Cоздатель:</Typography>
 
-            <Tooltip title={task?.owner?.username || ''}>
+            {/* <Tooltip title={task?.owner?.username || ''}>
               <Avatar src={getAvatarUrlOrHuman(task?.owner?.userPic || '')} />
-            </Tooltip>
+            </Tooltip> */}
           </Space>
 
           <Space>
             <Typography>Ответственный:</Typography>
 
-            <Avatar
+            {/* <Avatar
               src={getAvatarUrlOrHuman(task?.assignee?.userPic || '')}
               alt={'human'}
-            />
+            /> */}
           </Space>
         </Flex>
 
@@ -68,13 +68,13 @@ export const TaskDrawer: React.FC<ITaskDrawerProps> = ({
           <Space>
             <Typography>Приоритет:</Typography>
 
-            <Tag>{task?.priority || 'Нету'}</Tag>
+            {/* <Tag>{task?.priority || 'Нету'}</Tag> */}
           </Space>
 
           <Space>
             <Typography>Тип:</Typography>
 
-            <Tag>{task?.type || 'Нету'}</Tag>
+            {/* <Tag>{task?.type || 'Нету'}</Tag> */}
           </Space>
         </Flex>
 
@@ -83,7 +83,7 @@ export const TaskDrawer: React.FC<ITaskDrawerProps> = ({
             <Typography>Создан:</Typography>
 
             <Typography>
-              {moment(task?.createDate).format('DD.MM.YYYY')}
+              {/* {moment(task?.createDate).format('DD.MM.YYYY')} */}
             </Typography>
           </Space>
 
@@ -91,7 +91,7 @@ export const TaskDrawer: React.FC<ITaskDrawerProps> = ({
             <Typography>Изменен:</Typography>
 
             <Typography>
-              {moment(task?.updateDate).format('DD.MM.YYYY')}
+              {/* {moment(task?.updateDate).format('DD.MM.YYYY')} */}
             </Typography>
           </Space>
         </Flex>
@@ -99,7 +99,7 @@ export const TaskDrawer: React.FC<ITaskDrawerProps> = ({
         <Flex vertical>
           <Typography>Описание:</Typography>
           <Input.TextArea
-            value={task?.description || ''}
+            // value={task?.description || ''}
             rows={4}
             autoSize={{ minRows: 3, maxRows: 5 }}
             readOnly

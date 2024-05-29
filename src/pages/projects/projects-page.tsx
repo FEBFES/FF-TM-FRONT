@@ -16,13 +16,13 @@ import { ShowContainer } from '../../components/show-container/show-container';
 
 export const ProjectsPage: React.FC = (): JSX.Element => {
   const [showModal, setShowModal] = useState<boolean>(false);
-  const { projects, haveFavoriteProjects } = useTypedSelector(
-    (state) => state.projects
-  );
+  // const { projects, haveFavoriteProjects } = useTypedSelector(
+  //   (state) => state.projects
+  // );
 
   return (
     <Container>
-      <Card style={{ marginBottom: '20px', marginTop: '40px' }}>
+      {/* <Card style={{ marginBottom: '20px', marginTop: '40px' }}>
         <SCardHeader>
           <Statistics projectsLength={projects.length} />
 
@@ -50,7 +50,7 @@ export const ProjectsPage: React.FC = (): JSX.Element => {
         })}
       </SProjCont>
 
-      <AddProjModal show={showModal} setShow={setShowModal} />
+      <AddProjModal show={showModal} setShow={setShowModal} /> */}
     </Container>
   );
 };

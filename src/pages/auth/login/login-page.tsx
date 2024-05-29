@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../hooks/redux';
-import { fetchLogin } from '../__data__/thunk/auth.thunk';
+// import { fetchLogin } from '../__data__/thunk/auth.thunk';
 import { appRoutsPath } from '../../../routing/routs';
 import { Typography, Divider, Button, Input, Space } from 'antd';
 
@@ -16,11 +16,11 @@ export const LoginPage: React.FC<LoginPageProps> = (): JSX.Element => {
   const navigate = useNavigate();
 
   const submitHandler = () => {
-    dispatch(fetchLogin(inputData))
-      .unwrap()
-      .then(() => {
-        navigate(appRoutsPath.ProjectPage.to);
-      });
+    // dispatch(fetchLogin(inputData))
+    //   .unwrap()
+    //   .then(() => {
+    //     navigate(appRoutsPath.ProjectPage.to);
+    //   });
   };
 
   const changeHandle = (inputStr: string, label: string) => {

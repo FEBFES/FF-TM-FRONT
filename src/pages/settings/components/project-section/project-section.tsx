@@ -9,7 +9,9 @@ interface ProjectSectionProps {}
 export const ProjectSection: React.FC<
   ProjectSectionProps
 > = (): JSX.Element => {
-  const curProj = useTypedSelector((state) => state.curProj);
+  //todo
+
+  // const curProj = useTypedSelector((state) => state.curProj);
 
   // const updateProjInfoHandler = () => {
   //   if (curProj.projId) {
@@ -33,19 +35,23 @@ export const ProjectSection: React.FC<
   return (
     <SProjectContainter>
       <SHeader>
-        <SectionTitle
+        {/* // todo  */}
+
+        {/* <SectionTitle
           title={`Проект: ${curProj.projectName || ''}`}
           desc={'Настройка информации о проекте'}
-        />
+        /> */}
       </SHeader>
 
       <Form
         layout={'vertical'}
         onFinish={onFinishHandler}
-        initialValues={{
-          name: curProj.projectName || '',
-          description: curProj.projectDesc || '',
-        }}
+        //todo
+
+        // initialValues={{
+        //   name: curProj.projectName || '',
+        //   description: curProj.projectDesc || '',
+        // }}
       >
         <Form.Item label="Название" name="name">
           <Input size={'large'} placeholder={'Название'} />

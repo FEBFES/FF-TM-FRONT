@@ -2,7 +2,7 @@ import React from 'react';
 import { v4 } from 'uuid';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useAppDispatch } from '../../../../hooks/redux';
-import { fetchChangeTask } from '../../../../__data__/middleware/kanban.thunk';
+// import { fetchChangeTask } from '../../../../__data__/middleware/kanban.thunk';
 import { TaskCard, ITask } from '../index';
 import { SColumn, SColHeader, SColWrap, SColAddBtnIcon } from './column.styled';
 import { Typography } from 'antd';
@@ -35,7 +35,7 @@ export const Column: React.FC<ColumnProps> = ({
   function dropHandler(e: any) {
     e.preventDefault();
     const curDragTask = JSON.parse(e.dataTransfer.getData('task'));
-    dispatch(fetchChangeTask({ curDragTask, col }));
+    // dispatch(fetchChangeTask({ curDragTask, col }));
   }
 
   function dragOverHandler(e: any) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ITask } from '../task-card/task-card.type';
-import { fetchGetTaskInfo } from '../../../../__data__/middleware/kanban.thunk';
+// import { fetchGetTaskInfo } from '../../../../__data__/middleware/kanban.thunk';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 import { Typography, Avatar, Card, Space, Flex } from 'antd';
@@ -22,13 +22,13 @@ export const TaskRowCard: React.FC<TaskRowCardProps> = ({
 
   const getInfoTask = () => {
     setShowTaskModal(true);
-    dispatch(
-      fetchGetTaskInfo({
-        projId: task.projectId,
-        colId: task.columnId,
-        taskId: task.id,
-      })
-    );
+    // dispatch(
+    //   fetchGetTaskInfo({
+    //     projId: task.projectId,
+    //     colId: task.columnId,
+    //     taskId: task.id,
+    //   })
+    // );
   };
 
   return (

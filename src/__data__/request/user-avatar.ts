@@ -1,3 +1,4 @@
+import createAsyncThunk from 'redux';
 // export const fetchDeleteUserAvatar = createAsyncThunk(
 //   'projects/fetchDeleteUserAvatar',
 //   async (userId: any, { rejectWithValue, dispatch }) => {

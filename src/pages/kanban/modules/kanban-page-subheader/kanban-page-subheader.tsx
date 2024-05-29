@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
-import {
-  // clearAllFilters,
-  // delFilters,
-  setCurView,
-  // setFilters,
-} from '../../../../__data__/reducers/kanban.slice';
+// import {
+// clearAllFilters,
+// delFilters,
+// setCurView,
+// setFilters,
+// } from '../../../../__data__/reducers/kanban.slice';
 import { AddMemberToProjModal } from '../../../../components/add-member-to-proj-modal/add-member-to-proj-modal';
 import { Segmented, Button, Dropdown } from 'antd';
 import { SSubHeader } from './kanban-page-subheader.styled';
@@ -25,12 +25,12 @@ export const KanbanPageSubheader: React.FC = () => {
   // const curPriority =
   //   filters.find((el) => el.key === 'taskPriority')?.value || 'DEFAULT';
   // const members = useTypedSelector((state) => state.curProj.members);
-  const curView = useTypedSelector((state) => state.curProj.curView);
+  // const curView = useTypedSelector((state) => state.curProj.curView);
   return (
     <SSubHeader>
       <Segmented
-        onChange={(e) => dispatch(setCurView(e))}
-        defaultValue={curView}
+        // onChange={(e) => dispatch(setCurView(e))}
+        // defaultValue={curView}
         size={'small'}
         options={[
           {

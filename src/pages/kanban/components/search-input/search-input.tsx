@@ -3,10 +3,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faClose } from '@fortawesome/free-solid-svg-icons';
 import i18n from 'i18next';
 import { useAppDispatch } from '../../../../hooks/redux';
-import {
-  delFilters,
-  setFilters,
-} from '../../../../__data__/reducers/kanban.slice';
+// import {
+//   delFilters,
+//   setFilters,
+// } from '../../../../__data__/reducers/kanban.slice';
 import {
   SInputIcon,
   SInputContainer,
@@ -21,16 +21,16 @@ export const SearchInput: React.FC<SearchInputProps> = (): JSX.Element => {
   const dispatch = useAppDispatch();
 
   const clearFilters = () => {
-    dispatch(delFilters('taskName'));
+    // dispatch(delFilters('taskName'));
     setInputValue('');
   };
 
   const handleSubmit = () => {
-    if (inputValue !== '') {
-      dispatch(setFilters({ key: 'taskName', value: inputValue }));
-    } else {
-      dispatch(delFilters('taskName'));
-    }
+    // if (inputValue !== '') {
+    //   dispatch(setFilters({ key: 'taskName', value: inputValue }));
+    // } else {
+    //   dispatch(delFilters('taskName'));
+    // }
   };
 
   return (

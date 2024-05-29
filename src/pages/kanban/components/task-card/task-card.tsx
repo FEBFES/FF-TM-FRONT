@@ -1,7 +1,7 @@
 import React from 'react';
-import { delTaskFromCol } from '../../../../__data__/reducers/kanban.slice';
+// import { delTaskFromCol } from '../../../../__data__/reducers/kanban.slice';
 import { useAppDispatch } from '../../../../hooks/redux';
-import { fetchGetTaskInfo } from '../../../../__data__/middleware/kanban.thunk';
+// import { fetchGetTaskInfo } from '../../../../__data__/middleware/kanban.thunk';
 import { Flex, Typography, Avatar, Tag, Space } from 'antd';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
 import { ITask } from './task-card.type';
@@ -25,13 +25,13 @@ export const TaskCard: React.FC<TaskCardProps> = ({
 
   const getTaskInfo = () => {
     setShowTaskModal(true);
-    dispatch(
-      fetchGetTaskInfo({
-        projId: task.projectId,
-        colId: task.columnId,
-        taskId: task.id,
-      })
-    );
+    // dispatch(
+    //   fetchGetTaskInfo({
+    //     projId: task.projectId,
+    //     colId: task.columnId,
+    //     taskId: task.id,
+    //   })
+    // );
   };
 
   return (
@@ -39,11 +39,11 @@ export const TaskCard: React.FC<TaskCardProps> = ({
       onClick={() => getTaskInfo()}
       hoverable
       onDragStart={(e: any) => {
-        e.dataTransfer.setData('task', JSON.stringify(task));
-        setTimeout(() => {
-          e.target.style.display = 'none';
-          dispatch(delTaskFromCol(task));
-        }, 0);
+        // e.dataTransfer.setData('task', JSON.stringify(task));
+        // setTimeout(() => {
+        //   e.target.style.display = 'none';
+        //   dispatch(delTaskFromCol(task));
+        // }, 0);
       }}
       draggable
       size={'small'}

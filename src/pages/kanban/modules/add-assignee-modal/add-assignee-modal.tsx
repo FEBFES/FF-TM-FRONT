@@ -18,12 +18,12 @@ export const AddAssigneeModal: React.FC<AddAssigneeModalProps> = ({
   setShowAssignee,
   setCurAssignee,
 }): JSX.Element => {
-  const members = useTypedSelector((state) => state.curProj.members);
+  // const members = useTypedSelector((state) => state.curProj.members);
   const { ref } = useClickOutside(setShowAssignee);
 
   return showAssignee ? (
     <SAssigneeModal ref={ref}>
-      {[...members].map((member, i) => {
+      {/* {[...members].map((member, i) => {
         return (
           <MemberCard
             key={member.id}
@@ -34,7 +34,7 @@ export const AddAssigneeModal: React.FC<AddAssigneeModalProps> = ({
             member={member}
           />
         );
-      })}
+      })} */}
     </SAssigneeModal>
   ) : (
     <SIconCont onClick={() => setShowAssignee(true)}>

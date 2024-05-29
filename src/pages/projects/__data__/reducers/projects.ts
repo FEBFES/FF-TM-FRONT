@@ -29,5 +29,4 @@ const ProjectsSlice = createSlice({
   },
 });
 
-export default ProjectsSlice.reducer;
-export const { setIsLoading } = ProjectsSlice.actions;
+export default ProjectsSlice;

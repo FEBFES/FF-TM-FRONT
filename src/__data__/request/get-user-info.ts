@@ -1,3 +1,5 @@
+import createAsyncThunk from 'redux';
+
 // //Get info about uset
 // export const fetchGetUserInfo = createAsyncThunk(
 //   'projects/fetchGetUserInfo',

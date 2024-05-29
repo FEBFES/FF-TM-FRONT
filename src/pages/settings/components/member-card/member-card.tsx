@@ -1,11 +1,9 @@
 import React from 'react';
 import { IMember } from '../../../kanban/__data__/type/kanban.type';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
-import i18n from 'i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons/faTrashCan';
 import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
-import { fetchDeleteMemberFromProject } from '../../../../__data__/middleware/kanban.thunk';
 import { Space, Avatar, Flex, Tooltip, Typography } from 'antd';
 import {
   SMemberCard,
@@ -22,7 +20,7 @@ export const MemberCard: React.FC<MemberCardProps> = ({
   member,
 }): JSX.Element => {
   const dispatch = useAppDispatch();
-  const projId = useTypedSelector((state) => state.curProj.projId);
+  // const projId = useTypedSelector((state) => state.curProj.projId);
   // const memberRoles: IMemberRole[] = ['MEMBER', 'MEMBER_PLUS', 'OWNER'];
 
   return (
@@ -53,18 +51,18 @@ export const MemberCard: React.FC<MemberCardProps> = ({
         {/*  optionsArr={memberRoles}*/}
         {/*/>*/}
         <Space />
-        <Tooltip title={i18n.t('utils.buttons.delete')}>
+        <Tooltip title={'Удалить'}>
           <STrashButton
-            onClick={() =>
-              projId &&
-              member.id &&
-              dispatch(
-                fetchDeleteMemberFromProject({
-                  projId: projId,
-                  memberId: member.id,
-                })
-              )
-            }
+          // onClick={() =>
+          //   projId &&
+          //   member.id &&
+          //   dispatch(
+          //     fetchDeleteMemberFromProject({
+          //       projId: projId,
+          //       memberId: member.id,
+          //     })
+          //   )
+          // }
           >
             <FontAwesomeIcon size={'xs'} icon={faTrashCan} />
           </STrashButton>

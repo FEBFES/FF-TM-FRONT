@@ -8,13 +8,12 @@ interface IRequestParam {
 
 // Get all projects
 //todo добавить возвращаемый тип (вместо any)
-export const getProjectsRequest = async ({
-  data,
-}: IRequestParam): Promise<AxiosResponse<IResponseParam>> => {
+export const getProjectsRequest = async (): Promise<
+  AxiosResponse<IResponseParam>
+> => {
   return instance.request({
     method: 'GET',
     url: '/projects',
-    data: data,
   });
 };
 

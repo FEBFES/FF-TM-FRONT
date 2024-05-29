@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 // import styles from '../../modules/TaskWindow/TaskWindow.module.css';
 import i18n from 'i18next';
-import { instance } from '../../../../api/http';
+// import { instance } from '../../../../api/http';
 import { useTypedSelector } from '../../../../hooks/redux';
 import { IFile } from '../index';
 
@@ -14,29 +14,29 @@ export const FilesTab: React.FC<FilesTabProps> = ({
   files,
   setFiles,
 }): JSX.Element => {
-  const task = useTypedSelector((state) => state.curProj.taskWindowInfo);
+  // const task = useTypedSelector((state) => state.curProj.taskWindowInfo);
 
-  useEffect(() => {
-    if (!task) {
-      return;
-    }
-    instance
-      .get(
-        `projects/${task?.projectId}/columns/${task?.columnId}/tasks/${task?.id}`
-      )
-      .then((res) => {
-        setFiles(res.data.files);
-      });
-  }, [task, setFiles]);
+  // useEffect(() => {
+  // if (!task) {
+  //   return;
+  // }
+  // instance
+  //   .get(
+  //     `projects/${task?.projectId}/columns/${task?.columnId}/tasks/${task?.id}`
+  //   )
+  //   .then((res) => {
+  //     setFiles(res.data.files);
+  //   });
+  // }, [task, setFiles]);
 
   const uploadNewFile = (e: any) => {
-    const photo = e.target.files[0];
-    const formData = new FormData();
-    formData.append('files', photo);
-    instance.post(`files/task/${task?.id}`, formData).then((res) => {
-      const newArr = [res.data[0], ...files];
-      setFiles(newArr);
-    });
+    // const photo = e.target.files[0];
+    // const formData = new FormData();
+    // formData.append('files', photo);
+    // instance.post(`files/task/${task?.id}`, formData).then((res) => {
+    //   const newArr = [res.data[0], ...files];
+    //   setFiles(newArr);
+    // });
   };
 
   // const deleteFile = (fileId: number) => {

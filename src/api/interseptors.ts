@@ -2,7 +2,6 @@ import axios from 'axios';
 import { store } from '../index';
 import { instance } from './instance';
 import { serverString } from '../config';
-import { setIsAuth } from '../';
 import { appRoutsPath } from '../routing/routs';
 
 instance.interceptors.request.use((config) => {
@@ -66,7 +65,8 @@ instance.interceptors.response.use(
             resolve(axios(originalRequest));
           })
           .catch((err) => {
-            store.dispatch(setIsAuth(false));
+            //todo
+            // store.dispatch(setIsAuth(false));
             localStorage.removeItem('accessToken');
             localStorage.removeItem('refreshToken');
             window.location.pathname = appRoutsPath.LoginPage.to;

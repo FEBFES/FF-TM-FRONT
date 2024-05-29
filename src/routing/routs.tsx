@@ -44,8 +44,8 @@ export const appRoutsPath = {
   },
   LoginPage: {
     title: 'login Page',
-    path: '/',
-    to: '/',
+    path: '/login',
+    to: '/login',
   },
   SettingsPage: {
     title: 'Settings',
@@ -91,19 +91,19 @@ const appRouts: IAppRouts[] = [
     path: appRoutsPath.MessagesPage.path,
   },
   // Login page
-  {
-    title: appRoutsPath.LoginPage.title,
-    component: LoginPage,
-    layout: AuthLayout,
-    path: appRoutsPath.LoginPage.path,
-  },
-  // Registration page
-  {
-    title: appRoutsPath.RegistrationPage.title,
-    component: RegistrationPage,
-    layout: AuthLayout,
-    path: appRoutsPath.RegistrationPage.path,
-  },
+  // {
+  //   title: appRoutsPath.LoginPage.title,
+  //   component: LoginPage,
+  //   layout: AuthLayout,
+  //   path: appRoutsPath.LoginPage.path,
+  // },
+  // // Registration page
+  // {
+  //   title: appRoutsPath.RegistrationPage.title,
+  //   component: RegistrationPage,
+  //   layout: AuthLayout,
+  //   path: appRoutsPath.RegistrationPage.path,
+  // },
 ];
 
 export { appRouts };

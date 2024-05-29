@@ -5,11 +5,12 @@ import { SHeader, SMemberCard, SMemberContainer } from './members-tab.styled';
 import { AddMemberToProjModal } from '../../../../components/add-member-to-proj-modal/add-member-to-proj-modal';
 import { SectionTitle } from '../../components/section-title/section-title';
 import { getAvatarUrlOrHuman } from '../../../../utils/utils';
+import { IMember } from '../../../kanban/__data__/type/kanban.type';
 
 interface MembersTabProps {}
 
 export const MembersTab: React.FC<MembersTabProps> = (): JSX.Element => {
-  const members = useTypedSelector((state) => state.curProj.members);
+  // const members = useTypedSelector((state) => state.curProj.members);
   const [showAddMemberModal, setShowAddMemberModal] = useState<boolean>(false);
 
   return (
@@ -30,7 +31,9 @@ export const MembersTab: React.FC<MembersTabProps> = (): JSX.Element => {
       {/*Todo поменять на список*/}
       {/*https://ant.design/components/list*/}
       <SMemberContainer>
-        {members.map((member) => {
+        {/* //todo */}
+
+        {/* {members.map((member: IMember) => {
           return (
             <SMemberCard>
               <Flex justify={'space-between'} align={'center'}>
@@ -49,7 +52,7 @@ export const MembersTab: React.FC<MembersTabProps> = (): JSX.Element => {
               </Flex>
             </SMemberCard>
           );
-        })}
+        })} */}
       </SMemberContainer>
 
       <AddMemberToProjModal

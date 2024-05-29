@@ -1,13 +1,12 @@
 import React from 'react';
 import { SectionTitle } from '../section-title/section-title';
 import { Button, Form, Input, Space, Spin } from 'antd';
-import { fetchChangeUserInfo } from '../../../app/__data__/request/user.thunk';
 import { useTypedSelector } from '../../../../hooks/redux';
-import { IUserState } from '../../../../__data__/reducers/old/user.slice';
+// import { IUserState } from '../../../../__data__/reducers/user-info';
 import { LoadingOutlined } from '@ant-design/icons';
 
 export const ProfileInfo: React.FC = () => {
-  const user: IUserState = useTypedSelector((state) => state.user);
+  // const user: IUserState = useTypedSelector((state) => state.user);
 
   // const changeUserInfo = () => {
   //   const data = {
@@ -24,11 +23,11 @@ export const ProfileInfo: React.FC = () => {
     // console.log(e);
   };
 
-  if (!user) {
-    return (
-      <Spin indicator={<LoadingOutlined style={{ fontSize: 24 }} spin />} />
-    );
-  }
+  // if (!user) {
+  //   return (
+  //     <Spin indicator={<LoadingOutlined style={{ fontSize: 24 }} spin />} />
+  //   );
+  // }
 
   return (
     <div>
@@ -40,13 +39,13 @@ export const ProfileInfo: React.FC = () => {
       <Form
         layout={'vertical'}
         onFinish={onFinish}
-        initialValues={{
-          username: user.username,
-          displayName: user.displayName,
-          email: user.email,
-          firstName: user.firstName,
-          latName: user.lastName,
-        }}
+        // initialValues={{
+        //   username: user.username,
+        //   displayName: user.displayName,
+        //   email: user.email,
+        //   firstName: user.firstName,
+        //   latName: user.lastName,
+        // }}
       >
         <Form.Item
           label="Почта"
