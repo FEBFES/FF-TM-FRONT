@@ -23,6 +23,7 @@ export const useOffline = () => {
   }, []);
 
   useEffect(() => {
+    //todo add antd notification
     // isOffline &&
     // toast.warning(i18n.t('notification.toast.network.error'), {
     //   autoClose: false,
