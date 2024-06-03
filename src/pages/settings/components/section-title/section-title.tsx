@@ -1,5 +1,5 @@
-import React from 'react';
-import { Flex, Typography } from 'antd';
+import React from "react";
+import { Flex, Typography } from "antd";
 
 interface SectionTitleProps {
   title: string;
@@ -8,7 +8,7 @@ interface SectionTitleProps {
 
 export const SectionTitle: React.FC<SectionTitleProps> = ({ title, desc }) => {
   return (
-    <Flex vertical style={{ marginBottom: '10px' }}>
+    <Flex vertical style={{ marginBottom: "10px" }}>
       <Typography.Title level={2} style={{ marginBottom: 0 }}>
         {title}
       </Typography.Title>

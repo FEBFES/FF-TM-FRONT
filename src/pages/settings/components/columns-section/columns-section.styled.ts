@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 //todo change to FLEX and PAddinWrapper ui Component */
 export const SColumnContainer = styled.div`

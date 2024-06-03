@@ -1,47 +1,47 @@
-import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { LogoIconDark } from '../../assets/icons/LogoIconDark';
-import { Menu, Layout, Flex } from 'antd';
-import type { GetProp, MenuProps } from 'antd';
+import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { LogoIconDark } from "../../assets/icons/LogoIconDark";
+import { Menu, Layout, Flex } from "antd";
+import type { GetProp, MenuProps } from "antd";
 import {
   BarChartOutlined,
   FolderOpenOutlined,
   MessageOutlined,
   SettingOutlined,
   UnorderedListOutlined,
-} from '@ant-design/icons';
-import { MenuCont } from './sidebar.styled';
-import useBreakpoint from 'antd/lib/grid/hooks/useBreakpoint';
+} from "@ant-design/icons";
+import { MenuCont } from "./sidebar.styled";
+import useBreakpoint from "antd/lib/grid/hooks/useBreakpoint";
 
-type MenuItem = GetProp<MenuProps, 'items'>[number];
+type MenuItem = GetProp<MenuProps, "items">[number];
 
 const links: MenuItem[] = [
   //TODO to - from string to const appRoutsPath
   {
-    key: '/Projects',
-    label: 'Проекты',
+    key: "/Projects",
+    label: "Проекты",
     icon: <FolderOpenOutlined />,
   },
   {
-    key: '/Kanban',
-    label: 'Доска',
+    key: "/Kanban",
+    label: "Доска",
     icon: <UnorderedListOutlined />,
   },
   {
-    key: '/Timeline',
-    label: 'Таймлайн',
+    key: "/Timeline",
+    label: "Таймлайн",
     icon: <BarChartOutlined />,
     disabled: true,
   },
   {
-    key: '/Messages',
-    label: 'Сообщения',
+    key: "/Messages",
+    label: "Сообщения",
     icon: <MessageOutlined />,
     disabled: true,
   },
   {
-    key: '/Settings/Profile',
-    label: 'настройки',
+    key: "/Settings/Profile",
+    label: "настройки",
     icon: <SettingOutlined />,
   },
 ];
@@ -56,20 +56,20 @@ export const Sidebar: React.FC = (): JSX.Element => {
 
   return (
     <Layout.Sider
-      theme={'light'}
+      theme={"light"}
       breakpoint="lg"
       width="200px"
       collapsible={useBreakpoint().lg}
-      style={{ boxShadow: 'rgb(0 0 0 / 74%) 0px 2px 8px 0px' }}
+      style={{ boxShadow: "rgb(0 0 0 / 74%) 0px 2px 8px 0px" }}
     >
-      <Flex style={{ marginTop: '40px' }} justify={'center'} align={'center'}>
+      <Flex style={{ marginTop: "40px" }} justify={"center"} align={"center"}>
         <LogoIconDark />
       </Flex>
 
       <MenuCont>
         <Menu
-          style={{ borderRight: 'none' }}
-          theme={'light'}
+          style={{ borderRight: "none" }}
+          theme={"light"}
           mode="inline"
           items={links}
           defaultSelectedKeys={[location.pathname]}

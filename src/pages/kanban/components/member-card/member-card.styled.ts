@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const SAssigneeCard = styled.div<{ bordered?: boolean }>`
   border: ${({ bordered }) =>
-    bordered ? '1px solid var(--bg-border)' : 'none'}
+    bordered ? "1px solid var(--bg-border)" : "none"}
   margin-top: 2px;
   padding: 6px 12px;
   display: flex;

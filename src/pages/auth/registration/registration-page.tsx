@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { Input, Typography, Button, Space, Divider } from 'antd';
-import { useAppDispatch } from '../../../hooks/redux';
+import React, { useState } from "react";
+import { Input, Typography, Button, Space, Divider } from "antd";
+import { useAppDispatch } from "../../../hooks/redux";
 // import { fetchRegistration } from '../__data__/thunk/auth.thunk';
-import { IRegisterFormDataType } from '../__data__/type/auth.type';
-import { useNavigate } from 'react-router-dom';
-import { appRoutsPath } from '../../../routing/routs';
+import { IRegisterFormDataType } from "../__data__/type/auth.type";
+import { useNavigate } from "react-router-dom";
+import { appRoutsPath } from "../../../routing/routs";
 interface RegistrationPageProps {}
 
 export const RegistrationPage: React.FC<
@@ -14,9 +14,9 @@ export const RegistrationPage: React.FC<
   const navigate = useNavigate();
 
   const [inputData, setInputData] = useState<IRegisterFormDataType>({
-    email: '',
-    username: '',
-    password: '',
+    email: "",
+    username: "",
+    password: "",
   });
 
   const submitHandler = () => {
@@ -39,25 +39,25 @@ export const RegistrationPage: React.FC<
       <Space direction="vertical">
         <Typography.Title>Регистрация</Typography.Title>
         <Input
-          placeholder={'Почта'}
-          type={'email'}
+          placeholder={"Почта"}
+          type={"email"}
           size="large"
           value={inputData.email}
-          onChange={(e) => changeHandle(e.target.value, 'email')}
+          onChange={(e) => changeHandle(e.target.value, "email")}
         />
         <Input
-          placeholder={'Логин'}
-          type={'text'}
+          placeholder={"Логин"}
+          type={"text"}
           size="large"
           value={inputData.username}
-          onChange={(e) => changeHandle(e.target.value, 'username')}
+          onChange={(e) => changeHandle(e.target.value, "username")}
         />
         <Input
-          placeholder={'Пароль'}
-          type={'password'}
+          placeholder={"Пароль"}
+          type={"password"}
           size="large"
           value={inputData.password}
-          onChange={(e) => changeHandle(e.target.value, 'password')}
+          onChange={(e) => changeHandle(e.target.value, "password")}
         />
 
         <Divider />

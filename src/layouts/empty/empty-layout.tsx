@@ -1,6 +1,6 @@
-import React from 'react';
-import { useTitle } from '../../hooks/use-title';
-import { Layout } from 'antd';
+import React from "react";
+import { useTitle } from "../../hooks/use-title";
+import { Layout } from "antd";
 const { Content } = Layout;
 
 export default interface EmptyLayoutProps {
@@ -9,15 +9,15 @@ export default interface EmptyLayoutProps {
 }
 
 const layoutStyle = {
-  overflow: 'hidden',
-  width: '100vw',
-  height: '100vh',
+  overflow: "hidden",
+  width: "100vw",
+  height: "100vh",
 };
 
 const contentStyle = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
 };
 
 export const EmptyLayout: React.FC<EmptyLayoutProps> = ({

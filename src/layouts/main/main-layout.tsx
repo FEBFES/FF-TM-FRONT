@@ -1,13 +1,13 @@
-import React from 'react';
-import { Sidebar } from '../../components/sidebar/sidebar';
-import { useTitle } from '../../hooks/use-title';
-import { Layout } from 'antd';
-import { Header } from '../../components/header/header';
+import React from "react";
+import { Sidebar } from "../../components/sidebar/sidebar";
+import { useTitle } from "../../hooks/use-title";
+import { Layout } from "antd";
+import { Header } from "../../components/header/header";
 const { Content } = Layout;
 
 const layoutStyle = {
   // overflow: 'hidden',
-  width: '100vw',
+  width: "100vw",
 };
 
 export interface MainLayoutProps {
@@ -26,13 +26,13 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
       <Sidebar />
       <Layout
         style={{
-          height: '100vh',
+          height: "100vh",
         }}
       >
         <Header />
         <Content
           style={{
-            overflowY: 'scroll',
+            overflowY: "scroll",
           }}
         >
           {children}
@@ -40,9 +40,9 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
       </Layout>
     </Layout>
 
-  // <SMainLayout>
-  //   <Sidebar />
-  //   <SPage>{children}</SPage>
-  // </SMainLayout>
+    // <SMainLayout>
+    //   <Sidebar />
+    //   <SPage>{children}</SPage>
+    // </SMainLayout>
   );
 };

@@ -1,15 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './assets/styles/index.css';
-import { BrowserRouter as Router } from 'react-router-dom';
-import reportWebVitals from './reportWebVitals';
-import { setupStore } from './__data__/store';
-import { Provider } from 'react-redux';
-import { App } from './app';
-import { ConfigProvider, theme, App as ApplicationWrap } from 'antd';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./assets/styles/index.css";
+import { BrowserRouter as Router } from "react-router-dom";
+import reportWebVitals from "./reportWebVitals";
+import { setupStore } from "./__data__/store";
+import { Provider } from "react-redux";
+import { App } from "./app";
+import { ConfigProvider, theme, App as ApplicationWrap } from "antd";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 export const store = setupStore();
 
@@ -24,7 +24,7 @@ root.render(
     theme={{
       components: {
         Layout: {
-          bodyBg: '#1a1a1a',
+          bodyBg: "#1a1a1a",
           //colorBgContainer: '#262626'
         },
       },

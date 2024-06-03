@@ -1,4 +1,5 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import { instance } from "../../../../api/instance";
 // import { instance } from '../../api/http';
 // import { AxiosError } from 'axios';
 // import { addTaskToCol } from '../reducers/kanban.slice';
@@ -50,21 +51,21 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 //   }
 // );
 
-// //Get project info
-// export const fetchProjectInfo = createAsyncThunk(
-//   'projects/fetchProjectInfo',
-//   async (projId: number, { rejectWithValue }) => {
-//     try {
-//       const res = await instance.get(`/projects/${projId}`);
+//Get project info
+export const fetchProjectInfo = createAsyncThunk(
+  'projects/fetchProjectInfo',
+  async (projId: number, { rejectWithValue }) => {
+    try {
+      const res = await instance.get(`/projects/${projId}`);
 
-//       if (res.status === 200) {
-//         return res.data;
-//       }
-//     } catch (err) {
-//       return rejectWithValue(err as Error);
-//     }
-//   }
-// );
+      if (res.status === 200) {
+        return res.data as any;
+      }
+    } catch (err) {
+      return rejectWithValue(err as Error);
+    }
+  }
+);
 
 // //Get project members
 // export const fetchGetProjectMembers = createAsyncThunk(
@@ -163,28 +164,28 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 // };
 
 // //Get project dashboard
-// export const fetchProjectDashboard = createAsyncThunk(
-//   'projects/fetchAllProjectColumns',
-//   async (
-//     {
-//       projId,
-//       params,
-//     }: { projId: number; params?: { key: string; value: string }[] | null },
-//     { rejectWithValue, dispatch }
-//   ) => {
-//     try {
-//       const paramsUlr = await checkParams(params);
-//       const res = await instance.get(
-//         `projects/${projId}/dashboard${paramsUlr ? `${paramsUlr}` : ''}`
-//       );
-//       if (res.status === 200) {
-//         return res.data;
-//       }
-//     } catch (err) {
-//       return rejectWithValue(err as AxiosError);
-//     }
-//   }
-// );
+export const fetchProjectDashboard = createAsyncThunk(
+  'projects/fetchAllProjectColumns',
+  async (
+    {
+      projId,
+      params,
+    }: { projId: number; params?: { key: string; value: string }[] | null },
+    { rejectWithValue, dispatch }
+  ) => {
+    try {
+    //   const paramsUlr = await checkParams(params);
+      const res = await instance.get(
+        `projects/${projId}/dashboard${''}`
+      );
+      if (res.status === 200) {
+        return res.data;
+      }
+    } catch (err) {
+      return rejectWithValue(err);
+    }
+  }
+);
 
 // // Add new task
 // export const fetchAddNewTask = createAsyncThunk(

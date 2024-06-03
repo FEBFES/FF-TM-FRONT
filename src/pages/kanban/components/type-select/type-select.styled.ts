@@ -1,5 +1,5 @@
-import styled, { css, RuleSet } from 'styled-components';
-import { ITypeSelectType } from './type-select';
+import styled, { css, RuleSet } from "styled-components";
+import { ITypeSelectType } from "./type-select";
 
 export const STypeSelect = styled.div`
   min-width: 20px;
@@ -7,14 +7,14 @@ export const STypeSelect = styled.div`
   cursor: pointer;
 `;
 
-export const STypeContainer = styled.div<{ direction: 'bottom' | 'top' }>`
+export const STypeContainer = styled.div<{ direction: "bottom" | "top" }>`
   ${({ direction }) =>
-    direction === 'bottom' &&
+    direction === "bottom" &&
     css`
       bottom: 0;
     `}
   ${({ direction }) =>
-    direction === 'top' &&
+    direction === "top" &&
     css`
       top: 0;
     `}

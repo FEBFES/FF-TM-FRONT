@@ -1,6 +1,6 @@
-import React from 'react';
-import { Typography } from 'antd';
-import { SContainer, SFilter, SComponentCont } from './filter-card.styled';
+import React from "react";
+import { Typography } from "antd";
+import { SContainer, SFilter, SComponentCont } from "./filter-card.styled";
 
 export interface FilterCardProps {
   component: JSX.Element;

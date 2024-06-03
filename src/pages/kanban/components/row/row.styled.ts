@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const SRow = styled.div`
   padding-bottom: 40px;
@@ -8,7 +8,6 @@ export const SRowHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 10px;
 `;
 
 export const STaskAlert = styled.div`

@@ -1,5 +1,5 @@
-import React from 'react';
-import { ColumnsSection, ProjectSection } from '../../components';
+import React from "react";
+import { ColumnsSection, ProjectSection } from "../../components";
 
 export const ProjectsTab: React.FC = (): JSX.Element => {
   return (

@@ -1,22 +1,23 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../../../hooks/redux';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../../../hooks/redux";
 // import { fetchLogin } from '../__data__/thunk/auth.thunk';
-import { appRoutsPath } from '../../../routing/routs';
-import { Typography, Divider, Button, Input, Space } from 'antd';
+import { appRoutsPath } from "../../../routing/routs";
+import { Typography, Divider, Button, Input, Space } from "antd";
+import { fetchLogin } from "../__data__/thunk/auth.thunk";
 
 interface LoginPageProps {}
 
 export const LoginPage: React.FC<LoginPageProps> = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const [inputData, setInputData] = useState({
-    username: '',
-    password: '',
+    username: "",
+    password: "",
   });
   const navigate = useNavigate();
 
   const submitHandler = () => {
-    // dispatch(fetchLogin(inputData))
+    dispatch(fetchLogin(inputData));
     //   .unwrap()
     //   .then(() => {
     //     navigate(appRoutsPath.ProjectPage.to);
@@ -35,18 +36,18 @@ export const LoginPage: React.FC<LoginPageProps> = (): JSX.Element => {
       <Space direction="vertical">
         <Typography.Title>Вход</Typography.Title>
         <Input
-          placeholder={'Логин'}
-          type={'text'}
+          placeholder={"Логин"}
+          type={"text"}
           size="large"
           value={inputData.username}
-          onChange={(e) => changeHandle(e.target.value, 'username')}
+          onChange={(e) => changeHandle(e.target.value, "username")}
         />
         <Input
-          placeholder={'Пароль'}
-          type={'password'}
+          placeholder={"Пароль"}
+          type={"password"}
           size="large"
           value={inputData.password}
-          onChange={(e) => changeHandle(e.target.value, 'password')}
+          onChange={(e) => changeHandle(e.target.value, "password")}
         />
         <Button type="primary" block onClick={submitHandler}>
           Войти

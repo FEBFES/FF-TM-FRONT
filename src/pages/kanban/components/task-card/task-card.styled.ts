@@ -1,10 +1,10 @@
-import styled from 'styled-components';
-import { Card } from 'antd';
+import styled from "styled-components";
+import { Card } from "antd";
 
 export const STask = styled(Card)`
   display: flex;
   flex-direction: column;
-  width: 268px;
+  width: 100%;
   margin-bottom: 10px;
 `;
 

@@ -1,5 +1,5 @@
-import { AxiosResponse } from 'axios';
-import { instance } from '../../../../api/instance';
+import { AxiosResponse } from "axios";
+import { instance } from "../../../../api/instance";
 
 interface IRequestParam {
   id: number;
@@ -8,14 +8,12 @@ interface IRequestParam {
 // Delete projects by id
 export const deleteProjectRequest = async ({
   id,
-}: IRequestParam): Promise<AxiosResponse<IResponseParam>> => {
+}: IRequestParam): Promise<AxiosResponse> => {
   return instance.request({
-    method: 'DELETE',
+    method: "DELETE",
     url: `projects/${id}`,
     data: {
       id,
     },
   });
 };
-
-interface IResponseParam {}

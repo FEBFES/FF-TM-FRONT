@@ -1,9 +1,9 @@
-import React from 'react';
-import { SectionTitle } from '../section-title/section-title';
-import { Button, Form, Input, Space, Spin } from 'antd';
-import { useTypedSelector } from '../../../../hooks/redux';
+import React from "react";
+import { SectionTitle } from "../section-title/section-title";
+import { Button, Form, Input, Space, Spin } from "antd";
+import { useTypedSelector } from "../../../../hooks/redux";
 // import { IUserState } from '../../../../__data__/reducers/user-info';
-import { LoadingOutlined } from '@ant-design/icons';
+import { LoadingOutlined } from "@ant-design/icons";
 
 export const ProfileInfo: React.FC = () => {
   // const user: IUserState = useTypedSelector((state) => state.user);
@@ -32,12 +32,12 @@ export const ProfileInfo: React.FC = () => {
   return (
     <div>
       <SectionTitle
-        title={'Информация'}
-        desc={'Управляйте своим профилем F/F'}
+        title={"Информация"}
+        desc={"Управляйте своим профилем F/F"}
       />
 
       <Form
-        layout={'vertical'}
+        layout={"vertical"}
         onFinish={onFinish}
         // initialValues={{
         //   username: user.username,
@@ -50,25 +50,25 @@ export const ProfileInfo: React.FC = () => {
         <Form.Item
           label="Почта"
           name="email"
-          rules={[{ type: 'email', message: 'Не валидный тип почты' }]}
+          rules={[{ type: "email", message: "Не валидный тип почты" }]}
         >
-          <Input type={'email'} placeholder={'Почта'} size={'large'} />
+          <Input type={"email"} placeholder={"Почта"} size={"large"} />
         </Form.Item>
 
         <Form.Item label="Логин" name="username">
-          <Input placeholder={'Логин'} size={'large'} />
+          <Input placeholder={"Логин"} size={"large"} />
         </Form.Item>
 
         <Form.Item label="Имя" name="firstName">
-          <Input placeholder={'Имя'} size={'large'} />
+          <Input placeholder={"Имя"} size={"large"} />
         </Form.Item>
 
         <Form.Item label="Фамилия" name="lastName">
-          <Input placeholder={'Фамилия'} size={'large'} />
+          <Input placeholder={"Фамилия"} size={"large"} />
         </Form.Item>
 
         <Form.Item label="Краткое имя" name="displayName">
-          <Input placeholder={'Краткое имя'} size={'large'} />
+          <Input placeholder={"Краткое имя"} size={"large"} />
         </Form.Item>
 
         <Space>

@@ -1,14 +1,14 @@
-import React from 'react';
-import { useTypedSelector } from '../../../../hooks/redux';
-import i18n from 'i18next';
+import React from "react";
+import { useTypedSelector } from "../../../../hooks/redux";
+import i18n from "i18next";
 // import { fetchChangeUserInfo } from '../../../app/__data__/request/user.thunk';
-import { getAvatarUrlOrHuman } from '../../../../utils/utils';
-import { Avatar, theme } from 'antd';
-import { SUserBackground, InfoCont, SProfileCont } from './profile-tab.styled';
-import { UserOutlined } from '@ant-design/icons';
-import { SectionTitle } from '../../components/section-title/section-title';
-import { ChangePassword } from '../../components/change-password/change-password';
-import { ProfileInfo } from '../../components/profile-info/profile-info';
+import { getAvatarUrlOrHuman } from "../../../../utils/utils";
+import { Avatar, theme } from "antd";
+import { SUserBackground, InfoCont, SProfileCont } from "./profile-tab.styled";
+import { UserOutlined } from "@ant-design/icons";
+import { SectionTitle } from "../../components/section-title/section-title";
+import { ChangePassword } from "../../components/change-password/change-password";
+import { ProfileInfo } from "../../components/profile-info/profile-info";
 const { useToken } = theme;
 
 interface ProfileTabProps {}
@@ -42,8 +42,8 @@ export const ProfileTab: React.FC<ProfileTabProps> = (): JSX.Element => {
   return (
     <SProfileCont>
       <SectionTitle
-        title={'Настройки профиля'}
-        desc={'Управляйте вашим профилем FF'}
+        title={"Настройки профиля"}
+        desc={"Управляйте вашим профилем FF"}
       />
 
       <SUserBackground bgColor={token.colorBgContainer}>

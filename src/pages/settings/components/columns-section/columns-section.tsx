@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { IColumns } from '../../../kanban/components/column/column';
-import { ColumnCard } from '../column-card/column-card';
-import { AddColModal } from '../add-col-modal/add-col-modal';
-import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
-import { Space, Button } from 'antd';
+import React, { useState } from "react";
+import { IColumns } from "../../../kanban/components/column/column";
+import { ColumnCard } from "../column-card/column-card";
+import { AddColModal } from "../add-col-modal/add-col-modal";
+import { useAppDispatch, useTypedSelector } from "../../../../hooks/redux";
+import { Space, Button } from "antd";
 import {
   SColumnContainer,
   SColumnContHeader,
   SColumnContFooter,
-} from './columns-section.styled';
-import { SectionTitle } from '../section-title/section-title';
+} from "./columns-section.styled";
+import { SectionTitle } from "../section-title/section-title";
 
 interface ColumnsSectionProps {}
 
@@ -30,12 +30,12 @@ export const ColumnsSection: React.FC<
       <SColumnContainer>
         <SColumnContHeader>
           <SectionTitle
-            title={'Колонки проекта'}
-            desc={'Настройка и редактирования колонок'}
+            title={"Колонки проекта"}
+            desc={"Настройка и редактирования колонок"}
           />
           <Space />
 
-          <Button onClick={() => setShowAddColModal(true)} type={'primary'}>
+          <Button onClick={() => setShowAddColModal(true)} type={"primary"}>
             + Добавить новую колонку
           </Button>
         </SColumnContHeader>

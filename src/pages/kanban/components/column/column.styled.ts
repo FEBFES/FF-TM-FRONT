@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import styled from "styled-components";
 
 export const SColWrap = styled.div`
   margin-top: 14px;
@@ -38,12 +37,9 @@ export const SColumn = styled.div`
   align-items: center;
   width: 100%;
   overflow-y: scroll;
+  padding: 0 10px;
 
   &::-webkit-scrollbar {
     display: none;
   }
-`;
-
-export const SColAddBtnIcon = styled(FontAwesomeIcon)`
-  color: #71737e;
 `;

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const SPageWrap = styled.div`
   width: 100%;
@@ -8,7 +8,7 @@ export const SPageWrap = styled.div`
 
 export const SPageCont = styled.div<{ sizeXs?: boolean }>`
   display: flex;
-  flex-direction: ${({ sizeXs }) => (sizeXs ? 'column' : 'row')};
+  flex-direction: ${({ sizeXs }) => (sizeXs ? "column" : "row")};
   gap: 50px;
   justify-content: center;
   align-items: start;

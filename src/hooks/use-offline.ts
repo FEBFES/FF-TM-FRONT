@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 export const useOffline = () => {
   const [isOffline, setIsOffline] = useState(false);
@@ -8,17 +8,17 @@ export const useOffline = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('offline', () => {
+    window.addEventListener("offline", () => {
       isOfflineToggle(true);
     });
 
-    window.addEventListener('online', () => {
+    window.addEventListener("online", () => {
       isOfflineToggle(false);
     });
 
     return () => {
-      window.removeEventListener('offline', () => isOfflineToggle(true));
-      window.removeEventListener('online', () => isOfflineToggle(false));
+      window.removeEventListener("offline", () => isOfflineToggle(true));
+      window.removeEventListener("online", () => isOfflineToggle(false));
     };
   }, []);
 

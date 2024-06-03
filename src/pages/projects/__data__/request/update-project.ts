@@ -1,5 +1,5 @@
-import { AxiosResponse } from 'axios';
-import { instance } from '../../../../api/instance';
+import { AxiosResponse } from "axios";
+import { instance } from "../../../../api/instance";
 
 interface IRequestParam {
   id: number;
@@ -12,9 +12,9 @@ export const updateProjectsRequest = async ({
   id,
   name,
   description,
-}: IRequestParam): Promise<AxiosResponse<IResponseParam>> => {
+}: IRequestParam): Promise<IResponseParam> => {
   return instance.request({
-    method: 'PUT',
+    method: "PUT",
     url: `projects/${id}`,
     data: {
       id,

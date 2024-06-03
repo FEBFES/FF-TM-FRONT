@@ -1,16 +1,14 @@
-import React from 'react';
-import { IMember } from '../../../kanban/__data__/type/kanban.type';
-import { getAvatarUrlOrHuman } from '../../../../utils/utils';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashCan } from '@fortawesome/free-regular-svg-icons/faTrashCan';
-import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
-import { Space, Avatar, Flex, Tooltip, Typography } from 'antd';
+import React from "react";
+import { IMember } from "../../../kanban/__data__/type/kanban.type";
+import { getAvatarUrlOrHuman } from "../../../../utils/utils";
+import { useAppDispatch, useTypedSelector } from "../../../../hooks/redux";
+import { Space, Avatar, Flex, Tooltip, Typography } from "antd";
 import {
   SMemberCard,
   SMemberCardInfo,
   SMemberCardLeft,
   STrashButton,
-} from './member-card.styled';
+} from "./member-card.styled";
 
 interface MemberCardProps {
   member: IMember;
@@ -51,7 +49,7 @@ export const MemberCard: React.FC<MemberCardProps> = ({
         {/*  optionsArr={memberRoles}*/}
         {/*/>*/}
         <Space />
-        <Tooltip title={'Удалить'}>
+        <Tooltip title={"Удалить"}>
           <STrashButton
           // onClick={() =>
           //   projId &&
@@ -64,7 +62,7 @@ export const MemberCard: React.FC<MemberCardProps> = ({
           //   )
           // }
           >
-            <FontAwesomeIcon size={'xs'} icon={faTrashCan} />
+            deleteIcon
           </STrashButton>
         </Tooltip>
       </Flex>

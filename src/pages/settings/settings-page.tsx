@@ -1,8 +1,8 @@
-import React from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
-import { ProfileTab, ProjectsTab, MembersTab } from './modules';
-import { SPageCont, SPageWrap } from './settings-page.styled';
-import { Card, Grid, Tabs } from 'antd';
+import React from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import { ProfileTab, ProjectsTab, MembersTab } from "./modules";
+import { SPageCont, SPageWrap } from "./settings-page.styled";
+import { Card, Grid, Tabs } from "antd";
 
 interface SettingsPageProps {}
 
@@ -14,15 +14,15 @@ export const SettingsPage: React.FC<SettingsPageProps> = (): JSX.Element => {
     <SPageCont sizeXs={!useBreakpoint().md}>
       <Card
         style={{
-          position: !useBreakpoint().md ? 'static' : 'sticky',
-          top: '40px',
-          width: !useBreakpoint().md ? '100%' : '140px',
+          position: !useBreakpoint().md ? "static" : "sticky",
+          top: "40px",
+          width: !useBreakpoint().md ? "100%" : "140px",
         }}
       >
         <Tabs
-          size={!useBreakpoint().md ? 'small' : 'large'}
+          size={!useBreakpoint().md ? "small" : "large"}
           defaultActiveKey="1"
-          tabPosition={!useBreakpoint().md ? 'top' : 'left'}
+          tabPosition={!useBreakpoint().md ? "top" : "left"}
           style={{
             height: !useBreakpoint().md ? 40 : 110,
           }}
@@ -33,16 +33,16 @@ export const SettingsPage: React.FC<SettingsPageProps> = (): JSX.Element => {
             //   key: '/Settings',
             // },
             {
-              label: 'Профиль',
-              key: '/Settings/Profile',
+              label: "Профиль",
+              key: "/Settings/Profile",
             },
             {
-              label: 'Проекты',
-              key: '/Settings/Project',
+              label: "Проекты",
+              key: "/Settings/Project",
             },
             {
-              label: 'Участники',
-              key: '/Settings/Members',
+              label: "Участники",
+              key: "/Settings/Members",
             },
           ]}
         />
@@ -50,9 +50,9 @@ export const SettingsPage: React.FC<SettingsPageProps> = (): JSX.Element => {
       <SPageWrap>
         <Routes>
           {/*<Route path={'/'} element={<GeneralTab />} />*/}
-          <Route path={'/Profile'} element={<ProfileTab />} />
-          <Route path={'/Project'} element={<ProjectsTab />} />
-          <Route path={'/Members'} element={<MembersTab />} />
+          <Route path={"/Profile"} element={<ProfileTab />} />
+          <Route path={"/Project"} element={<ProjectsTab />} />
+          <Route path={"/Members"} element={<MembersTab />} />
         </Routes>
       </SPageWrap>
     </SPageCont>

@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 import {
   PriorityDefault,
   PriorityHigh,
   PriorityLow,
   PriorityMedium,
-} from '../../../../assets/icons/TaskIcons';
+} from "../../../../assets/icons/TaskIcons";
 
-export type IPriorityType = 'DEFAULT' | 'LOW' | 'MEDIUM' | 'HIGH';
+export type IPriorityType = "DEFAULT" | "LOW" | "MEDIUM" | "HIGH";
 
 const priorityEnum = {
   DEFAULT: <PriorityDefault />,

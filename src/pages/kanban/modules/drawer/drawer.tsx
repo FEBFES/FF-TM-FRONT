@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Drawer,
   Flex,
@@ -10,12 +10,17 @@ import {
   Tag,
   Input,
   Tabs,
-} from 'antd';
-import { useTypedSelector } from '../../../../hooks/redux';
-import { getAvatarUrlOrHuman } from '../../../../utils/utils';
-import moment from 'moment';
-import { AppleOutlined, CalculatorOutlined } from '@ant-design/icons';
-import { FilesTab } from '../../components';
+  Upload,
+  Image,
+} from "antd";
+import { useTypedSelector } from "../../../../hooks/redux";
+import { getAvatarUrlOrHuman } from "../../../../utils/utils";
+import moment from "moment";
+import {
+  AppleOutlined,
+  CalculatorOutlined,
+  InboxOutlined,
+} from "@ant-design/icons";
 const { useBreakpoint } = Grid;
 
 interface ITaskDrawerProps {
@@ -33,7 +38,7 @@ export const TaskDrawer: React.FC<ITaskDrawerProps> = ({
 
   return (
     <Drawer
-      width={screens.xs ? '100%' : 378}
+      width={screens.xs ? "100%" : 378}
       closable
       destroyOnClose
       // title={task?.id || ''}
@@ -64,7 +69,7 @@ export const TaskDrawer: React.FC<ITaskDrawerProps> = ({
           </Space>
         </Flex>
 
-        <Flex justify={'space-between'}>
+        <Flex justify={"space-between"}>
           <Space>
             <Typography>Приоритет:</Typography>
 
@@ -78,7 +83,7 @@ export const TaskDrawer: React.FC<ITaskDrawerProps> = ({
           </Space>
         </Flex>
 
-        <Flex justify={'space-between'}>
+        <Flex justify={"space-between"}>
           <Space>
             <Typography>Создан:</Typography>
 
@@ -108,22 +113,65 @@ export const TaskDrawer: React.FC<ITaskDrawerProps> = ({
 
         <Tabs
           defaultActiveKey="2"
-          type={'card'}
+          type={"card"}
           items={[
             {
-              key: 'files',
-              label: 'Файлы',
+              key: "files",
+              label: "Файлы",
               icon: <AppleOutlined />,
             },
             {
-              key: 'messages',
-              label: 'Сообщения',
+              key: "messages",
+              label: "Сообщения",
               icon: <CalculatorOutlined />,
             },
           ]}
         />
 
-        <FilesTab files={[]} setFiles={() => {}} />
+        <div
+          style={{
+            width: "100%",
+            overflowX: "scroll",
+          }}
+        >
+          <Image.PreviewGroup
+            preview={{
+              onChange: (current, prev) =>
+                console.log(`current index: ${current}, prev index: ${prev}`),
+            }}
+          >
+            <Flex
+              style={{
+                overflowX: "scroll",
+                boxShadow: "rgb(0 0 0 / 74%) 0px 2px 8px 0px",
+              }}
+            >
+              {[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0].map((el) => {
+                return (
+                  <div style={{ marginRight: "20px", padding: "20px 10px" }}>
+                    <Image
+                      width={60}
+                      src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+                    />
+                  </div>
+                );
+              })}
+            </Flex>
+          </Image.PreviewGroup>
+        </div>
+
+        <Upload.Dragger>
+          <p className="ant-upload-drag-icon">
+            <InboxOutlined />
+          </p>
+          <p className="ant-upload-text">
+            Нажмите или перетащите файл в эту область для загрузки
+          </p>
+          <p className="ant-upload-hint">
+            Поддерживается однократная или массовая загрузка файлов в формате -
+            'jpeg, png'
+          </p>
+        </Upload.Dragger>
       </Flex>
     </Drawer>
   );

@@ -9,4 +9,4 @@ export interface IMember {
   roleOnProject: IMemberRole;
 }
 
-export type IMemberRole = 'MEMBER' | 'MEMBER_PLUS' | 'OWNER';
+export type IMemberRole = "MEMBER" | "MEMBER_PLUS" | "OWNER";

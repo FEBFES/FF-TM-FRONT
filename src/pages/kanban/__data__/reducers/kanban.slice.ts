@@ -1,4 +1,7 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IMember } from "../type/kanban.type";
+import { IColumns, ITask } from "../../components";
+import { fetchProjectDashboard, fetchProjectInfo } from "../thunk/kanban.thunk";
 // import {
 //   fetchAddMemberToProject,
 //   fetchAddNewCol,
@@ -18,79 +21,76 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 // import { IMember } from '../types/kanban.type';
 
 interface IKanbanInitialState {
-  // columns: IColumns[];
-  // taskWindowInfo: null | ITask;
-  // projectName: null | string;
-  // projectDesc: null | string;
-  // isLoading: boolean;
-  // errorMsg: string | null;
-  // projId: number | null;
-  // ownerId: number | null;
-  // isFavorite: boolean;
-  // members: IMember[];
-  // filters: { key: string; value: string }[];
-  // curView: 'kanban' | 'list';
+  columns: IColumns[];
+  taskWindowInfo: null | ITask;
+  projectName: null | string;
+  projectDesc: null | string;
+  isLoading: boolean;
+  errorMsg: string | null;
+  projId: number | null;
+  ownerId: number | null;
+  isFavorite: boolean;
+  members: IMember[];
+  filters: { key: string; value: string }[];
+  curView: 'kanban' | 'list';
 }
 
 const initialState: IKanbanInitialState = {
-  // columns: [],
-  // projectName: null,
-  // projectDesc: null,
-  // isLoading: false,
-  // errorMsg: null,
-  // projId: localStorage.getItem('curProj')
-  //   ? Number(localStorage.getItem('curProj'))
-  //   : null,
-  // taskWindowInfo: null,
-  // ownerId: null,
-  // isFavorite: false,
-  // members: [],
-  // filters: [],
-  // curView: 'kanban',
+  columns: [],
+  projectName: null,
+  projectDesc: null,
+  isLoading: false,
+  errorMsg: null,
+  projId: localStorage.getItem('curProj')
+    ? Number(localStorage.getItem('curProj'))
+    : null,
+  taskWindowInfo: null,
+  ownerId: null,
+  isFavorite: false,
+  members: [],
+  filters: [],
+  curView: 'kanban',
 };
 
 const KanbanSlice = createSlice({
-  name: 'project/dashboard',
+  name: "project/dashboard",
   initialState: initialState,
-  reducers: {},
-  extraReducers: {},
-  //todo
-  // reducers: {
+  reducers: {
   //   clearKanbanSlice: () => {
   //     return initialState;
   //   },
-  //   setCurProjId: (state, action: PayloadAction<number>) => {
-  //     state.projId = action.payload;
-  //     localStorage.setItem('curProj', JSON.stringify(action.payload));
-  //   },
-  //   delTaskFromCol: (state, action) => {
-  //     state.columns = state.columns.map((col: IColumns) => {
-  //       if (col.id === action.payload.columnId) {
-  //         return {
-  //           ...col,
-  //           tasks: col.tasks.filter((task) => task.id !== action.payload.id),
-  //         };
-  //       }
-  //       return col;
-  //     });
-  //   },
-  //   addTaskToCol: (state, action) => {
-  //     state.columns = state.columns.map((col: IColumns) => {
-  //       if (col.id === action.payload.colId) {
-  //         return {
-  //           ...col,
-  //           tasks: [
-  //             ...col.tasks,
-  //             {
-  //               ...action.payload.task,
-  //               columnId: action.payload.colId,
-  //             },
-  //           ],
-  //         };
-  //       }
-  //       return col;
-  //     });
-  //   },
+    setCurProjId: (state, action: PayloadAction<number>) => {
+      state.projId = action.payload;
+      localStorage.setItem('curProj', JSON.stringify(action.payload));
+    },
+    delTaskFromCol: (state, action) => {
+      state.columns = state.columns.map((col: IColumns) => {
+        if (col.id === action.payload.columnId) {
+          return {
+            ...col,
+            tasks: col.tasks.filter((task) => task.id !== action.payload.id),
+          };
+        }
+        return col;
+      });
+    },
+    addTaskToCol: (state, action) => {
+      state.columns = state.columns.map((col: IColumns) => {
+        if (col.id === action.payload.colId) {
+          return {
+            ...col,
+            tasks: [
+              ...col.tasks,
+              {
+                ...action.payload.task,
+                columnId: action.payload.colId,
+              },
+            ],
+          };
+        }
+        return col;
+      });
+    },
   //   setFilters: (state, action) => {
   //     const haveFilter =
   //       state.filters.filter((filter) => filter.key === action.payload.key)
@@ -127,33 +127,33 @@ const KanbanSlice = createSlice({
   //   setCurView: (state, action) => {
   //     state.curView = action.payload;
   //   },
-  // },
-  // extraReducers: (builder) => {
+  },
+  extraReducers: (builder) => {
   //   //
   //   // Get Project info
   //   //
-  //   builder.addCase(fetchProjectInfo.fulfilled, (state, action) => {
-  //     const { name, description, id, isFavourite, ownerId, members } =
-  //       action.payload;
-  //     state.projectName = name;
-  //     state.projectDesc = description;
-  //     state.projId = id;
-  //     state.ownerId = ownerId;
-  //     state.isFavorite = isFavourite;
-  //     state.members = members;
-  //   });
+    builder.addCase(fetchProjectInfo.fulfilled, (state: any, action: any) => {
+      const { name, description, id, isFavourite, ownerId, members } =
+        action.payload;
+      state.projectName = name;
+      state.projectDesc = description;
+      state.projId = id;
+      state.ownerId = ownerId;
+      state.isFavorite = isFavourite;
+      state.members = members;
+    });
   //   //
   //   // Get project dashboard (columns)
   //   //
   //   builder.addCase(fetchProjectDashboard.pending, (state) => {
   //     state.isLoading = true;
   //   });
-  //   builder.addCase(fetchProjectDashboard.fulfilled, (state, action) => {
-  //     state.isLoading = false;
-  //     state.errorMsg = null;
-  //     const { columns } = action.payload;
-  //     state.columns = columns;
-  //   });
+    builder.addCase(fetchProjectDashboard.fulfilled, (state, action) => {
+      state.isLoading = false;
+      state.errorMsg = null;
+      const { columns } = action.payload;
+      state.columns = columns;
+    });
   //   //
   //   // Add new task
   //   //
@@ -232,20 +232,20 @@ const KanbanSlice = createSlice({
   //     state.members = state.members.filter(
   //       (el: IMember) => el.id !== action.payload
   //     );
-  //   });
-  // },
+    // });
+  },
 });
 
 //todo
 
-// export const {
+export const {
 //   setFilters,
 //   delFilters,
 //   setCurView,
 //   clearKanbanSlice,
-//   delTaskFromCol,
-//   addTaskToCol,
+  delTaskFromCol,
+  addTaskToCol,
 //   clearAllFilters,
-//   setCurProjId,
-// } = KanbanSlice.actions;
+  setCurProjId,
+} = KanbanSlice.actions;
 export default KanbanSlice.reducer;

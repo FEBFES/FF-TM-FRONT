@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
+import React, { useState } from "react";
+import { useAppDispatch, useTypedSelector } from "../../../../hooks/redux";
 // import {
 // clearAllFilters,
 // delFilters,
 // setCurView,
 // setFilters,
 // } from '../../../../__data__/reducers/kanban.slice';
-import { AddMemberToProjModal } from '../../../../components/add-member-to-proj-modal/add-member-to-proj-modal';
-import { Segmented, Button, Dropdown } from 'antd';
-import { SSubHeader } from './kanban-page-subheader.styled';
+// import { AddMemberToProjModal } from '../../../../components/add-member-to-proj-modal/add-member-to-proj-modal';
+import { Segmented, Button, Dropdown } from "antd";
+import { SSubHeader } from "./kanban-page-subheader.styled";
 import {
   AppstoreOutlined,
   BarsOutlined,
   FilterFilled,
-} from '@ant-design/icons';
-import useBreakpoint from 'antd/es/grid/hooks/useBreakpoint';
+} from "@ant-design/icons";
+import useBreakpoint from "antd/es/grid/hooks/useBreakpoint";
 
 export const KanbanPageSubheader: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -31,16 +31,16 @@ export const KanbanPageSubheader: React.FC = () => {
       <Segmented
         // onChange={(e) => dispatch(setCurView(e))}
         // defaultValue={curView}
-        size={'small'}
+        size={"small"}
         options={[
           {
-            label: useBreakpoint().xs ? '' : 'Список',
-            value: 'list',
+            label: useBreakpoint().xs ? "" : "Список",
+            value: "list",
             icon: <BarsOutlined />,
           },
           {
-            label: useBreakpoint().xs ? '' : 'Доска',
-            value: 'kanban',
+            label: useBreakpoint().xs ? "" : "Доска",
+            value: "kanban",
             icon: <AppstoreOutlined />,
           },
         ]}
@@ -51,13 +51,13 @@ export const KanbanPageSubheader: React.FC = () => {
           menu={{
             items: [
               {
-                label: 'asdas',
-                key: 'a',
+                label: "asdas",
+                key: "a",
               },
             ],
           }}
         >
-          <Button size={'small'}>
+          <Button size={"small"}>
             type
             <FilterFilled />
           </Button>
@@ -67,13 +67,13 @@ export const KanbanPageSubheader: React.FC = () => {
           menu={{
             items: [
               {
-                label: 'asdasd',
-                key: '123',
+                label: "asdasd",
+                key: "123",
               },
             ],
           }}
         >
-          <Button size={'small'}>
+          <Button size={"small"}>
             priority
             <FilterFilled />
           </Button>
@@ -124,12 +124,12 @@ export const KanbanPageSubheader: React.FC = () => {
       {/*  )}*/}
       {/*</Flex>*/}
 
-      {showAddMemberModal && (
-        <AddMemberToProjModal
-          show={showAddMemberModal}
-          setShow={setShowAddMemberModal}
-        />
-      )}
+      {/*{showAddMemberModal && (*/}
+      {/*  <AddMemberToProjModal*/}
+      {/*    show={showAddMemberModal}*/}
+      {/*    setShow={setShowAddMemberModal}*/}
+      {/*  />*/}
+      {/*)}*/}
     </SSubHeader>
   );
 };

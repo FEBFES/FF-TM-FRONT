@@ -1,23 +1,13 @@
-import { AxiosResponse } from 'axios';
-import { instance } from '../../../../api/instance';
-
-interface IRequestParam {
-  //todo change
-  data: any;
-}
+import { AxiosResponse } from "axios";
+import { instance } from "../../../../api/instance";
+import { IProject } from "../type/projects.type";
 
 // Get all projects
-//todo добавить возвращаемый тип (вместо any)
 export const getProjectsRequest = async (): Promise<
-  AxiosResponse<IResponseParam>
+  AxiosResponse<IProject[]>
 > => {
   return instance.request({
-    method: 'GET',
-    url: '/projects',
+    method: "GET",
+    url: "/projects",
   });
 };
-
-interface IResponseParam {
-  //todo change
-  str: string;
-}

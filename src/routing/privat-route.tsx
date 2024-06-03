@@ -1,7 +1,7 @@
-import React from 'react';
-import { Route, useLocation, useNavigate } from 'react-router-dom';
-import { useTypedSelector } from '../hooks/redux';
-import { appRoutsPath } from './routs';
+import React from "react";
+import { Route, useLocation, useNavigate } from "react-router-dom";
+import { useTypedSelector } from "../hooks/redux";
+import { appRoutsPath } from "./routs";
 
 //todo
 export const PrivateRoute = (props: any) => {

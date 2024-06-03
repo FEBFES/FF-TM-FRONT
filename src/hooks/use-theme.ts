@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { useAppDispatch, useTypedSelector } from './redux';
+import { useEffect } from "react";
+import { useAppDispatch, useTypedSelector } from "./redux";
 // import { changeAppTheme } from '../pages/app/__data__/reducers/app-slice';
 
 export const useTheme = () => {

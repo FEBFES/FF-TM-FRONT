@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Avatar,
   Breadcrumb,
@@ -11,14 +11,14 @@ import {
   Button,
   Grid,
   theme,
-} from 'antd';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { BellOutlined, UserOutlined } from '@ant-design/icons';
-import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
-import { getAvatarUrlOrHuman } from '../../utils/utils';
+} from "antd";
+import { useLocation, useNavigate } from "react-router-dom";
+import { BellOutlined, UserOutlined } from "@ant-design/icons";
+import { useAppDispatch, useTypedSelector } from "../../hooks/redux";
+import { getAvatarUrlOrHuman } from "../../utils/utils";
 // import { setIsAuth } from '../../__data__/reducers/auth.slice';
-import { appRoutsPath } from '../../routing/routs';
-import { SUserSection } from './header.styled';
+import { appRoutsPath } from "../../routing/routs";
+import { SUserSection } from "./header.styled";
 
 export const Header = () => {
   // const user = useTypedSelector((state) => state.user);
@@ -28,9 +28,9 @@ export const Header = () => {
   const { useBreakpoint } = Grid;
 
   const getBreadcrumb = () => {
-    const urls = location.pathname.split('/');
+    const urls = location.pathname.split("/");
     return urls.map((url) => {
-      if (!url) return { title: 'FF' };
+      if (!url) return { title: "FF" };
       return {
         title: url,
       };
@@ -50,31 +50,31 @@ export const Header = () => {
       }}
     >
       <Flex
-        style={{ height: '100%' }}
-        justify={'space-between'}
-        align={'center'}
+        style={{ height: "100%" }}
+        justify={"space-between"}
+        align={"center"}
       >
         <Breadcrumb items={getBreadcrumb()} />
 
-        <Flex align={'center'}>
+        <Flex align={"center"}>
           <Space>
-            <Badge size={'small'} count={22}>
-              <Button type={'text'}>
+            <Badge size={"small"} count={22}>
+              <Button type={"text"}>
                 <BellOutlined />
               </Button>
             </Badge>
 
-            <Divider style={{ marginLeft: '30px' }} type={'vertical'} />
+            <Divider style={{ marginLeft: "30px" }} type={"vertical"} />
 
             <SUserSection
               menu={{
                 items: [
                   {
-                    key: 'profile',
+                    key: "profile",
                     label: (
                       <Button
-                        size={'small'}
-                        type={'link'}
+                        size={"small"}
+                        type={"link"}
                         onClick={() =>
                           navigate(`/${appRoutsPath.SettingsPage.to}/Profile`)
                         }
@@ -84,12 +84,12 @@ export const Header = () => {
                     ),
                   },
                   {
-                    key: 'logout',
+                    key: "logout",
                     label: (
                       <Button
                         onClick={logoutHandler}
-                        size={'small'}
-                        type={'link'}
+                        size={"small"}
+                        type={"link"}
                         danger
                       >
                         Выйти
@@ -98,7 +98,7 @@ export const Header = () => {
                   },
                 ],
               }}
-              trigger={['click']}
+              trigger={["click"]}
             >
               <Space>
                 {/* <Avatar

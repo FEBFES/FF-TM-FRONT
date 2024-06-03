@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 export const useClickOutside = (handler: (bool: boolean) => void) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -10,9 +10,9 @@ export const useClickOutside = (handler: (bool: boolean) => void) => {
   };
 
   useEffect(() => {
-    document.addEventListener('click', handleClickOutside, true);
+    document.addEventListener("click", handleClickOutside, true);
     return () => {
-      document.removeEventListener('click', handleClickOutside, true);
+      document.removeEventListener("click", handleClickOutside, true);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

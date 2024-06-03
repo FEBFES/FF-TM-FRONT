@@ -1,9 +1,9 @@
-import React from 'react';
-import { Avatar } from 'antd';
+import React from "react";
+import { Avatar } from "antd";
 
-import { IMember } from '../../__data__/type/kanban.type';
-import { getAvatarUrlOrHuman } from '../../../../utils/utils';
-import { SAssigneeCard } from './member-card.styled';
+import { IMember } from "../../__data__/type/kanban.type";
+import { getAvatarUrlOrHuman } from "../../../../utils/utils";
+import { SAssigneeCard } from "./member-card.styled";
 
 interface MemberCardProps {
   member: IMember;

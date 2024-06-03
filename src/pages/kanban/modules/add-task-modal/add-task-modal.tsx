@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Typography, Button, Input, Modal, Switch, Flex, Space } from 'antd';
-import { IPriorityType, ITypeSelectType, IColumns } from '../../components';
-import { IMember } from '../../__data__/type/kanban.type';
+import React, { useState } from "react";
+import { Typography, Button, Input, Modal, Switch, Flex, Space } from "antd";
+import { IPriorityType, ITypeSelectType, IColumns } from "../../components";
+import { IMember } from "../../__data__/type/kanban.type";
 
 interface AddTaskModalProps {
   show: boolean;
@@ -22,19 +22,19 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
   onSubmit,
   curCol,
 }): JSX.Element => {
-  const [curTaskType, setCurTaskType] = useState<ITypeSelectType>('NONE');
-  const [name, setName] = useState<string>('');
-  const [description, setDescription] = useState<string>('');
+  const [curTaskType, setCurTaskType] = useState<ITypeSelectType>("NONE");
+  const [name, setName] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
   const [isMultiple, setIsMultiple] = useState<boolean>(false);
-  const [curPriority, setCurPriority] = useState<IPriorityType>('DEFAULT');
+  const [curPriority, setCurPriority] = useState<IPriorityType>("DEFAULT");
   const [curAssignee, setCurAssignee] = useState<IMember | null>(null);
   // const [showAssignee, setShowAssignee] = useState<boolean>(false);
 
   const clearModalData = () => {
-    setName('');
-    setDescription('');
-    setCurTaskType('NONE');
-    setCurPriority('DEFAULT');
+    setName("");
+    setDescription("");
+    setCurTaskType("NONE");
+    setCurPriority("DEFAULT");
     setCurAssignee(null);
   };
 
@@ -55,25 +55,25 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
   return (
     <Modal
       onOk={submitHandler}
-      okText={'Создать'}
+      okText={"Создать"}
       onCancel={cancelHandler}
-      cancelText={'Отменить'}
+      cancelText={"Отменить"}
       title={curCol?.name}
       open={show}
     >
       <div>
-        <div style={{ marginTop: '40px', marginBottom: '25px' }}>
+        <div style={{ marginTop: "40px", marginBottom: "25px" }}>
           <Input
-            type={'text'}
-            size={'large'}
+            type={"text"}
+            size={"large"}
             value={name}
-            placeholder={'Название'}
+            placeholder={"Название"}
             onChange={(e) => setName(e.target.value)}
           />
           <Input.TextArea
-            size={'large'}
+            size={"large"}
             value={description}
-            placeholder={'Описание'}
+            placeholder={"Описание"}
             autoSize={{ minRows: 3, maxRows: 5 }}
             onChange={(e) => setDescription(e.target.value)}
           />
@@ -98,7 +98,7 @@ export const AddTaskModal: React.FC<AddTaskModalProps> = ({
         </div>
 
         <div>
-          <Flex justify={'space-between'}>
+          <Flex justify={"space-between"}>
             <Space>
               <Button>Приоритет</Button>
 
