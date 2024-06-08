@@ -1,9 +1,7 @@
-import React from "react";
-import { MemberCard } from "../../components/member-card/member-card";
-import { useTypedSelector } from "../../../../hooks/redux";
-import { IMember } from "../../__data__/type/kanban.type";
-import { useClickOutside } from "../../../../hooks/use-click-outside";
-import { SAssigneeModal, SIconCont } from "./add-assignee-modal.styled";
+import React from 'react';
+import { IMember } from '../../__data__/type/kanban.type';
+import { useClickOutside } from '../../../../hooks/use-click-outside';
+import { SAssigneeModal, SIconCont } from './add-assignee-modal.styled';
 
 interface AddAssigneeModalProps {
   showAssignee: boolean;

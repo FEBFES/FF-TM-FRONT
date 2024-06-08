@@ -1,7 +1,7 @@
-import { ActionReducerMapBuilder, PayloadAction } from "@reduxjs/toolkit";
-import { getProjectsThunk } from "../thunk/get-projects";
-import { IProject } from "../type/projects.type";
-import { IProjectInitialState } from "./projectsSlice";
+import { ActionReducerMapBuilder, PayloadAction } from '@reduxjs/toolkit';
+import { getProjectsThunk } from '../thunk/get-projects';
+import { IProject } from '../type/projects.type';
+import { IProjectInitialState } from '../slices/projectsSlice';
 
 export const getProjectsBuilder = (
   builder: ActionReducerMapBuilder<IProjectInitialState>

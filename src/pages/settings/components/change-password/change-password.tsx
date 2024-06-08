@@ -1,7 +1,7 @@
-import React from "react";
-import { SectionTitle } from "../section-title/section-title";
-import { Button, Form, Input, Space } from "antd";
-import { SContainer } from "./change-password.styled";
+import React from 'react';
+import { SectionTitle } from '../section-title/section-title';
+import { Button, Form, Input, Space } from 'antd';
+import { SContainer } from './change-password.styled';
 
 export const ChangePassword = () => {
   const onFinish = (e: any) => {
@@ -10,12 +10,12 @@ export const ChangePassword = () => {
 
   return (
     <SContainer>
-      <SectionTitle title={"Пароль"} desc={"Изменение пароля"} />
+      <SectionTitle title={'Пароль'} desc={'Изменение пароля'} />
 
-      <Form layout={"vertical"} onFinish={onFinish}>
+      <Form layout={'vertical'} onFinish={onFinish}>
         {/*Старый пароль*/}
         <Form.Item label="Старый пароль" name="old_password">
-          <Input.Password placeholder={"Старый пароль"} size={"large"} />
+          <Input.Password placeholder={'Старый пароль'} size={'large'} />
         </Form.Item>
 
         {/*Новый пароль*/}
@@ -26,11 +26,11 @@ export const ChangePassword = () => {
             {
               min: 10,
               max: 20,
-              message: "Пароль должен содержать от 10 до 20 символов",
+              message: 'Пароль должен содержать от 10 до 20 символов',
             },
           ]}
         >
-          <Input.Password placeholder={"Новый пароль"} size={"large"} />
+          <Input.Password placeholder={'Новый пароль'} size={'large'} />
         </Form.Item>
 
         <Space>

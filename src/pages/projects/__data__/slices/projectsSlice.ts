@@ -1,8 +1,8 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { IProject } from "../type/projects.type";
-import { getProjectsBuilder } from "./get-projects";
-import { deleteProjectBuilder } from "./delete-project";
-import { favToggleBuilder } from "./fav-toggle-projects";
+import { createSlice } from '@reduxjs/toolkit';
+import { IProject } from '../type/projects.type';
+import { getProjectsBuilder } from '../builders/get-projects';
+import { deleteProjectBuilder } from '../builders/delete-project';
+import { favToggleBuilder } from '../builders/fav-toggle-projects';
 
 export interface IProjectInitialState {
   projectsList: IProject[];
@@ -17,7 +17,7 @@ const projectInitialState: IProjectInitialState = {
 };
 
 const ProjectsSlice = createSlice({
-  name: "projects",
+  name: 'projects',
   initialState: projectInitialState,
   reducers: {},
   extraReducers: (builder) => {

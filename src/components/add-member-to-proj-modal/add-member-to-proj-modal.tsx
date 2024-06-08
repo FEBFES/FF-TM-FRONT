@@ -8,7 +8,7 @@
 // import { Modal, Input } from 'antd';
 //
 
-export const test = "123";
+export const test = '123';
 // interface AddMemberToProjModalProps {
 //   show: boolean;
 //   setShow: (bool: boolean) => void;

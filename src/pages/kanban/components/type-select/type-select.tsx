@@ -1,26 +1,26 @@
-import React, { useState } from "react";
-import { useClickOutside } from "../../../../hooks/use-click-outside";
-import { STaskType, STypeContainer } from "./type-select.styled";
+import React, { useState } from 'react';
+import { useClickOutside } from '../../../../hooks/use-click-outside';
+import { STaskType, STypeContainer } from './type-select.styled';
 // import {STypeElement} from './type-select.styled';
 
 interface TypeSelectProps {
   curType: ITypeSelectType;
   setCurType: (type: ITypeSelectType) => void;
-  direction: "bottom" | "top";
+  direction: 'bottom' | 'top';
 }
 export type ITypeSelectType =
-  | "NONE"
-  | "RESEARCH"
-  | "QUESTION"
-  | "BUG"
-  | "FEATURE";
+  | 'NONE'
+  | 'RESEARCH'
+  | 'QUESTION'
+  | 'BUG'
+  | 'FEATURE';
 
 const typeArr: ITypeSelectType[] = [
-  "NONE",
-  "RESEARCH",
-  "QUESTION",
-  "BUG",
-  "FEATURE",
+  'NONE',
+  'RESEARCH',
+  'QUESTION',
+  'BUG',
+  'FEATURE',
 ];
 
 // todo - переделать

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Drawer,
   Flex,
@@ -12,15 +12,15 @@ import {
   Tabs,
   Upload,
   Image,
-} from "antd";
-import { useTypedSelector } from "../../../../hooks/redux";
-import { getAvatarUrlOrHuman } from "../../../../utils/utils";
-import moment from "moment";
+} from 'antd';
+import { useTypedSelector } from '../../../../hooks/redux';
+import { getAvatarUrlOrHuman } from '../../../../utils/utils';
+import moment from 'moment';
 import {
   AppleOutlined,
   CalculatorOutlined,
   InboxOutlined,
-} from "@ant-design/icons";
+} from '@ant-design/icons';
 const { useBreakpoint } = Grid;
 
 interface ITaskDrawerProps {
@@ -38,7 +38,7 @@ export const TaskDrawer: React.FC<ITaskDrawerProps> = ({
 
   return (
     <Drawer
-      width={screens.xs ? "100%" : 378}
+      width={screens.xs ? '100%' : 378}
       closable
       destroyOnClose
       // title={task?.id || ''}
@@ -69,7 +69,7 @@ export const TaskDrawer: React.FC<ITaskDrawerProps> = ({
           </Space>
         </Flex>
 
-        <Flex justify={"space-between"}>
+        <Flex justify={'space-between'}>
           <Space>
             <Typography>Приоритет:</Typography>
 
@@ -83,7 +83,7 @@ export const TaskDrawer: React.FC<ITaskDrawerProps> = ({
           </Space>
         </Flex>
 
-        <Flex justify={"space-between"}>
+        <Flex justify={'space-between'}>
           <Space>
             <Typography>Создан:</Typography>
 
@@ -113,16 +113,16 @@ export const TaskDrawer: React.FC<ITaskDrawerProps> = ({
 
         <Tabs
           defaultActiveKey="2"
-          type={"card"}
+          type={'card'}
           items={[
             {
-              key: "files",
-              label: "Файлы",
+              key: 'files',
+              label: 'Файлы',
               icon: <AppleOutlined />,
             },
             {
-              key: "messages",
-              label: "Сообщения",
+              key: 'messages',
+              label: 'Сообщения',
               icon: <CalculatorOutlined />,
             },
           ]}
@@ -130,8 +130,8 @@ export const TaskDrawer: React.FC<ITaskDrawerProps> = ({
 
         <div
           style={{
-            width: "100%",
-            overflowX: "scroll",
+            width: '100%',
+            overflowX: 'scroll',
           }}
         >
           <Image.PreviewGroup
@@ -142,13 +142,13 @@ export const TaskDrawer: React.FC<ITaskDrawerProps> = ({
           >
             <Flex
               style={{
-                overflowX: "scroll",
-                boxShadow: "rgb(0 0 0 / 74%) 0px 2px 8px 0px",
+                overflowX: 'scroll',
+                boxShadow: 'rgb(0 0 0 / 74%) 0px 2px 8px 0px',
               }}
             >
               {[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0].map((el) => {
                 return (
-                  <div style={{ marginRight: "20px", padding: "20px 10px" }}>
+                  <div style={{ marginRight: '20px', padding: '20px 10px' }}>
                     <Image
                       width={60}
                       src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"

@@ -1,12 +1,12 @@
-import axios from "axios";
-import { store } from "../index";
-import { instance } from "./instance";
-import { serverString } from "../config";
-import { appRoutsPath } from "../routing/routs";
+import axios from 'axios';
+import { store } from '../index';
+import { instance } from './instance';
+import { serverString } from '../config';
+import { appRoutsPath } from '../routing/route-list';
 
 instance.interceptors.request.use((config) => {
   config.headers.Authorization =
-    "Bearer " + localStorage.getItem("accessToken");
+    'Bearer ' + localStorage.getItem('accessToken');
   return config;
 });
 
@@ -38,7 +38,7 @@ instance.interceptors.response.use(
           failedQueue.push({ resolve, reject });
         })
           .then((token) => {
-            originalRequest.headers["Authorization"] = "Bearer " + token;
+            originalRequest.headers['Authorization'] = 'Bearer ' + token;
             return axios(originalRequest);
           })
           .catch((err) => {
@@ -51,24 +51,24 @@ instance.interceptors.response.use(
 
       return new Promise(function (resolve, reject) {
         axios
-          .post(serverString + "auth/refresh-token", {
-            refreshToken: localStorage.getItem("refreshToken"),
+          .post(serverString + 'auth/refresh-token', {
+            refreshToken: localStorage.getItem('refreshToken'),
           })
           .then(({ data }) => {
-            localStorage.setItem("accessToken", data.accessToken);
-            localStorage.setItem("refreshToken", data.refreshToken);
-            instance.defaults.headers.common["Authorization"] =
-              "Bearer " + data.accessToken;
-            originalRequest.headers["Authorization"] =
-              "Bearer " + data.accessToken;
+            localStorage.setItem('accessToken', data.accessToken);
+            localStorage.setItem('refreshToken', data.refreshToken);
+            instance.defaults.headers.common['Authorization'] =
+              'Bearer ' + data.accessToken;
+            originalRequest.headers['Authorization'] =
+              'Bearer ' + data.accessToken;
             processQueue(null, data.accessToken);
             resolve(axios(originalRequest));
           })
           .catch((err) => {
             //todo
             // store.dispatch(setIsAuth(false));
-            localStorage.removeItem("accessToken");
-            localStorage.removeItem("refreshToken");
+            localStorage.removeItem('accessToken');
+            localStorage.removeItem('refreshToken');
             window.location.pathname = appRoutsPath.LoginPage.to;
             processQueue(err, null);
             reject(err);

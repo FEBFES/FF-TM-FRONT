@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import { useAppDispatch } from "../../../../hooks/redux";
-import { Typography, Flex, Button, Space, Popconfirm } from "antd";
-import { IColumns } from "../../../kanban/components/column/column";
-import { SCard, SColumn } from "./column-card.styled";
+import React, { useState } from 'react';
+import { useAppDispatch } from '../../../../hooks/redux';
+import { Typography, Flex, Button, Space, Popconfirm } from 'antd';
+import { IColumns } from '../../../kanban/components/column/column';
+import { SCard, SColumn } from './column-card.styled';
 import {
   CloseOutlined,
   DeleteOutlined,
   EditOutlined,
   SaveOutlined,
-} from "@ant-design/icons";
+} from '@ant-design/icons';
 
 export interface ColumnCardProps {
   column: IColumns;
@@ -19,7 +19,7 @@ export const ColumnCard: React.FC<ColumnCardProps> = ({
   column,
   onDelete,
 }): JSX.Element => {
-  const [colName] = useState<string>(column.name || "");
+  const [colName] = useState<string>(column.name || '');
   const [isEditMode, setIsEditMode] = useState<boolean>(false);
   const dispatch = useAppDispatch();
 
@@ -38,7 +38,7 @@ export const ColumnCard: React.FC<ColumnCardProps> = ({
   return (
     <SCard>
       <SColumn>
-        <Flex dir={"col"}>
+        <Flex dir={'col'}>
           <Typography.Paragraph editable={{ onChange: () => {} }}>
             {column.name}
           </Typography.Paragraph>
@@ -57,7 +57,7 @@ export const ColumnCard: React.FC<ColumnCardProps> = ({
 
           {isEditMode && (
             <Button
-              type={"primary"}
+              type={'primary'}
               onClick={() => updateColumn(column.projectId, column.id)}
             >
               <SaveOutlined />
@@ -73,7 +73,7 @@ export const ColumnCard: React.FC<ColumnCardProps> = ({
           >
             <Button
               danger
-              type={"default"}
+              type={'default'}
               onClick={() => onDelete(column.projectId, column.id)}
             >
               <DeleteOutlined />

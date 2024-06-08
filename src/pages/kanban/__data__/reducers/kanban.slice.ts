@@ -1,31 +1,13 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IMember } from "../type/kanban.type";
-import { IColumns, ITask } from "../../components";
-import { fetchProjectDashboard, fetchProjectInfo } from "../thunk/kanban.thunk";
-// import {
-//   fetchAddMemberToProject,
-//   fetchAddNewCol,
-//   fetchAddNewTask,
-//   fetchDelCol,
-//   fetchDeleteMemberFromProject,
-//   fetchDelTask,
-//   fetchGetProjectMembers,
-//   fetchGetTaskInfo,
-//   fetchProjectDashboard,
-//   fetchProjectInfo,
-//   fetchUpdateCol,
-// } from '../thunk/kanban.thunk';
-// import { fetchFavoriteToggle } from '../thunk/projects.thunk';
-// import { IColumns } from '../../pages/kanban-page/components/column/column';
-// import { ITask } from '../../pages/kanban-page/components/task-card/task-card.type';
-// import { IMember } from '../types/kanban.type';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { IMember } from '../type/kanban.type';
+import { IColumns, ITask } from '../../components';
+import { getProjectInfoBuilder } from '../builders/get-project-info';
 
-interface IKanbanInitialState {
+export interface IKanbanInitialState {
   columns: IColumns[];
   taskWindowInfo: null | ITask;
   projectName: null | string;
   projectDesc: null | string;
-  isLoading: boolean;
   errorMsg: string | null;
   projId: number | null;
   ownerId: number | null;
@@ -39,7 +21,6 @@ const initialState: IKanbanInitialState = {
   columns: [],
   projectName: null,
   projectDesc: null,
-  isLoading: false,
   errorMsg: null,
   projId: localStorage.getItem('curProj')
     ? Number(localStorage.getItem('curProj'))
@@ -53,15 +34,15 @@ const initialState: IKanbanInitialState = {
 };
 
 const KanbanSlice = createSlice({
-  name: "project/dashboard",
+  name: 'project/dashboard',
   initialState: initialState,
   reducers: {
-  //   clearKanbanSlice: () => {
-  //     return initialState;
-  //   },
+    //   clearKanbanSlice: () => {
+    //     return initialState;
+    //   },
     setCurProjId: (state, action: PayloadAction<number>) => {
-      state.projId = action.payload;
       localStorage.setItem('curProj', JSON.stringify(action.payload));
+      state.projId = action.payload;
     },
     delTaskFromCol: (state, action) => {
       state.columns = state.columns.map((col: IColumns) => {
@@ -91,147 +72,146 @@ const KanbanSlice = createSlice({
         return col;
       });
     },
-  //   setFilters: (state, action) => {
-  //     const haveFilter =
-  //       state.filters.filter((filter) => filter.key === action.payload.key)
-  //         .length >= 1;
 
-  //     if (!haveFilter) {
-  //       state.filters.push(action.payload);
-  //     } else {
-  //       state.filters = state.filters.map((filter) => {
-  //         if (filter.key === action.payload.key) {
-  //           return {
-  //             ...filter,
-  //             value: action.payload.value,
-  //           };
-  //         }
-  //         return filter;
-  //       });
-  //     }
-  //   },
-  //   //
-  //   // Filters
-  //   //
-  //   delFilters: (state, action: PayloadAction<string>) => {
-  //     state.filters = state.filters.filter(
-  //       (filter) => filter.key !== action.payload
-  //     );
-  //   },
-  //   clearAllFilters: (state) => {
-  //     state.filters = [];
-  //   },
-  //   //
-  //   // Change kanbanView
-  //   //
-  //   setCurView: (state, action) => {
-  //     state.curView = action.payload;
-  //   },
+    //   //
+    //   // Filters
+    //   //
+    //   setFilters: (state, action) => {
+    //     const haveFilter =
+    //       state.filters.filter((filter) => filter.key === action.payload.key)
+    //         .length >= 1;
+
+    //     if (!haveFilter) {
+    //       state.filters.push(action.payload);
+    //     } else {
+    //       state.filters = state.filters.map((filter) => {
+    //         if (filter.key === action.payload.key) {
+    //           return {
+    //             ...filter,
+    //             value: action.payload.value,
+    //           };
+    //         }
+    //         return filter;
+    //       });
+    //     }
+    //   },
+    //   delFilters: (state, action: PayloadAction<string>) => {
+    //     state.filters = state.filters.filter(
+    //       (filter) => filter.key !== action.payload
+    //     );
+    //   },
+    //   clearAllFilters: (state) => {
+    //     state.filters = [];
+    //   },
+
+    //   //
+    //   // Change kanbanView
+    //   //
+    //   setCurView: (state, action) => {
+    //     state.curView = action.payload;
+    //   },
   },
   extraReducers: (builder) => {
-  //   //
-  //   // Get Project info
-  //   //
-    builder.addCase(fetchProjectInfo.fulfilled, (state: any, action: any) => {
-      const { name, description, id, isFavourite, ownerId, members } =
-        action.payload;
-      state.projectName = name;
-      state.projectDesc = description;
-      state.projId = id;
-      state.ownerId = ownerId;
-      state.isFavorite = isFavourite;
-      state.members = members;
-    });
-  //   //
-  //   // Get project dashboard (columns)
-  //   //
-  //   builder.addCase(fetchProjectDashboard.pending, (state) => {
-  //     state.isLoading = true;
-  //   });
-    builder.addCase(fetchProjectDashboard.fulfilled, (state, action) => {
-      state.isLoading = false;
-      state.errorMsg = null;
-      const { columns } = action.payload;
-      state.columns = columns;
-    });
-  //   //
-  //   // Add new task
-  //   //
-  //   builder.addCase(fetchAddNewTask.fulfilled, (state, action) => {
-  //     state.columns = state.columns.map((col) => {
-  //       if (col.id === action.payload.columnId) {
-  //         return {
-  //           ...col,
-  //           tasks: [...col.tasks, action.payload],
-  //         };
-  //       }
-  //       return col;
-  //     });
-  //   });
-  //   //
-  //   // Del task by Id
-  //   //
-  //   builder.addCase(fetchDelTask.fulfilled, (state, action) => {
-  //     state.columns = state.columns.map((col) => {
-  //       if (col.id === action?.payload?.colId) {
-  //         return {
-  //           ...col,
-  //           tasks: col.tasks.filter(
-  //             (task) => task.id !== action.payload?.taskId
-  //           ),
-  //         };
-  //       }
-  //       return col;
-  //     });
-  //   });
-  //   //
-  //   // Favorite toggle
-  //   //
-  //   builder.addCase(fetchFavoriteToggle.fulfilled, (state, action) => {
-  //     state.isFavorite = action.payload?.isFav || false;
-  //   });
-  //   //
-  //   // Add new column
-  //   //
-  //   builder.addCase(fetchAddNewCol.fulfilled, (state, action) => {
-  //     state.columns.push(action.payload);
-  //   });
-  //   //
-  //   // Delete column
-  //   //
-  //   builder.addCase(fetchDelCol.fulfilled, (state, action) => {
-  //     state.columns = state.columns.filter((col) => col.id !== action.payload);
-  //   });
-  //   builder.addCase(fetchGetTaskInfo.fulfilled, (state, action) => {
-  //     state.taskWindowInfo = action.payload;
-  //   });
-  //   //
-  //   // Update column
-  //   //
-  //   builder.addCase(fetchUpdateCol.fulfilled, (state, action) => {
-  //     state.columns = state.columns.map((col) => {
-  //       if (col.id === action.payload?.colId) {
-  //         return {
-  //           ...col,
-  //           name: action.payload?.name,
-  //         };
-  //       }
-  //       return col;
-  //     });
-  //   });
-  //   // Set project members
-  //   builder.addCase(fetchGetProjectMembers.fulfilled, (state, action) => {
-  //     state.members = action.payload;
-  //   });
-  //   // Add new member to project
-  //   builder.addCase(fetchAddMemberToProject.fulfilled, (state, action) => {
-  //     state.members.push(action.payload[0]);
-  //   });
-  //   // Delete member from project
-  //   builder.addCase(fetchDeleteMemberFromProject.fulfilled, (state, action) => {
-  //     state.members = state.members.filter(
-  //       (el: IMember) => el.id !== action.payload
-  //     );
+    getProjectInfoBuilder(builder);
+
+    //   //
+    //   // Get project dashboard (columns)
+    //   //
+    //   builder.addCase(fetchProjectDashboard.pending, (state) => {
+    //     state.isLoading = true;
+    //   });
+    // builder.addCase(fetchProjectDashboard.fulfilled, (state, action) => {
+    //   state.errorMsg = null;
+    //   const { columns } = action.payload;
+    //   state.columns = columns;
+    // });
+
+    //   //
+    //   // Add new task
+    //   //
+    //   builder.addCase(fetchAddNewTask.fulfilled, (state, action) => {
+    //     state.columns = state.columns.map((col) => {
+    //       if (col.id === action.payload.columnId) {
+    //         return {
+    //           ...col,
+    //           tasks: [...col.tasks, action.payload],
+    //         };
+    //       }
+    //       return col;
+    //     });
+    //   });
+
+    //   //
+    //   // Del task by Id
+    //   //
+    //   builder.addCase(fetchDelTask.fulfilled, (state, action) => {
+    //     state.columns = state.columns.map((col) => {
+    //       if (col.id === action?.payload?.colId) {
+    //         return {
+    //           ...col,
+    //           tasks: col.tasks.filter(
+    //             (task) => task.id !== action.payload?.taskId
+    //           ),
+    //         };
+    //       }
+    //       return col;
+    //     });
+    //   });
+
+    //   //
+    //   // Favorite toggle
+    //   //
+    //   builder.addCase(fetchFavoriteToggle.fulfilled, (state, action) => {
+    //     state.isFavorite = action.payload?.isFav || false;
+    //   });
+
+    //   //
+    //   // Add new column
+    //   //
+    //   builder.addCase(fetchAddNewCol.fulfilled, (state, action) => {
+    //     state.columns.push(action.payload);
+    //   });
+
+    //   //
+    //   // Delete column
+    //   //
+    //   builder.addCase(fetchDelCol.fulfilled, (state, action) => {
+    //     state.columns = state.columns.filter((col) => col.id !== action.payload);
+    //   });
+    //   builder.addCase(fetchGetTaskInfo.fulfilled, (state, action) => {
+    //     state.taskWindowInfo = action.payload;
+    //   });
+
+    //   //
+    //   // Update column
+    //   //
+    //   builder.addCase(fetchUpdateCol.fulfilled, (state, action) => {
+    //     state.columns = state.columns.map((col) => {
+    //       if (col.id === action.payload?.colId) {
+    //         return {
+    //           ...col,
+    //           name: action.payload?.name,
+    //         };
+    //       }
+    //       return col;
+    //     });
+    //   });
+
+    //   // Set project members
+    //   builder.addCase(fetchGetProjectMembers.fulfilled, (state, action) => {
+    //     state.members = action.payload;
+    //   });
+
+    //   // Add new member to project
+    //   builder.addCase(fetchAddMemberToProject.fulfilled, (state, action) => {
+    //     state.members.push(action.payload[0]);
+    //   });
+
+    //   // Delete member from project
+    //   builder.addCase(fetchDeleteMemberFromProject.fulfilled, (state, action) => {
+    //     state.members = state.members.filter(
+    //       (el: IMember) => el.id !== action.payload
+    //     );
     // });
   },
 });
@@ -239,13 +219,13 @@ const KanbanSlice = createSlice({
 //todo
 
 export const {
-//   setFilters,
-//   delFilters,
-//   setCurView,
-//   clearKanbanSlice,
+  //   setFilters,
+  //   delFilters,
+  //   setCurView,
+  //   clearKanbanSlice,
   delTaskFromCol,
   addTaskToCol,
-//   clearAllFilters,
+  //   clearAllFilters,
   setCurProjId,
 } = KanbanSlice.actions;
 export default KanbanSlice.reducer;

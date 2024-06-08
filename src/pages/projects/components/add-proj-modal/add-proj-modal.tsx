@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 // import { fetchAddProject } from '../../../../__data__/middleware/projects.thunk';
-import { Modal, Input, Form, Button, Space, Flex } from "antd";
+import { Modal, Input, Form, Button, Space, Flex } from 'antd';
 // import { useAppDispatch } from '../../../../hooks/redux';
 
 interface AddNewProjModalProps {
@@ -24,47 +24,47 @@ export const AddProjModal: React.FC<AddNewProjModalProps> = ({
   // };
 
   return (
-    <Modal title={"Создать новый проект"} open={show} footer={""}>
+    <Modal title={'Создать новый проект'} open={show} footer={''}>
       <Form
         layout="vertical"
         form={form}
         // onFinish={submitHandler}
-        size={"large"}
+        size={'large'}
       >
         <Form.Item
           style={{ margin: 0 }}
           rules={[
-            { min: 3, message: "Минимальное кол-во символов - 3" },
-            { max: 20, message: "Максимальное кол-во символов - 20" },
+            { min: 3, message: 'Минимальное кол-во символов - 3' },
+            { max: 20, message: 'Максимальное кол-во символов - 20' },
           ]}
           label="Название"
           name="name"
         >
-          <Input size={"large"} placeholder={"Название"} />
+          <Input size={'large'} placeholder={'Название'} />
         </Form.Item>
 
         <Form.Item label="Описание" name="description">
           <Input.TextArea
             autoSize={{ minRows: 2, maxRows: 3 }}
-            size={"large"}
-            placeholder={"Описание"}
+            size={'large'}
+            placeholder={'Описание'}
           />
         </Form.Item>
 
         <Form.Item shouldUpdate>
           {() => (
-            <Flex justify={"end"}>
+            <Flex justify={'end'}>
               <Space>
-                <Button onClick={() => setShow(false)} size={"middle"}>
+                <Button onClick={() => setShow(false)} size={'middle'}>
                   Отменить
                 </Button>
                 <Button
-                  size={"middle"}
+                  size={'middle'}
                   type="primary"
                   htmlType="submit"
                   onClick={() => {
                     console.log(
-                      !form.getFieldValue("name"),
+                      !form.getFieldValue('name'),
                       !form.isFieldsTouched(true),
                       !!form
                         .getFieldsError()
@@ -73,7 +73,7 @@ export const AddProjModal: React.FC<AddNewProjModalProps> = ({
                   }}
                   disabled={
                     // !clientReady ||
-                    !form.getFieldValue("name") ||
+                    !form.getFieldValue('name') ||
                     // !form.isFieldsTouched(true) ||
                     !!form
                       .getFieldsError()

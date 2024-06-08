@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const SRow = styled.div`
   padding-bottom: 40px;

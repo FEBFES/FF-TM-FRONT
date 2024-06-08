@@ -1,6 +1,6 @@
-import { Button, Dropdown } from "antd";
-import { EllipsisOutlined } from "@ant-design/icons";
-import React from "react";
+import { Button, Dropdown } from 'antd';
+import { EllipsisOutlined } from '@ant-design/icons';
+import React from 'react';
 
 interface CardDropDownProps {
   isFavourite: boolean;
@@ -13,22 +13,21 @@ export const CardDropDown: React.FC<CardDropDownProps> = ({
   favoriteToggle,
   deleteProject,
 }) => {
-  console.log(isFavourite, favoriteToggle, deleteProject);
   return (
     <Dropdown
-      trigger={["click"]}
+      trigger={['click']}
       menu={{
         items: [
           {
-            key: "2",
+            key: '2',
             label: (
               <Button onClick={favoriteToggle}>
-                {isFavourite ? "Из избранного" : "В избранное"}
+                {isFavourite ? 'Из избранного' : 'В избранное'}
               </Button>
             ),
           },
           {
-            key: "3",
+            key: '3',
             label: (
               <Button onClick={() => deleteProject()} danger>
                 Удалить
@@ -38,7 +37,7 @@ export const CardDropDown: React.FC<CardDropDownProps> = ({
         ],
       }}
     >
-      <Button size={"small"} type={"text"}>
+      <Button size={'small'} type={'text'}>
         <EllipsisOutlined />
       </Button>
     </Dropdown>

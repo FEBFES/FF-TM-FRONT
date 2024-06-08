@@ -1,8 +1,8 @@
-import { combineReducers } from "redux";
-import { configureStore } from "@reduxjs/toolkit";
-import AuthSlice from "../pages/auth/__data__/reducers/auth.slice";
-import ProjectsSlice from "../pages/projects/__data__/reducers/projectsSlice";
-import kanbanSlice from "../pages/kanban/__data__/reducers/kanban.slice";
+import { combineReducers } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
+import AuthSlice from '../pages/auth/__data__/reducers/auth.slice';
+import ProjectsSlice from '../pages/projects/__data__/slices/projectsSlice';
+import kanbanSlice from '../pages/kanban/__data__/reducers/kanban.slice';
 // import kanbanSlice from "../pages/kanban/__data__/reducers/kanban.slice";
 // import ProjectsSlice from '../pages/projects/__data__/reducers/deprecated.projects.slice';
 // import AuthSlice from './reducers/auth.slice';
@@ -31,4 +31,4 @@ export const setupStore = () => {
 
 export type RootState = ReturnType<typeof rootReducer>;
 export type AppStore = ReturnType<typeof setupStore>;
-export type AppDispatch = AppStore["dispatch"];
+export type AppDispatch = AppStore['dispatch'];

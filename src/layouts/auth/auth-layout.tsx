@@ -1,5 +1,5 @@
-import React from "react";
-import { Layout } from "antd";
+import React from 'react';
+import { Layout } from 'antd';
 const { Content } = Layout;
 
 export interface AuthLayoutProps {
@@ -7,15 +7,15 @@ export interface AuthLayoutProps {
 }
 
 const layoutStyle = {
-  overflow: "hidden",
-  width: "100vw",
-  height: "100vh",
+  overflow: 'hidden',
+  width: '100vw',
+  height: '100vh',
 };
 
 const contentStyle = {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 };
 
 export const AuthLayout: React.FC<AuthLayoutProps> = ({

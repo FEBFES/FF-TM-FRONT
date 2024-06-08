@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IUser } from "../types/user.type";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { IUser } from '../types/user.type';
 
 export interface IUserState {
   userInfo: IUser;
@@ -20,7 +20,7 @@ const initialState: IUserState = {
 };
 
 export const UserSlice = createSlice({
-  name: "userSlice",
+  name: 'userSlice',
   initialState,
   reducers: {
     //tod проверить

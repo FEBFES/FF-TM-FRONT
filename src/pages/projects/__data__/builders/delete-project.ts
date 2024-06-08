@@ -1,6 +1,6 @@
-import { ActionReducerMapBuilder, PayloadAction } from "@reduxjs/toolkit";
-import { IProjectInitialState } from "./projectsSlice";
-import { deleteProjectThunk } from "../thunk/delete-project";
+import { ActionReducerMapBuilder, PayloadAction } from '@reduxjs/toolkit';
+import { IProjectInitialState } from '../slices/projectsSlice';
+import { deleteProjectThunk } from '../thunk/delete-project';
 
 export const deleteProjectBuilder = (
   builder: ActionReducerMapBuilder<IProjectInitialState>

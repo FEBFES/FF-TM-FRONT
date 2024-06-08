@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Card, Flex, Typography } from "antd";
+import styled from 'styled-components';
+import { Card, Flex, Typography } from 'antd';
 
 export const SProjectCard = styled(Flex)`
   display: flex;

@@ -1,8 +1,8 @@
-import React from "react";
-import { useTypedSelector } from "../../../../hooks/redux";
-import { Input, Form } from "antd";
-import { SProjectContainter, SHeader } from "./project-section.styled";
-import { SectionTitle } from "../section-title/section-title";
+import React from 'react';
+import { useTypedSelector } from '../../../../hooks/redux';
+import { Input, Form } from 'antd';
+import { SProjectContainter, SHeader } from './project-section.styled';
+import { SectionTitle } from '../section-title/section-title';
 
 interface ProjectSectionProps {}
 
@@ -44,7 +44,7 @@ export const ProjectSection: React.FC<
       </SHeader>
 
       <Form
-        layout={"vertical"}
+        layout={'vertical'}
         onFinish={onFinishHandler}
         //todo
 
@@ -54,11 +54,11 @@ export const ProjectSection: React.FC<
         // }}
       >
         <Form.Item label="Название" name="name">
-          <Input size={"large"} placeholder={"Название"} />
+          <Input size={'large'} placeholder={'Название'} />
         </Form.Item>
 
         <Form.Item label="Описание" name="description">
-          <Input size={"large"} placeholder={"Описание"} />
+          <Input size={'large'} placeholder={'Описание'} />
         </Form.Item>
       </Form>
     </SProjectContainter>

@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Button } from "antd";
+import styled from 'styled-components';
+import { Button } from 'antd';
 
 export const Container = styled.div`
   padding: 0 20px 40px;

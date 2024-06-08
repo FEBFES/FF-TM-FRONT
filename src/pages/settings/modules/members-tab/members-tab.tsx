@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { Typography, Button, Flex, Card, Space, Avatar } from "antd";
-import { useTypedSelector } from "../../../../hooks/redux";
-import { SHeader, SMemberCard, SMemberContainer } from "./members-tab.styled";
+import React, { useState } from 'react';
+import { Typography, Button, Flex, Card, Space, Avatar } from 'antd';
+import { useTypedSelector } from '../../../../hooks/redux';
+import { SHeader, SMemberCard, SMemberContainer } from './members-tab.styled';
 // import { AddMemberToProjModal } from '../../../../components/add-member-to-proj-modal/add-member-to-proj-modal';
-import { SectionTitle } from "../../components/section-title/section-title";
-import { getAvatarUrlOrHuman } from "../../../../utils/utils";
-import { IMember } from "../../../kanban/__data__/type/kanban.type";
+import { SectionTitle } from '../../components/section-title/section-title';
+import { getAvatarUrlOrHuman } from '../../../../utils/utils';
+import { IMember } from '../../../kanban/__data__/type/kanban.type';
 
 interface MembersTabProps {}
 
@@ -18,11 +18,11 @@ export const MembersTab: React.FC<MembersTabProps> = (): JSX.Element => {
       <Card>
         <SHeader>
           <SectionTitle
-            title={"Настройка участников проекта"}
-            desc={"Редактируйте доступ к вашему проекту"}
+            title={'Настройка участников проекта'}
+            desc={'Редактируйте доступ к вашему проекту'}
           />
 
-          <Button type={"primary"} onClick={() => setShowAddMemberModal(true)}>
+          <Button type={'primary'} onClick={() => setShowAddMemberModal(true)}>
             + Добавить участника
           </Button>
         </SHeader>

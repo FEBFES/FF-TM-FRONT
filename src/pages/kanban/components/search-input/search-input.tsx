@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import i18n from "i18next";
-import { useAppDispatch } from "../../../../hooks/redux";
+import React, { useState } from 'react';
+import i18n from 'i18next';
+import { useAppDispatch } from '../../../../hooks/redux';
 // import {
 //   delFilters,
 //   setFilters,
@@ -10,17 +10,17 @@ import {
   SInputContainer,
   SInputField,
   SInputClear,
-} from "./search-input.styled";
+} from './search-input.styled';
 
 interface SearchInputProps {}
 
 export const SearchInput: React.FC<SearchInputProps> = (): JSX.Element => {
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
   const dispatch = useAppDispatch();
 
   const clearFilters = () => {
     // dispatch(delFilters('taskName'));
-    setInputValue("");
+    setInputValue('');
   };
 
   const handleSubmit = () => {
@@ -37,15 +37,15 @@ export const SearchInput: React.FC<SearchInputProps> = (): JSX.Element => {
         {/*<FontAwesomeIcon size={'2xs'} icon={faMagnifyingGlass} />*/}
       </SInputIcon>
       <SInputField
-        onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
-        placeholder={i18n.t("pages.kanban.header.input.placeholder")}
+        onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
+        placeholder={i18n.t('pages.kanban.header.input.placeholder')}
         value={inputValue}
         onChange={(e) => {
           setInputValue(e.target.value);
         }}
       />
 
-      {inputValue !== "" && (
+      {inputValue !== '' && (
         <SInputClear>
           {/*<FontAwesomeIcon*/}
           {/*  onClick={() => {*/}
