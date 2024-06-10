@@ -5,7 +5,7 @@ import { useAppDispatch, useTypedSelector } from '../../../../hooks/redux';
 // delFilters,
 // setCurView,
 // setFilters,
-// } from '../../../../__data__/reducers/kanban.slice';
+// } from '../../../../__data__/slices/kanban.slice';
 // import { AddMemberToProjModal } from '../../../../components/add-member-to-proj-modal/add-member-to-proj-modal';
 import { Segmented, Button, Dropdown } from 'antd';
 import { SSubHeader } from './kanban-page-subheader.styled';

@@ -8,19 +8,10 @@ export const getProjectsThunk = createAsyncThunk(
   'projects/getAllProjects',
   async (_, thunkAPI) => {
     try {
-      const response = await instance.get('/projects');
-
-      if (response.status === 200) {
-        return response.data as IProject[];
-      } else {
-        return [];
-      }
+      const response = await instance.get<IProject[]>('/projects');
+      return response.data;
     } catch (err) {
-      const error: AxiosError = err;
-      if (!error.response) {
-        throw err;
-      }
-      return thunkAPI.rejectWithValue(error.response.data);
+      return thunkAPI.rejectWithValue('Ошибка');
     }
   }
 );

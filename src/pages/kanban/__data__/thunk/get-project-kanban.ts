@@ -1,4 +1,3 @@
-// //Get project dashboard
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../../../api/instance';
 
@@ -17,23 +16,22 @@ import { instance } from '../../../../api/instance';
 //   return paramsUrl;
 // };
 
-export const fetchProjectDashboard = createAsyncThunk(
-  'projects/fetchAllProjectColumns',
-  async (
-    {
-      projId,
-      params,
-    }: { projId: number; params?: { key: string; value: string }[] | null },
-    { rejectWithValue, dispatch }
-  ) => {
+interface IReqData {
+  projId: number;
+  params?: { key: string; value: string }[] | null;
+}
+
+// Get project dashboard
+export const getProjectKanbanThunk = createAsyncThunk(
+  'projects/getProjectKanban',
+  async (reqData: IReqData, thunkAPI) => {
     try {
+      const { projId } = reqData;
       //   const paramsUlr = await checkParams(params);
       const res = await instance.get(`projects/${projId}/dashboard${''}`);
-      if (res.status === 200) {
-        return res.data;
-      }
-    } catch (err) {
-      return rejectWithValue(err);
+      return res.data;
+    } catch {
+      return thunkAPI.rejectWithValue('Ошибка');
     }
   }
 );

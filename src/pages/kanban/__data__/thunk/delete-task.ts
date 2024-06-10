@@ -1,28 +1,24 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../../../api/instance';
-import { AxiosError } from 'axios';
+
+interface IReqData {
+  projId: number;
+  colId: number;
+  taskId: number;
+}
 
 // Delete task by id
 export const fetchDelTask = createAsyncThunk(
   'projects/fetchDelTask',
-  async (
-    {
-      projId,
-      colId,
-      taskId,
-    }: { projId: number; colId: number; taskId: number },
-    { rejectWithValue }
-  ) => {
+  async (reqData: IReqData, { rejectWithValue }) => {
     try {
-      const res = await instance.delete(
+      const { projId, colId, taskId } = reqData;
+      await instance.delete(
         `projects/${projId}/columns/${colId}/tasks/${taskId}`
       );
-
-      if (res.status === 200) {
-        return { colId: colId, taskId: taskId };
-      }
+      return { colId: colId, taskId: taskId };
     } catch (err) {
-      return rejectWithValue(err as AxiosError);
+      return rejectWithValue('Ошибка');
     }
   }
 );

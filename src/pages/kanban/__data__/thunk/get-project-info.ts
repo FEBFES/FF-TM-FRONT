@@ -1,8 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../../../api/instance';
-import { AxiosResponse } from 'axios';
-import { IMember } from '../type/kanban.type';
-import { IProject } from '../../../projects/__data__/type/projects.type';
 
 interface ReqParams {
   projId: number;
@@ -11,15 +8,14 @@ interface ReqParams {
 //Get project info
 export const getProjectInfoThunk = createAsyncThunk(
   'projects/get-project-info',
-  async ({ projId }: ReqParams, { rejectWithValue }) => {
+  async (reqData: ReqParams, { rejectWithValue }) => {
     try {
-      const res = await instance.get(`/projects/${projId}`);
+      const { projId } = reqData;
+      const response = await instance.get(`/projects/${projId}`);
 
-      if (res.status === 200) {
-        return res.data;
-      }
+      return response.data;
     } catch (err) {
-      return rejectWithValue(err as Error);
+      return rejectWithValue('Ошибка');
     }
   }
 );

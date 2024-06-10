@@ -1,30 +1,27 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../../../api/instance';
-import { AxiosError } from 'axios';
+
+interface IReqData {
+  name: string;
+  description: string;
+  projId: string;
+}
 
 // Create new column
 export const fetchAddNewCol = createAsyncThunk(
   'projects/fetchAddNewCol',
-  async (
-    {
-      name,
-      description,
-      projId,
-    }: { name: string; description: string; projId: string },
-    { rejectWithValue }
-  ) => {
+  async (reqData: IReqData, thunkAPI) => {
     try {
+      const { projId, name, description } = reqData;
       const res = await instance.post(`projects/${projId}/columns`, {
         name,
         description,
         columnOrder: 0,
       });
 
-      if (res.status === 200) {
-        return res.data;
-      }
-    } catch (err) {
-      return rejectWithValue(err as AxiosError);
+      return res.data;
+    } catch {
+      return thunkAPI.rejectWithValue('Ошибка');
     }
   }
 );

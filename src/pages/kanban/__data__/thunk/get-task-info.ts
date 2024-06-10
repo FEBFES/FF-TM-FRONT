@@ -1,19 +1,24 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../../../api/instance';
 
+interface IReqData {
+  projId: number;
+  colId: number;
+  taskId: number;
+}
+
 // Get task info
-export const getTaskInfoThunk = createAsyncThunk<{ str: string }>(
+export const getTaskInfoThunk = createAsyncThunk(
   'projects/getTaskInfo',
-  async ({ projId, colId, taskId }: any, { rejectWithValue }) => {
+  async (reqData: IReqData, thunkAPI) => {
     try {
+      const { projId, colId, taskId } = reqData;
       const res = await instance.get(
         `/projects/${projId}/columns/${colId}/tasks/${taskId}`
       );
-      if (res.status === 200) {
-        return res.data;
-      }
-    } catch (e) {
-      return rejectWithValue(e);
+      return res.data;
+    } catch {
+      return thunkAPI.rejectWithValue('Ошибка');
     }
   }
 );

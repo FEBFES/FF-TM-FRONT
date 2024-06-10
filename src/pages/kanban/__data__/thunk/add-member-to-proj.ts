@@ -1,22 +1,24 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../../../api/instance';
-import { AxiosError } from 'axios';
+
+interface IReqData {
+  projId: number;
+  memberIds: number[];
+}
 
 //Add member to project
 export const fetchAddMemberToProject = createAsyncThunk(
   'project/fetchAddMemberToProject',
-  async (
-    { projId, memberIds }: { projId: number; memberIds: number[] },
-    { rejectWithValue }
-  ) => {
+  async (reqData: IReqData, thunkAPI) => {
     try {
-      const res = await instance.post(`projects/${projId}/members`, memberIds);
-
-      if (res.status === 200) {
-        return res.data;
-      }
-    } catch (err) {
-      return rejectWithValue(err as AxiosError);
+      const { projId, memberIds } = reqData;
+      const response = await instance.post(
+        `projects/${projId}/members`,
+        memberIds
+      );
+      return response.data;
+    } catch {
+      return thunkAPI.rejectWithValue('Ошибка');
     }
   }
 );

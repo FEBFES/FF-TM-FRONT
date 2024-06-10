@@ -6,8 +6,9 @@ import { useNavigate } from 'react-router-dom';
 import { TaskDrawer } from './modules/drawer/drawer';
 import { DragDropContext } from 'react-beautiful-dnd';
 // import { fetchProjectDashboard } from './__data__/thunk/kanban.thunk';
-import { addTaskToCol, delTaskFromCol } from './__data__/reducers/kanban.slice';
+import { addTaskToCol, delTaskFromCol } from './__data__/slices/kanban.slice';
 import { appRoutsPath } from '../../routing/route-list';
+import { getProjectKanbanThunk } from './__data__/thunk/get-project-kanban';
 
 export const KanbanPage: React.FC = (): JSX.Element => {
   const [showTaskModal, setShowTaskModal] = useState<boolean>(false);
@@ -17,7 +18,7 @@ export const KanbanPage: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     if (curProjId) {
-      // dispatch(fetchProjectDashboard({ projId: curProjId }));
+      dispatch(getProjectKanbanThunk({ projId: curProjId }));
     } else {
       navigate(appRoutsPath.ProjectPage.to, { replace: true });
     }

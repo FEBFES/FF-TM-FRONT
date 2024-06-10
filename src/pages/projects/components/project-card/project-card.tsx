@@ -8,7 +8,7 @@ import { SProjectCard, STitle } from './project-card.styled';
 import { CardDropDown } from '../card-drop-down/card-drop-down';
 import { deleteProjectThunk } from '../../__data__/thunk/delete-project';
 import { favProjectsThunk } from '../../__data__/thunk/fav-toggle-project';
-import { setCurProjId } from '../../../kanban/__data__/reducers/kanban.slice';
+import { setCurProjId } from '../../../kanban/__data__/slices/kanban.slice';
 
 interface ProjectCardProps {
   proj: IProject;

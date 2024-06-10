@@ -2,7 +2,7 @@ import React from 'react';
 import { SectionTitle } from '../section-title/section-title';
 import { Button, Form, Input, Space, Spin } from 'antd';
 import { useTypedSelector } from '../../../../hooks/redux';
-// import { IUserState } from '../../../../__data__/reducers/user-info';
+// import { IUserState } from '../../../../__data__/slices/user-info';
 import { LoadingOutlined } from '@ant-design/icons';
 
 export const ProfileInfo: React.FC = () => {

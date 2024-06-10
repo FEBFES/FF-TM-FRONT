@@ -1,5 +1,5 @@
 import React from 'react';
-// import { delTaskFromCol } from '../../../../__data__/reducers/kanban.slice';
+// import { delTaskFromCol } from '../../../../__data__/slices/kanban.slice';
 import { useAppDispatch } from '../../../../hooks/redux';
 // import { fetchGetTaskInfo } from '../../../../__data__/middleware/kanban.thunk';
 import { Flex, Typography, Avatar, Tag, Space } from 'antd';

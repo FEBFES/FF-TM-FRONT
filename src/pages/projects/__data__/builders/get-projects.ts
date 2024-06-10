@@ -20,7 +20,10 @@ export const getProjectsBuilder = (
         );
       }
     )
-    .addCase(getProjectsThunk.rejected, (state: IProjectInitialState) => {
-      state.isLoading = false;
-    });
+    .addCase(
+      getProjectsThunk.rejected,
+      (state: IProjectInitialState, action) => {
+        state.isLoading = false;
+      }
+    );
 };

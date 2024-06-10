@@ -13,26 +13,19 @@ export const favProjectsThunk = createAsyncThunk(
   async (data: reqParam, thunkAPI) => {
     const { projId, isFav } = data;
     try {
-      const response = await instance.patch(`projects/${projId}`, [
+      await instance.patch(`projects/${projId}`, [
         {
           op: 'UPDATE',
           key: 'isFavourite',
           value: isFav,
         },
       ]);
-
-      if (response.status === 200) {
-        return {
-          projId,
-          isFav,
-        } as reqParam;
-      }
-    } catch (err) {
-      const error: AxiosError = err;
-      if (!error.response) {
-        throw err;
-      }
-      return thunkAPI.rejectWithValue(error.response.data);
+      return {
+        projId,
+        isFav,
+      };
+    } catch {
+      return thunkAPI.rejectWithValue('Ошибка');
     }
   }
 );

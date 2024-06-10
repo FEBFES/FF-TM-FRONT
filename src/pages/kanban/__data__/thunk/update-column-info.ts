@@ -1,29 +1,28 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../../../api/instance';
 
+interface IReqData {
+  projId: number;
+  colId: number;
+  newName: string;
+}
+
+// Update column
 export const fetchUpdateCol = createAsyncThunk(
   'projects/fetchUpdateCol',
-  async (
-    {
-      projId,
-      colId,
-      newName,
-    }: { projId: number; colId: number; newName: string },
-    { rejectWithValue }
-  ) => {
+  async (reqData: IReqData, thunkAPI) => {
     try {
-      const res = await instance.put(`projects/${projId}/columns/${colId}`, {
+      const { projId, colId, newName } = reqData;
+      await instance.put(`projects/${projId}/columns/${colId}`, {
         name: newName,
       });
 
-      if (res.status === 200) {
-        return {
-          colId: colId,
-          name: newName,
-        };
-      }
-    } catch (err) {
-      return;
+      return {
+        colId: colId,
+        name: newName,
+      };
+    } catch {
+      return thunkAPI.rejectWithValue('Ошибка');
     }
   }
 );

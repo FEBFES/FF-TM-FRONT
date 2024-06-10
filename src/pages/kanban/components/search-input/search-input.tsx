@@ -4,7 +4,7 @@ import { useAppDispatch } from '../../../../hooks/redux';
 // import {
 //   delFilters,
 //   setFilters,
-// } from '../../../../__data__/reducers/kanban.slice';
+// } from '../../../../__data__/slices/kanban.slice';
 import {
   SInputIcon,
   SInputContainer,

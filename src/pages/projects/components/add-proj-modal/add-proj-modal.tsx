@@ -1,6 +1,8 @@
 import React from 'react';
 // import { fetchAddProject } from '../../../../__data__/middleware/projects.thunk';
 import { Modal, Input, Form, Button, Space, Flex } from 'antd';
+import { addProjectThunk } from '../../__data__/thunk/add-project';
+import { useAppDispatch } from '../../../../hooks/redux';
 // import { useAppDispatch } from '../../../../hooks/redux';
 
 interface AddNewProjModalProps {
@@ -12,23 +14,19 @@ export const AddProjModal: React.FC<AddNewProjModalProps> = ({
   show,
   setShow,
 }): JSX.Element => {
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
   const [form] = Form.useForm();
 
-  // const submitHandler = (e: any) => {
-  //   dispatch(fetchAddProject({ name: e.name, desc: e.description })).finally(
-  //     () => {
-  //       setShow(false);
-  //     }
-  //   );
-  // };
+  const submitHandler = (data: any) => {
+    dispatch(addProjectThunk(data));
+  };
 
   return (
     <Modal title={'Создать новый проект'} open={show} footer={''}>
       <Form
         layout="vertical"
         form={form}
-        // onFinish={submitHandler}
+        onFinish={submitHandler}
         size={'large'}
       >
         <Form.Item

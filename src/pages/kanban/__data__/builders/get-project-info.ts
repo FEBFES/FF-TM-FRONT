@@ -1,6 +1,6 @@
 import { getProjectInfoThunk } from '../thunk/get-project-info';
 import { ActionReducerMapBuilder, PayloadAction } from '@reduxjs/toolkit';
-import { IKanbanInitialState } from '../reducers/kanban.slice';
+import { IKanbanInitialState } from '../slices/kanban.slice';
 import { IProject } from '../../../projects/__data__/type/projects.type';
 
 export const getProjectInfoBuilder = (

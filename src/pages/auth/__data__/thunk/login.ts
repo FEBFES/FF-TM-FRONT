@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instanceWithoutToken } from '../../../../api/instance';
 
-export interface loginRequestParam {
+export interface IReqData {
   username: string;
   password: string;
 }
@@ -15,15 +15,15 @@ interface responseData {
 // login user
 export const loginThunk = createAsyncThunk(
   'user/login',
-  async (data: loginRequestParam, { rejectWithValue }) => {
+  async (reqData: IReqData, thunkAPI) => {
     try {
-      const res = await instanceWithoutToken.post('/auth/authenticate', data);
-
-      if (res.status === 200) {
-        return res.data as responseData;
-      }
-    } catch (err) {
-      return rejectWithValue(err as Error);
+      const response = await instanceWithoutToken.post<responseData>(
+        '/auth/authenticate',
+        reqData
+      );
+      return response.data;
+    } catch {
+      return thunkAPI.rejectWithValue('Ошибка');
     }
   }
 );

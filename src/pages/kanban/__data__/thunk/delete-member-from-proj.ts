@@ -1,24 +1,21 @@
-//Delete member from project
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { instance } from '../../../../api/instance';
-import { AxiosError } from 'axios';
 
+interface IReqData {
+  projId: number;
+  memberId: number;
+}
+
+//Delete member from project
 export const fetchDeleteMemberFromProject = createAsyncThunk(
   'project/fetchDeleteMemberFromProject',
-  async (
-    { projId, memberId }: { projId: number; memberId: number },
-    { rejectWithValue }
-  ) => {
+  async (reqData: IReqData, thunkAPI) => {
     try {
-      const res = await instance.delete(
-        `projects/${projId}/members/${memberId}`
-      );
-
-      if (res.status === 200) {
-        return memberId;
-      }
+      const { projId, memberId } = reqData;
+      await instance.delete(`projects/${projId}/members/${memberId}`);
+      return memberId;
     } catch (err) {
-      return rejectWithValue(err as AxiosError);
+      return thunkAPI.rejectWithValue('Ошибка');
     }
   }
 );

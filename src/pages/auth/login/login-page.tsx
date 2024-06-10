@@ -56,7 +56,7 @@ export const LoginPage: React.FC<LoginPageProps> = (): JSX.Element => {
           { min: 5, max: 20, message: 'Кол-во символов от 5 до 20' },
         ]}
       >
-        <Input placeholder={'Введите логин'} />
+        <Input size={'large'} placeholder={'Введите логин'} />
       </Form.Item>
 
       <Form.Item
@@ -67,7 +67,11 @@ export const LoginPage: React.FC<LoginPageProps> = (): JSX.Element => {
           { min: 4, max: 20, message: 'Кол-во символов от 5 до 20' },
         ]}
       >
-        <Input placeholder={'Введите пароль'} type={'password'} />
+        <Input
+          size={'large'}
+          placeholder={'Введите пароль'}
+          type={'password'}
+        />
       </Form.Item>
 
       <Form.Item label="">
