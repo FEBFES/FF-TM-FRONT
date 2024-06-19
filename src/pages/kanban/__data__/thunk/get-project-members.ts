@@ -12,8 +12,10 @@ export const getProjectMembersThunk = createAsyncThunk(
     try {
       const { projId } = reqData;
       const response = await instance.get(`projects/${projId}/members`);
-
-      return response.data;
+      if (response.status === 200) {
+        return response.data;
+      }
+      return thunkAPI.rejectWithValue('Ошибка');
     } catch {
       return thunkAPI.rejectWithValue('Ошибка');
     }

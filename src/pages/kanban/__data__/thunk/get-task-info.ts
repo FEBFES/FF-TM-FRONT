@@ -13,10 +13,13 @@ export const getTaskInfoThunk = createAsyncThunk(
   async (reqData: IReqData, thunkAPI) => {
     try {
       const { projId, colId, taskId } = reqData;
-      const res = await instance.get(
+      const response = await instance.get(
         `/projects/${projId}/columns/${colId}/tasks/${taskId}`
       );
-      return res.data;
+      if (response.status === 200) {
+        return response.data;
+      }
+      return thunkAPI.rejectWithValue('Ошибка');
     } catch {
       return thunkAPI.rejectWithValue('Ошибка');
     }

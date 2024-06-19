@@ -8,19 +8,24 @@ interface IReqData {
 }
 
 // Update column
-export const fetchUpdateCol = createAsyncThunk(
+export const updateColumnThunk = createAsyncThunk(
   'projects/fetchUpdateCol',
   async (reqData: IReqData, thunkAPI) => {
     try {
       const { projId, colId, newName } = reqData;
-      await instance.put(`projects/${projId}/columns/${colId}`, {
-        name: newName,
-      });
-
-      return {
-        colId: colId,
-        name: newName,
-      };
+      const response = await instance.put(
+        `projects/${projId}/columns/${colId}`,
+        {
+          name: newName,
+        }
+      );
+      if (response.status === 200) {
+        return {
+          colId: colId,
+          name: newName,
+        };
+      }
+      return thunkAPI.rejectWithValue('Ошибка');
     } catch {
       return thunkAPI.rejectWithValue('Ошибка');
     }

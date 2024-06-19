@@ -13,7 +13,10 @@ export const getProjectInfoThunk = createAsyncThunk(
       const { projId } = reqData;
       const response = await instance.get(`/projects/${projId}`);
 
-      return response.data;
+      if (response.status === 200) {
+        return response.data;
+      }
+      return rejectWithValue('Ошибка');
     } catch (err) {
       return rejectWithValue('Ошибка');
     }

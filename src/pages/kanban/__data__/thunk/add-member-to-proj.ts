@@ -7,7 +7,7 @@ interface IReqData {
 }
 
 //Add member to project
-export const fetchAddMemberToProject = createAsyncThunk(
+export const addMemberToProjectThunk = createAsyncThunk(
   'project/fetchAddMemberToProject',
   async (reqData: IReqData, thunkAPI) => {
     try {
@@ -16,7 +16,10 @@ export const fetchAddMemberToProject = createAsyncThunk(
         `projects/${projId}/members`,
         memberIds
       );
-      return response.data;
+      if (response.status === 200) {
+        return response.data;
+      }
+      return thunkAPI.rejectWithValue('Ошибка');
     } catch {
       return thunkAPI.rejectWithValue('Ошибка');
     }

@@ -13,10 +13,16 @@ export const updateProjectInfoThunk = createAsyncThunk(
   async (data: IRequestParam, thunkAPI) => {
     try {
       const { id, name, description } = data;
-      await instance.put(`projects/${id}`, { name, description });
-      return true;
+      const response = await instance.put(`projects/${id}`, {
+        name,
+        description,
+      });
+      if (response.status === 200) {
+        return true;
+      }
+      return thunkAPI.rejectWithValue('Ошибка');
     } catch {
-      thunkAPI.rejectWithValue('Ошибка');
+      return thunkAPI.rejectWithValue('Ошибка');
     }
   }
 );

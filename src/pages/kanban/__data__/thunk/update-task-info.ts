@@ -8,19 +8,23 @@ interface IReqData {
 }
 
 // Change task
-export const fetchChangeTask = createAsyncThunk(
+export const changeTaskThunk = createAsyncThunk(
   'projects/fetchChangeTask',
   async (reqData: IReqData, thunkAPI) => {
     try {
       const { col, curDragTask } = reqData;
-      await instance.put(
+      const response = await instance.put(
         `/projects/${col.projectId}/columns/${col.id}/tasks/${curDragTask.id}`,
         {
           ...curDragTask,
           columnId: col.id,
         }
       );
-      // dispatch(addTaskToCol({ colId: data.col.id, task: data.curDragTask }));
+      if (response.status === 200) {
+        // dispatch(addTaskToCol({ colId: data.col.id, task: data.curDragTask }));
+        return;
+      }
+      return thunkAPI.rejectWithValue('Ошибка');
     } catch {
       return thunkAPI.rejectWithValue('Ошибка');
     }

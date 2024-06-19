@@ -13,12 +13,12 @@ interface IReqData {
 }
 
 // Add new task
-export const fetchAddNewTask = createAsyncThunk(
+export const addNewTaskThunk = createAsyncThunk(
   'projects/fetchAddNewTask',
   //todo change
   async (reqData: IReqData, thunkAPI) => {
     try {
-      const res = await instance.post(
+      const response = await instance.post(
         `projects/${reqData.projId}/columns/${reqData.colId}/tasks`,
         {
           name: reqData.name,
@@ -29,7 +29,10 @@ export const fetchAddNewTask = createAsyncThunk(
         }
       );
 
-      return res.data;
+      if (response.status === 200) {
+        return response.data;
+      }
+      return thunkAPI.rejectWithValue('Ошибка');
     } catch {
       return thunkAPI.rejectWithValue('Ошибка');
     }

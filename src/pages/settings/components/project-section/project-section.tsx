@@ -1,8 +1,6 @@
 import React from 'react';
-import { useTypedSelector } from '../../../../hooks/redux';
 import { Input, Form } from 'antd';
 import { SProjectContainter, SHeader } from './project-section.styled';
-import { SectionTitle } from '../section-title/section-title';
 
 interface ProjectSectionProps {}
 

@@ -9,15 +9,18 @@ interface IReqData {
 }
 
 //Change member role
-export const fetchChangeMemberRole = createAsyncThunk(
+export const changeMemberRoleThunk = createAsyncThunk(
   'project/fetchChangeMemberRole',
   async (reqData: IReqData, thunkAPI) => {
     try {
       const { roleName, projId, userId } = reqData;
-      const res = await instance.post(
+      const response = await instance.post(
         `roles/${roleName}/projects/${projId}/users/${userId}/`
       );
-      return res.data;
+      if (response.status === 200) {
+        return response.data;
+      }
+      return thunkAPI.rejectWithValue('Ошибка');
     } catch {
       return thunkAPI.rejectWithValue('Ошибка');
     }

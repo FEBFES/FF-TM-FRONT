@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { loginThunk } from '../thunk/login';
 import { appRoutsPath } from '../../../../routing/route-list';
+import { authThunk } from '../thunk/auth.thunk';
 
-interface IAuthSliceInitialState {
+export interface IAuthSliceInitialState {
   isAuth: boolean;
 }
 
@@ -26,7 +26,7 @@ const AuthSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(loginThunk.fulfilled, (state, action) => {
+    builder.addCase(authThunk.fulfilled, (state, action) => {
       if (action.payload) {
         localStorage.setItem('accessToken', action.payload.accessToken);
         localStorage.setItem('refreshToken', action.payload.refreshToken);
@@ -37,5 +37,5 @@ const AuthSlice = createSlice({
   },
 });
 
-export const { setIsAuth } = AuthSlice.actions;
+export const { setIsAuth, clearAuthSlice } = AuthSlice.actions;
 export default AuthSlice.reducer;

@@ -6,8 +6,12 @@ export const deleteProjectThunk = createAsyncThunk(
   'projects/deleteProj',
   async (id: number, thunkAPI) => {
     try {
-      await instance.delete(`projects/${id}`);
-      return id;
+      const response = await instance.delete(`projects/${id}`);
+
+      if (response.status === 200) {
+        return id;
+      }
+      return thunkAPI.rejectWithValue('Ошибка');
     } catch {
       return thunkAPI.rejectWithValue('Ошибка');
     }

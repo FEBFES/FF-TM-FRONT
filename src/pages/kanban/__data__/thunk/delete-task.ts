@@ -8,15 +8,18 @@ interface IReqData {
 }
 
 // Delete task by id
-export const fetchDelTask = createAsyncThunk(
+export const deleteTaskThunk = createAsyncThunk(
   'projects/fetchDelTask',
   async (reqData: IReqData, { rejectWithValue }) => {
     try {
       const { projId, colId, taskId } = reqData;
-      await instance.delete(
+      const response = await instance.delete(
         `projects/${projId}/columns/${colId}/tasks/${taskId}`
       );
-      return { colId: colId, taskId: taskId };
+      if (response.status === 200) {
+        return { colId: colId, taskId: taskId };
+      }
+      return rejectWithValue('Ошибка');
     } catch (err) {
       return rejectWithValue('Ошибка');
     }

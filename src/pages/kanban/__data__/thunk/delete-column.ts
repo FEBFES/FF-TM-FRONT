@@ -7,13 +7,19 @@ interface IReqData {
 }
 
 // Delete column
-export const fetchDelCol = createAsyncThunk(
+export const deleteColThunk = createAsyncThunk(
   'projects/fetchDelCol',
   async (reqData: IReqData, { rejectWithValue }) => {
     try {
       const { projId, colId } = reqData;
-      await instance.delete(`projects/${projId}/columns/${colId}`);
-      return colId;
+      const response = await instance.delete(
+        `projects/${projId}/columns/${colId}`
+      );
+
+      if (response.status === 200) {
+        return colId;
+      }
+      return rejectWithValue('Ошибка');
     } catch (err) {
       return rejectWithValue('Ошибка');
     }

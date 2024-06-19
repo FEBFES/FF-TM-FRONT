@@ -28,8 +28,11 @@ export const getProjectKanbanThunk = createAsyncThunk(
     try {
       const { projId } = reqData;
       //   const paramsUlr = await checkParams(params);
-      const res = await instance.get(`projects/${projId}/dashboard${''}`);
-      return res.data;
+      const response = await instance.get(`projects/${projId}/dashboard${''}`);
+      if (response.status === 200) {
+        return response.data;
+      }
+      return thunkAPI.rejectWithValue('Ошибка');
     } catch {
       return thunkAPI.rejectWithValue('Ошибка');
     }

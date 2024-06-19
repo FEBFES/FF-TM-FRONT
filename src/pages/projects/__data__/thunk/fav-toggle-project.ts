@@ -1,5 +1,4 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { AxiosError } from 'axios';
 import { instance } from '../../../../api/instance';
 
 interface reqParam {
@@ -8,22 +7,25 @@ interface reqParam {
 }
 
 // Favorite toggle for projects
-export const favProjectsThunk = createAsyncThunk(
+export const setFavoriteProjectThunk = createAsyncThunk(
   'projects/setFavourite',
   async (data: reqParam, thunkAPI) => {
     const { projId, isFav } = data;
     try {
-      await instance.patch(`projects/${projId}`, [
+      const response = await instance.patch(`projects/${projId}`, [
         {
           op: 'UPDATE',
           key: 'isFavourite',
           value: isFav,
         },
       ]);
-      return {
-        projId,
-        isFav,
-      };
+      if (response.status === 200) {
+        return {
+          projId,
+          isFav,
+        };
+      }
+      return thunkAPI.rejectWithValue('Ошибка');
     } catch {
       return thunkAPI.rejectWithValue('Ошибка');
     }

@@ -12,7 +12,12 @@ export const addProjectThunk = createAsyncThunk(
   async (data: IRequestParam, thunkAPI) => {
     try {
       const response = await instance.post('projects', data);
-      return response.data;
+
+      if (response.status === 200) {
+        return response.data;
+      }
+
+      return thunkAPI.rejectWithValue('Ошибка');
     } catch (err) {
       return thunkAPI.rejectWithValue('Ошибка');
     }

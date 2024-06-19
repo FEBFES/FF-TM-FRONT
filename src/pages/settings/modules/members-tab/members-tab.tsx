@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
-import { Typography, Button, Flex, Card, Space, Avatar } from 'antd';
-import { useTypedSelector } from '../../../../hooks/redux';
-import { SHeader, SMemberCard, SMemberContainer } from './members-tab.styled';
-// import { AddMemberToProjModal } from '../../../../components/add-member-to-proj-modal/add-member-to-proj-modal';
+import { Button, Card } from 'antd';
+import { SHeader, SMemberContainer } from './members-tab.styled';
 import { SectionTitle } from '../../components/section-title/section-title';
-import { getAvatarUrlOrHuman } from '../../../../utils/utils';
-import { IMember } from '../../../kanban/__data__/type/kanban.type';
-
 interface MembersTabProps {}
 
 export const MembersTab: React.FC<MembersTabProps> = (): JSX.Element => {

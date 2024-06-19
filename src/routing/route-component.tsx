@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router-dom';
-import React from 'react';
 import { appRouts } from './route-list';
 
 export const RouteComponent = () => {

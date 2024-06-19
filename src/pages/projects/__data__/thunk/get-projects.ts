@@ -1,6 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { IProject } from '../type/projects.type';
-import { AxiosError } from 'axios';
 import { instance } from '../../../../api/instance';
 
 // Get all projects
@@ -9,7 +8,10 @@ export const getProjectsThunk = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await instance.get<IProject[]>('/projects');
-      return response.data;
+      if (response.status === 200) {
+        return response.data;
+      }
+      return thunkAPI.rejectWithValue('Ошибка');
     } catch (err) {
       return thunkAPI.rejectWithValue('Ошибка');
     }

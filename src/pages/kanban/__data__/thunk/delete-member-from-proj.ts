@@ -7,13 +7,18 @@ interface IReqData {
 }
 
 //Delete member from project
-export const fetchDeleteMemberFromProject = createAsyncThunk(
+export const deleteMemberFromProjectThunk = createAsyncThunk(
   'project/fetchDeleteMemberFromProject',
   async (reqData: IReqData, thunkAPI) => {
     try {
       const { projId, memberId } = reqData;
-      await instance.delete(`projects/${projId}/members/${memberId}`);
-      return memberId;
+      const response = await instance.delete(
+        `projects/${projId}/members/${memberId}`
+      );
+      if (response.status === 200) {
+        return memberId;
+      }
+      return thunkAPI.rejectWithValue('Ошибка');
     } catch (err) {
       return thunkAPI.rejectWithValue('Ошибка');
     }

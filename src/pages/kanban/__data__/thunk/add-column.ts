@@ -8,18 +8,21 @@ interface IReqData {
 }
 
 // Create new column
-export const fetchAddNewCol = createAsyncThunk(
+export const addNewColThunk = createAsyncThunk(
   'projects/fetchAddNewCol',
   async (reqData: IReqData, thunkAPI) => {
     try {
       const { projId, name, description } = reqData;
-      const res = await instance.post(`projects/${projId}/columns`, {
+      const response = await instance.post(`projects/${projId}/columns`, {
         name,
         description,
         columnOrder: 0,
       });
 
-      return res.data;
+      if (response.status === 200) {
+        return response.data;
+      }
+      return thunkAPI.rejectWithValue('Ошибка');
     } catch {
       return thunkAPI.rejectWithValue('Ошибка');
     }

@@ -1,17 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useAppDispatch, useTypedSelector } from '../../hooks/redux';
-import { Card, Divider, Flex, Skeleton, Spin } from 'antd';
+import { Divider } from 'antd';
 import { IProject } from './__data__/type/projects.type';
 import { ProjectCard } from './components/project-card/project-card';
 import { v4 } from 'uuid';
-import {
-  Container,
-  SButton,
-  SCardHeader,
-  SProjCont,
-} from './projects-page.styled';
-import { AddProjModal } from './components/add-proj-modal/add-proj-modal';
-import { Statistics } from './components/statistics/statistics';
+import { Container, SProjCont } from './projects-page.styled';
 import { ShowContainer } from '../../components/show-container/show-container';
 import { getProjectsThunk } from './__data__/thunk/get-projects';
 import { ProjectsHeader } from './components/header/header';
