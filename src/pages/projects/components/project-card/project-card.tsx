@@ -7,7 +7,7 @@ import { Card } from 'antd';
 import { SProjectCard, STitle } from './project-card.styled';
 import { CardDropDown } from '../card-drop-down/card-drop-down';
 import { deleteProjectThunk } from '../../__data__/thunk/delete-project';
-import { favProjectsThunk } from '../../__data__/thunk/fav-toggle-project';
+// import { favProjectsThunk } from '../../__data__/thunk/fav-toggle-project';
 import { setCurProjId } from '../../../kanban/__data__/slices/kanban.slice';
 
 interface ProjectCardProps {
@@ -26,7 +26,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   }, []);
 
   const favoriteToggle = useCallback(() => {
-    dispatch(favProjectsThunk({ projId: proj.id, isFav: !proj.isFavourite }));
+    // dispatch(favProjectsThunk({ projId: proj.id, isFav: !proj.isFavourite }));
   }, []);
 
   const deleteProject = useCallback(() => {

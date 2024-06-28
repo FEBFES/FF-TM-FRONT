@@ -34,7 +34,7 @@ export const favToggleBuilder = (
       }
     ),
     builder.addCase(
-      setFavoriteProjectThunk.fulfilled,
+      setFavoriteProjectThunk.rejected,
       (state, action) => {
         state.isLoading = false
       }

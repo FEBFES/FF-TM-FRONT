@@ -3,7 +3,7 @@ import { instance } from '../../api/instance';
 
 export const fetchChangeUserInfo = createAsyncThunk(
   'projects/fetchChangeUserInfo',
-  async ({ userId, data }, thunkAPI) => {
+  async ({ userId, data }: any, thunkAPI) => {
     try {
       const response = await instance.put(`users/${userId}`, data);
 

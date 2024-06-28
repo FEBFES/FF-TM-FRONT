@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../../hooks/redux';
 import { appRoutsPath } from '../../../routing/route-list';
 import { Typography, Button, Input, Form, Flex } from 'antd';
-import { IReqData, loginThunk } from '../__data__/thunk/login';
+import { ILoginReqData, authThunk } from '../__data__/thunk/auth.thunk';
 
 interface LoginPageProps {}
 
@@ -23,8 +23,8 @@ export const LoginPage: React.FC<LoginPageProps> = (): JSX.Element => {
       .catch(() => setSubmittable(false));
   }, [form, values]);
 
-  const submitHandler = (data: IReqData) => {
-    dispatch(loginThunk(data));
+  const submitHandler = (data: ILoginReqData) => {
+    dispatch(authThunk(data));
   };
 
   const registrationHandler = () => {
