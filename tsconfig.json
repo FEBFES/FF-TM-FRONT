@@ -1,7 +1,23 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components": ["src/components/index.ts"], 
+      "@components/*": ["src/components/*"],
+      "@routes/*": ["src/routes/*"],
+      "@routes": ["src/routes/index.ts"],
+      "@pages/*": ["src/pages/*"],
+      "@pages": ["src/pages/index.ts"]
+    },
+    "target": "ESNext",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true
+  },
+  "include": [
+    "src/**/*"
   ]
 }
