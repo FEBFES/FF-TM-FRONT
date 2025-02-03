@@ -1,44 +1,50 @@
-# FF-TM-FRONT
+# React + TypeScript + Vite
 
-## FEBFES - TASK MANAGER - FRONTEND REPOS.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Установка приложения и зависимостей
+Currently, two official plugins are available:
 
-1. git clone https://github.com/FEBFES/FF-TM-FRONT.git
-2. npm i - установка зависимостей
-3. npm run start - запуск на порте 3000
-4. npm run build - сборка проекта
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-Доп. команды:
+## Expanding the ESLint configuration
 
-1. npm run clear - Приведение кода к общему виду (проходится по всему проекту)
-2. npm run test - Тестирование проекта (Снэпшоты)
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-## Архитектура папок и модулей приложения
+- Configure the top-level `parserOptions` property like this:
 
---src\
-----api - Работа сервером\
-----assets - Ресурсная папка\
---------icons - Иконки\
---------img - Картинки хардкод\
---------styles - Глобальные стили\
-----components - Компоненты приложения которые используются на разных страницах\
---------index.ts - Экспорт\
-----hooks - Хуки\
-----layouts - Общие элементы верстки, экраны\
-----locales - Локали (2 языка)\
---------en.json - Английская\
---------ru.json - Русская\
-----pages - Страницы приложения\
---------components - Простые компоненты, которые переиспользуются в модульных\
---------------index.ts - Экспорт\
---------modules - Модульные компоненты (сложные)\
---------------index.ts - Экспорт\
---------store - Стейт страницы\
---------index.ts - Экспорт\
-----routing - Роутинг приложения\
-----store - Глобальный стейт и комбинированый редюсер\
-----ui - UI библиотека компонент\
---------button - Пример UI компоненты\
---------index.ts - Экспорт\
-----utils - Утилита, вспомогающие функции и константы\
+```js
+export default tseslint.config({
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
+```
+
+- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
+- Optionally add `...tseslint.configs.stylisticTypeChecked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+
+```js
+// eslint.config.js
+import react from 'eslint-plugin-react'
+
+export default tseslint.config({
+  // Set the react version
+  settings: { react: { version: '18.3' } },
+  plugins: {
+    // Add the react plugin
+    react,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended rules
+    ...react.configs.recommended.rules,
+    ...react.configs['jsx-runtime'].rules,
+  },
+})
+```
