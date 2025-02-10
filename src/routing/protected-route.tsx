@@ -1,7 +1,7 @@
 import React from "react"
 import { Navigate } from "react-router-dom"
-import { useAppSelector } from "../__data__/hooks"
-import { getIsAuthenticated } from "../__data__/features/auth/auth-selector"
+import { getIsAuthenticated } from "@/pages/login/__data__/login.selector"
+import { useAppSelector } from "@/__data__/hooks"
 
 interface ProtectedRouteProps {
 	children: React.ReactNode

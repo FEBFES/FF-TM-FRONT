@@ -1,0 +1,16 @@
+.page {
+    padding: 0 28px 100px;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+
+    background: 
+        radial-gradient(circle, rgb(57, 57, 57) .1px, transparent .5px),
+        #f0f0f0;
+    background-size: 20px 20px;
+}
+
+.layout {
+    width: 1024px;
+}

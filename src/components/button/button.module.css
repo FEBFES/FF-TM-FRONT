@@ -1,0 +1,32 @@
+.button {
+  outline: none;
+  font-size: 12px;
+  padding: 20px 40px;
+  width: fit-content;
+  background: #0d0c22;
+  border-radius: 8px;
+  white-space: nowrap;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  color: aliceblue;
+  transition: .6;
+  -webkit-transition: .6;
+  -moz-transition: .6;
+  -ms-transition: .6;
+  -o-transition: .6;
+  border: none;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.button:hover {
+  cursor: pointer;
+  box-shadow: 0 0 4px 1px #9b9b9b;
+}
+.button:focus {
+  outline: solid rgb(95, 143, 255); 
+}

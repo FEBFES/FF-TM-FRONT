@@ -5,8 +5,8 @@
       "@/*": ["src/*"],
       "@components": ["src/components/index.ts"], 
       "@components/*": ["src/components/*"],
-      "@routes/*": ["src/routes/*"],
-      "@routes": ["src/routes/index.ts"],
+      "@routes/*": ["src/routing/*"],
+      "@routes": ["src/routing/index.ts"],
       "@pages/*": ["src/pages/*"],
       "@pages": ["src/pages/index.ts"]
     },
